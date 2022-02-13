@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simplicity Tools</string>
+    <string name="performance">性能</string>
+    <string name="lock_max_fps">锁定最高刷新率</string>
+    <string name="lock_max_fps_summary">始终保持最高刷新率运行</string>
+    <string name="ui">界面</string>
+    <string name="delete_on_post_notification">移除上层显示通知</string>
+    <string name="delete_on_post_notification_summary">移除"此应用正显示在屏幕上其他应用的上层"通知</string>
+    <string name="other">其他</string>
+    <string name="disable_flag_secure">允许截图</string>
+    <string name="disable_flag_secure_summary">开启后允许在不允许截图的软件中截图</string>
+    <string name="core_patch">核心破解</string>
+    <string name="core_patch_summary">降级安装、不同签名安装、无视签名</string>
+    <string name="hide_no_sim_icon">隐藏无SIM卡图标</string>
+    <string name="status_bar_icon">状态栏图标</string>
+    <string name="home">桌面</string>
+    <string name="home_time">始终显示桌面时钟</string>
+    <string name="hide_sim_one_icon">隐藏SIM卡一图标</string>
+    <string name="hide_sim_two_icon">隐藏SIM卡二图标</string>
+    <string name="reboot_ui">重启UI</string>
+</resources>
