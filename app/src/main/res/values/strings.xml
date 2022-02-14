@@ -15,7 +15,7 @@
     <string name="reboot_ui">重启UI</string>
 
     <!--状态栏图标-->
-    <string name="status_bar_icon">状态栏图标</string>
+    <string name="status_bar_icon">状态栏图标（右上角重启UI生效）</string>
     <string name="hide_no_sim_icon">隐藏 无SIM卡 图标</string>
     <string name="hide_sim_one_icon">隐藏 SIM卡一 图标</string>
     <string name="hide_sim_two_icon">隐藏 SIM卡二 图标</string>
