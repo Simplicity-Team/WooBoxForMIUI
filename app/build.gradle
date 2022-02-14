@@ -10,7 +10,7 @@ android {
         minSdk 30
         targetSdk 31
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -32,8 +32,6 @@ android {
 
 dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
-    implementation 'androidx.navigation:navigation-fragment:2.3.5'
-    implementation 'androidx.navigation:navigation-ui:2.3.5'
     implementation 'androidx.preference:preference:1.1.1'
     compileOnly 'de.robv.android.xposed:api:82'
     implementation 'androidx.appcompat:appcompat:1.4.0'

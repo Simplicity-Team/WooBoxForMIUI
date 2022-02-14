@@ -1,9 +1,10 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
         app:iconSpaceReserved="false"
         app:title="@string/ui">
-        <SwitchPreferenceCompat
+        <SwitchPreference
             app:iconSpaceReserved="false"
             app:key="delete_on_post_notification"
             app:title="@string/delete_on_post_notification" />
@@ -14,16 +15,58 @@
         app:iconSpaceReserved="false"
         app:title="@string/status_bar_icon">
 
-        <SwitchPreferenceCompat
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            app:key="hide_bluetooth_icon"
+            app:title="@string/hide_bluetooth_icon" />
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            app:key="hide_bluetooth_battery_icon"
+            app:title="@string/hide_bluetooth_battery_icon" />
+
+
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            app:key="hide_wifi_icon"
+            app:title="@string/hide_wifi_icon" />
+
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            app:key="hide_hotspot_icon"
+            app:title="@string/hide_hotspot_icon" />
+
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            app:key="hide_airplane_icon"
+            app:title="@string/hide_airplane_icon" />
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            app:key="hide_volume_zen_icon"
+            app:title="@string/hide_volume_zen_icon" />
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            app:key="hide_alarm_icon"
+            app:title="@string/hide_alarm_icon" />
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            app:key="hide_headset_icon"
+            app:title="@string/hide_headset_icon" />
+
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            app:key="hide_vpn_icon"
+            app:title="@string/hide_vpn_icon" />
+
+        <SwitchPreference
             app:iconSpaceReserved="false"
             app:key="hide_sim_one_icon"
-            app:title="@string/hide_sim_one_icon"/>
-        <SwitchPreferenceCompat
+            app:title="@string/hide_sim_one_icon" />
+        <SwitchPreference
             app:iconSpaceReserved="false"
             app:key="hide_sim_two_icon"
-            app:title="@string/hide_sim_two_icon"/>
+            app:title="@string/hide_sim_two_icon" />
 
-        <SwitchPreferenceCompat
+        <SwitchPreference
             app:iconSpaceReserved="false"
             app:key="hide_no_sim_icon"
             app:title="@string/hide_no_sim_icon" />
@@ -33,7 +76,7 @@
         app:iconSpaceReserved="false"
         app:title="@string/home">
 
-        <SwitchPreferenceCompat
+        <SwitchPreference
             app:iconSpaceReserved="false"
             app:key="home_time"
             app:title="@string/home_time" />
@@ -42,7 +85,7 @@
     <PreferenceCategory
         app:iconSpaceReserved="false"
         app:title="@string/performance">
-        <SwitchPreferenceCompat
+        <SwitchPreference
             app:iconSpaceReserved="false"
             app:key="lock_max_fps"
             app:title="@string/lock_max_fps" />
@@ -51,14 +94,36 @@
     <PreferenceCategory
         app:iconSpaceReserved="false"
         app:title="@string/other">
-        <SwitchPreferenceCompat
+        <SwitchPreference
             app:iconSpaceReserved="false"
             app:key="disable_flag_secure"
             app:title="@string/disable_flag_secure" />
-        <SwitchPreferenceCompat
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:title="@string/about">
+
+        <PreferenceScreen
+            app:key="opensource"
             app:iconSpaceReserved="false"
-            app:key="core_patch"
-            app:title="@string/core_patch" />
+            app:summary="@string/github_url"
+            app:title="@string/opensource">
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            app:key="dev_coolapk"
+            app:iconSpaceReserved="false"
+            app:summary="@string/dev_coolapk_name"
+            app:title="@string/dev_coolapk">
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            app:key="verison"
+            app:iconSpaceReserved="false"
+            app:title="@string/verison">
+        </PreferenceScreen>
 
     </PreferenceCategory>
 

@@ -10,13 +10,33 @@
     <string name="other">其他</string>
     <string name="disable_flag_secure">允许截图</string>
     <string name="disable_flag_secure_summary">开启后允许在不允许截图的软件中截图</string>
-    <string name="core_patch">核心破解</string>
-    <string name="core_patch_summary">降级安装、不同签名安装、无视签名</string>
-    <string name="hide_no_sim_icon">隐藏无SIM卡图标</string>
-    <string name="status_bar_icon">状态栏图标</string>
     <string name="home">桌面</string>
     <string name="home_time">始终显示桌面时钟</string>
-    <string name="hide_sim_one_icon">隐藏SIM卡一图标</string>
-    <string name="hide_sim_two_icon">隐藏SIM卡二图标</string>
     <string name="reboot_ui">重启UI</string>
+
+    <!--状态栏图标-->
+    <string name="status_bar_icon">状态栏图标</string>
+    <string name="hide_no_sim_icon">隐藏 无SIM卡 图标</string>
+    <string name="hide_sim_one_icon">隐藏 SIM卡一 图标</string>
+    <string name="hide_sim_two_icon">隐藏 SIM卡二 图标</string>
+    <string name="hide_vpn_icon">隐藏 VPN 图标</string>
+    <string name="hide_airplane_icon">隐藏 飞行模式 图标</string>
+    <string name="hide_wifi_icon">隐藏 WIFI 图标</string>
+    <string name="hide_bluetooth_icon">隐藏 蓝牙 图标</string>
+    <string name="hide_volume_zen_icon">隐藏 声音、勿扰 图标</string>
+    <string name="hide_alarm_icon">隐藏 闹钟 图标</string>
+    <string name="hide_hotspot_icon">隐藏 WIFI热点 图标</string>
+    <string name="hide_headset_icon">隐藏 耳机 图标</string>
+    <string name="hide_bluetooth_battery_icon">隐藏 蓝牙电量 图标</string>
+
+
+    <string name="about">关于</string>
+    <string name="verison">版本</string>
+    <string name="dev_coolapk">开发者酷安</string>
+    <string name="dev_coolapk_name">\@乌堆小透明</string>
+    <string name="opensource">开源仓库</string>
+    <string name="github_url">点击查看开源仓库(GitHub)</string>
+
+
+
 </resources>
