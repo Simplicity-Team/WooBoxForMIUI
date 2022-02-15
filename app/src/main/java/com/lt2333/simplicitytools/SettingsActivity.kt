@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.lt2333.simplicitytools.util.ShellUtils
 
 class SettingsActivity : AppCompatActivity() {
 

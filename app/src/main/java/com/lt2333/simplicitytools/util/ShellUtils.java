@@ -1,4 +1,4 @@
-package com.lt2333.simplicitytools;
+package com.lt2333.simplicitytools.util;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
