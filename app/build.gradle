@@ -18,7 +18,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -28,6 +28,12 @@ android {
     }
     buildFeatures {
         viewBinding true
+    }
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                outputFileName = "Simplicity_Tools_Xposed-${variant.versionName}-${variant.name}.apk"
+            }
     }
 }
 
