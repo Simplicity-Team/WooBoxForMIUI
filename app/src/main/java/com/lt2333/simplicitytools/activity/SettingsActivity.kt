@@ -22,9 +22,9 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.settings_activity)
         if (savedInstanceState == null) {
             supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.settings, SettingsFragment())
-                .commit()
+                    .beginTransaction()
+                    .replace(R.id.settings, SettingsFragment())
+                    .commit()
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
         checkLSPosed()
@@ -41,13 +41,17 @@ class SettingsActivity : AppCompatActivity() {
             getSharedPreferences("config", MODE_WORLD_READABLE)
         } catch (exception: SecurityException) {
             AlertDialog.Builder(this)
-                .setMessage("您似乎正在使用过时的 LSPosed 版本或 LSPosed 未激活，请更新 LSPosed 或者激活后再试。")
-                .show()
+                    .setMessage("您似乎正在使用过时的 LSPosed 版本或 LSPosed 未激活，请更新 LSPosed 或者激活后再试。")
+                    .show()
         }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.reboot -> {
+                val commad = arrayOf("reboot")
+                ShellUtils.execCommand(commad, true)
+            }
             R.id.reboot_ui -> {
                 val commad = arrayOf("killall com.android.systemui")
                 ShellUtils.execCommand(commad, true)
@@ -61,7 +65,7 @@ class SettingsActivity : AppCompatActivity() {
             preferenceManager.sharedPreferencesName = "config"
             setPreferencesFromResource(R.xml.root_preferences, rootKey)
             findPreference<Preference>("verison")!!.summary =
-                BuildConfig.VERSION_NAME + "(" + BuildConfig.BUILD_TYPE + ")"
+                    BuildConfig.VERSION_NAME + "(" + BuildConfig.BUILD_TYPE + ")"
         }
 
         override fun onPreferenceTreeClick(preference: Preference?): Boolean {
@@ -70,7 +74,7 @@ class SettingsActivity : AppCompatActivity() {
                 "opensource" -> {
                     try {
                         val uri =
-                            Uri.parse("https://github.com/LittleTurtle2333/Simplicity_Tools_Xposed")
+                                Uri.parse("https://github.com/LittleTurtle2333/Simplicity_Tools_Xposed")
                         val intent = Intent(Intent.ACTION_VIEW, uri)
                         startActivity(intent)
                     } catch (e: Exception) {
@@ -90,10 +94,10 @@ class SettingsActivity : AppCompatActivity() {
                 "dev_coolapk" -> {
                     try {
                         startActivity(
-                            Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse("coolmarket://u/883441")
-                            )
+                                Intent(
+                                        Intent.ACTION_VIEW,
+                                        Uri.parse("coolmarket://u/883441")
+                                )
                         )
                         Toast.makeText(activity, "乌堆小透明：靓仔，点个关注吧！", Toast.LENGTH_SHORT).show()
                     } catch (e: Exception) {

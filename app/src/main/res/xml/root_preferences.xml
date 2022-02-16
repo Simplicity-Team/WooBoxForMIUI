@@ -59,6 +59,11 @@
 
         <SwitchPreference
             app:iconSpaceReserved="false"
+            app:key="hide_hd_icon"
+            app:title="@string/hide_hd_icon" />
+
+        <SwitchPreference
+            app:iconSpaceReserved="false"
             app:key="hide_sim_one_icon"
             app:title="@string/hide_sim_one_icon" />
         <SwitchPreference
@@ -110,6 +115,13 @@
             app:iconSpaceReserved="false"
             app:summary="@string/github_url"
             app:title="@string/opensource">
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            app:key="issues"
+            app:iconSpaceReserved="false"
+            app:summary="@string/issues_url"
+            app:title="@string/issues">
         </PreferenceScreen>
 
         <PreferenceScreen

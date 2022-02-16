@@ -39,5 +39,7 @@
     <string name="issues">反馈/提议</string>
     <string name="issues_url">点击查看GitHub Issues</string>
     <string name="xposeddescription">基于 MIUI13(Android 12) 适配的自定义工具</string>
+    <string name="reboot">重启</string>
+    <string name="hide_hd_icon">隐藏 HD 图标</string>
 
 </resources>
