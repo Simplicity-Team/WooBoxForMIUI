@@ -3,8 +3,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven{ url 'https://api.xposed.info' }
+        maven("https://api.xposed.info")
     }
 }
+
 rootProject.name = "Simplicity Tools"
-include ':app'
+include(":app")
