@@ -10,6 +10,15 @@
             app:title="@string/delete_on_post_notification" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:title="@string/statusbar">
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            app:key="statusbar_time_seconds"
+            app:title="@string/statusbar_time_seconds" />
+    </PreferenceCategory>
+
 
     <PreferenceCategory
         app:iconSpaceReserved="false"
