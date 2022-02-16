@@ -13,10 +13,12 @@
     <string name="disable_flag_secure_summary">开启后允许在不允许截图的软件中截图</string>
     <string name="home">桌面</string>
     <string name="home_time">始终显示桌面时钟</string>
-    <string name="reboot_ui">重启UI</string>
+    <string name="reboot_ui">重启系统界面</string>
+    <string name="reboot">重启系统</string>
+
 
     <!--状态栏图标-->
-    <string name="status_bar_icon">状态栏图标（右上角重启UI生效）</string>
+    <string name="status_bar_icon">状态栏图标（重启系统界面生效）</string>
     <string name="hide_no_sim_icon">隐藏 无SIM卡 图标</string>
     <string name="hide_sim_one_icon">隐藏 SIM卡一 图标</string>
     <string name="hide_sim_two_icon">隐藏 SIM卡二 图标</string>
@@ -39,7 +41,8 @@
     <string name="issues">反馈/提议</string>
     <string name="issues_url">点击查看GitHub Issues</string>
     <string name="xposeddescription">基于 MIUI13(Android 12) 适配的自定义工具</string>
-    <string name="reboot">重启</string>
     <string name="hide_hd_icon">隐藏 HD 图标</string>
+    <string name="statusbar">状态栏（重启系统界面生效）</string>
+    <string name="statusbar_time_seconds">时钟显秒</string>
 
 </resources>
