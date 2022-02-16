@@ -36,6 +36,8 @@
     <string name="dev_coolapk_name">\@乌堆小透明</string>
     <string name="opensource">开源仓库</string>
     <string name="github_url">点击查看开源仓库(GitHub)</string>
+    <string name="issues">反馈/提议</string>
+    <string name="issues_url">点击查看GitHub Issues</string>
     <string name="xposeddescription">基于 MIUI13(Android 12) 适配的自定义工具</string>
 
 </resources>

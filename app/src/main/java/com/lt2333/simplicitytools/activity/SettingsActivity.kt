@@ -77,7 +77,16 @@ class SettingsActivity : AppCompatActivity() {
                         Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
                     }
                 }
-
+                "issues" -> {
+                    try {
+                        val uri =
+                                Uri.parse("https://github.com/LittleTurtle2333/Simplicity_Tools_Xposed/issues")
+                        val intent = Intent(Intent.ACTION_VIEW, uri)
+                        startActivity(intent)
+                    } catch (e: Exception) {
+                        Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
+                    }
+                }
                 "dev_coolapk" -> {
                     try {
                         startActivity(
