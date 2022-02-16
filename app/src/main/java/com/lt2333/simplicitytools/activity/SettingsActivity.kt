@@ -68,9 +68,9 @@ class SettingsActivity : AppCompatActivity() {
                     BuildConfig.VERSION_NAME + "(" + BuildConfig.BUILD_TYPE + ")"
         }
 
-        override fun onPreferenceTreeClick(preference: Preference?): Boolean {
+        override fun onPreferenceTreeClick(preference: Preference): Boolean {
 
-            when (preference!!.key) {
+            when (preference.key) {
                 "opensource" -> {
                     try {
                         val uri =
