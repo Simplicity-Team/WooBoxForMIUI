@@ -12,18 +12,40 @@ class Android : IXposedHookLoadPackage {
         //允许截图
         try {
             XposedHelpers.findAndHookMethod("com.android.server.wm.WindowState",
-                lpparam.classLoader,
-                "isSecureLocked",
-                object : XC_MethodHook() {
-                    override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
+                    lpparam.classLoader,
+                    "isSecureLocked",
+                    object : XC_MethodHook() {
+                        override fun beforeHookedMethod(param: MethodHookParam) {
+                            if (prefs.hasFileChanged()) {
+                                prefs.reload()
+                            }
+                            if (prefs.getBoolean("disable_flag_secure", false)) {
+                                param.result = false
+                            }
                         }
-                        if (prefs.getBoolean("disable_flag_secure", false)) {
-                            param.result = false
+                    })
+        } catch (e: Exception) {
+            XposedBridge.log(e)
+        }
+
+
+        //上层显示
+        try {
+            XposedHelpers.findAndHookMethod("com.android.server.wm.AlertWindowNotification",
+                    lpparam.classLoader,
+                    "onPostNotification",
+                    object : XC_MethodHook() {
+                        override fun beforeHookedMethod(param: MethodHookParam) {
+                            if (prefs.hasFileChanged()) {
+                                prefs.reload()
+                            }
+                            if (prefs.getBoolean("delete_on_post_notification", false)) {
+                                param.result = null
+                            }
                         }
-                    }
-                })
+                    })
+
+
         } catch (e: Exception) {
             XposedBridge.log(e)
         }
