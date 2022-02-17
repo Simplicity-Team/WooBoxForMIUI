@@ -246,6 +246,21 @@ class SystemUI : IXposedHookLoadPackage {
                         }
                     }
                 })
+
+
+            XposedHelpers.findAndHookMethod(
+                "com.android.systemui.statusbar.policy.MobileSignalController", lpparam.classLoader,
+                "updateVoiceIcon",
+                object : XC_MethodHook() {
+                    override fun beforeHookedMethod(param: MethodHookParam) {
+                        if (prefs.hasFileChanged()) {
+                            prefs.reload()
+                        }
+                        if (prefs.getBoolean("hide_hd_icon", false)) {
+                            param.result = null
+                        }
+                    }
+                })
         } catch (e: Exception) {
             XposedBridge.log(e)
         }
