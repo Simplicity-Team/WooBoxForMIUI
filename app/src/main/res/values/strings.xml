@@ -45,5 +45,6 @@
     <string name="statusbar">状态栏（重启系统界面生效）</string>
     <string name="status_bar_time_seconds">时钟显秒</string>
     <string name="status_bar_network_speed_refresh_speed">网速秒刷新</string>
+    <string name="remove_the_maximum_number_of_notification_icons">解除通知图标个数上限</string>
 
 </resources>

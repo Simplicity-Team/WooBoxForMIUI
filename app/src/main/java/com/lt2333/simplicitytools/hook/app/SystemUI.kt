@@ -377,24 +377,48 @@ class SystemUI : IXposedHookLoadPackage {
 
         }
         //通知图标上限
-        try {
-            val classIfExists = XposedHelpers.findClassIfExists(
-                "com.android.systemui.statusbar.phone.NotificationIconContainer",
-                lpparam.classLoader
-            )
-            XposedHelpers.findAndHookMethod(
-                classIfExists,
-                "miuiShowNotificationIcons",
-                Boolean::class.java,
-                object : XC_MethodHook() {
-                    override fun beforeHookedMethod(param: MethodHookParam) {
-
-                    }
-                })
-        } catch (e: Exception) {
-            XposedBridge.log(e)
+        if (prefs.hasFileChanged()) {
+            prefs.reload()
         }
+        if (prefs.getBoolean("remove_the_maximum_number_of_notification_icons", false)) {
+            try {
+                val classIfExists = XposedHelpers.findClassIfExists(
+                    "com.android.systemui.statusbar.phone.NotificationIconContainer",
+                    lpparam.classLoader
+                )
+                XposedHelpers.findAndHookMethod(
+                    classIfExists,
+                    "miuiShowNotificationIcons",
+                    Boolean::class.java,
+                    object : XC_MethodReplacement() {
+                        override fun replaceHookedMethod(param: MethodHookParam) {
 
+                            if (param.args[0] as Boolean) {
+                                XposedHelpers.setIntField(param.thisObject, "MAX_DOTS", 30)
+                                XposedHelpers.setIntField(param.thisObject, "MAX_STATIC_ICONS", 30)
+                                XposedHelpers.setIntField(
+                                    param.thisObject,
+                                    "MAX_VISIBLE_ICONS_ON_LOCK",
+                                    30
+                                )
+                            } else {
+                                XposedHelpers.setIntField(param.thisObject, "MAX_DOTS", 0)
+                                XposedHelpers.setIntField(param.thisObject, "MAX_STATIC_ICONS", 0)
+                                XposedHelpers.setIntField(
+                                    param.thisObject,
+                                    "MAX_VISIBLE_ICONS_ON_LOCK",
+                                    0
+                                )
+                            }
+
+                            XposedHelpers.callMethod(param.thisObject, "updateState")
+                        }
+                    })
+            } catch (e: Exception) {
+                XposedBridge.log(e)
+            }
+
+        }
     }
 
 }
