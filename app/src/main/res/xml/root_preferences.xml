@@ -15,8 +15,12 @@
         app:title="@string/statusbar">
         <SwitchPreference
             app:iconSpaceReserved="false"
-            app:key="statusbar_time_seconds"
-            app:title="@string/statusbar_time_seconds" />
+            app:key="status_bar_time_seconds"
+            app:title="@string/status_bar_time_seconds" />
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            app:key="status_bar_network_speed_refresh_speed"
+            app:title="@string/status_bar_network_speed_refresh_speed" />
     </PreferenceCategory>
 
 

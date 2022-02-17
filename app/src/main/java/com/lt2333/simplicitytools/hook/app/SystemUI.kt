@@ -229,8 +229,6 @@ class SystemUI : IXposedHookLoadPackage {
         } catch (e: Exception) {
             XposedBridge.log(e)
         }
-
-
         //隐藏HD
         try {
             XposedHelpers.findAndHookMethod(
@@ -265,7 +263,26 @@ class SystemUI : IXposedHookLoadPackage {
             XposedBridge.log(e)
         }
 
-
+        //隐藏 网速秒刷 图标
+        try {
+            XposedHelpers.findAndHookMethod(
+                "com.android.systemui.statusbar.policy.NetworkSpeedController",
+                lpparam.classLoader,
+                "postUpdateNetworkSpeedDelay",
+                Long::class.java,
+                object : XC_MethodHook() {
+                    override fun beforeHookedMethod(param: MethodHookParam) {
+                        if (prefs.hasFileChanged()) {
+                            prefs.reload()
+                        }
+                        if (prefs.getBoolean("status_bar_network_speed_refresh_speed", false)) {
+                            param.args[0] = 1000L
+                        }
+                    }
+                })
+        } catch (e: Exception) {
+            XposedBridge.log(e)
+        }
         //时钟显秒
         if (prefs.hasFileChanged()) {
             prefs.reload()
