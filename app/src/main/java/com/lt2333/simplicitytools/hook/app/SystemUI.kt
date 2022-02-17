@@ -6,12 +6,9 @@ import android.content.Intent
 import android.os.Handler
 import android.provider.Settings
 import android.util.AttributeSet
-import android.util.Log
 import android.widget.TextView
 import com.lt2333.simplicitytools.BuildConfig
-import com.lt2333.simplicitytools.hook.MainHook
 import de.robv.android.xposed.*
-import de.robv.android.xposed.XC_MethodHook.MethodHookParam
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 import java.lang.reflect.Method
 import java.text.SimpleDateFormat
@@ -24,9 +21,12 @@ class SystemUI : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
         //隐藏无SIM卡图标
         try {
-            XposedHelpers.findAndHookMethod(
+            val classIfExists = XposedHelpers.findClassIfExists(
                 "com.android.systemui.statusbar.phone.MiuiStatusBarSignalPolicy",
-                lpparam.classLoader,
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
                 "setNoSims",
                 Boolean::class.javaPrimitiveType,
                 Boolean::class.javaPrimitiveType,
@@ -45,8 +45,12 @@ class SystemUI : IXposedHookLoadPackage {
         }
         //隐藏VPN图标
         try {
+            val classIfExists = XposedHelpers.findClassIfExists(
+                "com.android.systemui.statusbar.phone.StatusBarSignalPolicy",
+                lpparam.classLoader
+            )
             XposedHelpers.findAndHookMethod(
-                "com.android.systemui.statusbar.phone.StatusBarSignalPolicy", lpparam.classLoader,
+                classIfExists,
                 "updateVpn",
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
@@ -63,9 +67,12 @@ class SystemUI : IXposedHookLoadPackage {
         }
         //隐藏飞行模式图标
         try {
-            XposedHelpers.findAndHookMethod(
+            val classIfExists = XposedHelpers.findClassIfExists(
                 "com.android.systemui.statusbar.phone.StatusBarSignalPolicy",
-                lpparam.classLoader,
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
                 "setIsAirplaneMode",
                 XposedHelpers.findClass(
                     "com.android.systemui.statusbar.policy.NetworkController\$IconState",
@@ -86,9 +93,12 @@ class SystemUI : IXposedHookLoadPackage {
         }
         //隐藏WIFI图标
         try {
-            XposedHelpers.findAndHookMethod(
+            val classIfExists = XposedHelpers.findClassIfExists(
                 "com.android.systemui.statusbar.phone.MiuiStatusBarSignalPolicy",
-                lpparam.classLoader,
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
                 "updateWifiIconWithState",
                 XposedHelpers.findClass(
                     "com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$WifiIconState",
@@ -109,9 +119,12 @@ class SystemUI : IXposedHookLoadPackage {
         }
         //隐藏蓝牙图标
         try {
-            XposedHelpers.findAndHookMethod(
+            val classIfExists = XposedHelpers.findClassIfExists(
                 "com.android.systemui.statusbar.phone.MiuiPhoneStatusBarPolicy",
-                lpparam.classLoader,
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
                 "updateBluetooth",
                 String::class.java,
                 object : XC_MethodHook() {
@@ -129,9 +142,12 @@ class SystemUI : IXposedHookLoadPackage {
         }
         //隐藏 声音、勿扰 图标
         try {
-            XposedHelpers.findAndHookMethod(
+            val classIfExists = XposedHelpers.findClassIfExists(
                 "com.android.systemui.statusbar.phone.MiuiPhoneStatusBarPolicy",
-                lpparam.classLoader,
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
                 "updateVolumeZen",
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
@@ -148,9 +164,12 @@ class SystemUI : IXposedHookLoadPackage {
         }
         //隐藏 闹钟 图标
         try {
-            XposedHelpers.findAndHookMethod(
+            val classIfExists = XposedHelpers.findClassIfExists(
                 "com.android.systemui.statusbar.phone.MiuiPhoneStatusBarPolicy",
-                lpparam.classLoader,
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
                 "onMiuiAlarmChanged",
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
@@ -167,9 +186,12 @@ class SystemUI : IXposedHookLoadPackage {
         }
         //隐藏 耳机 图标
         try {
-            XposedHelpers.findAndHookMethod(
+            val classIfExists = XposedHelpers.findClassIfExists(
                 "com.android.systemui.statusbar.phone.MiuiPhoneStatusBarPolicy",
-                lpparam.classLoader,
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
                 "updateHeadsetPlug",
                 Intent::class.java,
                 object : XC_MethodHook() {
@@ -187,9 +209,12 @@ class SystemUI : IXposedHookLoadPackage {
         }
         //隐藏 蓝牙电量 图标
         try {
-            XposedHelpers.findAndHookMethod(
+            val classIfExists = XposedHelpers.findClassIfExists(
                 "com.android.systemui.statusbar.phone.MiuiPhoneStatusBarPolicy",
-                lpparam.classLoader,
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
                 "updateBluetoothHandsfreeBattery",
                 Intent::class.java,
                 object : XC_MethodHook() {
@@ -207,8 +232,12 @@ class SystemUI : IXposedHookLoadPackage {
         }
         //隐藏卡一卡二
         try {
+            val classIfExists = XposedHelpers.findClassIfExists(
+                "com.android.systemui.statusbar.phone.StatusBarSignalPolicy",
+                lpparam.classLoader
+            )
             XposedHelpers.findAndHookMethod(
-                "com.android.systemui.statusbar.phone.StatusBarSignalPolicy", lpparam.classLoader,
+                classIfExists,
                 "hasCorrectSubs", MutableList::class.java,
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
@@ -231,8 +260,12 @@ class SystemUI : IXposedHookLoadPackage {
         }
         //隐藏HD
         try {
+            val classIfExists = XposedHelpers.findClassIfExists(
+                "com.android.systemui.statusbar.policy.MobileSignalController",
+                lpparam.classLoader
+            )
             XposedHelpers.findAndHookMethod(
-                "com.android.systemui.statusbar.policy.MobileSignalController", lpparam.classLoader,
+                classIfExists,
                 "setVolte", Boolean::class.java,
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
@@ -245,9 +278,8 @@ class SystemUI : IXposedHookLoadPackage {
                     }
                 })
 
-
             XposedHelpers.findAndHookMethod(
-                "com.android.systemui.statusbar.policy.MobileSignalController", lpparam.classLoader,
+                classIfExists,
                 "updateVoiceIcon",
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
@@ -262,12 +294,14 @@ class SystemUI : IXposedHookLoadPackage {
         } catch (e: Exception) {
             XposedBridge.log(e)
         }
-
-        //隐藏 网速秒刷 图标
+        //网速秒刷
         try {
-            XposedHelpers.findAndHookMethod(
+            val classIfExists = XposedHelpers.findClassIfExists(
                 "com.android.systemui.statusbar.policy.NetworkSpeedController",
-                lpparam.classLoader,
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
                 "postUpdateNetworkSpeedDelay",
                 Long::class.java,
                 object : XC_MethodHook() {
@@ -342,7 +376,24 @@ class SystemUI : IXposedHookLoadPackage {
                 })
 
         }
+        //通知图标上限
+        try {
+            val classIfExists = XposedHelpers.findClassIfExists(
+                "com.android.systemui.statusbar.phone.NotificationIconContainer",
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
+                "miuiShowNotificationIcons",
+                Boolean::class.java,
+                object : XC_MethodHook() {
+                    override fun beforeHookedMethod(param: MethodHookParam) {
 
+                    }
+                })
+        } catch (e: Exception) {
+            XposedBridge.log(e)
+        }
 
     }
 

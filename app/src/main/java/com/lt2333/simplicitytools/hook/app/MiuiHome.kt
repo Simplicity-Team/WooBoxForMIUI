@@ -1,9 +1,7 @@
 package com.lt2333.simplicitytools.hook.app
 
 import com.lt2333.simplicitytools.BuildConfig
-import com.lt2333.simplicitytools.hook.MainHook
 import de.robv.android.xposed.*
-import de.robv.android.xposed.XC_MethodHook.MethodHookParam
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 
 class MiuiHome : IXposedHookLoadPackage {
@@ -13,8 +11,12 @@ class MiuiHome : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
         //始终显示时钟
         try {
+            val classIfExists = XposedHelpers.findClassIfExists(
+                "com.miui.home.launcher.Workspace",
+                lpparam.classLoader
+            )
             XposedHelpers.findAndHookMethod(
-                "com.miui.home.launcher.Workspace", lpparam.classLoader,
+                classIfExists,
                 "isScreenHasClockGadget", Long::class.javaPrimitiveType,
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
