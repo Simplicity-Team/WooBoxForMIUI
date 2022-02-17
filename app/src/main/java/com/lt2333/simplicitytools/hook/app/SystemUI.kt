@@ -287,7 +287,7 @@ class SystemUI : IXposedHookLoadPackage {
         if (prefs.hasFileChanged()) {
             prefs.reload()
         }
-        if (prefs.getBoolean("statusbar_time_seconds", false)) {
+        if (prefs.getBoolean("status_bar_time_seconds", false)) {
             var c: Context? = null
             val classIfExists = XposedHelpers.findClassIfExists(
                 "com.android.systemui.statusbar.views.MiuiClock",
