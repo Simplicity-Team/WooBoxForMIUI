@@ -6,6 +6,8 @@ import android.content.Intent
 import android.os.Handler
 import android.provider.Settings
 import android.util.AttributeSet
+import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import com.lt2333.simplicitytools.BuildConfig
 import de.robv.android.xposed.*
@@ -261,33 +263,38 @@ class SystemUI : IXposedHookLoadPackage {
         //隐藏HD
         try {
             val classIfExists = XposedHelpers.findClassIfExists(
-                "com.android.systemui.statusbar.policy.MobileSignalController",
+                "com.android.systemui.statusbar.StatusBarMobileView",
                 lpparam.classLoader
             )
             XposedHelpers.findAndHookMethod(
                 classIfExists,
-                "setVolte", Boolean::class.java,
+                "initViewState","com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$MobileIconState",
                 object : XC_MethodHook() {
-                    override fun beforeHookedMethod(param: MethodHookParam) {
+                    override fun afterHookedMethod(param: MethodHookParam) {
                         if (prefs.hasFileChanged()) {
                             prefs.reload()
                         }
                         if (prefs.getBoolean("hide_hd_icon", false)) {
-                            param.args[0] = false
+                            val smallHd = XposedHelpers.getObjectField(param.thisObject, "mSmallHd") as ImageView
+                            val bigHd = XposedHelpers.getObjectField(param.thisObject, "mVolte") as ImageView
+                            smallHd.visibility = View.GONE
+                            bigHd.visibility = View.GONE
                         }
                     }
                 })
-
             XposedHelpers.findAndHookMethod(
                 classIfExists,
-                "updateVoiceIcon",
+                "updateState","com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$MobileIconState",
                 object : XC_MethodHook() {
-                    override fun beforeHookedMethod(param: MethodHookParam) {
+                    override fun afterHookedMethod(param: MethodHookParam) {
                         if (prefs.hasFileChanged()) {
                             prefs.reload()
                         }
                         if (prefs.getBoolean("hide_hd_icon", false)) {
-                            param.result = null
+                            val smallHd = XposedHelpers.getObjectField(param.thisObject, "mSmallHd") as ImageView
+                            val bigHd = XposedHelpers.getObjectField(param.thisObject, "mVolte") as ImageView
+                            smallHd.visibility = View.GONE
+                            bigHd.visibility = View.GONE
                         }
                     }
                 })
