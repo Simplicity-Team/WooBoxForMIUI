@@ -29,6 +29,11 @@ android {
     buildFeatures {
         viewBinding true
     }
+    packagingOptions {
+        dex {
+            useLegacyPackaging true
+        }
+    }
     android.applicationVariants.all {
         variant ->
             variant.outputs.all {
@@ -39,6 +44,6 @@ android {
 
 dependencies {
     compileOnly 'de.robv.android.xposed:api:82'
-    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'androidx.preference:preference-ktx:1.2.0'
     implementation 'com.google.android.material:material:1.5.0'
 }
