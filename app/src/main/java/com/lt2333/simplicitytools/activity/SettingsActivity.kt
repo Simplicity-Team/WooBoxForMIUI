@@ -13,12 +13,19 @@ import cn.fkj233.ui.dialog.MIUIDialog
 import com.lt2333.simplicitytools.BuildConfig
 import com.lt2333.simplicitytools.R
 import com.lt2333.simplicitytools.util.ShellUtils
+import com.microsoft.appcenter.AppCenter
+import com.microsoft.appcenter.analytics.Analytics
+import com.microsoft.appcenter.crashes.Crashes
 import kotlin.system.exitProcess
 
 class SettingsActivity : MIUIActivity() {
     private val activity = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCenter.start(
+            application, "ae2037d3-9914-4e0c-b02b-f9b2bb2574e5",
+            Analytics::class.java, Crashes::class.java
+        )
         checkLSPosed()
         super.onCreate(savedInstanceState)
     }
