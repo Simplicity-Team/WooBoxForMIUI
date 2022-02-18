@@ -130,21 +130,6 @@ class SettingsActivity : MIUIActivity() {
 
     override fun menuItems(): ArrayList<BaseView> {
         return ArrayList<BaseView>().apply {
-            add(TextSummaryV(textId = R.string.reboot_ui, onClickListener = {
-                MIUIDialog(activity).apply {
-                    setTitle(R.string.Tips)
-                    setMessage("确定重启系统界面？")
-                    setLButton("取消") {
-                        dismiss()
-                    }
-                    setRButton("确定") {
-                        val command = arrayOf("killall com.android.systemui")
-                        ShellUtils.execCommand(command, true)
-                        dismiss()
-                    }
-                    show()
-                }
-            }))
             add(TextSummaryV(textId = R.string.reboot, onClickListener = {
                 MIUIDialog(activity).apply {
                     setTitle(R.string.Tips)
@@ -160,6 +145,22 @@ class SettingsActivity : MIUIActivity() {
                     show()
                 }
             }))
+            add(TextSummaryV(textId = R.string.reboot_ui, onClickListener = {
+                MIUIDialog(activity).apply {
+                    setTitle(R.string.Tips)
+                    setMessage("确定重启系统界面？")
+                    setLButton("取消") {
+                        dismiss()
+                    }
+                    setRButton("确定") {
+                        val command = arrayOf("killall com.android.systemui")
+                        ShellUtils.execCommand(command, true)
+                        dismiss()
+                    }
+                    show()
+                }
+            }))
+
         }
     }
 
