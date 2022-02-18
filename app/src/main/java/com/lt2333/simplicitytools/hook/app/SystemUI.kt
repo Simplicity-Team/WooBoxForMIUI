@@ -396,7 +396,10 @@ class SystemUI : IXposedHookLoadPackage {
                             prefs.reload()
                         }
                         if (prefs.getBoolean("hide_status_bar_network_speed_second", false)) {
-                            param.args[0] = (param.args[0] as String).replace("/s", "")
+                            param.args[0] = (param.args[0] as String)
+                                .replace("/", "")
+                                .replace("s","")
+                                .replace("'","")
                         }
                     }
                 })
