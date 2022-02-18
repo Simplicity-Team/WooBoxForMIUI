@@ -43,7 +43,12 @@ class SettingsActivity : AppCompatActivity() {
         } catch (exception: SecurityException) {
             AlertDialog.Builder(this)
                 .setMessage("您似乎正在使用过时的 LSPosed 版本或 LSPosed 未激活，请更新 LSPosed 或者激活后再试。")
+                .setCancelable(false)
+                .setPositiveButton("确定", DialogInterface.OnClickListener { dialogInterface, i ->
+                    android.os.Process.killProcess(android.os.Process.myPid())
+                })
                 .show()
+
         }
     }
 
