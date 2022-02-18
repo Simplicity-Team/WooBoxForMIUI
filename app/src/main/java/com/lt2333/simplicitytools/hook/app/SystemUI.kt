@@ -142,6 +142,28 @@ class SystemUI : IXposedHookLoadPackage {
         } catch (e: Exception) {
             XposedBridge.log(e)
         }
+        //隐藏GPS图标
+        try {
+            val classIfExists = XposedHelpers.findClassIfExists(
+                "com.android.systemui.statusbar.phone.PhoneStatusBarPolicy",
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
+                "updateLocationFromController",
+                object : XC_MethodHook() {
+                    override fun beforeHookedMethod(param: MethodHookParam) {
+                        if (prefs.hasFileChanged()) {
+                            prefs.reload()
+                        }
+                        if (prefs.getBoolean("hide_gps_icon", false)) {
+                            param.result = null
+                        }
+                    }
+                })
+        } catch (e: Exception) {
+            XposedBridge.log(e)
+        }
         //隐藏 声音、勿扰 图标
         try {
             val classIfExists = XposedHelpers.findClassIfExists(
