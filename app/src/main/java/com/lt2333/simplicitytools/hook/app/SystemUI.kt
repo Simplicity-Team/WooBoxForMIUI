@@ -290,33 +290,66 @@ class SystemUI : IXposedHookLoadPackage {
             )
             XposedHelpers.findAndHookMethod(
                 classIfExists,
-                "initViewState","com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$MobileIconState",
+                "initViewState",
+                "com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$MobileIconState",
                 object : XC_MethodHook() {
                     override fun afterHookedMethod(param: MethodHookParam) {
                         if (prefs.hasFileChanged()) {
                             prefs.reload()
                         }
-                        if (prefs.getBoolean("hide_hd_icon", false)) {
-                            val smallHd = XposedHelpers.getObjectField(param.thisObject, "mSmallHd") as ImageView
-                            val bigHd = XposedHelpers.getObjectField(param.thisObject, "mVolte") as ImageView
-                            smallHd.visibility = View.GONE
+                        if (prefs.getBoolean("hide_big_hd_icon", false)) {
+                            val bigHd = XposedHelpers.getObjectField(
+                                param.thisObject,
+                                "mVolte"
+                            ) as ImageView
                             bigHd.visibility = View.GONE
+                        }
+                        if (prefs.getBoolean("hide_small_hd_icon", false)) {
+                            val smallHd = XposedHelpers.getObjectField(
+                                param.thisObject,
+                                "mSmallHd"
+                            ) as ImageView
+                            smallHd.visibility = View.GONE
+                        }
+                        if (prefs.getBoolean("hide_hd_no_service_icon", false)) {
+                            val volteNoService = XposedHelpers.getObjectField(
+                                param.thisObject,
+                                "mVolteNoService"
+                            ) as ImageView
+                            volteNoService.visibility = View.GONE
                         }
                     }
                 })
             XposedHelpers.findAndHookMethod(
                 classIfExists,
-                "updateState","com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$MobileIconState",
+                "updateState",
+                "com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$MobileIconState",
                 object : XC_MethodHook() {
                     override fun afterHookedMethod(param: MethodHookParam) {
                         if (prefs.hasFileChanged()) {
                             prefs.reload()
                         }
-                        if (prefs.getBoolean("hide_hd_icon", false)) {
-                            val smallHd = XposedHelpers.getObjectField(param.thisObject, "mSmallHd") as ImageView
-                            val bigHd = XposedHelpers.getObjectField(param.thisObject, "mVolte") as ImageView
-                            smallHd.visibility = View.GONE
+                        if (prefs.getBoolean("hide_big_hd_icon", false)) {
+                            val bigHd = XposedHelpers.getObjectField(
+                                param.thisObject,
+                                "mVolte"
+                            ) as ImageView
                             bigHd.visibility = View.GONE
+                        }
+                        if (prefs.getBoolean("hide_small_hd_icon", false)) {
+                            val smallHd = XposedHelpers.getObjectField(
+                                param.thisObject,
+                                "mSmallHd"
+                            ) as ImageView
+
+                            smallHd.visibility = View.GONE
+                        }
+                        if (prefs.getBoolean("hide_hd_no_service_icon", false)) {
+                            val volteNoService = XposedHelpers.getObjectField(
+                                param.thisObject,
+                                "mVolteNoService"
+                            ) as ImageView
+                            volteNoService.visibility = View.GONE
                         }
                     }
                 })
