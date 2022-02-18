@@ -380,6 +380,7 @@ class SystemUI : IXposedHookLoadPackage {
             XposedBridge.log(e)
         }
 
+        //隐藏网速/s
         try {
             val classIfExists = XposedHelpers.findClassIfExists(
                 "com.android.systemui.statusbar.views.NetworkSpeedView",
@@ -396,6 +397,29 @@ class SystemUI : IXposedHookLoadPackage {
                         }
                         if (prefs.getBoolean("hide_status_bar_network_speed_second", false)) {
                             param.args[0] = (param.args[0] as String).replace("/s", "")
+                        }
+                    }
+                })
+        } catch (e: Exception) {
+            XposedBridge.log(e)
+        }
+        //隐藏WIFI热点
+        try {
+            val classIfExists = XposedHelpers.findClassIfExists(
+                "com.android.systemui.statusbar.phone.PhoneStatusBarPolicy\$2",
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
+                "onHotspotChanged",
+                Boolean::class.java, Int::class.java,
+                object : XC_MethodHook() {
+                    override fun beforeHookedMethod(param: MethodHookParam) {
+                        if (prefs.hasFileChanged()) {
+                            prefs.reload()
+                        }
+                        if (prefs.getBoolean("hide_hotspot_icon", false)) {
+                            param.result=null
                         }
                     }
                 })
