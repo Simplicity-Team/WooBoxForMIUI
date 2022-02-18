@@ -1,7 +1,8 @@
+@file:Suppress("DEPRECATION")
+
 package com.lt2333.simplicitytools.activity
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
