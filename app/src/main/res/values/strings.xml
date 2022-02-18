@@ -50,5 +50,6 @@
     <string name="remove_the_maximum_number_of_notification_icons">解除通知图标个数上限</string>
     <string name="main_switch">总开关</string>
     <string name="hide_gps_icon">隐藏 GPS 图标</string>
+    <string name="hide_status_bar_network_speed_second">隐藏网速（/s）单位</string>
 
 </resources>

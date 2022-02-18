@@ -28,6 +28,10 @@
             app:title="@string/status_bar_network_speed_refresh_speed" />
         <SwitchPreference
             app:iconSpaceReserved="false"
+            app:key="hide_status_bar_network_speed_second"
+            app:title="@string/hide_status_bar_network_speed_second" />
+        <SwitchPreference
+            app:iconSpaceReserved="false"
             app:key="remove_the_maximum_number_of_notification_icons"
             app:title="@string/remove_the_maximum_number_of_notification_icons" />
     </PreferenceCategory>

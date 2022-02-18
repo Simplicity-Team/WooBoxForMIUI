@@ -379,6 +379,30 @@ class SystemUI : IXposedHookLoadPackage {
         } catch (e: Exception) {
             XposedBridge.log(e)
         }
+
+        try {
+            val classIfExists = XposedHelpers.findClassIfExists(
+                "com.android.systemui.statusbar.views.NetworkSpeedView",
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
+                "setNetworkSpeed",
+                String::class.java,
+                object : XC_MethodHook() {
+                    override fun beforeHookedMethod(param: MethodHookParam) {
+                        if (prefs.hasFileChanged()) {
+                            prefs.reload()
+                        }
+                        if (prefs.getBoolean("hide_status_bar_network_speed_second", false)) {
+                            param.args[0] = (param.args[0] as String).replace("/s", "")
+                        }
+                    }
+                })
+        } catch (e: Exception) {
+            XposedBridge.log(e)
+        }
+
         //时钟显秒
         if (prefs.hasFileChanged()) {
             prefs.reload()
