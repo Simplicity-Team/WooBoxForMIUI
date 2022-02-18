@@ -47,6 +47,7 @@ class SettingsActivity : MIUIActivity() {
 
     override fun mainItems(): ArrayList<BaseView> {
         return arrayListOf<BaseView>().apply {
+            add(TextWithSwitchV(TextV(resId = R.string.main_switch), SwitchV("main_switch")))
             add(TitleTextV(resId = R.string.ui))
             add(TextWithSwitchV(TextV(resId = R.string.delete_on_post_notification), SwitchV("delete_on_post_notification")))
             add(LineV())
