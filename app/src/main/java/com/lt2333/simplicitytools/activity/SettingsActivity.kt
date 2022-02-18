@@ -56,31 +56,121 @@ class SettingsActivity : MIUIActivity() {
         return arrayListOf<BaseView>().apply {
             add(TextWithSwitchV(TextV(resId = R.string.main_switch), SwitchV("main_switch")))
             add(TitleTextV(resId = R.string.ui))
-            add(TextWithSwitchV(TextV(resId = R.string.delete_on_post_notification), SwitchV("delete_on_post_notification")))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.delete_on_post_notification),
+                    SwitchV("delete_on_post_notification")
+                )
+            )
             add(LineV())
             add(TitleTextV(resId = R.string.statusbar))
-            add(TextWithSwitchV(TextV(resId = R.string.status_bar_time_seconds), SwitchV("status_bar_time_seconds")))
-            add(TextWithSwitchV(TextV(resId = R.string.status_bar_network_speed_refresh_speed), SwitchV("status_bar_network_speed_refresh_speed")))
-            add(TextWithSwitchV(TextV(resId = R.string.hide_status_bar_network_speed_second), SwitchV("hide_status_bar_network_speed_second")))
-            add(TextWithSwitchV(TextV(resId = R.string.remove_the_maximum_number_of_notification_icons), SwitchV("remove_the_maximum_number_of_notification_icons")))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.status_bar_time_seconds),
+                    SwitchV("status_bar_time_seconds")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.status_bar_network_speed_refresh_speed),
+                    SwitchV("status_bar_network_speed_refresh_speed")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_status_bar_network_speed_second),
+                    SwitchV("hide_status_bar_network_speed_second")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.remove_the_maximum_number_of_notification_icons),
+                    SwitchV("remove_the_maximum_number_of_notification_icons")
+                )
+            )
             add(LineV())
             add(TitleTextV(resId = R.string.status_bar_icon))
             add(TextWithSwitchV(TextV(resId = R.string.hide_gps_icon), SwitchV("hide_gps_icon")))
-            add(TextWithSwitchV(TextV(resId = R.string.hide_bluetooth_icon), SwitchV("hide_bluetooth_icon")))
-            add(TextWithSwitchV(TextV(resId = R.string.hide_bluetooth_battery_icon), SwitchV("hide_bluetooth_battery_icon")))
-            add(TextWithSwitchV(TextV(resId = R.string.hide_small_hd_icon), SwitchV("hide_small_hd_icon")))
-            add(TextWithSwitchV(TextV(resId = R.string.hide_big_hd_icon), SwitchV("hide_big_hd_icon")))
-            add(TextWithSwitchV(TextV(resId = R.string.hide_hd_no_service_icon), SwitchV("hide_hd_no_service_icon")))
-            add(TextWithSwitchV(TextV(resId = R.string.hide_sim_one_icon), SwitchV("hide_sim_one_icon")))
-            add(TextWithSwitchV(TextV(resId = R.string.hide_sim_two_icon), SwitchV("hide_sim_two_icon")))
-            add(TextWithSwitchV(TextV(resId = R.string.hide_no_sim_icon), SwitchV("hide_no_sim_icon")))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_bluetooth_icon),
+                    SwitchV("hide_bluetooth_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_bluetooth_battery_icon),
+                    SwitchV("hide_bluetooth_battery_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_small_hd_icon),
+                    SwitchV("hide_small_hd_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_big_hd_icon),
+                    SwitchV("hide_big_hd_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_hd_no_service_icon),
+                    SwitchV("hide_hd_no_service_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_sim_one_icon),
+                    SwitchV("hide_sim_one_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_sim_two_icon),
+                    SwitchV("hide_sim_two_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_no_sim_icon),
+                    SwitchV("hide_no_sim_icon")
+                )
+            )
             add(TextWithSwitchV(TextV(resId = R.string.hide_wifi_icon), SwitchV("hide_wifi_icon")))
-            add(TextWithSwitchV(TextV(resId = R.string.hide_hotspot_icon), SwitchV("hide_hotspot_icon")))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_hotspot_icon),
+                    SwitchV("hide_hotspot_icon")
+                )
+            )
             add(TextWithSwitchV(TextV(resId = R.string.hide_vpn_icon), SwitchV("hide_vpn_icon")))
-            add(TextWithSwitchV(TextV(resId = R.string.hide_airplane_icon), SwitchV("hide_airplane_icon")))
-            add(TextWithSwitchV(TextV(resId = R.string.hide_alarm_icon), SwitchV("hide_alarm_icon")))
-            add(TextWithSwitchV(TextV(resId = R.string.hide_headset_icon), SwitchV("hide_headset_icon")))
-            add(TextWithSwitchV(TextV(resId = R.string.hide_volume_zen_icon), SwitchV("hide_volume_zen_icon")))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_airplane_icon),
+                    SwitchV("hide_airplane_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_alarm_icon),
+                    SwitchV("hide_alarm_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_headset_icon),
+                    SwitchV("hide_headset_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_volume_zen_icon),
+                    SwitchV("hide_volume_zen_icon")
+                )
+            )
             add(LineV())
             add(TitleTextV(resId = R.string.home))
             add(TextWithSwitchV(TextV(resId = R.string.home_time), SwitchV("home_time")))
@@ -89,46 +179,77 @@ class SettingsActivity : MIUIActivity() {
             add(TextWithSwitchV(TextV(resId = R.string.lock_max_fps), SwitchV("lock_max_fps")))
             add(LineV())
             add(TitleTextV(resId = R.string.other))
-            add(TextWithSwitchV(TextV(resId = R.string.disable_flag_secure), SwitchV("disable_flag_secure")))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.disable_flag_secure),
+                    SwitchV("disable_flag_secure")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.skip_waiting_time),
+                    SwitchV("skip_waiting_time")
+                )
+            )
             add(LineV())
             add(TitleTextV(resId = R.string.about))
-            add(TextSummaryV(textId = R.string.opensource, tipsId = R.string.github_url, onClickListener = {
-                try {
-                    val uri =
-                        Uri.parse("https://github.com/LittleTurtle2333/Simplicity_Tools_Xposed")
-                    val intent = Intent(Intent.ACTION_VIEW, uri)
-                    startActivity(intent)
-                } catch (e: Exception) {
-                    Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
-                }
-            }))
-            add(TextSummaryV(textId = R.string.issues, tipsId = R.string.issues_url, onClickListener = {
-                try {
-                    val uri =
-                        Uri.parse("https://github.com/LittleTurtle2333/Simplicity_Tools_Xposed/issues")
-                    val intent = Intent(Intent.ACTION_VIEW, uri)
-                    startActivity(intent)
-                } catch (e: Exception) {
-                    Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
-                }
-            }))
-            add(TextSummaryV(textId = R.string.dev_coolapk, tipsId = R.string.dev_coolapk_name, onClickListener = {
-                try {
-                    startActivity(
-                        Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse("coolmarket://u/883441")
-                        )
-                    )
-                    Toast.makeText(activity, "乌堆小透明：靓仔，点个关注吧！", Toast.LENGTH_SHORT).show()
-                } catch (e: Exception) {
-                    Toast.makeText(activity, "本机未安装酷安应用", Toast.LENGTH_SHORT).show()
-                    val uri = Uri.parse("http://www.coolapk.com/u/883441")
-                    val intent = Intent(Intent.ACTION_VIEW, uri)
-                    startActivity(intent)
-                }
-            }))
-            add(TextSummaryV(textId = R.string.verison, tips = "${BuildConfig.VERSION_NAME}(${BuildConfig.BUILD_TYPE})"))
+            add(
+                TextSummaryV(
+                    textId = R.string.opensource,
+                    tipsId = R.string.github_url,
+                    onClickListener = {
+                        try {
+                            val uri =
+                                Uri.parse("https://github.com/LittleTurtle2333/Simplicity_Tools_Xposed")
+                            val intent = Intent(Intent.ACTION_VIEW, uri)
+                            startActivity(intent)
+                        } catch (e: Exception) {
+                            Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
+                        }
+                    })
+            )
+            add(
+                TextSummaryV(
+                    textId = R.string.issues,
+                    tipsId = R.string.issues_url,
+                    onClickListener = {
+                        try {
+                            val uri =
+                                Uri.parse("https://github.com/LittleTurtle2333/Simplicity_Tools_Xposed/issues")
+                            val intent = Intent(Intent.ACTION_VIEW, uri)
+                            startActivity(intent)
+                        } catch (e: Exception) {
+                            Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
+                        }
+                    })
+            )
+            add(
+                TextSummaryV(
+                    textId = R.string.dev_coolapk,
+                    tipsId = R.string.dev_coolapk_name,
+                    onClickListener = {
+                        try {
+                            startActivity(
+                                Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse("coolmarket://u/883441")
+                                )
+                            )
+                            Toast.makeText(activity, "乌堆小透明：靓仔，点个关注吧！", Toast.LENGTH_SHORT).show()
+                        } catch (e: Exception) {
+                            Toast.makeText(activity, "本机未安装酷安应用", Toast.LENGTH_SHORT).show()
+                            val uri = Uri.parse("http://www.coolapk.com/u/883441")
+                            val intent = Intent(Intent.ACTION_VIEW, uri)
+                            startActivity(intent)
+                        }
+                    })
+            )
+            add(
+                TextSummaryV(
+                    textId = R.string.verison,
+                    tips = "${BuildConfig.VERSION_NAME}(${BuildConfig.BUILD_TYPE})"
+                )
+            )
         }
     }
 
@@ -153,15 +274,20 @@ class SettingsActivity : MIUIActivity() {
                     show()
                 }
             }))
-            add(TextSummaryV(textId = R.string.reboot_ui, onClickListener = {
+            add(TextSummaryV(textId = R.string.reboot_host, onClickListener = {
                 MIUIDialog(activity).apply {
                     setTitle(R.string.Tips)
-                    setMessage("确定重启系统界面？")
+                    setMessage("确定重启作用域？")
                     setLButton("取消") {
                         dismiss()
                     }
                     setRButton("确定") {
-                        val command = arrayOf("killall com.android.systemui")
+                        val command = arrayOf(
+                            "killall com.miui.home",
+                            "killall com.miui.securitycenter ",
+                            "killall com.miui.powerkeeper",
+                            "killall com.android.systemui"
+                        )
                         ShellUtils.execCommand(command, true)
                         dismiss()
                     }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Simplicity Tools</string>
     <string name="performance">性能</string>
     <string name="lock_max_fps">锁定最高刷新率</string>
@@ -13,12 +12,11 @@
     <string name="disable_flag_secure_summary">开启后允许在不允许截图的软件中截图</string>
     <string name="home">桌面</string>
     <string name="home_time">始终显示桌面时钟</string>
-    <string name="reboot_ui">重启系统界面</string>
+    <string name="reboot_host">重启作用域</string>
     <string name="reboot">重启系统</string>
 
-
     <!--状态栏图标-->
-    <string name="status_bar_icon">状态栏图标（重启系统界面生效）</string>
+    <string name="status_bar_icon">状态栏图标（重启作用域生效）</string>
     <string name="hide_no_sim_icon">隐藏 无SIM卡 图标</string>
     <string name="hide_sim_one_icon">隐藏 SIM卡一 图标</string>
     <string name="hide_sim_two_icon">隐藏 SIM卡二 图标</string>
@@ -44,7 +42,7 @@
     <string name="issues">反馈/提议</string>
     <string name="issues_url">点击查看GitHub Issues</string>
     <string name="xposeddescription">基于 MIUI13(Android 12) 适配的自定义工具</string>
-    <string name="statusbar">状态栏（重启系统界面生效）</string>
+    <string name="statusbar">状态栏（重启作用域生效）</string>
     <string name="status_bar_time_seconds">时钟显秒</string>
     <string name="status_bar_network_speed_refresh_speed">网速秒刷新</string>
     <string name="remove_the_maximum_number_of_notification_icons">解除通知图标个数上限</string>
