@@ -8,3 +8,9 @@
 Xposed仓库下载：[点击此处下载最新发行版](https://github.com/Xposed-Modules-Repo/com.lt2333.simplicitytools/releases)
 
 ![Stitch_20220218_172635](https://user-images.githubusercontent.com/32336368/154655285-f48817b1-6543-4450-ae7c-8006f3f98e22.jpg)
+
+## EULA & License
+
+[EULA](doc/EULA.md)
+
+[GNU General Public License v3.0](LICENSE)
