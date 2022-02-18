@@ -3,8 +3,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven{ url 'https://api.xposed.info' }
+        jcenter() // Warning: this repository is going to shut down soon
     }
 }
 rootProject.name = "Simplicity Tools"
-include ':app'
+include(":app")
+include(":blockmiui")

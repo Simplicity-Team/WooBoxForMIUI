@@ -51,5 +51,7 @@
     <string name="main_switch">总开关</string>
     <string name="hide_gps_icon">隐藏 GPS 图标</string>
     <string name="hide_status_bar_network_speed_second">隐藏网速（/s）单位</string>
+    <string name="menu">菜单</string>
+    <string name="Tips">提示</string>
 
 </resources>
