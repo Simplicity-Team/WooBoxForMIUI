@@ -191,6 +191,12 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("skip_waiting_time")
                 )
             )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.unlock_unlimited_cropping),
+                    SwitchV("unlock_unlimited_cropping")
+                )
+            )
             add(LineV())
             add(TitleTextV(resId = R.string.about))
             add(
@@ -286,6 +292,7 @@ class SettingsActivity : MIUIActivity() {
                             "killall com.miui.home",
                             "killall com.miui.securitycenter ",
                             "killall com.miui.powerkeeper",
+                            "killall com.miui.mediaeditor",
                             "killall com.android.systemui"
                         )
                         ShellUtils.execCommand(command, true)

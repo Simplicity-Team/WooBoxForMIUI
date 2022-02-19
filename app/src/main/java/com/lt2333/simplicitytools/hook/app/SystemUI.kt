@@ -21,6 +21,7 @@ class SystemUI : IXposedHookLoadPackage {
     var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
 
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
+        XposedBridge.log("成功Hook: "+javaClass.simpleName)
         //隐藏无SIM卡图标
         try {
             val classIfExists = XposedHelpers.findClassIfExists(

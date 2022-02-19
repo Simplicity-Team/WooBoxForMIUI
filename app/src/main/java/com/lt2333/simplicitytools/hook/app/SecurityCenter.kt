@@ -2,10 +2,7 @@ package com.lt2333.simplicitytools.hook.app
 
 import android.widget.TextView
 import com.lt2333.simplicitytools.BuildConfig
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.XC_MethodHook
-import de.robv.android.xposed.XSharedPreferences
-import de.robv.android.xposed.XposedHelpers
+import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 
 class SecurityCenter : IXposedHookLoadPackage {
@@ -13,6 +10,8 @@ class SecurityCenter : IXposedHookLoadPackage {
     var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
 
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
+
+        XposedBridge.log("成功Hook: "+javaClass.simpleName)
 
         //跳过 5/10秒等待时间
         var classIfExists = XposedHelpers.findClassIfExists(

@@ -9,6 +9,7 @@ class MiuiHome : IXposedHookLoadPackage {
     var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
 
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
+        XposedBridge.log("成功Hook: "+javaClass.simpleName)
         //始终显示时钟
         try {
             val classIfExists = XposedHelpers.findClassIfExists(

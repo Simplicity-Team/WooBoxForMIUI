@@ -9,6 +9,8 @@ class Android : IXposedHookLoadPackage {
     var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+
+        XposedBridge.log("成功Hook: "+javaClass.simpleName)
         //允许截图
         try {
             val classIfExists = XposedHelpers.findClassIfExists(
