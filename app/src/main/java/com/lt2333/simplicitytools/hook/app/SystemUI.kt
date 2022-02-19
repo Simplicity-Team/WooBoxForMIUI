@@ -21,7 +21,7 @@ class SystemUI : IXposedHookLoadPackage {
     var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
 
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
-        XposedBridge.log("成功Hook: "+javaClass.simpleName)
+        XposedBridge.log("成功Hook: " + javaClass.simpleName)
         //隐藏无SIM卡图标
         try {
             val classIfExists = XposedHelpers.findClassIfExists(
@@ -397,10 +397,12 @@ class SystemUI : IXposedHookLoadPackage {
                             prefs.reload()
                         }
                         if (prefs.getBoolean("hide_status_bar_network_speed_second", false)) {
-                            param.args[0] = (param.args[0] as String)
-                                .replace("/", "")
-                                .replace("s","")
-                                .replace("'","")
+                            if (param.args[0] != null) {
+                                param.args[0] = (param.args[0] as String)
+                                    .replace("/", "")
+                                    .replace("s", "")
+                                    .replace("'", "")
+                            }
                         }
                     }
                 })
@@ -423,7 +425,7 @@ class SystemUI : IXposedHookLoadPackage {
                             prefs.reload()
                         }
                         if (prefs.getBoolean("hide_hotspot_icon", false)) {
-                            param.result=null
+                            param.result = null
                         }
                     }
                 })
