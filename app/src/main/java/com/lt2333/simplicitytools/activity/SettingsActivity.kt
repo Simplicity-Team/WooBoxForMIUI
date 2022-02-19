@@ -142,6 +142,12 @@ class SettingsActivity : MIUIActivity() {
             add(TextWithSwitchV(TextV(resId = R.string.hide_wifi_icon), SwitchV("hide_wifi_icon")))
             add(
                 TextWithSwitchV(
+                    TextV(resId = R.string.hide_slave_wifi_icon),
+                    SwitchV("hide_slave_wifi_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
                     TextV(resId = R.string.hide_hotspot_icon),
                     SwitchV("hide_hotspot_icon")
                 )

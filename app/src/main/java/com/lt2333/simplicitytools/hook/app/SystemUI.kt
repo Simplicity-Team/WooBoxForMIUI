@@ -255,6 +255,28 @@ class SystemUI : IXposedHookLoadPackage {
         } catch (e: Exception) {
             XposedBridge.log(e)
         }
+        //隐藏 辅助WIFI 图标
+        try {
+            val classIfExists = XposedHelpers.findClassIfExists(
+                "com.android.systemui.statusbar.policy.SlaveWifiSignalController",
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
+                "updateIconState",
+                object : XC_MethodHook() {
+                    override fun beforeHookedMethod(param: MethodHookParam) {
+                        if (prefs.hasFileChanged()) {
+                            prefs.reload()
+                        }
+                        if (prefs.getBoolean("hide_slave_wifi_icon", false)) {
+                            param.result = null
+                        }
+                    }
+                })
+        } catch (e: Exception) {
+            XposedBridge.log(e)
+        }
         //隐藏卡一卡二
         try {
             val classIfExists = XposedHelpers.findClassIfExists(
