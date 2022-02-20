@@ -54,5 +54,6 @@
     <string name="skip_waiting_time">跳过 5/10 秒警告时间</string>
     <string name="unlock_unlimited_cropping">解锁无限裁切图片/截图</string>
     <string name="hide_slave_wifi_icon">隐藏 辅助WIFI 图标</string>
+    <string name="HideLauncherIcon">隐藏桌面图标</string>
 
 </resources>

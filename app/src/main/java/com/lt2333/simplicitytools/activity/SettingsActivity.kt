@@ -3,7 +3,9 @@
 package com.lt2333.simplicitytools.activity
 
 import android.annotation.SuppressLint
+import android.content.ComponentName
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
@@ -55,6 +57,22 @@ class SettingsActivity : MIUIActivity() {
     override fun mainItems(): ArrayList<BaseView> {
         return arrayListOf<BaseView>().apply {
             add(TextWithSwitchV(TextV(resId = R.string.main_switch), SwitchV("main_switch")))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.HideLauncherIcon),
+                    SwitchV("hLauncherIcon", customOnCheckedChangeListener = {
+                        packageManager.setComponentEnabledSetting(
+                            ComponentName(activity, "${BuildConfig.APPLICATION_ID}.launcher"),
+                            if (it) {
+                                PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+                            } else {
+                                PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+                            },
+                            PackageManager.DONT_KILL_APP
+                        )
+                    })
+                )
+            )
             add(TitleTextV(resId = R.string.ui))
             add(
                 TextWithSwitchV(
