@@ -557,6 +557,35 @@ class SystemUI : IXposedHookLoadPackage {
             }
 
         }
+
+        //隐藏电量百分号
+        try {
+            val classIfExists = XposedHelpers.findClassIfExists(
+                "com.android.systemui.statusbar.views.MiuiBatteryMeterView",
+                lpparam.classLoader
+            )
+            XposedHelpers.findAndHookMethod(
+                classIfExists,
+                "updateResources",
+                object : XC_MethodHook() {
+                    override fun afterHookedMethod(param: MethodHookParam) {
+                        if (prefs.hasFileChanged()) {
+                            prefs.reload()
+                        }
+                        if (prefs.getBoolean("hide_battery_percentage_icon", false)) {
+                            val mBatteryPercentMarkView = XposedHelpers.getObjectField(
+                                param.thisObject,
+                                "mBatteryPercentMarkView"
+                            ) as TextView
+                            mBatteryPercentMarkView.textSize = 0F
+                        }
+
+                    }
+                })
+
+        } catch (e: Exception) {
+            XposedBridge.log(e)
+        }
     }
 
 }

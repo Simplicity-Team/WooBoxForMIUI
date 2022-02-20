@@ -55,5 +55,6 @@
     <string name="unlock_unlimited_cropping">解锁无限裁切图片/截图</string>
     <string name="hide_slave_wifi_icon">隐藏 辅助WIFI 图标</string>
     <string name="HideLauncherIcon">隐藏桌面图标</string>
+    <string name="hide_battery_percentage_icon">隐藏电量（%）</string>
 
 </resources>

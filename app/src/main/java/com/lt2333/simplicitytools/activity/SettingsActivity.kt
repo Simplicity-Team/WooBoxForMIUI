@@ -96,6 +96,12 @@ class SettingsActivity : MIUIActivity() {
             )
             add(
                 TextWithSwitchV(
+                    TextV(resId = R.string.hide_battery_percentage_icon),
+                    SwitchV("hide_battery_percentage_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
                     TextV(resId = R.string.hide_status_bar_network_speed_second),
                     SwitchV("hide_status_bar_network_speed_second")
                 )
