@@ -7,6 +7,7 @@ import android.os.Handler
 import android.provider.Settings
 import android.util.AttributeSet
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import com.lt2333.simplicitytools.BuildConfig
@@ -579,7 +580,13 @@ class SystemUI : IXposedHookLoadPackage {
                             ) as TextView
                             mBatteryPercentMarkView.textSize = 0F
                         }
-
+                        if (prefs.getBoolean("hide_battery_icon", false)) {
+                            val mBatteryIconView = XposedHelpers.getObjectField(
+                                param.thisObject,
+                                "mBatteryDigitalView"
+                            ) as FrameLayout
+                            mBatteryIconView.visibility = View.GONE
+                        }
                     }
                 })
 

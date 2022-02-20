@@ -114,6 +114,12 @@ class SettingsActivity : MIUIActivity() {
             )
             add(LineV())
             add(TitleTextV(resId = R.string.status_bar_icon))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_battery_icon),
+                    SwitchV("hide_battery_icon")
+                )
+            )
             add(TextWithSwitchV(TextV(resId = R.string.hide_gps_icon), SwitchV("hide_gps_icon")))
             add(
                 TextWithSwitchV(
