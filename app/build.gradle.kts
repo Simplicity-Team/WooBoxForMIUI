@@ -10,10 +10,10 @@ android {
 
     defaultConfig {
         applicationId = "com.lt2333.simplicitytools"
-        minSdk = 30
+        minSdk = 31
         targetSdk = 32
-        versionCode = 16
-        versionName = "1.1.5"
+        versionCode = 18
+        versionName = "1.1.7"
     }
 
     buildTypes {
