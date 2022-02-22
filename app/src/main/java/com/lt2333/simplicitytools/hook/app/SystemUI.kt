@@ -10,7 +10,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
-import com.lt2333.simplicitytools.BuildConfig
+import com.lt2333.simplicitytools.util.XSPUtils
 import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 import java.lang.reflect.Method
@@ -18,8 +18,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class SystemUI : IXposedHookLoadPackage {
-
-    var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
 
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
         XposedBridge.log("成功Hook: " + javaClass.simpleName)
@@ -36,10 +34,7 @@ class SystemUI : IXposedHookLoadPackage {
                 Boolean::class.javaPrimitiveType,
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_no_sim_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_no_sim_icon", false)) {
                             param.result = null
                         }
                     }
@@ -58,10 +53,7 @@ class SystemUI : IXposedHookLoadPackage {
                 "updateVpn",
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_vpn_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_vpn_icon", false)) {
                             param.result = null
                         }
                     }
@@ -84,10 +76,7 @@ class SystemUI : IXposedHookLoadPackage {
                 ),
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_airplane_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_airplane_icon", false)) {
                             param.result = null
                         }
                     }
@@ -110,10 +99,7 @@ class SystemUI : IXposedHookLoadPackage {
                 ),
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_wifi_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_wifi_icon", false)) {
                             param.result = null
                         }
                     }
@@ -133,10 +119,7 @@ class SystemUI : IXposedHookLoadPackage {
                 String::class.java,
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_bluetooth_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_bluetooth_icon", false)) {
                             param.result = null
                         }
                     }
@@ -155,10 +138,7 @@ class SystemUI : IXposedHookLoadPackage {
                 "updateLocationFromController",
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_gps_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_gps_icon", false)) {
                             param.result = null
                         }
                     }
@@ -177,10 +157,7 @@ class SystemUI : IXposedHookLoadPackage {
                 "updateVolumeZen",
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_volume_zen_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_volume_zen_icon", false)) {
                             param.result = null
                         }
                     }
@@ -199,10 +176,7 @@ class SystemUI : IXposedHookLoadPackage {
                 "onMiuiAlarmChanged",
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_alarm_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_alarm_icon", false)) {
                             param.result = null
                         }
                     }
@@ -222,10 +196,7 @@ class SystemUI : IXposedHookLoadPackage {
                 Intent::class.java,
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_headset_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_headset_icon", false)) {
                             param.result = null
                         }
                     }
@@ -245,10 +216,7 @@ class SystemUI : IXposedHookLoadPackage {
                 Intent::class.java,
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_bluetooth_battery_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_bluetooth_battery_icon", false)) {
                             param.result = null
                         }
                     }
@@ -267,10 +235,7 @@ class SystemUI : IXposedHookLoadPackage {
                 "updateIconState",
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_slave_wifi_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_slave_wifi_icon", false)) {
                             param.result = null
                         }
                     }
@@ -289,16 +254,13 @@ class SystemUI : IXposedHookLoadPackage {
                 "hasCorrectSubs", MutableList::class.java,
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
                         val list = param.args[0] as MutableList<*>
                         val size = list.size
 
-                        if (size == 2 && prefs.getBoolean("hide_sim_two_icon", false)) {
+                        if (size == 2 && XSPUtils.getBoolean("hide_sim_two_icon", false)) {
                             list.removeAt(1)
                         }
-                        if (size >= 1 && prefs.getBoolean("hide_sim_one_icon", false)) {
+                        if (size >= 1 && XSPUtils.getBoolean("hide_sim_one_icon", false)) {
                             list.removeAt(0)
                         }
                     }
@@ -318,24 +280,21 @@ class SystemUI : IXposedHookLoadPackage {
                 "com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$MobileIconState",
                 object : XC_MethodHook() {
                     override fun afterHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_big_hd_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_big_hd_icon", false)) {
                             val bigHd = XposedHelpers.getObjectField(
                                 param.thisObject,
                                 "mVolte"
                             ) as ImageView
                             bigHd.visibility = View.GONE
                         }
-                        if (prefs.getBoolean("hide_small_hd_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_small_hd_icon", false)) {
                             val smallHd = XposedHelpers.getObjectField(
                                 param.thisObject,
                                 "mSmallHd"
                             ) as ImageView
                             smallHd.visibility = View.GONE
                         }
-                        if (prefs.getBoolean("hide_hd_no_service_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_hd_no_service_icon", false)) {
                             val volteNoService = XposedHelpers.getObjectField(
                                 param.thisObject,
                                 "mVolteNoService"
@@ -350,17 +309,14 @@ class SystemUI : IXposedHookLoadPackage {
                 "com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$MobileIconState",
                 object : XC_MethodHook() {
                     override fun afterHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_big_hd_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_big_hd_icon", false)) {
                             val bigHd = XposedHelpers.getObjectField(
                                 param.thisObject,
                                 "mVolte"
                             ) as ImageView
                             bigHd.visibility = View.GONE
                         }
-                        if (prefs.getBoolean("hide_small_hd_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_small_hd_icon", false)) {
                             val smallHd = XposedHelpers.getObjectField(
                                 param.thisObject,
                                 "mSmallHd"
@@ -368,7 +324,7 @@ class SystemUI : IXposedHookLoadPackage {
 
                             smallHd.visibility = View.GONE
                         }
-                        if (prefs.getBoolean("hide_hd_no_service_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_hd_no_service_icon", false)) {
                             val volteNoService = XposedHelpers.getObjectField(
                                 param.thisObject,
                                 "mVolteNoService"
@@ -392,10 +348,7 @@ class SystemUI : IXposedHookLoadPackage {
                 Long::class.java,
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("status_bar_network_speed_refresh_speed", false)) {
+                        if (XSPUtils.getBoolean("status_bar_network_speed_refresh_speed", false)) {
                             param.args[0] = 1000L
                         }
                     }
@@ -416,10 +369,7 @@ class SystemUI : IXposedHookLoadPackage {
                 String::class.java,
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_status_bar_network_speed_second", false)) {
+                        if (XSPUtils.getBoolean("hide_status_bar_network_speed_second", false)) {
                             if (param.args[0] != null) {
                                 param.args[0] = (param.args[0] as String)
                                     .replace("/", "")
@@ -444,10 +394,7 @@ class SystemUI : IXposedHookLoadPackage {
                 Boolean::class.java, Int::class.java,
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_hotspot_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_hotspot_icon", false)) {
                             param.result = null
                         }
                     }
@@ -457,10 +404,7 @@ class SystemUI : IXposedHookLoadPackage {
         }
 
         //时钟显秒
-        if (prefs.hasFileChanged()) {
-            prefs.reload()
-        }
-        if (prefs.getBoolean("status_bar_time_seconds", false)) {
+        if (XSPUtils.getBoolean("status_bar_time_seconds", false)) {
             var c: Context? = null
             val classIfExists = XposedHelpers.findClassIfExists(
                 "com.android.systemui.statusbar.views.MiuiClock",
@@ -516,10 +460,7 @@ class SystemUI : IXposedHookLoadPackage {
 
         }
         //通知图标上限
-        if (prefs.hasFileChanged()) {
-            prefs.reload()
-        }
-        if (prefs.getBoolean("remove_the_maximum_number_of_notification_icons", false)) {
+        if (XSPUtils.getBoolean("remove_the_maximum_number_of_notification_icons", false)) {
             try {
                 val classIfExists = XposedHelpers.findClassIfExists(
                     "com.android.systemui.statusbar.phone.NotificationIconContainer",
@@ -570,17 +511,14 @@ class SystemUI : IXposedHookLoadPackage {
                 "updateResources",
                 object : XC_MethodHook() {
                     override fun afterHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("hide_battery_percentage_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_battery_percentage_icon", false)) {
                             val mBatteryPercentMarkView = XposedHelpers.getObjectField(
                                 param.thisObject,
                                 "mBatteryPercentMarkView"
                             ) as TextView
                             mBatteryPercentMarkView.textSize = 0F
                         }
-                        if (prefs.getBoolean("hide_battery_icon", false)) {
+                        if (XSPUtils.getBoolean("hide_battery_icon", false)) {
                             val mBatteryIconView = XposedHelpers.getObjectField(
                                 param.thisObject,
                                 "mBatteryDigitalView"

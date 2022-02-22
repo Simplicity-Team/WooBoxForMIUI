@@ -1,12 +1,13 @@
 package com.lt2333.simplicitytools.hook.app
 
-import com.lt2333.simplicitytools.BuildConfig
-import de.robv.android.xposed.*
+import com.lt2333.simplicitytools.util.XSPUtils
+import de.robv.android.xposed.IXposedHookLoadPackage
+import de.robv.android.xposed.XC_MethodHook
+import de.robv.android.xposed.XposedBridge
+import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 
 class PowerKeeper : IXposedHookLoadPackage {
-
-    var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
 
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
         XposedBridge.log("成功Hook: "+javaClass.simpleName)
@@ -22,10 +23,7 @@ class PowerKeeper : IXposedHookLoadPackage {
             object : XC_MethodHook() {
                 override fun beforeHookedMethod(param: MethodHookParam) {
                     super.beforeHookedMethod(param)
-                    if (prefs.hasFileChanged()) {
-                        prefs.reload()
-                    }
-                    if (prefs.getBoolean("lock_max_fps", false)) {
+                    if (XSPUtils.getBoolean("lock_max_fps",false)) {
                         param.result = null
                     }
                 }

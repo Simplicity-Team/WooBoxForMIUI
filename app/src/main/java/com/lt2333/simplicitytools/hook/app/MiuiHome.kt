@@ -1,15 +1,16 @@
 package com.lt2333.simplicitytools.hook.app
 
-import com.lt2333.simplicitytools.BuildConfig
-import de.robv.android.xposed.*
+import com.lt2333.simplicitytools.util.XSPUtils
+import de.robv.android.xposed.IXposedHookLoadPackage
+import de.robv.android.xposed.XC_MethodHook
+import de.robv.android.xposed.XposedBridge
+import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 
 class MiuiHome : IXposedHookLoadPackage {
 
-    var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
-
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
-        XposedBridge.log("成功Hook: "+javaClass.simpleName)
+        XposedBridge.log("成功Hook: " + javaClass.simpleName)
         //始终显示时钟
         try {
             val classIfExists = XposedHelpers.findClassIfExists(
@@ -21,10 +22,7 @@ class MiuiHome : IXposedHookLoadPackage {
                 "isScreenHasClockGadget", Long::class.javaPrimitiveType,
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("home_time", false)) {
+                        if (XSPUtils.getBoolean("home_time", false)) {
                             param.result = false
                         }
                     }

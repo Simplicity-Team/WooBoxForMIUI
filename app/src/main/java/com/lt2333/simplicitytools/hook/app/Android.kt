@@ -1,12 +1,13 @@
 package com.lt2333.simplicitytools.hook.app
 
-import com.lt2333.simplicitytools.BuildConfig
-import de.robv.android.xposed.*
+import com.lt2333.simplicitytools.util.XSPUtils
+import de.robv.android.xposed.IXposedHookLoadPackage
+import de.robv.android.xposed.XC_MethodHook
+import de.robv.android.xposed.XposedBridge
+import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 class Android : IXposedHookLoadPackage {
-
-    var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
 
@@ -21,10 +22,7 @@ class Android : IXposedHookLoadPackage {
                 "isSecureLocked",
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("disable_flag_secure", false)) {
+                        if (XSPUtils.getBoolean("disable_flag_secure",false)) {
                             param.result = false
                         }
                     }
@@ -44,10 +42,7 @@ class Android : IXposedHookLoadPackage {
                 "onPostNotification",
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (prefs.hasFileChanged()) {
-                            prefs.reload()
-                        }
-                        if (prefs.getBoolean("delete_on_post_notification", false)) {
+                        if (XSPUtils.getBoolean("delete_on_post_notification",false)) {
                             param.result = null
                         }
                     }
