@@ -43,7 +43,7 @@
     <string name="issues_url">点击查看GitHub Issues</string>
     <string name="xposeddescription">基于 MIUI13(Android 12) 适配的自定义工具</string>
     <string name="statusbar">状态栏（重启作用域生效）</string>
-    <string name="status_bar_time_seconds">时钟显秒</string>
+    <string name="status_bar_time_seconds">显示秒数</string>
     <string name="status_bar_network_speed_refresh_speed">网速秒刷新</string>
     <string name="remove_the_maximum_number_of_notification_icons">解除通知图标个数上限</string>
     <string name="main_switch">总开关</string>
@@ -57,5 +57,11 @@
     <string name="HideLauncherIcon">隐藏桌面图标</string>
     <string name="hide_battery_percentage_icon">隐藏电量（%）</string>
     <string name="hide_battery_icon">隐藏 电池 图标</string>
+    <string name="status_bar_clock_format">状态栏时钟格式</string>
+    <string name="status_bar_time_year">显示年份</string>
+    <string name="status_bar_time_month">显示月份</string>
+    <string name="status_bar_time_day">显示日期</string>
+    <string name="status_bar_time_week">显示星期</string>
+    <string name="status_bar_time_hide_space">隐藏间隔</string>
 
 </resources>

@@ -84,12 +84,6 @@ class SettingsActivity : MIUIActivity() {
             add(TitleTextV(resId = R.string.statusbar))
             add(
                 TextWithSwitchV(
-                    TextV(resId = R.string.status_bar_time_seconds),
-                    SwitchV("status_bar_time_seconds")
-                )
-            )
-            add(
-                TextWithSwitchV(
                     TextV(resId = R.string.status_bar_network_speed_refresh_speed),
                     SwitchV("status_bar_network_speed_refresh_speed")
                 )
@@ -110,6 +104,44 @@ class SettingsActivity : MIUIActivity() {
                 TextWithSwitchV(
                     TextV(resId = R.string.remove_the_maximum_number_of_notification_icons),
                     SwitchV("remove_the_maximum_number_of_notification_icons")
+                )
+            )
+            add(LineV())
+            add(TitleTextV(resId = R.string.status_bar_clock_format))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.status_bar_time_year),
+                    SwitchV("status_bar_time_year")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.status_bar_time_month),
+                    SwitchV("status_bar_time_month")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.status_bar_time_day),
+                    SwitchV("status_bar_time_day")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.status_bar_time_week),
+                    SwitchV("status_bar_time_week")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.status_bar_time_seconds),
+                    SwitchV("status_bar_time_seconds")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.status_bar_time_hide_space),
+                    SwitchV("status_bar_time_hide_space")
                 )
             )
             add(LineV())
