@@ -56,7 +56,7 @@ class SettingsActivity : MIUIActivity() {
 
     override fun mainItems(): ArrayList<BaseView> {
         return arrayListOf<BaseView>().apply {
-            add(TextWithSwitchV(TextV(resId = R.string.main_switch), SwitchV("main_switch")))
+            add(TextWithSwitchV(TextV(resId = R.string.main_switch), SwitchV("main_switch",true)))
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.HideLauncherIcon),
@@ -108,6 +108,10 @@ class SettingsActivity : MIUIActivity() {
             )
             add(LineV())
             add(TitleTextV(resId = R.string.status_bar_clock_format))
+            add(TextWithSwitchV(
+                TextV(resId = R.string.custom_clock_switch),
+                SwitchV("custom_clock_switch")
+            ))
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.status_bar_time_year),
@@ -130,6 +134,18 @@ class SettingsActivity : MIUIActivity() {
                 TextWithSwitchV(
                     TextV(resId = R.string.status_bar_time_week),
                     SwitchV("status_bar_time_week")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.status_bar_time_double_hour),
+                    SwitchV("status_bar_time_double_hour")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.status_bar_time_period),
+                    SwitchV("status_bar_time_period",true)
                 )
             )
             add(

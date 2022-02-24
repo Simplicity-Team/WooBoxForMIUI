@@ -47,8 +47,8 @@ class SystemUI : IXposedHookLoadPackage {
         RemoveTheMaximumNumberOfNotificationIcons().handleLoadPackage(lpparam)
         //状态栏网速秒刷新
         StatusBarNetworkSpeedRefreshSpeed().handleLoadPackage(lpparam)
-        //状态栏时钟显秒
-        StatusBarTimeSeconds().handleLoadPackage(lpparam)
+        //状态栏时钟自定义
+        StatusBarTimeCustomization().handleLoadPackage(lpparam)
     }
 
 }
