@@ -44,6 +44,29 @@
         <meta-data
             android:name="xposedscope"
             android:resource="@array/xposed_scope" />
+
+        <service
+            android:name=".tile.LockMaxFpsTile"
+            android:exported="true"
+            android:icon="@drawable/ic_fps"
+            android:label="@string/lock_max"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".tile.AllowScreenshots"
+            android:exported="true"
+            android:icon="@drawable/ic_baseline_fullscreen_24"
+            android:label="@string/allow_screenshots"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

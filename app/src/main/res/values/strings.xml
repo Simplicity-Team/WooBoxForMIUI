@@ -63,5 +63,10 @@
     <string name="status_bar_time_day">显示日期</string>
     <string name="status_bar_time_week">显示星期</string>
     <string name="status_bar_time_hide_space">隐藏间隔</string>
+    <string name="allow_screenshots">允许截图</string>
+    <string name="lock_max">锁定上限</string>
+    <string name="status_bar_time_double_hour">显示时辰</string>
+    <string name="custom_clock_switch">自定义时钟-总开关</string>
+    <string name="status_bar_time_period">显示时段</string>
 
 </resources>
