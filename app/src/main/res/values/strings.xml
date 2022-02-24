@@ -68,5 +68,6 @@
     <string name="status_bar_time_double_hour">显示时辰</string>
     <string name="custom_clock_switch">自定义时钟-总开关</string>
     <string name="status_bar_time_period">显示时段</string>
+    <string name="status_bar_time_double_line">双行显示</string>
 
 </resources>

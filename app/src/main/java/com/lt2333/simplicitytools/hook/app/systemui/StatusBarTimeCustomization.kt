@@ -34,6 +34,7 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
                     override fun afterHookedMethod(param: MethodHookParam) {
                         c = param.args[0] as Context
                         val textV = param.thisObject as TextView
+
                         val d: Method = textV.javaClass.getDeclaredMethod("updateTime")
                         val r = Runnable {
                             d.isAccessible = true
@@ -64,9 +65,18 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
                                 c!!.contentResolver,
                                 Settings.System.TIME_12_24
                             )
-                            now_time= Calendar.getInstance().time
+                            now_time = Calendar.getInstance().time
+                            var str = ""
+                            if (XSPUtils.getBoolean("status_bar_time_double_line", false)) {
+                                textV.isSingleLine = false
+                                textV.textSize = 7F
+                                str = "\n"
+                            } else {
+                                textV.isSingleLine = true
+                                textV.textSize = 13.454498F
+                            }
                             textV.text =
-                                getYear() + getMonth() + getDay() + getDateSpace() + getWeek() + getDoubleHour() + getTime(
+                                getYear() + getMonth() + getDay() + getDateSpace() + getWeek() + str + getDoubleHour() + getTime(
                                     t
                                 ) + getSecond()
                         }
@@ -209,6 +219,7 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
             } else {
                 doubleHour += " "
             }
+
         }
         return doubleHour
     }

@@ -162,6 +162,12 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("status_bar_time_hide_space")
                 )
             )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.status_bar_time_double_line),
+                    SwitchV("status_bar_time_double_line")
+                )
+            )
             add(LineV())
             add(TitleTextV(resId = R.string.status_bar_icon))
             add(
