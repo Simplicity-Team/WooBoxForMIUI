@@ -7,12 +7,15 @@ object XSPUtils {
     var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
 
     fun getBoolean(key: String, defValue: Boolean): Boolean {
-
         if (prefs.hasFileChanged()) {
             prefs.reload()
         }
-
         return prefs.getBoolean(key, defValue)
-
+    }
+    fun getInt(key: String, defValue: Int): Int {
+        if (prefs.hasFileChanged()) {
+            prefs.reload()
+        }
+        return prefs.getInt(key, defValue)
     }
 }
