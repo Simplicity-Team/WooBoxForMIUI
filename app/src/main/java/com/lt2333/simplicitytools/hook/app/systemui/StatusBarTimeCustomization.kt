@@ -19,6 +19,7 @@ import java.util.*
 class StatusBarTimeCustomization : IXposedHookLoadPackage {
 
     var now_time: Date? = null
+    var str = ""
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         if (XSPUtils.getBoolean("custom_clock_switch", false)) {
@@ -35,6 +36,21 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
                     override fun afterHookedMethod(param: MethodHookParam) {
                         c = param.args[0] as Context
                         val textV = param.thisObject as TextView
+                        textV.isSingleLine = false
+
+                        if (XSPUtils.getBoolean("status_bar_time_double_line", false)) {
+                            str = "\n"
+                            var clock_double_line_size = 7F
+                            if (XSPUtils.getInt("status_bar_clock_double_line_size",0) != 0 ){
+                                clock_double_line_size = XSPUtils.getInt("status_bar_clock_double_line_size",0).toFloat()
+                            }
+                            textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP,clock_double_line_size)
+                        } else {
+                            if (XSPUtils.getInt("status_bar_clock_size",0) != 0 ){
+                                val clock_size = XSPUtils.getInt("status_bar_clock_size",0).toFloat()
+                                textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP,clock_size)
+                            }
+                        }
 
                         val d: Method = textV.javaClass.getDeclaredMethod("updateTime")
                         val r = Runnable {
@@ -67,17 +83,6 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
                                 Settings.System.TIME_12_24
                             )
                             now_time = Calendar.getInstance().time
-                            var str = ""
-                            if (XSPUtils.getBoolean("status_bar_time_double_line", false)) {
-                                textV.isSingleLine = false
-                                textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP,7F)
-                                str = "\n"
-                            } else {
-                                textV.isSingleLine = true
-                                val class1 = XposedHelpers.findClassIfExists("com.android.systemui.R\$dimen",lpparam.classLoader)
-                                val size = XposedHelpers.getFloatField(class1,"status_bar_clock_size")
-                                textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP,size)
-                            }
 
                             textV.text =
                                 getYear() + getMonth() + getDay() + getDateSpace() + getWeek() + str + getDoubleHour() + getTime(
@@ -124,7 +129,7 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
     @SuppressLint("SimpleDateFormat")
     private fun getTime(t: String): String {
         if (t == "24") {
-            return SimpleDateFormat("HH:mm").format(now_time)
+            return getPeriod() + SimpleDateFormat("HH:mm").format(now_time)
         } else {
             return getPeriod() + SimpleDateFormat("h:mm").format(now_time)
         }

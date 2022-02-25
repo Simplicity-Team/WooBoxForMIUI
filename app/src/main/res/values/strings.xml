@@ -2,8 +2,7 @@
 <resources>
     <string name="app_name">Simplicity Tools</string>
     <string name="performance">性能</string>
-    <string name="lock_max_fps">锁定最高刷新率</string>
-    <string name="lock_max_fps_summary">始终保持最高刷新率运行</string>
+    <string name="lock_max_fps">锁定当前刷新率上限</string>
     <string name="ui">界面</string>
     <string name="delete_on_post_notification">移除上层显示通知</string>
     <string name="delete_on_post_notification_summary">移除"此应用正显示在屏幕上其他应用的上层"通知</string>
@@ -16,7 +15,7 @@
     <string name="reboot">重启系统</string>
 
     <!--状态栏图标-->
-    <string name="status_bar_icon">状态栏图标（重启作用域生效）</string>
+    <string name="status_bar_icon">状态栏图标</string>
     <string name="hide_no_sim_icon">隐藏 无SIM卡 图标</string>
     <string name="hide_sim_one_icon">隐藏 SIM卡一 图标</string>
     <string name="hide_sim_two_icon">隐藏 SIM卡二 图标</string>
@@ -38,15 +37,15 @@
     <string name="dev_coolapk">开发者酷安</string>
     <string name="dev_coolapk_name">\@乌堆小透明</string>
     <string name="opensource">开源仓库</string>
-    <string name="github_url">点击查看开源仓库(GitHub)</string>
+    <string name="github_url">欢迎更多开发者加入到我们的项目当中</string>
     <string name="issues">反馈/提议</string>
     <string name="issues_url">点击查看GitHub Issues</string>
     <string name="xposeddescription">基于 MIUI13(Android 12) 适配的自定义工具</string>
-    <string name="statusbar">状态栏（重启作用域生效）</string>
+    <string name="statusbar">状态栏</string>
     <string name="status_bar_time_seconds">显示秒数</string>
     <string name="status_bar_network_speed_refresh_speed">网速秒刷新</string>
     <string name="remove_the_maximum_number_of_notification_icons">解除通知图标个数上限</string>
-    <string name="main_switch">总开关</string>
+    <string name="main_switch">模块总开关</string>
     <string name="hide_gps_icon">隐藏 GPS 图标</string>
     <string name="hide_status_bar_network_speed_second">隐藏网速（/s）单位</string>
     <string name="menu">菜单</string>
@@ -64,10 +63,14 @@
     <string name="status_bar_time_week">显示星期</string>
     <string name="status_bar_time_hide_space">隐藏间隔</string>
     <string name="allow_screenshots">允许截图</string>
-    <string name="lock_max">锁定上限</string>
+    <string name="lock_max">锁定当前上限</string>
     <string name="status_bar_time_double_hour">显示时辰</string>
     <string name="custom_clock_switch">自定义时钟-总开关</string>
     <string name="status_bar_time_period">显示时段</string>
     <string name="status_bar_time_double_line">双行显示</string>
+    <string name="status_bar_clock_size">时钟大小（0：不更改）</string>
+    <string name="status_bar_clock_double_line_size">双排大小（0：不更改）</string>
+    <string name="matters_needing_attention">模块注意事项</string>
+    <string name="Done">确定</string>
 
 </resources>
