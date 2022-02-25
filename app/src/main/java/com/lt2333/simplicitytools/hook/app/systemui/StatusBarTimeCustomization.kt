@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Handler
 import android.provider.Settings
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.widget.TextView
 import com.lt2333.simplicitytools.util.XSPUtils
 import de.robv.android.xposed.IXposedHookLoadPackage
@@ -69,12 +70,15 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
                             var str = ""
                             if (XSPUtils.getBoolean("status_bar_time_double_line", false)) {
                                 textV.isSingleLine = false
-                                textV.textSize = 7F
+                                textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP,7F)
                                 str = "\n"
                             } else {
                                 textV.isSingleLine = true
-                                textV.textSize = 13.454498F
+                                val class1 = XposedHelpers.findClassIfExists("com.android.systemui.R\$dimen",lpparam.classLoader)
+                                val size = XposedHelpers.getFloatField(class1,"status_bar_clock_size")
+                                textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP,size)
                             }
+
                             textV.text =
                                 getYear() + getMonth() + getDay() + getDateSpace() + getWeek() + str + getDoubleHour() + getTime(
                                     t
