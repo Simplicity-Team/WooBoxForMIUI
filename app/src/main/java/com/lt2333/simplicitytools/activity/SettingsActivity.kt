@@ -407,42 +407,50 @@ class SettingsActivity : MIUIActivity() {
 
     override fun menuItems(): ArrayList<BaseView> {
         return ArrayList<BaseView>().apply {
-            add(TextSummaryV(textId = R.string.reboot, onClickListener = {
-                MIUIDialog(activity).apply {
-                    setTitle(R.string.Tips)
-                    setMessage("确定重启系统？")
-                    setLButton("取消") {
-                        dismiss()
-                    }
-                    setRButton("确定") {
-                        val command = arrayOf("reboot")
-                        ShellUtils.execCommand(command, true)
-                        dismiss()
-                    }
-                    show()
-                }
-            }))
-            add(TextSummaryV(textId = R.string.reboot_host, onClickListener = {
-                MIUIDialog(activity).apply {
-                    setTitle(R.string.Tips)
-                    setMessage("确定重启作用域？")
-                    setLButton("取消") {
-                        dismiss()
-                    }
-                    setRButton("确定") {
-                        val command = arrayOf(
-                            "killall com.miui.home",
-                            "killall com.miui.securitycenter ",
-                            "killall com.miui.powerkeeper",
-                            "killall com.miui.mediaeditor",
-                            "killall com.android.systemui"
-                        )
-                        ShellUtils.execCommand(command, true)
-                        dismiss()
-                    }
-                    show()
-                }
-            }))
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(textId = R.string.reboot, onClickListener = {
+                        MIUIDialog(activity).apply {
+                            setTitle(R.string.Tips)
+                            setMessage("确定重启系统？")
+                            setLButton("取消") {
+                                dismiss()
+                            }
+                            setRButton("确定") {
+                                val command = arrayOf("reboot")
+                                ShellUtils.execCommand(command, true)
+                                dismiss()
+                            }
+                            show()
+                        }
+                    })
+                )
+            )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(textId = R.string.reboot_host, onClickListener = {
+                        MIUIDialog(activity).apply {
+                            setTitle(R.string.Tips)
+                            setMessage("确定重启作用域？")
+                            setLButton("取消") {
+                                dismiss()
+                            }
+                            setRButton("确定") {
+                                val command = arrayOf(
+                                    "killall com.miui.home",
+                                    "killall com.miui.securitycenter ",
+                                    "killall com.miui.powerkeeper",
+                                    "killall com.miui.mediaeditor",
+                                    "killall com.android.systemui"
+                                )
+                                ShellUtils.execCommand(command, true)
+                                dismiss()
+                            }
+                            show()
+                        }
+                    })
+                )
+            )
 
         }
     }
