@@ -58,7 +58,12 @@ class SettingsActivity : MIUIActivity() {
 
     override fun mainItems(): ArrayList<BaseView> {
         return arrayListOf<BaseView>().apply {
-            add(TextWithSwitchV(TextV(resId = R.string.main_switch), SwitchV("main_switch",true)))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.main_switch, colorId = R.color.purple_700),
+                    SwitchV("main_switch", true)
+                )
+            )
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.HideLauncherIcon),
@@ -73,6 +78,27 @@ class SettingsActivity : MIUIActivity() {
                             PackageManager.DONT_KILL_APP
                         )
                     })
+                )
+            )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.matters_needing_attention,
+                        colorId = R.color.red,
+                        onClickListener = {
+                            MIUIDialog(activity).apply {
+                                setTitle(R.string.matters_needing_attention)
+                                setMessage(
+                                    """首次激活或更新后建议重启手机
+                            |绝大部分功能更改后需要在右上角重启作用域后生效
+                        """.trimMargin()
+                                )
+                                setRButton(R.string.Done) {
+                                    dismiss()
+                                }
+                                show()
+                            }
+                        })
                 )
             )
             add(TitleTextV(resId = R.string.ui))
@@ -110,10 +136,12 @@ class SettingsActivity : MIUIActivity() {
             )
             add(LineV())
             add(TitleTextV(resId = R.string.status_bar_clock_format))
-            add(TextWithSwitchV(
-                TextV(resId = R.string.custom_clock_switch),
-                SwitchV("custom_clock_switch")
-            ))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.custom_clock_switch, colorId = R.color.purple_700),
+                    SwitchV("custom_clock_switch")
+                )
+            )
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.status_bar_time_year),
@@ -147,7 +175,7 @@ class SettingsActivity : MIUIActivity() {
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.status_bar_time_period),
-                    SwitchV("status_bar_time_period",true)
+                    SwitchV("status_bar_time_period", true)
                 )
             )
             add(
@@ -168,6 +196,10 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("status_bar_time_double_line")
                 )
             )
+            add(TextV(resId = R.string.status_bar_clock_size))
+            add(SeekBarWithTextV("status_bar_clock_size", 0, 18, 0))
+            add(TextV(resId = R.string.status_bar_clock_double_line_size))
+            add(SeekBarWithTextV("status_bar_clock_double_line_size", 0, 8, 0))
             add(LineV())
             add(TitleTextV(resId = R.string.status_bar_icon))
             add(
@@ -268,12 +300,20 @@ class SettingsActivity : MIUIActivity() {
             add(TextWithSwitchV(TextV(resId = R.string.home_time), SwitchV("home_time")))
             add(LineV())
             add(TitleTextV(resId = R.string.performance))
-            add(TextWithSwitchV(TextV(resId = R.string.lock_max_fps), SwitchV("lock_max_fps")))
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(textId = R.string.lock_max_fps, tips = "支持添加下拉控制中心快速开关，实时切换"),
+                    SwitchV("lock_max_fps")
+                )
+            )
             add(LineV())
             add(TitleTextV(resId = R.string.other))
             add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.disable_flag_secure),
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.disable_flag_secure,
+                        tips = "支持添加下拉控制中心快速开关，保障安全"
+                    ),
                     SwitchV("disable_flag_secure")
                 )
             )
@@ -292,60 +332,70 @@ class SettingsActivity : MIUIActivity() {
             add(LineV())
             add(TitleTextV(resId = R.string.about))
             add(
-                TextSummaryV(
-                    textId = R.string.opensource,
-                    tipsId = R.string.github_url,
-                    onClickListener = {
-                        try {
-                            val uri =
-                                Uri.parse("https://github.com/LittleTurtle2333/Simplicity_Tools_Xposed")
-                            val intent = Intent(Intent.ACTION_VIEW, uri)
-                            startActivity(intent)
-                        } catch (e: Exception) {
-                            Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
-                        }
-                    })
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.opensource,
+                        tipsId = R.string.github_url,
+                        onClickListener = {
+                            try {
+                                val uri =
+                                    Uri.parse("https://github.com/LittleTurtle2333/Simplicity_Tools_Xposed")
+                                val intent = Intent(Intent.ACTION_VIEW, uri)
+                                startActivity(intent)
+                            } catch (e: Exception) {
+                                Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
+                            }
+                        })
+                )
             )
             add(
-                TextSummaryV(
-                    textId = R.string.issues,
-                    tipsId = R.string.issues_url,
-                    onClickListener = {
-                        try {
-                            val uri =
-                                Uri.parse("https://github.com/LittleTurtle2333/Simplicity_Tools_Xposed/issues")
-                            val intent = Intent(Intent.ACTION_VIEW, uri)
-                            startActivity(intent)
-                        } catch (e: Exception) {
-                            Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
-                        }
-                    })
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.issues,
+                        tipsId = R.string.issues_url,
+                        onClickListener = {
+                            try {
+                                val uri =
+                                    Uri.parse("https://github.com/LittleTurtle2333/Simplicity_Tools_Xposed/issues")
+                                val intent = Intent(Intent.ACTION_VIEW, uri)
+                                startActivity(intent)
+                            } catch (e: Exception) {
+                                Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
+                            }
+                        })
+                )
             )
             add(
-                TextSummaryV(
-                    textId = R.string.dev_coolapk,
-                    tipsId = R.string.dev_coolapk_name,
-                    onClickListener = {
-                        try {
-                            startActivity(
-                                Intent(
-                                    Intent.ACTION_VIEW,
-                                    Uri.parse("coolmarket://u/883441")
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.dev_coolapk,
+                        tipsId = R.string.dev_coolapk_name,
+                        onClickListener = {
+                            try {
+                                startActivity(
+                                    Intent(
+                                        Intent.ACTION_VIEW,
+                                        Uri.parse("coolmarket://u/883441")
+                                    )
                                 )
-                            )
-                            Toast.makeText(activity, "乌堆小透明：靓仔，点个关注吧！", Toast.LENGTH_SHORT).show()
-                        } catch (e: Exception) {
-                            Toast.makeText(activity, "本机未安装酷安应用", Toast.LENGTH_SHORT).show()
-                            val uri = Uri.parse("http://www.coolapk.com/u/883441")
-                            val intent = Intent(Intent.ACTION_VIEW, uri)
-                            startActivity(intent)
-                        }
-                    })
+                                Toast.makeText(activity, "乌堆小透明：靓仔，点个关注吧！", Toast.LENGTH_SHORT)
+                                    .show()
+                            } catch (e: Exception) {
+                                Toast.makeText(activity, "本机未安装酷安应用", Toast.LENGTH_SHORT).show()
+                                val uri = Uri.parse("http://www.coolapk.com/u/883441")
+                                val intent = Intent(Intent.ACTION_VIEW, uri)
+                                startActivity(intent)
+                            }
+                        })
+                )
             )
             add(
-                TextSummaryV(
-                    textId = R.string.verison,
-                    tips = "${BuildConfig.VERSION_NAME}(${BuildConfig.BUILD_TYPE})"
+
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.verison,
+                        tips = "${BuildConfig.VERSION_NAME}(${BuildConfig.BUILD_TYPE})"
+                    )
                 )
             )
         }
