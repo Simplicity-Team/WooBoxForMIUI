@@ -9,7 +9,8 @@ Xposed仓库下载：[点击此处下载最新发行版](https://github.com/Xpos
 
 酷安下载：[点击此处下载最新发行版](https://www.coolapk.com/apk/com.lt2333.simplicitytools)  
 
-![Stitch_20220218_215421](https://user-images.githubusercontent.com/32336368/154705959-253ff656-85a9-459f-8525-d3dfcd481f39.png)  
+![1645799092183](https://user-images.githubusercontent.com/32336368/155731592-304443db-ea15-4305-8dde-21f3303963bb.jpg)  
+![1645799092177](https://user-images.githubusercontent.com/32336368/155731610-66867463-03e3-4610-9639-3bf746938865.jpg)  
 
 ## License
 [GNU General Public License v3.0](LICENSE)
