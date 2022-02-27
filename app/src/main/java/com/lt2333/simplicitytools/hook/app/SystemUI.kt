@@ -49,6 +49,12 @@ class SystemUI : IXposedHookLoadPackage {
         StatusBarNetworkSpeedRefreshSpeed().handleLoadPackage(lpparam)
         //状态栏时钟自定义
         StatusBarTimeCustomization().handleLoadPackage(lpparam)
+
+        //TODO:状态栏天气
+        NotificationWeather().handleLoadPackage(lpparam)
+        //TODO：状态栏电流
+        //StatusBarCurrent().handleLoadPackage(lpparam)
+
     }
 
 }

@@ -56,6 +56,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     //API
     compileOnly("de.robv.android.xposed:api:82")
     //UI
