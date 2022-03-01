@@ -74,5 +74,10 @@
     <string name="matters_needing_attention">模块注意事项</string>
     <string name="Done">确定</string>
     <string name="about_module_summary">查看模块相关信息</string>
+    <string name="contributor_list">开源仓库贡献者名单</string>
+    <string name="developer">开发者</string>
+    <string name="thank_list">感谢名单</string>
+    <string name="third_party_open_source_statement">第三方开源声明</string>
+    <string name="corepacth">解除安装限制</string>
 
 </resources>

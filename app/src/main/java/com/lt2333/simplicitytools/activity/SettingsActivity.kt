@@ -347,84 +347,6 @@ class SettingsActivity : MIUIActivity() {
         return getString(R.string.menu)
     }
 
-    fun aboutItems(): ArrayList<BaseView> {
-        return ArrayList<BaseView>().apply {
-            add(AuthorV(authorHead = getDrawable(R.drawable.lt)!!,authorName = "乌堆小透明",authorTips = "开发者",onClick = {
-                try {
-                    startActivity(
-                        Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse("coolmarket://u/883441")
-                        )
-                    )
-                    Toast.makeText(activity, "乌堆小透明：靓仔，点个关注吧！", Toast.LENGTH_SHORT)
-                        .show()
-                } catch (e: Exception) {
-                    Toast.makeText(activity, "本机未安装酷安应用", Toast.LENGTH_SHORT).show()
-                    val uri = Uri.parse("http://www.coolapk.com/u/883441")
-                    val intent = Intent(Intent.ACTION_VIEW, uri)
-                    startActivity(intent)
-                }
-            }))
-            add(
-                TextSummaryArrowV(
-                    TextSummaryV(
-                        textId = R.string.opensource,
-                        tipsId = R.string.github_url,
-                        onClickListener = {
-                            try {
-                                val uri =
-                                    Uri.parse("https://github.com/LittleTurtle2333/Simplicity_Tools_Xposed")
-                                val intent = Intent(Intent.ACTION_VIEW, uri)
-                                startActivity(intent)
-                            } catch (e: Exception) {
-                                Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
-                            }
-                        })
-                )
-            )
-            add(
-                TextSummaryArrowV(
-                    TextSummaryV(
-                        textId = R.string.issues,
-                        tipsId = R.string.issues_url,
-                        onClickListener = {
-                            try {
-                                val uri =
-                                    Uri.parse("https://github.com/LittleTurtle2333/Simplicity_Tools_Xposed/issues")
-                                val intent = Intent(Intent.ACTION_VIEW, uri)
-                                startActivity(intent)
-                            } catch (e: Exception) {
-                                Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
-                            }
-                        })
-                )
-            )
-            add(
-                TextSummaryArrowV(
-                    TextSummaryV(
-                        textId = R.string.verison,
-                        tips = "${BuildConfig.VERSION_NAME}(${BuildConfig.BUILD_TYPE})",
-                        onClickListener = {
-                            try {
-                                val uri =
-                                    Uri.parse("https://github.com/Xposed-Modules-Repo/com.lt2333.simplicitytools/releases")
-                                val intent = Intent(Intent.ACTION_VIEW, uri)
-                                startActivity(intent)
-                            } catch (e: Exception) {
-                                Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
-                            }
-                        }
-                    )
-                )
-            )
-        }
-    }
-
-    fun aboutName(): String {
-        return getString(R.string.about_module)
-    }
-
     override fun menuItems(): ArrayList<BaseView> {
         return ArrayList<BaseView>().apply {
             add(
@@ -472,6 +394,128 @@ class SettingsActivity : MIUIActivity() {
                 )
             )
 
+        }
+    }
+
+    fun aboutName(): String {
+        return getString(R.string.about_module)
+    }
+
+    fun aboutItems(): ArrayList<BaseView> {
+        return ArrayList<BaseView>().apply {
+            add(
+                AuthorV(
+                    authorHead = getDrawable(R.drawable.lt)!!,
+                    authorName = "乌堆小透明",
+                    authorTips = "开发者",
+                    onClick = {
+                        try {
+                            startActivity(
+                                Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse("coolmarket://u/883441")
+                                )
+                            )
+                            Toast.makeText(activity, "乌堆小透明：靓仔，点个关注吧！", Toast.LENGTH_SHORT)
+                                .show()
+                        } catch (e: Exception) {
+                            Toast.makeText(activity, "本机未安装酷安应用", Toast.LENGTH_SHORT).show()
+                            val uri = Uri.parse("http://www.coolapk.com/u/883441")
+                            val intent = Intent(Intent.ACTION_VIEW, uri)
+                            startActivity(intent)
+                        }
+                    })
+            )
+            add(
+                TitleTextV(text = getString(R.string.thank_list))
+            )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.contributor_list,
+                        onClickListener = {
+                            try {
+                                val uri =
+                                    Uri.parse("https://github.com/LittleTurtle2333/SimplicityTools/graphs/contributors")
+                                val intent = Intent(Intent.ACTION_VIEW, uri)
+                                startActivity(intent)
+                            } catch (e: Exception) {
+                                Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
+                            }
+                        })
+                )
+            )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.third_party_open_source_statement,
+                        onClickListener = {
+                            try {
+                                val uri =
+                                    Uri.parse("https://github.com/LittleTurtle2333/SimplicityTools/tree/main/doc/ThirdPartyOpenSourceStatement.md")
+                                val intent = Intent(Intent.ACTION_VIEW, uri)
+                                startActivity(intent)
+                            } catch (e: Exception) {
+                                Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
+                            }
+                        })
+                )
+            )
+            add(
+                TitleTextV(text = getString(R.string.other))
+            )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.opensource,
+                        tipsId = R.string.github_url,
+                        onClickListener = {
+                            try {
+                                val uri =
+                                    Uri.parse("https://github.com/LittleTurtle2333/SimplicityTools")
+                                val intent = Intent(Intent.ACTION_VIEW, uri)
+                                startActivity(intent)
+                            } catch (e: Exception) {
+                                Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
+                            }
+                        })
+                )
+            )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.issues,
+                        tipsId = R.string.issues_url,
+                        onClickListener = {
+                            try {
+                                val uri =
+                                    Uri.parse("https://github.com/LittleTurtle2333/SimplicityTools/issues")
+                                val intent = Intent(Intent.ACTION_VIEW, uri)
+                                startActivity(intent)
+                            } catch (e: Exception) {
+                                Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
+                            }
+                        })
+                )
+            )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.verison,
+                        tips = "${BuildConfig.VERSION_NAME}(${BuildConfig.BUILD_TYPE})",
+                        onClickListener = {
+                            try {
+                                val uri =
+                                    Uri.parse("https://github.com/Xposed-Modules-Repo/com.lt2333.simplicitytools/releases")
+                                val intent = Intent(Intent.ACTION_VIEW, uri)
+                                startActivity(intent)
+                            } catch (e: Exception) {
+                                Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    )
+                )
+            )
         }
     }
 
