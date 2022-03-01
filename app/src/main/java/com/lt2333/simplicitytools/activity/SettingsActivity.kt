@@ -318,6 +318,14 @@ class SettingsActivity : MIUIActivity() {
                 )
             )
             add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.corepacth
+                    ),
+                    SwitchV("corepatch")
+                )
+            )
+            add(
                 TextWithSwitchV(
                     TextV(resId = R.string.skip_waiting_time),
                     SwitchV("skip_waiting_time")
