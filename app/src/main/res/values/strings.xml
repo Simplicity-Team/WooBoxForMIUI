@@ -80,5 +80,9 @@
     <string name="third_party_open_source_statement">第三方开源声明</string>
     <string name="corepacth">解除安装限制</string>
     <string name="corepacth_summary">支持降级/不同签名/无签名安装</string>
+    <string name="prevent_recovery_of_battery_optimization_white_list">防止恢复电池优化白名单</string>
+    <string name="failed_after_restart">系统重启后仍会还原</string>
+    <string name="battery_optimization">电池优化</string>
+    <string name="battery_optimization_summary">快速打开被MIUI隐藏的电池优化功能</string>
 
 </resources>

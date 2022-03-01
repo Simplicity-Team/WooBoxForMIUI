@@ -338,6 +338,35 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("unlock_unlimited_cropping")
                 )
             )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.prevent_recovery_of_battery_optimization_white_list,
+                        tipsId = R.string.failed_after_restart
+                    ),
+                    SwitchV("prevent_recovery_of_battery_optimization_white_list")
+                )
+            )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.battery_optimization,
+                        tipsId = R.string.battery_optimization_summary,
+                        onClickListener = {
+                            try {
+                                val intent = Intent()
+                                val comp = ComponentName(
+                                    "com.android.settings",
+                                    "com.android.settings.Settings\$HighPowerApplicationsActivity"
+                                )
+                                intent.component = comp
+                                startActivity(intent)
+                            } catch (e: Exception) {
+                                Toast.makeText(activity, "启动失败，可能是不支持", Toast.LENGTH_LONG).show()
+                            }
+                        })
+                )
+            )
             add(LineV())
             add(TitleTextV(resId = R.string.about))
             add(
