@@ -320,7 +320,8 @@ class SettingsActivity : MIUIActivity() {
             add(
                 TextSummaryWithSwitchV(
                     TextSummaryV(
-                        textId = R.string.corepacth
+                        textId = R.string.corepacth,
+                        tipsId = R.string.corepacth_summary
                     ),
                     SwitchV("corepatch")
                 )
