@@ -84,5 +84,6 @@
     <string name="failed_after_restart">系统重启后仍会还原</string>
     <string name="battery_optimization">电池优化</string>
     <string name="battery_optimization_summary">快速打开被MIUI隐藏的电池优化功能</string>
+    <string name="remove_small_window_restrictions">解除不支持小窗应用限制</string>
 
 </resources>

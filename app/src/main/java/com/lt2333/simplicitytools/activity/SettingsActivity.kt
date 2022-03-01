@@ -339,6 +339,12 @@ class SettingsActivity : MIUIActivity() {
                 )
             )
             add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.remove_small_window_restrictions),
+                    SwitchV("remove_small_window_restrictions")
+                )
+            )
+            add(
                 TextSummaryWithSwitchV(
                     TextSummaryV(
                         textId = R.string.prevent_recovery_of_battery_optimization_white_list,
