@@ -79,6 +79,6 @@
     <string name="thank_list">感谢名单</string>
     <string name="third_party_open_source_statement">第三方开源声明</string>
     <string name="corepacth">解除安装限制</string>
-    <string name="corepacth_summary">支持降级安装/不同签名/无签名</string>
+    <string name="corepacth_summary">支持降级/不同签名/无签名安装</string>
 
 </resources>
