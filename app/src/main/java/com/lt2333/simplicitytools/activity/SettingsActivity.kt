@@ -334,6 +334,41 @@ class SettingsActivity : MIUIActivity() {
             add(
                 TextSummaryArrowV(
                     TextSummaryV(
+                        textId = R.string.about_module,
+                        tips = getString(R.string.about_module_summary),
+                        onClickListener = { showFragment(getString(R.string.about_module)) }
+                    )
+                )
+            )
+        }
+    }
+
+    override fun menuName(): String {
+        return getString(R.string.menu)
+    }
+
+    fun aboutItems(): ArrayList<BaseView> {
+        return ArrayList<BaseView>().apply {
+            add(AuthorV(authorHead = getDrawable(R.drawable.lt)!!,authorName = "乌堆小透明",authorTips = "开发者",onClick = {
+                try {
+                    startActivity(
+                        Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse("coolmarket://u/883441")
+                        )
+                    )
+                    Toast.makeText(activity, "乌堆小透明：靓仔，点个关注吧！", Toast.LENGTH_SHORT)
+                        .show()
+                } catch (e: Exception) {
+                    Toast.makeText(activity, "本机未安装酷安应用", Toast.LENGTH_SHORT).show()
+                    val uri = Uri.parse("http://www.coolapk.com/u/883441")
+                    val intent = Intent(Intent.ACTION_VIEW, uri)
+                    startActivity(intent)
+                }
+            }))
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
                         textId = R.string.opensource,
                         tipsId = R.string.github_url,
                         onClickListener = {
@@ -368,41 +403,26 @@ class SettingsActivity : MIUIActivity() {
             add(
                 TextSummaryArrowV(
                     TextSummaryV(
-                        textId = R.string.dev_coolapk,
-                        tipsId = R.string.dev_coolapk_name,
+                        textId = R.string.verison,
+                        tips = "${BuildConfig.VERSION_NAME}(${BuildConfig.BUILD_TYPE})",
                         onClickListener = {
                             try {
-                                startActivity(
-                                    Intent(
-                                        Intent.ACTION_VIEW,
-                                        Uri.parse("coolmarket://u/883441")
-                                    )
-                                )
-                                Toast.makeText(activity, "乌堆小透明：靓仔，点个关注吧！", Toast.LENGTH_SHORT)
-                                    .show()
-                            } catch (e: Exception) {
-                                Toast.makeText(activity, "本机未安装酷安应用", Toast.LENGTH_SHORT).show()
-                                val uri = Uri.parse("http://www.coolapk.com/u/883441")
+                                val uri =
+                                    Uri.parse("https://github.com/Xposed-Modules-Repo/com.lt2333.simplicitytools/releases")
                                 val intent = Intent(Intent.ACTION_VIEW, uri)
                                 startActivity(intent)
+                            } catch (e: Exception) {
+                                Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
                             }
-                        })
-                )
-            )
-            add(
-
-                TextSummaryArrowV(
-                    TextSummaryV(
-                        textId = R.string.verison,
-                        tips = "${BuildConfig.VERSION_NAME}(${BuildConfig.BUILD_TYPE})"
+                        }
                     )
                 )
             )
         }
     }
 
-    override fun menuName(): String {
-        return getString(R.string.menu)
+    fun aboutName(): String {
+        return getString(R.string.about_module)
     }
 
     override fun menuItems(): ArrayList<BaseView> {
@@ -457,6 +477,7 @@ class SettingsActivity : MIUIActivity() {
 
     override fun getItems(item: String): ArrayList<BaseView> {
         return when (item) {
+            aboutName() -> aboutItems()
             /** 必须写这两个 不然会出错 */
             menuName() -> menuItems()
             else -> mainItems()
