@@ -1,4 +1,4 @@
-# Simplicity Tools Xposed
+# Simplicity Tools
 一个基于 MIUI13（Android12）适配的系统拓展Xposed模块  
 仅支持MIUI13（Android12）。其余版本可能无效，请不要安装使用。  
 目前处于开发初期阶段，功能较少，后续将逐步完善。
