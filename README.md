@@ -1,10 +1,10 @@
 <div align="center">
-   <img width="160" src="doc/ic_launcher.png" alt="logo">
+   <img width="160" src="https://raw.githubusercontent.com/LittleTurtle2333/SimplicityTools/main/doc/ic_launcher.png" alt="logo">
    <h1>Simplicity Tools</h1>
    <a href="https://github.com/Xposed-Modules-Repo/com.lt2333.simplicitytools/releases"><img alt="GitHub all releases" src="https://img.shields.io/github/downloads/Xposed-Modules-Repo/com.lt2333.simplicitytools/total?label=Downloads"></a>
-    <a href="https://github.com/LittleTurtle2333/SimplicityTools/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LittleTurtle2333/SimplicityTools"></a>
-    <a href="https://github.com/LittleTurtle2333/SimplicityTools/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/LittleTurtle2333/SimplicityTools"></a>
-    <a href="https://github.com/LittleTurtle2333/SimplicityTools/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/LittleTurtle2333/SimplicityTools"></a>
+   <a href="https://github.com/LittleTurtle2333/SimplicityTools/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LittleTurtle2333/SimplicityTools"></a>
+   <a href="https://github.com/LittleTurtle2333/SimplicityTools/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/LittleTurtle2333/SimplicityTools"></a>
+   <a href="https://github.com/LittleTurtle2333/SimplicityTools/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/LittleTurtle2333/SimplicityTools"></a>
    <p>一个基于 MIUI13（Android12）适配的系统拓展Xposed模块</p>
 </div>
 
@@ -87,4 +87,4 @@ CorePatch  - LSPosed
 https://github.com/LSPosed/CorePatch
 
 ## License
-[GNU General Public License v3.0](LICENSE)
+[GNU General Public License v3.0](https://github.com/LittleTurtle2333/SimplicityTools/blob/main/LICENSE)
