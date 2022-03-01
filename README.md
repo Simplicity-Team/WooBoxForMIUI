@@ -1,16 +1,24 @@
-# Simplicity Tools
-一个基于 MIUI13（Android12）适配的系统拓展Xposed模块  
+<div align="center">
+   <img width="160" src="doc/ic_launcher.png" alt="logo">
+   <h1>Simplicity Tools</h1>
+   <a href="https://github.com/Xposed-Modules-Repo/com.lt2333.simplicitytools/releases"><img alt="GitHub all releases" src="https://img.shields.io/github/downloads/Xposed-Modules-Repo/com.lt2333.simplicitytools/total?label=Downloads"></a>
+    <a href="https://github.com/LittleTurtle2333/SimplicityTools/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LittleTurtle2333/SimplicityTools"></a>
+    <a href="https://github.com/LittleTurtle2333/SimplicityTools/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/LittleTurtle2333/SimplicityTools"></a>
+    <a href="https://github.com/LittleTurtle2333/SimplicityTools/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/LittleTurtle2333/SimplicityTools"></a>
+   <p>一个基于 MIUI13（Android12）适配的系统拓展Xposed模块</p>
+</div>
+
+
+### 模块说明
+
 仅支持MIUI13（Android12）。其余版本可能无效，请不要安装使用。  
 目前处于开发初期阶段，功能较少，后续将逐步完善。  
 
 开发者：[酷安@乌堆小透明](http://www.coolapk.com/u/883441)  
 
-Xposed仓库下载：[点击此处下载最新发行版](https://github.com/Xposed-Modules-Repo/com.lt2333.simplicitytools/releases)  
-
-酷安下载：[点击此处下载最新发行版](https://www.coolapk.com/apk/com.lt2333.simplicitytools)  
-
 ### 已实现功能
 <details>
+<summary>点击展开详情</summary>
 
 - 界面
 	- 移除上层显示通知
@@ -66,7 +74,14 @@ Xposed仓库下载：[点击此处下载最新发行版](https://github.com/Xpos
 ![1645799092183](https://user-images.githubusercontent.com/32336368/155731592-304443db-ea15-4305-8dde-21f3303963bb.jpg)  
 ![1645799092177](https://user-images.githubusercontent.com/32336368/155731610-66867463-03e3-4610-9639-3bf746938865.jpg)  
 
-## 第三方开源引用声明
+### 下载地址
+
+Xposed仓库下载：[点击此处下载最新发行版](https://github.com/Xposed-Modules-Repo/com.lt2333.simplicitytools/releases)  
+
+酷安下载：[点击此处下载最新发行版](https://www.coolapk.com/apk/com.lt2333.simplicitytools)  
+
+## 第三方开源引用
+
 ##### GNU General Public License v2.0 ：
 CorePatch  - LSPosed  
 https://github.com/LSPosed/CorePatch
