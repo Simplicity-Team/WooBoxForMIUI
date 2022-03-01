@@ -34,41 +34,51 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
                 Integer.TYPE,
                 object : XC_MethodHook() {
                     override fun afterHookedMethod(param: MethodHookParam) {
-                        c = param.args[0] as Context
-                        val textV = param.thisObject as TextView
-                        textV.isSingleLine = false
+                        try {
+                            c = param.args[0] as Context
+                            val textV = param.thisObject as TextView
+                            textV.isSingleLine = false
 
-                        if (XSPUtils.getBoolean("status_bar_time_double_line", false)) {
-                            str = "\n"
-                            var clock_double_line_size = 7F
-                            if (XSPUtils.getInt("status_bar_clock_double_line_size",0) != 0 ){
-                                clock_double_line_size = XSPUtils.getInt("status_bar_clock_double_line_size",0).toFloat()
+                            if (XSPUtils.getBoolean("status_bar_time_double_line", false)) {
+                                str = "\n"
+                                var clock_double_line_size = 7F
+                                if (XSPUtils.getInt("status_bar_clock_double_line_size", 0) != 0) {
+                                    clock_double_line_size =
+                                        XSPUtils.getInt("status_bar_clock_double_line_size", 0)
+                                            .toFloat()
+                                }
+                                textV.setTextSize(
+                                    TypedValue.COMPLEX_UNIT_DIP,
+                                    clock_double_line_size
+                                )
+                            } else {
+                                if (XSPUtils.getInt("status_bar_clock_size", 0) != 0) {
+                                    val clock_size =
+                                        XSPUtils.getInt("status_bar_clock_size", 0).toFloat()
+                                    textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, clock_size)
+                                }
                             }
-                            textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP,clock_double_line_size)
-                        } else {
-                            if (XSPUtils.getInt("status_bar_clock_size",0) != 0 ){
-                                val clock_size = XSPUtils.getInt("status_bar_clock_size",0).toFloat()
-                                textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP,clock_size)
-                            }
-                        }
 
-                        val d: Method = textV.javaClass.getDeclaredMethod("updateTime")
-                        val r = Runnable {
-                            d.isAccessible = true
-                            d.invoke(textV)
-                        }
-
-                        class T : TimerTask() {
-                            override fun run() {
-                                Handler(textV.context.mainLooper).post(r)
+                            val d: Method = textV.javaClass.getDeclaredMethod("updateTime")
+                            val r = Runnable {
+                                d.isAccessible = true
+                                d.invoke(textV)
                             }
+
+                            class T : TimerTask() {
+                                override fun run() {
+                                    Handler(textV.context.mainLooper).post(r)
+                                }
+                            }
+                            if (textV.resources.getResourceEntryName(textV.id) == "clock")
+                                Timer().scheduleAtFixedRate(
+                                    T(),
+                                    1000 - System.currentTimeMillis() % 1000,
+                                    1000
+                                )
+
+                        } catch (e: java.lang.Exception) {
                         }
-                        if (textV.resources.getResourceEntryName(textV.id) == "clock")
-                            Timer().scheduleAtFixedRate(
-                                T(),
-                                1000 - System.currentTimeMillis() % 1000,
-                                1000
-                            )
                     }
                 }
             )
@@ -76,18 +86,22 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
                 object : XC_MethodHook() {
                     @SuppressLint("SetTextI18n", "SimpleDateFormat")
                     override fun afterHookedMethod(param: MethodHookParam) {
-                        val textV = param.thisObject as TextView
-                        if (textV.resources.getResourceEntryName(textV.id) == "clock") {
-                            val t = Settings.System.getString(
-                                c!!.contentResolver,
-                                Settings.System.TIME_12_24
-                            )
-                            now_time = Calendar.getInstance().time
+                        try {
+                            val textV = param.thisObject as TextView
+                            if (textV.resources.getResourceEntryName(textV.id) == "clock") {
+                                val t = Settings.System.getString(
+                                    c!!.contentResolver,
+                                    Settings.System.TIME_12_24
+                                )
+                                now_time = Calendar.getInstance().time
 
-                            textV.text =
-                                getYear() + getMonth() + getDay() + getDateSpace() + getWeek() + str + getDoubleHour() + getTime(
-                                    t
-                                ) + getSecond()
+                                textV.text =
+                                    getYear() + getMonth() + getDay() + getDateSpace() + getWeek() + str + getDoubleHour() + getTime(
+                                        t
+                                    ) + getSecond()
+                            }
+
+                        } catch (e: Exception) {
                         }
                     }
                 })
