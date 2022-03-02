@@ -85,5 +85,10 @@
     <string name="battery_optimization">电池优化</string>
     <string name="battery_optimization_summary">快速打开被MIUI隐藏的电池优化功能</string>
     <string name="remove_small_window_restrictions">解除不支持小窗应用限制</string>
-
+    <string name="app_coolapk_url">来酷安给我们五星好评</string>
+    <string name="app_coolapk_url_summary">这可以使我们被更多的人发现</string>
+    <string name="qq_channel">加入 官方QQ频道</string>
+    <string name="tg_channel">加入 官方TG频道</string>
+    <string name="tg_channel_summary">可在频道资料页进入交流群</string>
+    <string name="discussions">讨论</string>
 </resources>
