@@ -12,8 +12,8 @@ android {
         applicationId = "com.lt2333.simplicitytools"
         minSdk = 31
         targetSdk = 32
-        versionCode = 23
-        versionName = "1.2.2"
+        versionCode = 24
+        versionName = "1.2.3"
     }
 
     buildTypes {
@@ -56,7 +56,7 @@ android {
 }
 
 dependencies {
-    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
+//    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     //API
     compileOnly("de.robv.android.xposed:api:82")
     //UI
