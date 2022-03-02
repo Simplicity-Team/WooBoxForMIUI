@@ -92,4 +92,5 @@
     <string name="tg_channel_summary">可在频道资料页进入交流群</string>
     <string name="discussions">讨论</string>
     <string name="remove_small_window_restrictions_summary">部分应用可能不支持手势进入小窗\n仅支持在后台任务界面长按进入</string>
+    <string name="remove_the_left_side_of_the_lock_screen">移除锁屏负一屏功能</string>
 </resources>
