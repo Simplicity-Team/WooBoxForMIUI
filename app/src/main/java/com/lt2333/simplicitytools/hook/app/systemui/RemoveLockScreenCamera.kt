@@ -50,6 +50,16 @@ class RemoveLockScreenCamera : IXposedHookLoadPackage {
                     }
                 }
             })
+        XposedHelpers.findAndHookMethod(
+            classIfExists2,
+            "reset",
+            object : XC_MethodHook() {
+                override fun beforeHookedMethod(param: MethodHookParam) {
+                    if (XSPUtils.getBoolean("remove_lock_screen_camera", false)) {
+                        param.result = null
+                    }
+                }
+            })
     }
 }
 
