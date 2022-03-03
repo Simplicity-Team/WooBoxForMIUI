@@ -95,4 +95,5 @@
     <string name="remove_the_left_side_of_the_lock_screen">移除锁屏负一屏功能</string>
     <string name="remove_lock_screen_camera">移除锁屏相机功能</string>
     <string name="only_official_default_themes_are_supported">仅支持官方默认主题</string>
+    <string name="lock_one_hundred">手机管家锁定100分</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.lt2333.simplicitytools.hook.app
 
+import com.lt2333.simplicitytools.hook.app.securitycenter.LockOneHundred
 import com.lt2333.simplicitytools.hook.app.securitycenter.SkipWaitingTime
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XposedBridge
@@ -10,6 +11,7 @@ class SecurityCenter : IXposedHookLoadPackage {
         XposedBridge.log("成功Hook: " + javaClass.simpleName)
         //跳过 5/10秒等待时间
         SkipWaitingTime().handleLoadPackage(lpparam)
+        LockOneHundred().handleLoadPackage(lpparam)
 
     }
 }
