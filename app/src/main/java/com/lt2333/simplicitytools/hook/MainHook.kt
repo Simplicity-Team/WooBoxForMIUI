@@ -7,13 +7,9 @@ import de.robv.android.xposed.XSharedPreferences
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 
 class MainHook : IXposedHookLoadPackage {
-
     var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
-
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
-
         if (prefs.getBoolean("main_switch", true)) {
-
             when (lpparam.packageName) {
                 //Andorid
                 "android" -> {
@@ -32,16 +28,14 @@ class MainHook : IXposedHookLoadPackage {
                     MiuiHome().handleLoadPackage(lpparam)
                 }
                 //手机管家
-                "com.miui.securitycenter"->{
+                "com.miui.securitycenter" -> {
                     SecurityCenter().handleLoadPackage(lpparam)
                 }
                 //相册编辑
-                "com.miui.mediaeditor"->{
+                "com.miui.mediaeditor" -> {
                     MediaEditor().handleLoadPackage(lpparam)
                 }
             }
-
         }
-
     }
 }
