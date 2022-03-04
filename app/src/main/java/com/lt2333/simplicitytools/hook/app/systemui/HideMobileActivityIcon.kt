@@ -24,12 +24,12 @@ class HideMobileActivityIcon : IXposedHookLoadPackage {
                         (XposedHelpers.getObjectField(
                             param.thisObject,
                             "mLeftInOut"
-                        ) as ImageView).visibility = View.INVISIBLE
+                        ) as ImageView).visibility = View.GONE
 
                         (XposedHelpers.getObjectField(
                             param.thisObject,
                             "mRightInOut"
-                        ) as ImageView).visibility = View.INVISIBLE
+                        ) as ImageView).visibility = View.GONE
                     }
                 }
             })
@@ -44,12 +44,12 @@ class HideMobileActivityIcon : IXposedHookLoadPackage {
                         (XposedHelpers.getObjectField(
                             param.thisObject,
                             "mLeftInOut"
-                        ) as ImageView).visibility = View.INVISIBLE
+                        ) as ImageView).visibility = View.GONE
 
                         (XposedHelpers.getObjectField(
                             param.thisObject,
                             "mRightInOut"
-                        ) as ImageView).visibility = View.INVISIBLE
+                        ) as ImageView).visibility = View.GONE
                     }
                 }
             })
