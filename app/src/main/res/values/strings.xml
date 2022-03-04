@@ -117,4 +117,5 @@
     <string name="unlock_unlimited_cropping_summary">无视MIUI对图片裁切的最小限制</string>
     <string name="hide_wifi_activity_icon">隐藏 WIFI箭头 图标</string>
     <string name="hide_mobile_activity_icon">隐藏 移动箭头 图标</string>
+    <string name="hide_mobile_type_icon">隐藏 移动类型 图标</string>
 </resources>
