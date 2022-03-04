@@ -33,6 +33,8 @@ class SystemUI : IXposedHookLoadPackage {
         HideNoSimIcon().handleLoadPackage(lpparam)
         //隐藏SIM卡图标
         HideSimIcon().handleLoadPackage(lpparam)
+        //隐藏流量活动图标
+        HideMobileActivityIcon().handleLoadPackage(lpparam)
         //隐藏辅助WIFI图标
         HideSlaveWifiIcon().handleLoadPackage(lpparam)
         //隐藏状态栏网速/s

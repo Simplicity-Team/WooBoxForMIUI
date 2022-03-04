@@ -116,4 +116,5 @@
     <string name="lock_one_hundred_summary">锁定手机管家100分并屏蔽修复按钮</string>
     <string name="unlock_unlimited_cropping_summary">无视MIUI对图片裁切的最小限制</string>
     <string name="hide_wifi_activity_icon">隐藏 WIFI箭头 图标</string>
+    <string name="hide_mobile_activity_icon">隐藏 移动箭头 图标</string>
 </resources>
