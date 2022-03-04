@@ -53,7 +53,7 @@
     <string name="Tips">提示</string>
     <string name="skip_waiting_time">跳过 5/10 秒警告时间</string>
     <string name="unlock_unlimited_cropping">解锁无限裁切图片/截图</string>
-    <string name="hide_slave_wifi_icon">隐藏 辅助WIFI 图标</string>
+    <string name="hide_slave_wifi_icon">隐藏 WIFI辅助 图标</string>
     <string name="HideLauncherIcon">隐藏桌面图标</string>
     <string name="hide_battery_percentage_icon">隐藏电量（%）</string>
     <string name="hide_battery_icon">隐藏 电池 图标</string>
@@ -115,4 +115,5 @@
     <string name="skip_waiting_time_summary">开启后可忽略MIUI在开启USB调试、\n未知来源、无障碍时的冻结时间</string>
     <string name="lock_one_hundred_summary">锁定手机管家100分并屏蔽修复按钮</string>
     <string name="unlock_unlimited_cropping_summary">无视MIUI对图片裁切的最小限制</string>
+    <string name="hide_wifi_activity_icon">隐藏 WIFI箭头 图标</string>
 </resources>

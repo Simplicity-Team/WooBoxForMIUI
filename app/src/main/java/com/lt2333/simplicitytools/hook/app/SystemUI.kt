@@ -43,6 +43,8 @@ class SystemUI : IXposedHookLoadPackage {
         HideVpnIcon().handleLoadPackage(lpparam)
         //隐藏WIFI图标
         HideWifiIcon().handleLoadPackage(lpparam)
+        //隐藏WIFI活动箭头图标
+        HideWifiActivityIcon().handleLoadPackage(lpparam)
         //移除通知图标上限
         RemoveTheMaximumNumberOfNotificationIcons().handleLoadPackage(lpparam)
         //状态栏网速秒刷新
