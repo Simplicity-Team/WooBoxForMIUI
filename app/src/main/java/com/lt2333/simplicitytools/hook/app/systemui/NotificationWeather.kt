@@ -2,6 +2,7 @@ package com.lt2333.simplicitytools.hook.app.systemui
 
 import android.database.Cursor
 import android.net.Uri
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.lt2333.simplicitytools.util.XSPUtils
@@ -14,6 +15,8 @@ import java.util.*
 class NotificationWeather : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
 
+        var mWeatherView: TextView? = null
+
         if (!XSPUtils.getBoolean("notification_weather", false)) return
 
         var display_city = XSPUtils.getBoolean("notification_weather_city", false)
@@ -22,6 +25,7 @@ class NotificationWeather : IXposedHookLoadPackage {
             "com.android.systemui.qs.MiuiNotificationHeaderView",
             lpparam.classLoader
         )
+
         XposedHelpers.findAndHookMethod(classIfExists, "onFinishInflate", object : XC_MethodHook() {
             override fun afterHookedMethod(param: MethodHookParam) {
                 val viewGroup = param.thisObject as ViewGroup
@@ -62,7 +66,7 @@ class NotificationWeather : IXposedHookLoadPackage {
                     )
                 )
 
-                val textView = TextView(viewGroup.context).also {
+                mWeatherView = TextView(viewGroup.context).also {
                     it.setTextAppearance(
                         viewGroup.context.resources.getIdentifier(
                             "TextAppearance.QSControl.Date",
@@ -73,7 +77,7 @@ class NotificationWeather : IXposedHookLoadPackage {
                     it.layoutParams = layout
                 }
 
-                viewGroup.addView(textView)
+                viewGroup.addView(mWeatherView)
 
                 val query: Cursor? = viewGroup.context.contentResolver
                     .query(Uri.parse("content://weather/weather"), null, null, null, null)
@@ -98,7 +102,7 @@ class NotificationWeather : IXposedHookLoadPackage {
                                 }
                                 query.close()
                             }
-                            textView.text = str
+                            mWeatherView!!.text = str
                         } catch (e: Exception) {
                         }
                     }
@@ -110,6 +114,19 @@ class NotificationWeather : IXposedHookLoadPackage {
                     3600000
                 )
 
+            }
+        })
+        //解决横屏重叠
+        XposedHelpers.findAndHookMethod(classIfExists, "updateLayout", object : XC_MethodHook() {
+            override fun afterHookedMethod(param: MethodHookParam) {
+                super.afterHookedMethod(param)
+                val mOrientation =
+                    XposedHelpers.getObjectField(param.thisObject, "mOrientation") as Int
+                if (mOrientation == 1) {
+                    mWeatherView!!.visibility = View.VISIBLE
+                } else {
+                    mWeatherView!!.visibility = View.GONE
+                }
             }
         })
     }
