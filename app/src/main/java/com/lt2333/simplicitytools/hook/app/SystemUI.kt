@@ -59,9 +59,10 @@ class SystemUI : IXposedHookLoadPackage {
         RemoveTheLeftSideOfTheLockScreen().handleLoadPackage(lpparam)
         //移除锁屏相机功能
         RemoveLockScreenCamera().handleLoadPackage(lpparam)
-
-        //TODO:状态栏天气
+        //通知面板天气
         NotificationWeather().handleLoadPackage(lpparam)
+        //控制中心天气
+        ControlCenterWeather().handleLoadPackage(lpparam)
         //TODO：状态栏电流
         //StatusBarCurrent().handleLoadPackage(lpparam)
     }

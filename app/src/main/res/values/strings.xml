@@ -50,7 +50,7 @@
     <string name="hide_gps_icon">Hide GPS icon</string>
     <string name="hide_status_bar_network_speed_second">Hide network speed (/s) units</string>
     <string name="menu">Menu</string>
-    <string name="Tips">Tips</string> 
+    <string name="Tips">Tips</string>
     <string name="skip_waiting_time">Skip 5/10 second warning time</string>
     <string name="unlock_unlimited_cropping">Unlock unlimited cropping pictures/screenshots</string>
     <string name="hide_slave_wifi_icon">Hide WIFI secondary icon</string>
@@ -64,7 +64,7 @@
     <string name="status_bar_time_week">Display week</string>
     <string name="status_bar_time_hide_space">Hide interval</string>
     <string name="allow_screenshots">Allow screenshots</string>
-    <string name="lock_max">Lock current limit</string> 
+    <string name="lock_max">Lock current limit</string>
     <string name="status_bar_time_double_hour">Display hour</string>
     <string name="custom_clock_switch">Custom Clock Switch</string>
     <string name="status_bar_time_period">Display period</string>
@@ -79,7 +79,7 @@
     <string name="thank_list">Thanks list</string>
     <string name="third_party_open_source_statement">Third Party Open Source Statement</string>
     <string name="corepacth">Remove restrictions</string>
-    <string name="corepacth_summary">Supports downgrade/Different signature/Unsigned installation</string> 
+    <string name="corepacth_summary">Supports downgrade/Different signature/Unsigned installation</string>
     <string name="prevent_recovery_of_battery_optimization_white_list">Prevent recovery of battery optimization whitelist</string>
     <string name="failed_after_restart">It will be restored after system restart</string>
     <string name="battery_optimization">Battery optimization</string>
@@ -96,7 +96,7 @@
     <string name="remove_lock_screen_camera">Remove the lock screen camera function</string>
     <string name="only_official_default_themes_are_supported">Only official default themes are supported</string>
     <string name="lock_one_hundred">SecurityCenter Lock 100 points</string>
-    <string name="scope">scope</string> 
+    <string name="scope">scope</string>
     <string name="scope_android">System Framework</string>
     <string name="scope_systemui">SystemUI</string>
     <string name="scope_miuihome">Home screen</string>
@@ -118,9 +118,11 @@
     <string name="hide_wifi_activity_icon">Hide WIFI activity icon</string>
     <string name="hide_mobile_activity_icon">Hide mobile activity icon</string>
     <string name="hide_mobile_type_icon">Hide mobile type icon</string>
-    <string name="notification_weather">Show Weather - Master Switch</string>
+    <string name="show_weather_main_switch">Show Weather - Main Switch</string>
     <string name="lock_screen">Lock screen</string>
     <string name="notification_center">Notification Center</string>
-    <string name="notification_weather_city">Show the city</string>
+    <string name="show_city">Show the city</string>
     <string name="lock_max_fps_summary">Support adding drop-down control center quick switch, real-time switching</string>
+    <string name="control_center">Control Center</string>
+    <string name="control_center_weather_summary">The Mi Smart Hub version is not currently supported</string>
 </resources>

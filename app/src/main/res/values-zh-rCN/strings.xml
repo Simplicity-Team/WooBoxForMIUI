@@ -118,9 +118,11 @@
     <string name="hide_wifi_activity_icon">隐藏 WIFI箭头 图标</string>
     <string name="hide_mobile_activity_icon">隐藏 移动箭头 图标</string>
     <string name="hide_mobile_type_icon">隐藏 移动类型 图标</string>
-    <string name="notification_weather">显示天气-总开关</string>
     <string name="lock_screen">锁屏</string>
     <string name="notification_center">通知中心</string>
-    <string name="notification_weather_city">显示城市</string>
     <string name="lock_max_fps_summary">支持添加下拉控制中心快速开关，实时切换</string>
+    <string name="show_city">显示城市</string>
+    <string name="control_center">控制中心</string>
+    <string name="show_weather_main_switch">显示天气-总开关</string>
+    <string name="control_center_weather_summary">暂不支持妙想版控制中心</string>
 </resources>
