@@ -122,4 +122,5 @@
     <string name="lock_screen">锁屏</string>
     <string name="notification_center">通知中心</string>
     <string name="notification_weather_city">显示城市</string>
+    <string name="lock_max_fps_summary">支持添加下拉控制中心快速开关，实时切换</string>
 </resources>

@@ -6,9 +6,9 @@
     <string name="ui">Interface</string>
     <string name="delete_on_post_notification">Remove display over notification</string>
     <string name="delete_on_post_notification_summary">Remove "This app is displaying over other apps" notification</string>
-    <string name="other">其他</string>
+    <string name="other">Other</string>
     <string name="disable_flag_secure">Allow screenshots</string>
-    <string name="disable_flag_secure_summary">开启后允许在不允许截图的软件中截图\n支持添加下拉控制中心快速开关，保障安全</string>
+    <string name="disable_flag_secure_summary">Enabled to allow screenshots in software that does not allow screenshots\nSupport adding drop-down control center quick switch for security</string>
     <string name="home">Home</string>
     <string name="home_time">Always display Home screen clock</string>
     <string name="reboot_host">Restart SystemUI</string>
@@ -16,9 +16,9 @@
 
     <!--Status bar icons-->
     <string name="status_bar_icon">Status bar icons</string>
-    <string name="hide_no_sim_icon">Hide No SIM icon</string></string>
-    <string nname="hide_sim_one_icon">Hide SIM Card 1 icon</string>
-    <string nname="hide_sim_two_icon">Hide SIM Card 2 icon</string>
+    <string name="hide_no_sim_icon">Hide No SIM icon</string>
+    <string name="hide_sim_one_icon">Hide SIM Card 1 icon</string>
+    <string name="hide_sim_two_icon">Hide SIM Card 2 icon</string>
     <string name="hide_vpn_icon">Hide VPN icon</string>
     <string name="hide_airplane_icon">Hide flight mode icon</string>
     <string name="hide_wifi_icon">Hide the WIFI icon</string>
@@ -35,10 +35,10 @@
     <string name="about">About</string>
     <string name="about_module">About Module</string>
     <string name="verison">Version</string>
-    <string name="dev_coolapk">开发者酷安</string>
+    <string name="dev_coolapk">Author Coolapk</string>
     <string name="dev_coolapk_name">\@乌堆小透明</string>
     <string name="opensource">Open Source Repository</string>
-    <string name="github_url">欢迎更多开发者共同参与开发</string>
+    <string name="github_url">Welcome more developers to participate in the development</string>
     <string name="issues">Feedback/Proposal</string>
     <string name="issues_url">Click to view GitHub Issues</string>
     <string name="xposeddescription">Customization tool for MIUI13(Android 12)</string>
@@ -95,7 +95,7 @@
     <string name="remove_the_left_side_of_the_lock_screen">Remove the lock screen side panel</string>
     <string name="remove_lock_screen_camera">Remove the lock screen camera function</string>
     <string name="only_official_default_themes_are_supported">Only official default themes are supported</string>
-    <string name="lock_one_hundred">手机管家锁定100分</string>
+    <string name="lock_one_hundred">SecurityCenter Lock 100 points</string>
     <string name="scope">scope</string> 
     <string name="scope_android">System Framework</string>
     <string name="scope_systemui">SystemUI</string>
@@ -121,5 +121,6 @@
     <string name="notification_weather">Show Weather - Master Switch</string>
     <string name="lock_screen">Lock screen</string>
     <string name="notification_center">Notification Center</string>
-    <string name="notification_weather_city">Show the city</string> 
+    <string name="notification_weather_city">Show the city</string>
+    <string name="lock_max_fps_summary">Support adding drop-down control center quick switch, real-time switching</string>
 </resources>
