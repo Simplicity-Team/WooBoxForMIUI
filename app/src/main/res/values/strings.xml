@@ -11,7 +11,7 @@
     <string name="disable_flag_secure_summary">Enabled to allow screenshots in software that does not allow screenshots\nSupport adding drop-down control center quick switch for security</string>
     <string name="home">Home</string>
     <string name="home_time">Always display Home screen clock</string>
-    <string name="reboot_host">Restart SystemUI</string>
+    <string name="reboot_host">Restart all scope</string>
     <string name="reboot">Reboot System</string>
 
     <!--Status bar icons-->
@@ -125,4 +125,9 @@
     <string name="lock_max_fps_summary">Support adding drop-down control center quick switch, real-time switching</string>
     <string name="control_center">Control Center</string>
     <string name="control_center_weather_summary">The Mi Smart Hub version is not currently supported</string>
+    <string name="not_support">You seem to be using an outdated version of LSPosed or LSPosed is not active, please update LSPosed or activate it and try again.</string>
+    <string name="matters_needing_attention_context">It is recommended to restart the phone after the first activation or update\nMost of the function changes need to be restarted in the top right corner to take effect</string>
+    <string name="are_you_sure_reboot">Are you sure to reboot?</string>
+    <string name="cancel">Cancel</string>
+    <string name="are_you_sure_reboot_scope">Are you sure to reboot all scope?</string>
 </resources>
