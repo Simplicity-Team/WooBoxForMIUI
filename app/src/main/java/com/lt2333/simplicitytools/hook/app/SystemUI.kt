@@ -61,7 +61,7 @@ class SystemUI : IXposedHookLoadPackage {
         RemoveLockScreenCamera().handleLoadPackage(lpparam)
 
         //TODO:状态栏天气
-        //NotificationWeather().handleLoadPackage(lpparam)
+        NotificationWeather().handleLoadPackage(lpparam)
         //TODO：状态栏电流
         //StatusBarCurrent().handleLoadPackage(lpparam)
     }

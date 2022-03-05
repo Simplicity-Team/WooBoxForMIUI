@@ -118,4 +118,8 @@
     <string name="hide_wifi_activity_icon">隐藏 WIFI箭头 图标</string>
     <string name="hide_mobile_activity_icon">隐藏 移动箭头 图标</string>
     <string name="hide_mobile_type_icon">隐藏 移动类型 图标</string>
+    <string name="notification_weather">显示天气-总开关</string>
+    <string name="lock_screen">锁屏</string>
+    <string name="notification_center">通知中心</string>
+    <string name="notification_weather_city">显示城市</string>
 </resources>
