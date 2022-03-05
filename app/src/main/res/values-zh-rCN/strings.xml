@@ -124,7 +124,7 @@
     <string name="show_city">显示城市</string>
     <string name="control_center">控制中心</string>
     <string name="show_weather_main_switch">显示天气-总开关</string>
-    <string name="control_center_weather_summary">暂不支持妙想版控制中心</string>
+    <string name="control_center_weather_summary">暂不支持妙享版控制中心</string>
     <string name="not_support">您似乎正在使用过时的 LSPosed 版本或 LSPosed 未激活，请更新 LSPosed 或者激活后再试。</string>
     <string name="matters_needing_attention_context">首次激活或更新后建议重启手机\n绝大部分功能更改后需要在右上角重启作用域后生效</string>
     <string name="are_you_sure_reboot">确定重启系统？</string>
