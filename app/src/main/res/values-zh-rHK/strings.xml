@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simplicity Tools</string>
     <string name="performance">性能</string>
@@ -130,4 +130,6 @@
     <string name="are_you_sure_reboot">確定重啟系統？</string>
     <string name="cancel">取消</string>
     <string name="are_you_sure_reboot_scope">確定重啟全部作用域？</string>
+    <string name="hide_battery_charging_icon">隱藏 充電 圖標</string>
+    <string name="hide_wifi_standard_icon">隱藏 WIFI標準 圖標</string>
 </resources>

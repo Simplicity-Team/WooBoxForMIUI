@@ -130,4 +130,6 @@
     <string name="are_you_sure_reboot">Are you sure to reboot?</string>
     <string name="cancel">Cancel</string>
     <string name="are_you_sure_reboot_scope">Are you sure to reboot all scope?</string>
+    <string name="hide_battery_charging_icon">Hide charging icon</string>
+    <string name="hide_wifi_standard_icon">Hide WIFI standard icon</string>
 </resources>

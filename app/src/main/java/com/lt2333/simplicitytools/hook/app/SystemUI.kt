@@ -15,8 +15,6 @@ class SystemUI : IXposedHookLoadPackage {
         HideAlarmIcon().handleLoadPackage(lpparam)
         //隐藏电池
         HideBatteryIcon().handleLoadPackage(lpparam)
-        //隐藏电池/百分号
-        HideBatteryPercentageIcon().handleLoadPackage(lpparam)
         //隐藏蓝牙电量
         HideBluetoothHandsfreeBatteryIcon().handleLoadPackage(lpparam)
         //隐藏蓝牙图标
