@@ -61,7 +61,7 @@
     <string name="status_bar_time_year">Display year</string>
     <string name="status_bar_time_month">Display month</string>
     <string name="status_bar_time_day">Display date</string>
-    <string name="status_bar_time_week">Display day</string>
+    <string name="status_bar_time_week">Display week</string>
     <string name="status_bar_time_hide_space">Hide space</string>
     <string name="allow_screenshots">Allow screenshot</string>
     <string name="lock_max">Lock current limit</string>
