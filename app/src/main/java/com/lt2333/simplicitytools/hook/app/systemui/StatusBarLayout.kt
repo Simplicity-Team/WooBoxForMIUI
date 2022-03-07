@@ -6,7 +6,10 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.LinearLayout
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.lt2333.simplicitytools.util.XSPUtils
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedHelpers
@@ -17,6 +20,8 @@ class StatusBarLayout : IXposedHookLoadPackage {
     private var mLeftLayout: LinearLayout? = null
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+        if (!XSPUtils.getBoolean("status_bar_time_center", false)) return
+
         val classIfExists = XposedHelpers.findClassIfExists(
             "com.android.systemui.statusbar.phone.CollapsedStatusBarFragment",
             lpparam.classLoader
@@ -70,10 +75,30 @@ class StatusBarLayout : IXposedHookLoadPackage {
                     (phone_status_bar_left_container.parent as ViewGroup).removeView(
                         phone_status_bar_left_container
                     )
-//                    (fullscreen_notification_icon_area.parent as ViewGroup).removeView(
-//                        fullscreen_notification_icon_area
-//                    )
+                    (fullscreen_notification_icon_area.parent as ViewGroup).removeView(
+                        fullscreen_notification_icon_area
+                    )
                     (system_icon_area.parent as ViewGroup).removeView(system_icon_area)
+
+
+                    val mConstraintLayoutLp = ConstraintLayout.LayoutParams(
+                        ConstraintLayout.LayoutParams.MATCH_PARENT,
+                        ConstraintLayout.LayoutParams.MATCH_PARENT
+                    )
+
+                    val mConstraintLayout = ConstraintLayout(context).also {
+                        it.layoutParams = mConstraintLayoutLp
+                    }
+
+                    mConstraintLayout.addView(fullscreen_notification_icon_area)
+
+                    val fullscreen_notification_icon_area_lp = FrameLayout.LayoutParams(
+                        ConstraintLayout.LayoutParams.MATCH_PARENT,
+                        ConstraintLayout.LayoutParams.MATCH_PARENT
+                    )
+
+                    fullscreen_notification_icon_area.layoutParams =
+                        fullscreen_notification_icon_area_lp
 
                     //增加一个左对齐布局
                     mLeftLayout = LinearLayout(context)
@@ -96,7 +121,7 @@ class StatusBarLayout : IXposedHookLoadPackage {
                     mRightLayout.layoutParams = RightLp
                     mRightLayout.gravity = Gravity.END or Gravity.CENTER_VERTICAL
                     mLeftLayout!!.addView(phone_status_bar_left_container)
-//                    mLeftLayout!!.addView(fullscreen_notification_icon_area)
+                    mLeftLayout!!.addView(mConstraintLayout)
 
                     mCenterLayout.addView(Clock)
                     mRightLayout.addView(system_icon_area)
@@ -105,37 +130,5 @@ class StatusBarLayout : IXposedHookLoadPackage {
                     status_bar_contents.addView(mRightLayout)
                 }
             })
-//
-//        val classIfExists2 = XposedHelpers.findClassIfExists(
-//            "com.android.systemui.statusbar.phone.MiuiCollapsedStatusBarFragment",
-//            lpparam.classLoader
-//        )
-//
-//        XposedHelpers.findAndHookMethod(
-//            classIfExists2,
-//            "showClock",
-//            Boolean::class.javaPrimitiveType,
-//            object : XC_MethodHook() {
-//                @Throws(Throwable::class)
-//                override fun afterHookedMethod(param: MethodHookParam) {
-//                    val MiuiPhoneStatusBarView: ViewGroup =
-//                        XposedHelpers.getObjectField(param.thisObject, "mStatusBar") as ViewGroup
-//                    val context: Context = MiuiPhoneStatusBarView.context
-//                    val res: Resources = MiuiPhoneStatusBarView.resources
-//                    val mConfiguration: Configuration = res.configuration //获取设置的配置信息
-//                    val status_bar_ID: Int =
-//                        res.getIdentifier("status_bar", "id", "com.android.systemui")
-//                    val status_bar: ViewGroup = MiuiPhoneStatusBarView.findViewById(status_bar_ID)
-//                    //非锁屏下整个状态栏布局
-//                    val keyguardMgr: KeyguardManager = status_bar.context
-//                        .getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
-//                    if (keyguardMgr.isKeyguardLocked) {
-//                        mLeftLayout!!.visibility = View.GONE
-//                    } else {
-//                        mLeftLayout!!.visibility = View.VISIBLE
-//                    }
-//                }
-//            })
-
     }
 }
