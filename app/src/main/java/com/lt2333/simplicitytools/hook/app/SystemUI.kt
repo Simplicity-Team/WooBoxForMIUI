@@ -63,6 +63,8 @@ class SystemUI : IXposedHookLoadPackage {
         ControlCenterWeather().handleLoadPackage(lpparam)
         //TODO：状态栏电流
         //StatusBarCurrent().handleLoadPackage(lpparam)
+        //状态栏布局
+        StatusBarLayout().handleLoadPackage(lpparam)
     }
 
 }

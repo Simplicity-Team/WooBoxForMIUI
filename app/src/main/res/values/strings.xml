@@ -132,4 +132,6 @@
     <string name="are_you_sure_reboot_scope">Are you sure to reboot all scope?</string>
     <string name="hide_battery_charging_icon">Hide charging icon</string>
     <string name="hide_wifi_standard_icon">Hide WIFI standard icon</string>
+    <string name="status_bar_time_center">Status bar time center</string>
+    <string name="status_bar_layout_summary">More status bar layouts are under development</string>
 </resources>

@@ -132,4 +132,6 @@
     <string name="are_you_sure_reboot_scope">确定重启全部作用域？</string>
     <string name="hide_battery_charging_icon">隐藏 充电 图标</string>
     <string name="hide_wifi_standard_icon">隐藏 WIFI标准 图标</string>
+    <string name="status_bar_time_center">时间居中</string>
+    <string name="status_bar_layout_summary">更多状态栏布局等待开发中</string>
 </resources>

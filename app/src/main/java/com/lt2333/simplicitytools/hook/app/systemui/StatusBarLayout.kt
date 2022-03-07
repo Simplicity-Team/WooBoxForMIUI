@@ -18,6 +18,14 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 class StatusBarLayout : IXposedHookLoadPackage {
 
     private var mLeftLayout: LinearLayout? = null
+    private var mRightLayout: LinearLayout? = null
+    private var mCenterLayout: LinearLayout? = null
+    private var status_bar: ViewGroup? = null
+
+    private var status_bar_left = 0
+    private var status_bar_top = 0
+    private var status_bar_right = 0
+    private var status_bar_bottom = 0
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         if (!XSPUtils.getBoolean("status_bar_time_center", false)) return
@@ -37,7 +45,10 @@ class StatusBarLayout : IXposedHookLoadPackage {
                 override fun afterHookedMethod(param: MethodHookParam) {
                     super.afterHookedMethod(param)
                     val MiuiPhoneStatusBarView: ViewGroup =
-                        XposedHelpers.getObjectField(param.thisObject, "mStatusBar") as ViewGroup
+                        XposedHelpers.getObjectField(
+                            param.thisObject,
+                            "mStatusBar"
+                        ) as ViewGroup
                     val context: Context = MiuiPhoneStatusBarView.context
                     val res: Resources = MiuiPhoneStatusBarView.resources
                     val status_bar_ID: Int =
@@ -58,7 +69,8 @@ class StatusBarLayout : IXposedHookLoadPackage {
                         "id",
                         "com.android.systemui"
                     )
-                    val status_bar: ViewGroup = MiuiPhoneStatusBarView.findViewById(status_bar_ID)
+                    status_bar =
+                        MiuiPhoneStatusBarView.findViewById(status_bar_ID)
                     val status_bar_contents: ViewGroup =
                         MiuiPhoneStatusBarView.findViewById(status_bar_contents_ID)
                     if (status_bar == null) return
@@ -103,32 +115,74 @@ class StatusBarLayout : IXposedHookLoadPackage {
                     //增加一个左对齐布局
                     mLeftLayout = LinearLayout(context)
                     val LeftLp: LinearLayout.LayoutParams =
-                        LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f)
+                        LinearLayout.LayoutParams(
+                            0,
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            1.0f
+                        )
                     mLeftLayout!!.layoutParams = LeftLp
                     mLeftLayout!!.gravity = Gravity.START or Gravity.CENTER_VERTICAL
 
                     //增加一个居中布局
-                    val mCenterLayout = LinearLayout(context)
+                    mCenterLayout = LinearLayout(context)
                     val CenterLp: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.MATCH_PARENT
                     )
-                    mCenterLayout.layoutParams = CenterLp
-                    mCenterLayout.gravity = Gravity.CENTER or Gravity.CENTER_VERTICAL
-                    val mRightLayout = LinearLayout(context)
+                    mCenterLayout!!.layoutParams = CenterLp
+                    mCenterLayout!!.gravity = Gravity.CENTER or Gravity.CENTER_VERTICAL
+                    mRightLayout = LinearLayout(context)
                     val RightLp: LinearLayout.LayoutParams =
-                        LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f)
-                    mRightLayout.layoutParams = RightLp
-                    mRightLayout.gravity = Gravity.END or Gravity.CENTER_VERTICAL
+                        LinearLayout.LayoutParams(
+                            0,
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            1.0f
+                        )
+                    mRightLayout!!.layoutParams = RightLp
+                    mRightLayout!!.gravity = Gravity.END or Gravity.CENTER_VERTICAL
                     mLeftLayout!!.addView(phone_status_bar_left_container)
                     mLeftLayout!!.addView(mConstraintLayout)
 
-                    mCenterLayout.addView(Clock)
-                    mRightLayout.addView(system_icon_area)
+                    mCenterLayout!!.addView(Clock)
+                    mRightLayout!!.addView(system_icon_area)
                     status_bar_contents.addView(mLeftLayout, 0)
                     status_bar_contents.addView(mCenterLayout)
                     status_bar_contents.addView(mRightLayout)
+
+
+                    status_bar_left = status_bar!!.paddingLeft
+                    status_bar_top = status_bar!!.paddingTop
+                    status_bar_right = status_bar!!.paddingRight
+                    status_bar_bottom = status_bar!!.paddingBottom
+
+
+                    mLeftLayout!!.setPadding(status_bar_left, 0, 0, 0)
+                    mRightLayout!!.setPadding(0, 0, status_bar_right, 0)
+                    status_bar!!.setPadding(0, status_bar_top, 0, status_bar_bottom)
+
+
                 }
             })
+
+        val classIfExists2 = XposedHelpers.findClassIfExists(
+            "com.android.systemui.statusbar.phone.PhoneStatusBarView",
+            lpparam.classLoader
+        )
+
+        XposedHelpers.findAndHookMethod(
+            classIfExists2,
+            "updateLayoutForCutout",
+            object : XC_MethodHook() {
+                override fun afterHookedMethod(param: MethodHookParam) {
+
+                    mLeftLayout!!.setPadding(status_bar_left, 0, 0, 0)
+                    mRightLayout!!.setPadding(0, 0, status_bar_right, 0)
+                    status_bar!!.setPadding(0, status_bar_top, 0, status_bar_bottom)
+
+                }
+            }
+        )
+
+
     }
 }
