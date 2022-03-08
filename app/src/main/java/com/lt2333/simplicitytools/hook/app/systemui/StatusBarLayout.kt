@@ -3,6 +3,7 @@ package com.lt2333.simplicitytools.hook.app.systemui
 import android.content.Context
 import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -149,17 +150,26 @@ class StatusBarLayout : IXposedHookLoadPackage {
                     status_bar_contents.addView(mCenterLayout)
                     status_bar_contents.addView(mRightLayout)
 
-
                     status_bar_left = status_bar!!.paddingLeft
                     status_bar_top = status_bar!!.paddingTop
                     status_bar_right = status_bar!!.paddingRight
                     status_bar_bottom = status_bar!!.paddingBottom
 
 
-                    mLeftLayout!!.setPadding(status_bar_left, 0, 0, 0)
-                    mRightLayout!!.setPadding(0, 0, status_bar_right, 0)
-                    status_bar!!.setPadding(0, status_bar_top, 0, status_bar_bottom)
+                    if (XSPUtils.getBoolean("layout_compatibility_mode", false)) {
+                        val custom_left_margin = XSPUtils.getInt("status_bar_left_margin", 0)
+                        if (custom_left_margin != 0) {
+                            Log.d("测试", "afterHookedMethod: "+custom_left_margin)
+                            status_bar_left = custom_left_margin
+                        }
 
+                        val custom_right_margin = XSPUtils.getInt("status_bar_right_margin", 0)
+                        if (custom_right_margin != 0) {
+                            Log.d("测试", "afterHookedMethod: "+custom_right_margin)
+                            status_bar_right = custom_right_margin
+                        }
+                        updateLayout()
+                    }
 
                 }
             })
@@ -174,15 +184,19 @@ class StatusBarLayout : IXposedHookLoadPackage {
             "updateLayoutForCutout",
             object : XC_MethodHook() {
                 override fun afterHookedMethod(param: MethodHookParam) {
-
-                    mLeftLayout!!.setPadding(status_bar_left, 0, 0, 0)
-                    mRightLayout!!.setPadding(0, 0, status_bar_right, 0)
-                    status_bar!!.setPadding(0, status_bar_top, 0, status_bar_bottom)
-
+                    if (XSPUtils.getBoolean("layout_compatibility_mode", false)) {
+                        updateLayout()
+                    }
                 }
             }
         )
-
-
     }
+
+
+    fun updateLayout() {
+        mLeftLayout!!.setPadding(status_bar_left, 0, 0, 0)
+        mRightLayout!!.setPadding(0, 0, status_bar_right, 0)
+        status_bar!!.setPadding(0, status_bar_top, 0, status_bar_bottom)
+    }
+
 }

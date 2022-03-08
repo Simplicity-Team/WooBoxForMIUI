@@ -134,4 +134,9 @@
     <string name="hide_wifi_standard_icon">Hide WIFI standard icon</string>
     <string name="status_bar_time_center">Status bar time center</string>
     <string name="status_bar_layout_summary">More status bar layouts are under development</string>
+    <string name="status_bar_layout">Status bar layout</string>
+    <string name="layout_compatibility_mode">Compatibility mode</string>
+    <string name="left_margin">Left margin (0: Auto)</string>
+    <string name="right_margin">Right margin (0: Auto)</string>
+    <string name="layout_compatibility_mode_summary">Make the left and right hole screen can be displayed normally</string>
 </resources>

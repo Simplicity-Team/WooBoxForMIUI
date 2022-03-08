@@ -134,4 +134,9 @@
     <string name="hide_wifi_standard_icon">隱藏 WIFI標準 圖標</string>
     <string name="status_bar_time_center">時間居中</string>
     <string name="status_bar_layout_summary">更多狀態欄佈局等待開發中</string>
+    <string name="status_bar_layout">狀態欄佈局</string>
+    <string name="layout_compatibility_mode">兼容模式</string>
+    <string name="left_margin">左邊距 (0: 自動)</string>
+    <string name="right_margin">右邊距 (0: 自動)</string>
+    <string name="layout_compatibility_mode_summary">使左右挖孔螢幕能正常顯示</string>
 </resources>
