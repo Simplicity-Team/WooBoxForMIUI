@@ -18,7 +18,7 @@ class HideNetworkSpeedSplitter : IXposedHookLoadPackage {
             override fun afterHookedMethod(param: MethodHookParam) {
                 if (XSPUtils.getBoolean("hide_network_speed_splitter", false)) {
                     val textView = param.thisObject as TextView
-                    textView.text = ""
+                    textView.text = " "
                 }
             }
         })

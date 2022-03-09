@@ -140,4 +140,8 @@
     <string name="right_margin">右边距 (0: 自动)</string>
     <string name="layout_compatibility_mode_summary">使左右挖孔屏幕能正常显示</string>
     <string name="remove_macro_blacklist">去除游戏自动连招黑名单</string>
+    <string name="hide_network_speed_splitter">隐藏网速分隔符</string>
+    <string name="updater">系统更新</string>
+    <string name="remove_ota_validate">*移除OTA验证 [实验性]</string>
+    <string name="remove_ota_validate_summary">- 仅支持VAB系列使用，其余系列请不要开启。\n- 无需内测试资格即可刷入完整内测包。\n- 拥有内测权限的用户将无法接收内测更新\n可用于屏蔽系统更新。\n- 跨版本类型升级后，建议清空数据。\n- 不支持非官方ROM使用。</string>
 </resources>

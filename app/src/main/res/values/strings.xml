@@ -140,4 +140,8 @@
     <string name="right_margin">Right margin (0: Auto)</string>
     <string name="layout_compatibility_mode_summary">Make the left and right hole screen can be displayed normally</string>
     <string name="remove_macro_blacklist">Remove game macro blacklist</string>
+    <string name="hide_network_speed_splitter">Hide network speed splitter</string>
+    <string name="updater">Updater</string>
+    <string name="remove_ota_validate">*Remove OTA validate [LAB]</string>
+    <string name="remove_ota_validate_summary">- Only support VAB series use, please do not open other series.\n- No need for internal testing qualification to flash into the full internal testing package.\n- Those who have internal testing permission will not be able to receive internal testing updates, and can be used to block system updates.\n- After cross-version type upgrade, it is recommended to clear data.\n- Unofficial ROM usage is not supported.</string>
 </resources>

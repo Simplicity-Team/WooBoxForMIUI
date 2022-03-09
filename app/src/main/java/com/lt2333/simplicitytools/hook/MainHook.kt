@@ -35,6 +35,10 @@ class MainHook : IXposedHookLoadPackage {
                 "com.miui.mediaeditor" -> {
                     MediaEditor().handleLoadPackage(lpparam)
                 }
+                //相册编辑
+                "com.android.updater" -> {
+                    Updater().handleLoadPackage(lpparam)
+                }
             }
         }
     }

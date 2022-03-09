@@ -8,22 +8,22 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 class Updater : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        var letter = 'a'
-        for (i in 0..25) {
-            val classIfExists = XposedHelpers.findClassIfExists(
-                "com.android.updater.common.utils.$letter", lpparam.classLoader
-            ) ?: continue
-            if (classIfExists.declaredFields.size >= 9 && classIfExists.declaredMethods.size > 60) {
-                XposedHelpers.findAndHookMethod(classIfExists, "T", object : XC_MethodHook() {
-                    override fun beforeHookedMethod(param: MethodHookParam) {
-                        if (XSPUtils.getBoolean("remove_ota_validate", false)) {
+        if (XSPUtils.getBoolean("remove_ota_validate", false)) {
+            var letter = 'a'
+            for (i in 0..25) {
+                val classIfExists = XposedHelpers.findClassIfExists(
+                    "com.android.updater.common.utils.$letter", lpparam.classLoader
+                ) ?: continue
+                if (classIfExists.declaredFields.size >= 9 && classIfExists.declaredMethods.size > 60) {
+                    XposedHelpers.findAndHookMethod(classIfExists, "T", object : XC_MethodHook() {
+                        override fun beforeHookedMethod(param: MethodHookParam) {
                             param.result = false
                         }
-                    }
-                })
-                return
+                    })
+                    return
+                }
+                letter++
             }
-            letter++
         }
     }
 }

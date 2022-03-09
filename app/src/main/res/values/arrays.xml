@@ -7,5 +7,6 @@
         <item>com.miui.powerkeeper</item>
         <item>com.miui.home</item>
         <item>com.miui.mediaeditor</item>
+        <item>com.android.updater</item>
     </string-array>
 </resources>
