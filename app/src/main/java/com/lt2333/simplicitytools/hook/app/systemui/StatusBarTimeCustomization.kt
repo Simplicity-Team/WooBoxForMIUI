@@ -155,7 +155,7 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
         if (isWeek) {
             if (!isHideSpace) DatePattern = "$DatePattern "
             DatePattern += "E"
-            if (!isDoubleLine && isDoubleHour) {
+            if (!isDoubleLine) {
                 if (!isHideSpace) DatePattern = "$DatePattern "
             }
         }
