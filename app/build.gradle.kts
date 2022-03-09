@@ -12,8 +12,8 @@ android {
         applicationId = "com.lt2333.simplicitytools"
         minSdk = 31
         targetSdk = 32
-        versionCode = 38
-        versionName = "1.3.7"
+        versionCode = 39
+        versionName = "1.3.8"
     }
 
     buildTypes {
