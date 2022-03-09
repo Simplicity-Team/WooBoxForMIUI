@@ -139,4 +139,5 @@
     <string name="left_margin">Left margin (0: Auto)</string>
     <string name="right_margin">Right margin (0: Auto)</string>
     <string name="layout_compatibility_mode_summary">Make the left and right hole screen can be displayed normally</string>
+    <string name="remove_macro_blacklist">Remove game macro blacklist</string>
 </resources>

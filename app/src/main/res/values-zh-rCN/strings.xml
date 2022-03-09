@@ -139,4 +139,5 @@
     <string name="left_margin">左边距 (0: 自动)</string>
     <string name="right_margin">右边距 (0: 自动)</string>
     <string name="layout_compatibility_mode_summary">使左右挖孔屏幕能正常显示</string>
+    <string name="remove_macro_blacklist">去除游戏自动连招黑名单</string>
 </resources>
