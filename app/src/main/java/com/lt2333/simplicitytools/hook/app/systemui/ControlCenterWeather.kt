@@ -1,16 +1,14 @@
 package com.lt2333.simplicitytools.hook.app.systemui
 
-import android.database.Cursor
-import android.net.Uri
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.lt2333.simplicitytools.util.XSPUtils
+import com.lt2333.simplicitytools.view.WeatherView
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
-import java.util.*
 
 class ControlCenterWeather : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
@@ -19,7 +17,7 @@ class ControlCenterWeather : IXposedHookLoadPackage {
 
         if (!XSPUtils.getBoolean("control_center_weather", false)) return
 
-        var display_city = XSPUtils.getBoolean("control_center_weather_city", false)
+        val isDisplayCity = XSPUtils.getBoolean("control_center_weather_city", false)
 
         val classIfExists = XposedHelpers.findClassIfExists(
             "com.android.systemui.controlcenter.phone.widget.QSControlCenterHeaderView",
@@ -66,7 +64,7 @@ class ControlCenterWeather : IXposedHookLoadPackage {
                     )
                 )
 
-                mWeatherView = TextView(viewGroup.context).also {
+                mWeatherView = WeatherView(viewGroup.context, isDisplayCity).also {
                     it.setTextAppearance(
                         viewGroup.context.resources.getIdentifier(
                             "TextAppearance.QSControl.Date",
@@ -78,42 +76,6 @@ class ControlCenterWeather : IXposedHookLoadPackage {
                 }
 
                 viewGroup.addView(mWeatherView)
-
-                val query: Cursor? = viewGroup.context.contentResolver
-                    .query(Uri.parse("content://weather/weather"), null, null, null, null)
-                var str = "未找到天气"
-
-                class T : TimerTask() {
-                    override fun run() {
-                        try {
-                            if (query != null) {
-                                if (query.moveToFirst()) {
-                                    if (display_city) {
-                                        str =
-                                            query.getString(query.getColumnIndexOrThrow("city_name")) + " " +
-                                                    query.getString(query.getColumnIndexOrThrow("description")) + " " +
-                                                    query.getString(query.getColumnIndexOrThrow("temperature"))
-                                    } else {
-                                        str =
-                                            query.getString(query.getColumnIndexOrThrow("description")) + " " +
-                                                    query.getString(query.getColumnIndexOrThrow("temperature"))
-                                    }
-
-                                }
-                                query.close()
-                            }
-                            mWeatherView!!.text = str
-                        } catch (e: Exception) {
-                        }
-                    }
-                }
-                //每小时刷新一次
-                Timer().scheduleAtFixedRate(
-                    T(),
-                    0,
-                    3600000
-                )
-
             }
         })
         //解决横屏重叠
