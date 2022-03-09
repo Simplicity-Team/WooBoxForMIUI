@@ -65,6 +65,8 @@ class SystemUI : IXposedHookLoadPackage {
         //StatusBarCurrent().handleLoadPackage(lpparam)
         //状态栏布局
         StatusBarLayout().handleLoadPackage(lpparam)
+        //隐藏时钟与实时网速之间的分隔符
+        HideNetworkSpeedSplitter().handleLoadPackage(lpparam)
     }
 
 }
