@@ -7,8 +7,8 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 class DeleteOnPostNotification : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        hasEnable("delete_on_post_notification") {
-            "com.android.server.wm.AlertWindowNotification".hookBeforeMethod(lpparam.classLoader, "onPostNotification") {
+        "com.android.server.wm.AlertWindowNotification".hookBeforeMethod(lpparam.classLoader, "onPostNotification") {
+            hasEnable("delete_on_post_notification") {
                 it.result = null
             }
         }

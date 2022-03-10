@@ -6,8 +6,8 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 class DisableFlagSecure :IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        hasEnable("disable_flag_secure") {
-            "com.android.server.wm.WindowState".hookBeforeMethod(lpparam.classLoader, "isSecureLocked") {
+        "com.android.server.wm.WindowState".hookBeforeMethod(lpparam.classLoader, "isSecureLocked") {
+            hasEnable("disable_flag_secure") {
                 it.result = false
             }
         }
