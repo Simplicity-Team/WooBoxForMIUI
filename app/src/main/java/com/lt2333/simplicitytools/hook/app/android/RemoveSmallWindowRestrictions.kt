@@ -18,13 +18,13 @@ class RemoveSmallWindowRestrictions : IXposedHookLoadPackage {
 
         "android.util.MiuiMultiWindowAdapter".hookAfterMethod(lpparam.classLoader, "getFreeformBlackList") {
             hasEnable("remove_small_window_restrictions") {
-                it.result = (it.result as MutableList<*>).clear()
+                it.result = (it.result as MutableList<*>).apply { clear() }
             }
         }
 
         "android.util.MiuiMultiWindowAdapter".hookAfterMethod(lpparam.classLoader, "getFreeformBlackListFromCloud") {
             hasEnable("remove_small_window_restrictions") {
-                it.result = (it.result as MutableList<*>).clear()
+                it.result = (it.result as MutableList<*>).apply { clear() }
             }
         }
 
