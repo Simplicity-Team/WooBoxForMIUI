@@ -19,3 +19,10 @@ object XSPUtils {
         return prefs.getInt(key, defValue)
     }
 }
+
+inline fun hasEnable(key: String, default: Boolean = false, noinline extraCondition: (() -> Boolean)? = null, crossinline block: () -> Unit) {
+    val conditionResult = if (extraCondition != null) extraCondition() else true
+    if (XSPUtils.getBoolean(key, default) && conditionResult) {
+        block()
+    }
+}
