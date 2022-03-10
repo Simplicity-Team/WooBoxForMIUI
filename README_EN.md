@@ -22,27 +22,31 @@ It is in the early stage of development, with fewer functions, and will be impro
 <details>
 <summary>Click to expand details</summary>
 
-- Interface
-	- Remove upper level display notifications
 - Status Bar
 	- Status bar web speed second refresh
 	- Hide status bar power (%)
-	- Hide status bar internet speed (/s) units
-	- Unblock the maximum number of notification icons
+	- Hide status bar speed (/) unit
+	- Unlock the maximum number of notification icons
+- Status bar layout
+	- Time centered
+	- Compatible mode
+		- Left margin customization
+		- Right margin customization
 - Status bar clock format
 	- Show year switch
 	- Show month switch
 	- Show date switch
-	- Show week switch
-	- Show hour switch
-	- Display time switch
+	- Show day switch
+	- Show chinese twelve hour switch
+	- Display AM/PM switch
 	- Display seconds switch
-	- Hide interval switch
+	- Hide space switch
 	- Double line display switch
 	- Clock size customization
 	- Double row clock size customization
 - Status bar icons
 	- Hide battery icon switch
+	- Hide charging icon switch
 	- Hide GPS icon switch
 	- Hide Bluetooth icon switch
 	- Hide Bluetooth power icon switch
@@ -51,39 +55,56 @@ It is in the early stage of development, with fewer functions, and will be impro
 	- Hide HD no service switch
 	- Hide SIM card one icon switch
 	- Hide SIM card two icon switch
-	- Hide No SIM icon switch
+	- Hide SIM-less icon switch
 	- Hide mobile type icon switch
 	- Hide mobile arrow icon switch
 	- Hide WIFI icon switch
 	- Hide WIFI arrow switch
-	- Hide WiFi assist icon switch
+	- Hide WIFI standard switch
+	- Hide WiFi auxiliary icon switch
 	- Hide WIFI hotspot icon switch
 	- Hide VPN icon switch
 	- Hide Airplane Mode icon switch
 	- Hide alarm clock icon switch
 	- Hide headset icon switch
 	- Hide sound, do not disturb icon switch
+	- Hide internet speed separator
 - Notification panel
 	- Show weather switch
 	- Show weather area switch
-- Desktop
+- Control Center
+	- Show weather switch
+	- Show weather area switch
+- Lock Screen
+	- Remove lock screen side function 
+	- Remove lock screen camera function
+- Home
 	- Always show desktop clock
-- Performance
-	- Lock current refresh rate limit (tile support)
-- Other
+- System Framework
+	- Remove upper display notifications
 	- Allow screenshots (tile support)
-	- Unrestrict installation (downgrade, different signature, unsigned installation supported)
-	- Skip 5/10 seconds warning time
+	- CorePatch (support downgrade, different signature, unsigned installation)
+	- Unlock unsupported small windows applications
+- Nature
+	- Lock current refresh rate cap (tile support)
 	- Prevent recovery of battery optimization whitelist
-	- Unlock unsupported small windows app restriction
-	- Unlock unlimited crop image/screenshot feature
-
+- Phone Manager
+	- Skip 5/10 seconds warning time
+	- Lock 100 points
+	- Remove game macro blacklist
+- Album editing
+	- Unlock unlimited crop image/screenshot function
+- System Update
+	- Remove OTA authentication
+- Settings
+	- Show notification importance
+- Remove Ads
+	- Remove theme manager ads
 
 </details>
 
 ### Screenshot
-![1645799092183](https://user-images.githubusercontent.com/32336368/155731592-304443db-ea15-4305-8dde-21f3303963bb.jpg)  
-![1645799092177](https://user-images.githubusercontent.com/32336368/155731610-66867463-03e3-4610-9639-3bf746938865.jpg)  
+![Screenshot](https://raw.githubusercontent.com/LittleTurtle2333/SimplicityTools/main/doc/en.jpg)  
 
 ### Download
 
