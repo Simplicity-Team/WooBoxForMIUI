@@ -66,6 +66,6 @@ implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     implementation("com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}")
     implementation("com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}")
 
-    implementation("com.github.kyuubiran:EzXHelper:0.7.3")
+    implementation("com.github.kyuubiran:EzXHelper:0.7.4")
 
 }
