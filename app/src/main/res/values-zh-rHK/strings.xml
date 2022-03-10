@@ -144,4 +144,7 @@
     <string name="updater">系統更新</string>
     <string name="remove_ota_validate">*移除OTA驗證 [實驗性]</string>
     <string name="remove_ota_validate_summary">- 僅支持VAB系列使用，其餘系列請不要開啟。\n- 無需內測試資格即可刷入完整內測包。\n- 擁有內測權限的用戶將無法接收內測更新\n可用於屏蔽系統更新。\n- 跨版本類型升級後，建議清空數據。\n- 不支持非官方ROM使用。</string>
+    <string name="show_notification_importance_summary">顯示 MIUI12 及之後版本被隱藏的通知重要程度設定</string>
+    <string name="show_notification_importance">顯示通知重要程度</string>
+    <string name="settings">設定</string>
 </resources>

@@ -39,6 +39,10 @@ class MainHook : IXposedHookLoadPackage {
                 "com.android.updater" -> {
                     Updater().handleLoadPackage(lpparam)
                 }
+                //设置
+                "com.android.settings" -> {
+                    Settings().handleLoadPackage(lpparam)
+                }
             }
         }
     }
