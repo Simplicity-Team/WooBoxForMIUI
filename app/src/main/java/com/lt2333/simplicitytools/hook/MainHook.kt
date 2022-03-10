@@ -1,5 +1,6 @@
 package com.lt2333.simplicitytools.hook
 
+import com.github.kyuubiran.ezxhelper.init.EzXHelperInit
 import com.lt2333.simplicitytools.BuildConfig
 import com.lt2333.simplicitytools.hook.app.*
 import de.robv.android.xposed.IXposedHookLoadPackage
@@ -10,6 +11,8 @@ class MainHook : IXposedHookLoadPackage {
     var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
         if (prefs.getBoolean("main_switch", true)) {
+            EzXHelperInit.initHandleLoadPackage(lpparam)
+            EzXHelperInit.setEzClassLoader(lpparam.classLoader)
             when (lpparam.packageName) {
                 //Android
                 "android" -> {
