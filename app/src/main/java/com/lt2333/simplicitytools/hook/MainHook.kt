@@ -11,7 +11,7 @@ class MainHook : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
         if (prefs.getBoolean("main_switch", true)) {
             when (lpparam.packageName) {
-                //Andorid
+                //Android
                 "android" -> {
                     Android().handleLoadPackage(lpparam)
                 }
@@ -35,13 +35,17 @@ class MainHook : IXposedHookLoadPackage {
                 "com.miui.mediaeditor" -> {
                     MediaEditor().handleLoadPackage(lpparam)
                 }
-                //相册编辑
+                //系统更新
                 "com.android.updater" -> {
                     Updater().handleLoadPackage(lpparam)
                 }
                 //设置
                 "com.android.settings" -> {
                     Settings().handleLoadPackage(lpparam)
+                }
+                //主题壁纸
+                "com.android.thememanager" -> {
+                    ThemeManager().handleLoadPackage(lpparam)
                 }
             }
         }

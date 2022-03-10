@@ -147,4 +147,6 @@
     <string name="show_notification_importance_summary">顯示 MIUI12 及之後版本被隱藏的通知重要程度設定</string>
     <string name="show_notification_importance">顯示通知重要程度</string>
     <string name="settings">設定</string>
+    <string name="remove_ad">去廣告</string>
+    <string name="remove_thememanager_ads">拿掉主題壁紙的廣告</string>
 </resources>

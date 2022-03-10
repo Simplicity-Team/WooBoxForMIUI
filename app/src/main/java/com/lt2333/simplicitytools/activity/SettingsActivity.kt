@@ -1001,6 +1001,16 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("show_notification_importance")
                 )
             )
+            add(LineV())
+            add(TitleTextV(resId = R.string.remove_ad))
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.remove_thememanager_ads
+                    ),
+                    SwitchV("remove_thememanager_ads")
+                )
+            )
         }
     }
 
