@@ -1,8 +1,11 @@
 package com.lt2333.simplicitytools.hook.app.systemui
 
+import android.content.ComponentName
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.view.WeatherView
 import de.robv.android.xposed.IXposedHookLoadPackage
@@ -77,6 +80,19 @@ class OldNotificationWeather : IXposedHookLoadPackage {
                     it.layoutParams = layout
                 }
                 viewGroup.addView(mWeatherView)
+                (mWeatherView as WeatherView).setOnClickListener {
+                    try {
+                        val intent = Intent()
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                        intent.component = ComponentName(
+                            "com.miui.weather2",
+                            "com.miui.weather2.ActivityWeatherMain"
+                        )
+                        viewGroup.context.startActivity(intent)
+                    } catch (e: Exception) {
+                        Toast.makeText(viewGroup.context, "启动失败，可能是不支持", Toast.LENGTH_LONG).show()
+                    }
+                }
             }
         })
         //解决横屏重叠

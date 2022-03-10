@@ -1,6 +1,7 @@
 package com.lt2333.simplicitytools.hook.app.systemui
 
 import android.content.Context
+import android.content.res.Configuration
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.Gravity
@@ -165,7 +166,7 @@ class StatusBarLayout : IXposedHookLoadPackage {
                         if (custom_right_margin != 0) {
                             status_bar_right = custom_right_margin
                         }
-                        updateLayout()
+                        updateLayout(context)
                     }
 
                 }
@@ -182,7 +183,8 @@ class StatusBarLayout : IXposedHookLoadPackage {
             object : XC_MethodHook() {
                 override fun afterHookedMethod(param: MethodHookParam) {
                     if (XSPUtils.getBoolean("layout_compatibility_mode", false)) {
-                        updateLayout()
+                        val context = (param.thisObject as ViewGroup).context
+                        updateLayout(context)
                     }
                 }
             }
@@ -190,10 +192,19 @@ class StatusBarLayout : IXposedHookLoadPackage {
     }
 
 
-    fun updateLayout() {
-        mLeftLayout!!.setPadding(status_bar_left, 0, 0, 0)
-        mRightLayout!!.setPadding(0, 0, status_bar_right, 0)
-        status_bar!!.setPadding(0, status_bar_top, 0, status_bar_bottom)
+    fun updateLayout(context: Context) {
+        //判断屏幕方向
+        val mConfiguration: Configuration = context.resources.configuration
+        if (mConfiguration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            mLeftLayout!!.setPadding(status_bar_left, 0, 0, 0)
+            mRightLayout!!.setPadding(0, 0, status_bar_right, 0)
+            status_bar!!.setPadding(0, status_bar_top, 0, status_bar_bottom)
+        } else {
+            //横屏状态
+            mLeftLayout!!.setPadding(175, 0, 0, 0)
+            mRightLayout!!.setPadding(0, 0, 175, 0)
+            status_bar!!.setPadding(0, status_bar_top, 0, status_bar_bottom)
+        }
     }
 
 }

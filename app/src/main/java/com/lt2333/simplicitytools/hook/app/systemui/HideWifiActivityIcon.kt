@@ -45,12 +45,22 @@ class HideWifiActivityIcon : IXposedHookLoadPackage {
             "com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$WifiIconState",
             object : XC_MethodHook() {
                 override fun afterHookedMethod(param: MethodHookParam) {
+                    //隐藏WIFI箭头
                     if (XSPUtils.getBoolean("hide_wifi_activity_icon", false)) {
                         (XposedHelpers.getObjectField(
                             param.thisObject,
                             "mWifiActivityView"
                         ) as ImageView).visibility = View.INVISIBLE
                     }
+
+                    //隐藏WIFI标准图标
+                    if (XSPUtils.getBoolean("hide_wifi_standard_icon", false)) {
+                        (XposedHelpers.getObjectField(
+                            param.thisObject,
+                            "mWifiStandardView"
+                        ) as TextView).visibility = View.INVISIBLE
+                    }
+
                 }
             })
 
