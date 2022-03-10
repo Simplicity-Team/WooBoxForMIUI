@@ -147,4 +147,6 @@
     <string name="settings">Settings</string>
     <string name="show_notification_importance">Show notification importance</string>
     <string name="show_notification_importance_summary">Show notification importance settings which are hidden in MIUI 12 and later versions</string>
+    <string name="remove_ad">Remove ads</string>
+    <string name="remove_thememanager_ads">Remove ads for theme manager</string>
 </resources>

@@ -9,5 +9,6 @@
         <item>com.miui.mediaeditor</item>
         <item>com.android.updater</item>
         <item>com.android.settings</item>
+        <item>com.android.thememanager</item>
     </string-array>
 </resources>
