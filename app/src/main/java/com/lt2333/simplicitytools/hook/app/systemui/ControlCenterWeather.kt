@@ -6,106 +6,85 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import com.lt2333.simplicitytools.util.XSPUtils
+import com.github.kyuubiran.ezxhelper.utils.loadClass
+import com.lt2333.simplicitytools.util.*
 import com.lt2333.simplicitytools.view.WeatherView
 import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.XC_MethodHook
-import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 class ControlCenterWeather : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-
-        var mWeatherView: TextView? = null
-
-        if (!XSPUtils.getBoolean("control_center_weather", false)) return
-
-        val isDisplayCity = XSPUtils.getBoolean("control_center_weather_city", false)
-
-        val classIfExists = XposedHelpers.findClassIfExists(
-            "com.android.systemui.controlcenter.phone.widget.QSControlCenterHeaderView",
-            lpparam.classLoader
-        )
-
-        XposedHelpers.findAndHookMethod(classIfExists, "onFinishInflate", object : XC_MethodHook() {
-            override fun afterHookedMethod(param: MethodHookParam) {
-                val viewGroup = param.thisObject as ViewGroup
-
-                val layout = XposedHelpers.findClass(
-                    "androidx.constraintlayout.widget.ConstraintLayout\$LayoutParams",
-                    lpparam.classLoader
-                ).getConstructor(Int::class.java, Int::class.java).newInstance(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                ) as ViewGroup.MarginLayoutParams
-
-                XposedHelpers.setObjectField(
-                    layout,
+        hasEnable("control_center_weather") {
+            var mWeatherView: TextView? = null
+            val isDisplayCity = XSPUtils.getBoolean("control_center_weather_city", false)
+            "com.android.systemui.controlcenter.phone.widget.QSControlCenterHeaderView".hookAfterMethod(
+                lpparam.classLoader,
+                "onFinishInflate"
+            ) {
+                val viewGroup = it.thisObject as ViewGroup
+                val context = viewGroup.context
+                val layoutParam =
+                    loadClass("androidx.constraintlayout.widget.ConstraintLayout\$LayoutParams")
+                        .getConstructor(Int::class.java, Int::class.java).newInstance(
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT
+                        ) as ViewGroup.MarginLayoutParams
+                layoutParam.setObjectField(
                     "bottomToTop",
-                    viewGroup.context.resources.getIdentifier(
-                        "date_time",
-                        "id",
-                        viewGroup.context.packageName
-                    )
+                    context.resources.getIdentifier("date_time", "id", context.packageName)
                 )
-
-                XposedHelpers.setObjectField(
-                    layout,
+                layoutParam.setObjectField(
                     "startToEnd",
-                    viewGroup.context.resources.getIdentifier(
-                        "big_time",
-                        "id",
-                        viewGroup.context.packageName
-                    )
+                    context.resources.getIdentifier("big_time", "id", context.packageName)
                 )
 
-                layout.marginStart = viewGroup.context.resources.getDimensionPixelSize(
-                    viewGroup.context.resources.getIdentifier(
+                layoutParam.marginStart = context.resources.getDimensionPixelSize(
+                    context.resources.getIdentifier(
                         "notification_panel_time_date_space",
                         "dimen",
-                        viewGroup.context.packageName
+                        context.packageName
                     )
                 )
 
-                mWeatherView = WeatherView(viewGroup.context, isDisplayCity).also {
-                    it.setTextAppearance(
-                        viewGroup.context.resources.getIdentifier(
+                mWeatherView = WeatherView(context, isDisplayCity).apply {
+                    setTextAppearance(
+                        context.resources.getIdentifier(
                             "TextAppearance.QSControl.Date",
                             "style",
-                            viewGroup.context.packageName
+                            context.packageName
                         )
                     )
-                    it.layoutParams = layout
+                    layoutParams = layoutParam
                 }
-
                 viewGroup.addView(mWeatherView)
+
                 (mWeatherView as WeatherView).setOnClickListener {
                     try {
-                        val intent = Intent()
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                        intent.component = ComponentName(
-                            "com.miui.weather2",
-                            "com.miui.weather2.ActivityWeatherMain"
-                        )
-                        viewGroup.context.startActivity(intent)
+                        val intent = Intent().apply {
+                            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                            component = ComponentName(
+                                "com.miui.weather2",
+                                "com.miui.weather2.ActivityWeatherMain"
+                            )
+                        }
+                        context.startActivity(intent)
                     } catch (e: Exception) {
-                        Toast.makeText(viewGroup.context, "启动失败，可能是不支持", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "启动失败", Toast.LENGTH_LONG).show()
                     }
                 }
             }
-        })
-        //解决横屏重叠
-        XposedHelpers.findAndHookMethod(classIfExists, "updateLayout", object : XC_MethodHook() {
-            override fun afterHookedMethod(param: MethodHookParam) {
-                super.afterHookedMethod(param)
-                val mOrientation =
-                    XposedHelpers.getObjectField(param.thisObject, "mOrientation") as Int
+            //解决横屏重叠
+            "com.android.systemui.controlcenter.phone.widget.QSControlCenterHeaderView".hookAfterMethod(
+                lpparam.classLoader,
+                "updateLayout"
+            ) {
+                val mOrientation = it.thisObject.getObjectField("mOrientation") as Int
                 if (mOrientation == 1) {
                     mWeatherView!!.visibility = View.VISIBLE
                 } else {
                     mWeatherView!!.visibility = View.GONE
                 }
             }
-        })
+        }
     }
 }
