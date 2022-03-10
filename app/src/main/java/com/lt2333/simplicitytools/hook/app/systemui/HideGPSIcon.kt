@@ -1,26 +1,16 @@
 package com.lt2333.simplicitytools.hook.app.systemui
 
-import com.lt2333.simplicitytools.util.XSPUtils
+import com.lt2333.simplicitytools.util.hasEnable
+import com.lt2333.simplicitytools.util.hookBeforeMethod
 import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.XC_MethodHook
-import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 class HideGPSIcon : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        val classIfExists = XposedHelpers.findClassIfExists(
-            "com.android.systemui.statusbar.phone.PhoneStatusBarPolicy",
-            lpparam.classLoader
-        )
-        XposedHelpers.findAndHookMethod(
-            classIfExists,
-            "updateLocationFromController",
-            object : XC_MethodHook() {
-                override fun beforeHookedMethod(param: MethodHookParam) {
-                    if (XSPUtils.getBoolean("hide_gps_icon", false)) {
-                        param.result = null
-                    }
-                }
-            })
+        "com.android.systemui.statusbar.phone.PhoneStatusBarPolicy".hookBeforeMethod(lpparam.classLoader, "updateLocationFromController") {
+            hasEnable("hide_gps_icon") {
+                it.result = null
+            }
+        }
     }
 }
