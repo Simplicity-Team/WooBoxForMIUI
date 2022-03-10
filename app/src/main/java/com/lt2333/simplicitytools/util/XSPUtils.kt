@@ -19,3 +19,9 @@ object XSPUtils {
         return prefs.getInt(key, defValue)
     }
 }
+
+inline fun hasEnable(key: String, default: Boolean = false, crossinline block: () -> Unit) {
+    if (XSPUtils.getBoolean(key, default)) {
+        block()
+    }
+}
