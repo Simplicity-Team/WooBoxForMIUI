@@ -1,3 +1,6 @@
 [submodule "blockmiui"]
 	path = blockmiui
 	url = https://github.com/577fkj/blockmiui.git
+[submodule "app/src/main/cpp/dex_builder"]
+	path = app/src/main/cpp/dex_builder
+	url = https://github.com/LSPosed/DexBuilder

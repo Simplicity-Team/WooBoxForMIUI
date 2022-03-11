@@ -8,6 +8,8 @@ import de.robv.android.xposed.XC_MethodReplacement
 import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LayoutInflated
+import me.iacn.biliroaming.utils.DexHelper
+
 import java.lang.reflect.Field
 import java.lang.reflect.Member
 import java.util.*

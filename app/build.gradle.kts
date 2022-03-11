@@ -14,6 +14,14 @@ android {
         targetSdk = 32
         versionCode = 40
         versionName = "1.3.9"
+        externalNativeBuild {
+            cmake {
+                targets("DexBuilder")
+                abiFilters("arm64-v8a")
+                cppFlags("-std=c++17")
+                cFlags("-std=gnu99")
+            }
+        }
     }
 
     buildTypes {
@@ -53,6 +61,15 @@ android {
                 "Simplicity_Tools_Xposed-${versionName}-${name}.apk"
         }
     }
+    androidResources {
+        noCompress("libDexBuilder.so")
+    }
+    externalNativeBuild {
+        cmake {
+            path("src/main/cpp/CMakeLists.txt")
+        }
+    }
+    ndkVersion = "23.1.7779620"
 }
 
 dependencies {

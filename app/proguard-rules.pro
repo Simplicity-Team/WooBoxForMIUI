@@ -36,5 +36,7 @@
     public static void throw*(...);
 }
 
+-keep class me.iacn.biliroaming.utils.DexHelper { *; }
+
 -allowaccessmodification
 -overloadaggressively
