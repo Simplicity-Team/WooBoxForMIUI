@@ -966,6 +966,14 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("remove_macro_blacklist")
                 )
             )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.battery_life_function
+                    ),
+                    SwitchV("battery_life_function")
+                )
+            )
             add(LineV())
             add(TitleTextV(resId = R.string.scope_mediaeditor))
             add(

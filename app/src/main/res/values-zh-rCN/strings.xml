@@ -149,4 +149,5 @@
     <string name="show_notification_importance">显示通知重要程度</string>
     <string name="remove_ad">去广告</string>
     <string name="remove_thememanager_ads">移除主题壁纸的广告</string>
+    <string name="battery_life_function">电池页面显示当前温度</string>
 </resources>
