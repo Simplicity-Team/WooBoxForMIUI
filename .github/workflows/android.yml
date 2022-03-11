@@ -3,12 +3,14 @@ name: Android CI
 on:
   pull_request:
     branches: [ main ]
-
+    paths-ignore:
+      - 'README.md'
+      - 'README_EN.md'
+      - 'doc/*'
+      
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: set up JDK 11
@@ -17,10 +19,23 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: gradle
-
+    - uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+          !~/.gradle/caches/build-cache-*
+        key: gradle-deps-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: gradle-deps
+    - uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches/build-cache-*
+        key: gradle-builds-${{ github.sha }}
     - name: Clone UI
-      run: git clone https://github.com/577fkj/blockmiui.git
+      run: git clone https://github.com/Block-Network/blockmiui.git
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x gradlew 
     - name: Build with Gradle
       run: ./gradlew build
+      
