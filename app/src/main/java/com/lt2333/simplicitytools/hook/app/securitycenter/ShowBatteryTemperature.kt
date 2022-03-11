@@ -16,37 +16,12 @@ import cn.fkj233.ui.activity.dp2px
 import com.lt2333.simplicitytools.util.*
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.callbacks.XC_LoadPackage
-import me.iacn.biliroaming.utils.DexHelper
 import java.lang.reflect.Field
 
-class ShowBatteryTemperature(private val dexHelper: DexHelper?): IXposedHookLoadPackage {
+class ShowBatteryTemperature: IXposedHookLoadPackage {
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         if (!XSPUtils.getBoolean("battery_life_function", false)) return
-        if (dexHelper == null) {
-            log("DexHelper为null，hook ShowBatteryTemperature 失败")
-            return
-        }
-
-        val methodIndex = dexHelper.findMethodUsingString(
-            "isBatteryLifeFunctionSupported",
-            true,
-            -1,
-            0,
-            null,
-            -1,
-            null,
-            null,
-            null,
-            true
-        ).firstOrNull()
-        if (methodIndex == null) {
-            log("ShowBatteryTemperature 无法定位方法")
-            return
-        }
-        val method = dexHelper.decodeMethodIndex(methodIndex)
-        log(method)
-        method.hookBeforeMethod { it.result = true }
         val a = "com.miui.powercenter.a\$a".findClass(lpparam.classLoader)
         "com.miui.powercenter.a".hookBeforeMethod(lpparam.classLoader, "b", Context::class.java) {
            it.result = getBatteryTemperature(it.args[0] as Context).toString()

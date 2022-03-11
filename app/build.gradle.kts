@@ -14,25 +14,13 @@ android {
         targetSdk = 32
         versionCode = 40
         versionName = "1.3.9"
-        externalNativeBuild {
-            cmake {
-                targets("DexBuilder")
-                abiFilters("arm64-v8a")
-                cppFlags("-std=c++17")
-                cFlags("-std=gnu99")
-            }
-        }
     }
 
     buildTypes {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            setProguardFiles(
-                listOf(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
-                )
+            setProguardFiles(listOf("proguard-rules.pro")
             )
         }
     }
@@ -60,15 +48,6 @@ android {
                 "Simplicity_Tools_Xposed-$versionName-$name.apk"
         }
     }
-    androidResources {
-        noCompress("libDexBuilder.so")
-    }
-    externalNativeBuild {
-        cmake {
-            path("src/main/cpp/CMakeLists.txt")
-        }
-    }
-    ndkVersion = "23.1.7779620"
 }
 
 dependencies {
