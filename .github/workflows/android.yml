@@ -32,12 +32,24 @@ jobs:
         path: |
           ~/.gradle/caches/build-cache-*
         key: gradle-builds-${{ github.sha }}
-    - name: init submodule
+
+    - name: Init Submodule
       run: |
         git submodule init
         git submodule update
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew 
+
     - name: Build with Gradle
-      run: ./gradlew build
+      run: bash ./gradlew assemble
+
+    - name: Upload Release APK
+      uses: actions/upload-artifact@v2
+      with:
+        name: SimplicityTools_Release
+        path: "app/build/outputs/apk/release/*.apk"
+
+    - name: Upload Debug APK
+      uses: actions/upload-artifact@v2
+      with:
+        name: Simplicity Tools_Debug
+        path: "app/build/outputs/apk/debug/*.apk"
       
