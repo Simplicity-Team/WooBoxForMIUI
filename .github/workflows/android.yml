@@ -32,8 +32,10 @@ jobs:
         path: |
           ~/.gradle/caches/build-cache-*
         key: gradle-builds-${{ github.sha }}
-    - name: Clone UI
+    - name: Clone blockmiui
       run: git clone https://github.com/Block-Network/blockmiui.git
+    - name: Clone DexBuilder
+      run: git clone https://github.com/LSPosed/DexBuilder.git
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew 
     - name: Build with Gradle

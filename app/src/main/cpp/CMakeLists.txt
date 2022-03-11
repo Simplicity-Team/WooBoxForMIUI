@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.18.1)
 
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_C_STANDARD 11)
 
@@ -12,11 +11,13 @@ add_library(
         native.cpp
         biliroaming.cc
         )
+
 target_include_directories(DexBuilder PUBLIC dex_builder/include)
 
 find_library(
         log-lib
-        log)
+        log
+        )
 
 target_link_libraries(
         DexBuilder
