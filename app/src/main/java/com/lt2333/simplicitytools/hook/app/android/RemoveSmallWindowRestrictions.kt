@@ -1,5 +1,6 @@
 package com.lt2333.simplicitytools.hook.app.android
 
+import android.content.Context
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.hookAfterMethod
 import com.lt2333.simplicitytools.util.hookBeforeMethod
@@ -22,7 +23,7 @@ class RemoveSmallWindowRestrictions : IXposedHookLoadPackage {
             }
         }
 
-        "android.util.MiuiMultiWindowAdapter".hookAfterMethod(lpparam.classLoader, "getFreeformBlackListFromCloud") {
+        "android.util.MiuiMultiWindowAdapter".hookAfterMethod(lpparam.classLoader, "getFreeformBlackListFromCloud", Context::class.java) {
             hasEnable("remove_small_window_restrictions") {
                 it.result = (it.result as MutableList<*>).apply { clear() }
             }

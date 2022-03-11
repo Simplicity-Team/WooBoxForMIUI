@@ -9,7 +9,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 
 class SecurityCenter : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
-        XposedBridge.log("成功Hook: " + javaClass.simpleName)
+        XposedBridge.log("Simplicitytools: 成功 Hook "+javaClass.simpleName)
         //跳过 5/10秒等待时间
         SkipWaitingTime().handleLoadPackage(lpparam)
         //锁定 100分
