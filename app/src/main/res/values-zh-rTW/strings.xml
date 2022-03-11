@@ -150,4 +150,5 @@
     <string name="remove_ad">去廣告</string>
     <string name="remove_thememanager_ads">拿掉主題壁紙的廣告</string>
     <string name="battery_life_function">電池頁面展示當前溫度</string>
+    <string name="enable_wave_charge_animation">啟用Alpha充電動畫</string>
 </resources>

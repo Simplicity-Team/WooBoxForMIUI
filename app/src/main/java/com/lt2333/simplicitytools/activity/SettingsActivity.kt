@@ -882,6 +882,14 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("remove_lock_screen_camera")
                 )
             )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.enable_wave_charge_animation
+                    ),
+                    SwitchV("enable_wave_charge_animation")
+                )
+            )
         }
     }
 
