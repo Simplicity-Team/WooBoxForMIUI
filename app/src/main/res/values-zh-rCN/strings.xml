@@ -149,4 +149,5 @@
     <string name="show_notification_importance">显示通知重要程度</string>
     <string name="remove_ad">去广告</string>
     <string name="remove_thememanager_ads">移除主题壁纸的广告</string>
+    <string name="enable_wave_charge_animation">启用Alpha充电动画</string>
 </resources>
