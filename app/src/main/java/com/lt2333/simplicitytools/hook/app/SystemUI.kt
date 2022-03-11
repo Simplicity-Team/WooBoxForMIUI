@@ -8,7 +8,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 class SystemUI : IXposedHookLoadPackage {
 
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
-        XposedBridge.log("成功Hook: " + javaClass.simpleName)
+        XposedBridge.log("Simplicitytools: 成功 Hook "+javaClass.simpleName)
         //隐藏飞行模式图标
         HideAirplaneIcon().handleLoadPackage(lpparam)
         //隐藏闹钟图标

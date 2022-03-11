@@ -1,6 +1,5 @@
 package com.lt2333.simplicitytools.util
 
-import android.content.Context
 import android.content.res.XResources
 import android.util.Log
 import dalvik.system.BaseDexClassLoader
@@ -9,7 +8,6 @@ import de.robv.android.xposed.XC_MethodReplacement
 import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LayoutInflated
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 import java.lang.reflect.Field
 import java.lang.reflect.Member
 import java.util.*

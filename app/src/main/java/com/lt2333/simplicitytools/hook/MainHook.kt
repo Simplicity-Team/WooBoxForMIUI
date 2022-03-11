@@ -8,7 +8,7 @@ import de.robv.android.xposed.XSharedPreferences
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 
 class MainHook : IXposedHookLoadPackage {
-    var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
+    private var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
         if (prefs.getBoolean("main_switch", true)) {
             EzXHelperInit.initHandleLoadPackage(lpparam)

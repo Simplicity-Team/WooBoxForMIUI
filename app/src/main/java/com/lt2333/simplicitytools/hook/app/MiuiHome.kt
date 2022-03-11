@@ -7,7 +7,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 
 class MiuiHome : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
-        XposedBridge.log("成功Hook: " + javaClass.simpleName)
+        XposedBridge.log("Simplicitytools: 成功 Hook "+javaClass.simpleName)
         //时钟显示时钟
         AlwaysDisplayTime().handleLoadPackage(lpparam)
     }

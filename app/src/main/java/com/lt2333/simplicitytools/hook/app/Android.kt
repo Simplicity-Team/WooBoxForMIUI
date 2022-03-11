@@ -10,7 +10,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 class Android : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        XposedBridge.log("成功Hook: "+javaClass.simpleName)
+        XposedBridge.log("Simplicitytools: 成功 Hook "+javaClass.simpleName)
         //核心破解
         CorePatch().handleLoadPackage(lpparam)
         //允许截图

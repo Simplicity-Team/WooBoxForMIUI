@@ -398,7 +398,7 @@ class SettingsActivity : MIUIActivity() {
     }
 
     //系统框架页面
-    fun androidItems(): ArrayList<BaseView> {
+    private fun androidItems(): ArrayList<BaseView> {
         return ArrayList<BaseView>().apply {
             add(
                 TextSummaryWithSwitchV(
@@ -440,7 +440,7 @@ class SettingsActivity : MIUIActivity() {
     }
 
     //系统界面页面
-    fun systemuiItems(): ArrayList<BaseView> {
+    private fun systemuiItems(): ArrayList<BaseView> {
         return ArrayList<BaseView>().apply {
             add(TitleTextV(resId = R.string.statusbar))
             add(
