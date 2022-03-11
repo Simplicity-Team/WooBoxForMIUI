@@ -68,6 +68,8 @@ class SystemUI : IXposedHookLoadPackage {
         StatusBarLayout().handleLoadPackage(lpparam)
         //隐藏时钟与实时网速之间的分隔符
         HideNetworkSpeedSplitter().handleLoadPackage(lpparam)
+        //Alpha充电动画
+        WaveCharge().handleLoadPackage(lpparam)
     }
 
 }
