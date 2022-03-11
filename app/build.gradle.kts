@@ -19,13 +19,8 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = true
-            isZipAlignEnabled = true
             isShrinkResources = true
-            setProguardFiles(
-                listOf(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
-                )
+            setProguardFiles(listOf("proguard-rules.pro")
             )
         }
     }
@@ -50,7 +45,7 @@ android {
     applicationVariants.all {
         outputs.all {
             (this as BaseVariantOutputImpl).outputFileName =
-                "Simplicity_Tools_Xposed-${versionName}-${name}.apk"
+                "Simplicity_Tools_Xposed-$versionName-$name.apk"
         }
     }
 }
