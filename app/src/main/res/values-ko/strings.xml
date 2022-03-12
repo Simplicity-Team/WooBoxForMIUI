@@ -150,4 +150,7 @@
     <string name="max_wallpaper_scale">Max wallpaper scale</string>
     <string name="def">"Default: "</string>
     <string name="current">Current:</string>
+    <string name="improve_translation">Improve translation</string>
+    <string name="participate_in_translation">Participate in translation</string>
+    <string name="participate_in_translation_summary">Help us translate the app into your language</string>
 </resources>
