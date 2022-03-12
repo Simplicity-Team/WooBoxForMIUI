@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.Switch
 import android.widget.Toast
 import cn.fkj233.ui.activity.MIUIActivity
+import cn.fkj233.ui.activity.OwnSP
 import cn.fkj233.ui.activity.view.*
 import cn.fkj233.ui.dialog.MIUIDialog
 import com.lt2333.simplicitytools.BuildConfig
@@ -436,6 +437,23 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("remove_small_window_restrictions")
                 )
             )
+            add(TextSummaryArrowV(TextSummaryV(textId = R.string.max_wallpaper_scale, onClickListener = {
+                MIUIDialog(activity).apply {
+                    setTitle(R.string.max_wallpaper_scale)
+                    setEditText("", "${activity.getString(R.string.def)}1.1, ${activity.getString(R.string.current)}${OwnSP.ownSP.getFloat("max_wallpaper_scale", 1.1f)}")
+                    setLButton(textId = R.string.cancel) {
+                        dismiss()
+                    }
+                    setRButton(textId = R.string.Done) {
+                        OwnSP.ownSP.edit().run {
+                            putFloat("max_wallpaper_scale", getEditText().toFloat())
+                            apply()
+                        }
+                        dismiss()
+                    }
+                    show()
+                }
+            })))
         }
     }
 
@@ -677,7 +695,12 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("hide_battery_charging_icon")
                 )
             )
-            add(TextWithSwitchV(TextV(resId = R.string.hide_gps_icon), SwitchV("hide_gps_icon")))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_gps_icon),
+                    SwitchV("hide_gps_icon")
+                )
+            )
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.hide_bluetooth_icon),
@@ -732,7 +755,12 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("hide_mobile_type_icon")
                 )
             )
-            add(TextWithSwitchV(TextV(resId = R.string.hide_wifi_icon), SwitchV("hide_wifi_icon")))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_wifi_icon),
+                    SwitchV("hide_wifi_icon")
+                )
+            )
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.hide_wifi_activity_icon),
@@ -757,7 +785,12 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("hide_hotspot_icon")
                 )
             )
-            add(TextWithSwitchV(TextV(resId = R.string.hide_vpn_icon), SwitchV("hide_vpn_icon")))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_vpn_icon),
+                    SwitchV("hide_vpn_icon")
+                )
+            )
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.hide_airplane_icon),
@@ -941,7 +974,8 @@ class SettingsActivity : MIUIActivity() {
                                 intent.component = comp
                                 startActivity(intent)
                             } catch (e: Exception) {
-                                Toast.makeText(activity, "启动失败，可能是不支持", Toast.LENGTH_LONG).show()
+                                Toast.makeText(activity, "启动失败，可能是不支持", Toast.LENGTH_LONG)
+                                    .show()
                             }
                         })
                 )

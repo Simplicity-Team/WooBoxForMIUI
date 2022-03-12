@@ -4,7 +4,7 @@ import com.lt2333.simplicitytools.BuildConfig
 import de.robv.android.xposed.XSharedPreferences
 
 object XSPUtils {
-    var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
+    private var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
 
     fun getBoolean(key: String, defValue: Boolean): Boolean {
         if (prefs.hasFileChanged()) {
@@ -17,6 +17,13 @@ object XSPUtils {
             prefs.reload()
         }
         return prefs.getInt(key, defValue)
+    }
+
+    fun getFloat(key: String, defValue: Float): Float {
+        if (prefs.hasFileChanged()) {
+            prefs.reload()
+        }
+        return prefs.getFloat(key, defValue)
     }
 }
 

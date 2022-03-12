@@ -395,6 +395,10 @@ fun <T> T.setLongField(field: String?, value: Long) = apply {
     XposedHelpers.setLongField(this, field, value)
 }
 
+fun <T> T.setFloatField(field: String?, value: Float) = apply {
+    XposedHelpers.setFloatField(this, field, value)
+}
+
 fun <T> T.setObjectField(field: String?, value: Any?) = apply {
     XposedHelpers.setObjectField(this, field, value)
 }

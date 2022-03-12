@@ -23,14 +23,6 @@
     public void *(de.robv.android.xposed.callbacks.XC_LoadPackage$LoadPackageParam);
 }
 
--keep class * implements de.robv.android.xposed.IXposedHookInitPackageResources {
-    public void *(de.robv.android.xposed.callbacks.XC_InitPackageResources$InitPackageResourcesParam);
-}
-
--keep class * implements de.robv.android.xposed.IXposedHookZygoteInit {
-    public void *(de.robv.android.xposed.IXposedHookZygoteInit$StartupParam);
-}
-
 -assumenosideeffects class kotlin.jvm.internal.Intrinsics {
     public static void check*(...);
     public static void throw*(...);
