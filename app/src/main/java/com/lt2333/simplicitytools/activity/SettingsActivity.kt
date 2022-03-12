@@ -445,9 +445,11 @@ class SettingsActivity : MIUIActivity() {
                         dismiss()
                     }
                     setRButton(textId = R.string.Done) {
-                        OwnSP.ownSP.edit().run {
-                            putFloat("max_wallpaper_scale", getEditText().toFloat())
-                            apply()
+                        if (getEditText() != "") {
+                            OwnSP.ownSP.edit().run {
+                                putFloat("max_wallpaper_scale", getEditText().toFloat())
+                                apply()
+                            }
                         }
                         dismiss()
                     }
