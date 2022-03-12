@@ -68,7 +68,7 @@
     <string name="status_bar_clock_size">Размер часов (0: не изменять)</string>
     <string name="status_bar_clock_double_line_size">Размер часов в 2 строки (0: не изменять)</string>
     <string name="matters_needing_attention">Функция не работает?</string>
-    <string name="Done">ОК</string>
+    <string name="Done">OK</string>
     <string name="about_module_summary">Просмотр информации</string>
     <string name="contributor_list">Список участников</string>
     <string name="developer">Разработчик</string>
@@ -94,7 +94,7 @@
     <string name="lock_one_hundred">Оптимизация безопасности</string>
     <string name="scope">Основное</string>
     <string name="scope_android">System Framework</string>
-    <string name="scope_systemui">SustemUi</string>
+    <string name="scope_systemui">SystemUI</string>
     <string name="scope_miuihome">Начальный экран</string>
     <string name="scope_other">Другое</string>
     <string name="status_bar_network_speed_refresh_speed_summary">Изменяет частоту обновления скорости сети в строке состояния на 1 с</string>
