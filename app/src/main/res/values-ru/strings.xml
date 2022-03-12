@@ -154,7 +154,6 @@
     <string name="max_wallpaper_scale">Максимальный масштаб обоев</string>
     <string name="def">"Ум: "</string>
     <string name="current">Тек:</string>
-    <string name="improve_translation">Improve translation</string>
     <string name="participate_in_translation">Participate in translation</string>
     <string name="participate_in_translation_summary">Help us translate the app into your language</string>
 </resources>
