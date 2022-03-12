@@ -15,41 +15,23 @@ class MainHook : IXposedHookLoadPackage {
             EzXHelperInit.setEzClassLoader(lpparam.classLoader)
             when (lpparam.packageName) {
                 //Android
-                "android" -> {
-                    Android().handleLoadPackage(lpparam)
-                }
+                "android" -> Android().handleLoadPackage(lpparam)
                 //系统界面
-                "com.android.systemui" -> {
-                    SystemUI().handleLoadPackage(lpparam)
-                }
+                "com.android.systemui" -> SystemUI().handleLoadPackage(lpparam)
                 //电量与性能
-                "com.miui.powerkeeper" -> {
-                    PowerKeeper().handleLoadPackage(lpparam)
-                }
+                "com.miui.powerkeeper" -> PowerKeeper().handleLoadPackage(lpparam)
                 //桌面
-                "com.miui.home" -> {
-                    MiuiHome().handleLoadPackage(lpparam)
-                }
+                "com.miui.home" -> MiuiHome().handleLoadPackage(lpparam)
                 //手机管家
-                "com.miui.securitycenter" -> {
-                    SecurityCenter().handleLoadPackage(lpparam)
-                }
+                "com.miui.securitycenter" -> SecurityCenter().handleLoadPackage(lpparam)
                 //相册编辑
-                "com.miui.mediaeditor" -> {
-                    MediaEditor().handleLoadPackage(lpparam)
-                }
+                "com.miui.mediaeditor" -> MediaEditor().handleLoadPackage(lpparam)
                 //系统更新
-                "com.android.updater" -> {
-                    Updater().handleLoadPackage(lpparam)
-                }
+                "com.android.updater" -> Updater().handleLoadPackage(lpparam)
                 //设置
-                "com.android.settings" -> {
-                    Settings().handleLoadPackage(lpparam)
-                }
+                "com.android.settings" -> Settings().handleLoadPackage(lpparam)
                 //主题壁纸
-                "com.android.thememanager" -> {
-                    ThemeManager().handleLoadPackage(lpparam)
-                }
+                "com.android.thememanager" -> ThemeManager().handleLoadPackage(lpparam)
             }
         }
     }

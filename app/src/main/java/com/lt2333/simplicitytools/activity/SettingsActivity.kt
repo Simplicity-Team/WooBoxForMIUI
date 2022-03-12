@@ -206,7 +206,7 @@ class SettingsActivity : MIUIActivity() {
     }
 
     //关于页面
-    fun aboutItems(): ArrayList<BaseView> {
+    private fun aboutItems(): ArrayList<BaseView> {
         return ArrayList<BaseView>().apply {
             add(
                 AuthorV(
@@ -894,7 +894,7 @@ class SettingsActivity : MIUIActivity() {
     }
 
     //其他页面
-    fun otherItems(): ArrayList<BaseView> {
+    private fun otherItems(): ArrayList<BaseView> {
         return ArrayList<BaseView>().apply {
             add(TitleTextV(resId = R.string.scope_miuihome))
             add(
