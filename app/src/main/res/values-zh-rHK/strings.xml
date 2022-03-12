@@ -150,4 +150,7 @@
     <string name="max_wallpaper_scale">壁紙縮放比例</string>
     <string name="def">"默認值："</string>
     <string name="current">當前值：</string>
+    <string name="improve_translation">Improve translation</string>
+    <string name="participate_in_translation">Participate in translation</string>
+    <string name="participate_in_translation_summary">Help us translate the app into your language</string>
 </resources>
