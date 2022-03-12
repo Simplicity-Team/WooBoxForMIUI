@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="performance">Performanță</string>
-    <string name="lock_max_fps">Lock the current refresh rate upper limit</string>
-    <string name="ui">Interface</string>
+    <string name="lock_max_fps">Blochează limita superioară a ratei de împrospătare curentă</string>
+    <string name="ui">Interfață</string>
     <string name="delete_on_post_notification">Remove display over notification</string>
     <string name="delete_on_post_notification_summary">Remove \"This app is displaying over other apps\" notification</string>
     <string name="other">Other</string>
