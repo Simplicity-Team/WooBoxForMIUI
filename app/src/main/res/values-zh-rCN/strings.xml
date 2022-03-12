@@ -4,7 +4,7 @@
     <string name="lock_max_fps">锁定当前刷新率上限</string>
     <string name="ui">界面</string>
     <string name="delete_on_post_notification">移除上层显示通知</string>
-    <string name="delete_on_post_notification_summary">Remove \"This app is displaying over other apps\" notification</string>
+    <string name="delete_on_post_notification_summary">移除 \"此应用正显示在屏幕上其他应用的上层\" 通知</string>
     <string name="other">其他</string>
     <string name="disable_flag_secure">允许截图</string>
     <string name="disable_flag_secure_summary">开启后允许在不允许截图的软件中截图\n支持添加下拉控制中心快速开关，保障安全</string>
