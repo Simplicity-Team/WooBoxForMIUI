@@ -11,12 +11,14 @@
    <p>A system extension Xposed module based on MIUI13 (Android12) </p>
 </div>
 
-
+---
 
 ### Description
 
 Only MIUI13 (Android12) is supported. The rest of the versions may not be valid, please do not install and use.   
 It is in the early stage of development, with fewer functions, and will be improved gradually.   
+
+---
 
 ### Features
 <details>
@@ -103,18 +105,32 @@ It is in the early stage of development, with fewer functions, and will be impro
 
 </details>
 
+---
+
 ### Screenshot
 ![Screenshot](https://raw.githubusercontent.com/LittleTurtle2333/SimplicityTools/main/doc/en.jpg)  
+
+---
 
 ### Download
 
 Xposed Repo：[Click here to download the latest release](https://github.com/Xposed-Modules-Repo/com.lt2333.simplicitytools/releases)  
+
+
+---
+
+### 改进翻译
+[![Crowdin](https://badges.crowdin.net/simplicitytools/localized.svg)](https://crowdin.com/project/simplicitytools)[Click here to Crowdin](https://crowdin.com/project/simplicitytools)
+
+---
 
 ## Third party open source references
 ##### GNU General Public License v2.0
 [LSPosed/CorePatch](https://github.com/LSPosed/CorePatch)  
 ##### GNU Lesser General Public License v2.1
 [577fkj/blockmiui](https://github.com/577fkj/blockmiui)  
+
+---
 
 ## License
 [GNU General Public License v3.0](https://github.com/LittleTurtle2333/SimplicityTools/blob/main/LICENSE)

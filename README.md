@@ -11,7 +11,7 @@
    <p>一个基于 MIUI13（Android12）适配的系统拓展Xposed模块</p>
 </div>
 
-
+---
 
 ### 模块说明
 
@@ -19,6 +19,8 @@
 目前处于开发初期阶段，功能较少，后续将逐步完善。  
 
 开发者：[酷安@乌堆小透明](http://www.coolapk.com/u/883441)  
+
+---
 
 ### 已实现功能
 <details>
@@ -105,19 +107,33 @@
 
 </details>
 
+---
+
 ### 模块截图
 ![截图](https://raw.githubusercontent.com/LittleTurtle2333/SimplicityTools/main/doc/cn.jpg)  
+
+---
 
 ### 下载地址
 
 Xposed仓库下载：[点击此处下载最新发行版](https://github.com/Xposed-Modules-Repo/com.lt2333.simplicitytools/releases)  
 
 酷安下载：[点击此处下载最新发行版](https://www.coolapk.com/apk/com.lt2333.simplicitytools)  
-## 第三方开源引用
+
+---
+
+### 改进翻译
+[![Crowdin](https://badges.crowdin.net/simplicitytools/localized.svg)](https://crowdin.com/project/simplicitytools)[点击此处进入Crowdin](https://crowdin.com/project/simplicitytools)
+
+---
+
+### 第三方开源引用
 ##### GNU General Public License v2.0
 [LSPosed/CorePatch](https://github.com/LSPosed/CorePatch)  
 ##### GNU Lesser General Public License v2.1
 [577fkj/blockmiui](https://github.com/577fkj/blockmiui)  
 
-## License
+---
+
+### License
 [GNU General Public License v3.0](https://github.com/LittleTurtle2333/SimplicityTools/blob/main/LICENSE)
