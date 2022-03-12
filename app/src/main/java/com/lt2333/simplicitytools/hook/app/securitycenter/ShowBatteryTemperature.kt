@@ -37,22 +37,22 @@ class ShowBatteryTemperature: IXposedHookLoadPackage {
             field.isAccessible = true
             val view = field.get(it.thisObject) as View
             val textView = view.findViewById<TextView>(currentTemperatureValue)
-            textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 36.399998f)
-            textView.gravity = Gravity.NO_GRAVITY
-            textView.typeface = Typeface.create(null, 400, false)
-            textView.setPadding(0, 0, 0, 0)
-            textView.height = dp2px(context, 49.099983f)
-            textView.textAlignment = View.TEXT_ALIGNMENT_VIEW_START
             (textView.layoutParams as LinearLayout.LayoutParams).marginStart = dp2px(context, 25f)
             (textView.layoutParams as LinearLayout.LayoutParams).topMargin = 0
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 36.399998f)
+            textView.setPadding(0, 0, 0, 0)
+            textView.gravity = Gravity.NO_GRAVITY
+            textView.typeface = Typeface.defaultFromStyle(Typeface.NORMAL)
+            textView.height = dp2px(context, 49.099983f)
+            textView.textAlignment = View.TEXT_ALIGNMENT_VIEW_START
             val tempView = TextView(context)
             tempView.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dp2px(context, 49.099983f))
             (tempView.layoutParams as LinearLayout.LayoutParams).marginStart = dp2px(context, 3.599976f)
             tempView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 13.099977f)
+            tempView.setTextColor(Color.parseColor(if (isDarkMode) "#e6e6e6" else "#333333"))
             tempView.setPadding(0, dp2px(context, 25f), 0, 0)
             tempView.text = "℃"
-            tempView.setTextColor(Color.parseColor(if (isDarkMode) "#e6e6e6" else "#333333"))
-            tempView.typeface = Typeface.create(null, 400, false)
+            tempView.typeface = Typeface.create(null, 500, false)
             tempView.textAlignment = View.TEXT_ALIGNMENT_VIEW_START
             val tempeValueContainer = context.resources.getIdentifier("tempe_value_container", "id", "com.miui.securitycenter")
             val linearLayout = view.findViewById<LinearLayout>(tempeValueContainer)
