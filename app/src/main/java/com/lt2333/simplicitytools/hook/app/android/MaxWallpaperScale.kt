@@ -11,12 +11,13 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 class MaxWallpaperScale : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        val value = XSPUtils.getFloat("max_wallpaper_scale", 1.1f)
         "com.android.server.wm.WallpaperController".hookAfterMethod(lpparam.classLoader, "WallpaperController", Service::class.java, DisplayContext::class.java
         ) {
+            val value = XSPUtils.getFloat("max_wallpaper_scale", 1.1f)
             it.thisObject.setFloatField("mMaxWallpaperScale", value)
         }
         "com.android.server.wm.WallpaperController".hookBeforeMethod(lpparam.classLoader, "zoomOutToScale", Float::class.java) {
+            val value = XSPUtils.getFloat("max_wallpaper_scale", 1.1f)
             it.thisObject.setFloatField("mMaxWallpaperScale", value)
         }
     }
