@@ -3,13 +3,13 @@
     <string name="performance">Performance</string>
     <string name="lock_max_fps">Verrouiller le taux de rafraîchissement actuel</string>
     <string name="ui">Interface</string>
-    <string name="delete_on_post_notification">Remove display over notification</string>
-    <string name="delete_on_post_notification_summary">Remove \"This app is displaying over other apps\" notification</string>
-    <string name="other">Other</string>
-    <string name="disable_flag_secure">Allow screenshot</string>
-    <string name="disable_flag_secure_summary">Allow screenshot in software that does not allow to\nSupport adding drop-down quick setting on Control center for security</string>
-    <string name="home">Home</string>
-    <string name="home_time">Always display Home screen clock</string>
+    <string name="delete_on_post_notification">Supprimer l\'affichage sur la notification</string>
+    <string name="delete_on_post_notification_summary">Supprimer la notification \"Cette application s\'affiche au-dessus des autres applications\"</string>
+    <string name="other">Autre</string>
+    <string name="disable_flag_secure">Permettre la capture d\'écran</string>
+    <string name="disable_flag_secure_summary">Permettre une capture d\'écran dans un logiciel qui ne permet pas\najouter des paramètres rapides dans le centre de contrôle pour la sécurité</string>
+    <string name="home">Homepage</string>
+    <string name="home_time">Toujours afficher l\'horloge à l\'écran d\'accueil</string>
     <string name="reboot_host">Restart all scope</string>
     <string name="reboot">Reboot System</string>
     <!--Status bar icons-->
