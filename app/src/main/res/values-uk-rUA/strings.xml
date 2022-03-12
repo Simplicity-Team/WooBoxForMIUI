@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simplicity Tools</string>
     <string name="performance">Performence</string>
     <string name="lock_max_fps">Lock the current refresh rate upper limit</string>
     <string name="ui">Interface</string>
@@ -34,7 +33,6 @@
     <string name="about_module">About Module</string>
     <string name="verison">Version</string>
     <string name="dev_coolapk">Author Coolapk</string>
-    <string name="dev_coolapk_name">\@乌堆小透明</string>
     <string name="opensource">Open Source Repository</string>
     <string name="github_url">Welcome more developers to participate in the development</string>
     <string name="issues">Feedback/Proposal</string>
