@@ -2,48 +2,54 @@
 <resources>
     <string name="performance">Performans</string>
     <string name="lock_max_fps">Performans </string>
-    <string name="ui">Interface</string>
-    <string name="delete_on_post_notification">Remove display over notification</string>
-    <string name="delete_on_post_notification_summary">Remove \"This app is displaying over other apps\" notification</string>
-    <string name="other">Other</string>
-    <string name="disable_flag_secure">Allow screenshot</string>
-    <string name="disable_flag_secure_summary">Allow screenshot in software that does not allow to\nSupport adding drop-down quick setting on Control center for security</string>
-    <string name="home">Home</string>
-    <string name="home_time">Always display Home screen clock</string>
-    <string name="reboot_host">Restart all scope</string>
-    <string name="reboot">Reboot System</string>
+    <string name="ui">Arayüz </string>
+    <string name="delete_on_post_notification">Bildirim üzerinden ekranı kaldır</string>
+    <string name="delete_on_post_notification_summary">Bildirim üzerinden ekranı kaldır</string>
+    <string name="other">Diğer </string>
+    <string name="disable_flag_secure">Ekran görüntüsüne izin ver</string>
+    <string name="disable_flag_secure_summary">Güvenlik için Kontrol merkezinde açılır hızlı ayar eklemeye izin vermeyen yazılımda ekran görüntüsüne izin ver
+ İÇERİK TALEBİ</string>
+    <string name="home">Ev</string>
+    <string name="home_time">Her zaman Ana ekran saatini göster</string>
+    <string name="reboot_host">Tüm kapsamı yeniden başlat
+ İÇERİK TALEBİ</string>
+    <string name="reboot">Sistemi Yeniden Başlat </string>
     <!--Status bar icons-->
-    <string name="status_bar_icon">Status bar icons</string>
+    <string name="status_bar_icon">Durum çubuğu simgeleri</string>
     <string name="hide_no_sim_icon">Hide No SIM icon</string>
-    <string name="hide_sim_one_icon">Hide SIM Card 1 icon</string>
-    <string name="hide_sim_two_icon">Hide SIM Card 2 icon</string>
-    <string name="hide_vpn_icon">Hide VPN icon</string>
-    <string name="hide_airplane_icon">Hide Airplane mode icon</string>
-    <string name="hide_wifi_icon">Hide WIFI icon</string>
-    <string name="hide_bluetooth_icon">Hide Bluetooth icon</string>
-    <string name="hide_volume_zen_icon">Hide Sound and Do Not Disturb icon</string>
-    <string name="hide_alarm_icon">Hide Alarm icon</string>
-    <string name="hide_hotspot_icon">Hide Portable hotspot icon</string>
-    <string name="hide_headset_icon">Hide Headset icon</string>
-    <string name="hide_bluetooth_battery_icon">hide Bluetooth battery icon</string>
-    <string name="hide_big_hd_icon">Hide big HD icon</string>
-    <string name="hide_small_hd_icon">Hide small HD icon</string>
-    <string name="hide_hd_no_service_icon">Hide HD No Service icon</string>
-    <string name="about">About</string>
+    <string name="hide_sim_one_icon">SIM Kart 1 simgesini gizle</string>
+    <string name="hide_sim_two_icon">SIM Kart 2 simgesini gizle</string>
+    <string name="hide_vpn_icon">VPN simgesini gizle
+ İÇERİK TALEBİ</string>
+    <string name="hide_airplane_icon">Uçak modu simgesini gizle</string>
+    <string name="hide_wifi_icon">WIFI simgesini gizle</string>
+    <string name="hide_bluetooth_icon">Bluetooth simgesini gizle
+ İÇERİK TALEBİ</string>
+    <string name="hide_volume_zen_icon">Sesi Gizle ve Rahatsız Etmeyin simgesi
+ İÇERİK TALEBİ</string>
+    <string name="hide_alarm_icon">Alarm simgesini gizle</string>
+    <string name="hide_hotspot_icon">Taşınabilir erişim noktası simgesini gizle</string>
+    <string name="hide_headset_icon">Kulaklık simgesini gizle</string>
+    <string name="hide_bluetooth_battery_icon">Bluetooth pil simgesini gizle</string>
+    <string name="hide_big_hd_icon">Büyük HD simgesini gizle</string>
+    <string name="hide_small_hd_icon">Küçük HD simgesini gizle</string>
+    <string name="hide_hd_no_service_icon">HD Hizmet Yok simgesini gizle
+ </string>
+    <string name="about">Hakkında</string>
     <string name="about_module">About Module</string>
-    <string name="verison">Version</string>
-    <string name="dev_coolapk">Author Coolapk</string>
-    <string name="opensource">Open Source Repository</string>
-    <string name="github_url">Welcome more developers to participate in the development</string>
-    <string name="issues">Feedback/Proposal</string>
-    <string name="issues_url">Click to view GitHub Issues</string>
-    <string name="xposeddescription">Customization tool for MIUI13(Android 12)</string>
-    <string name="statusbar">Status bar</string>
-    <string name="status_bar_time_seconds">Display seconds</string>
-    <string name="status_bar_network_speed_refresh_speed">Network speed refresh in seconds</string>
-    <string name="remove_the_maximum_number_of_notification_icons">Remove the maximum number of notification icons</string>
-    <string name="main_switch">Module main switch</string>
-    <string name="hide_gps_icon">Hide GPS icon</string>
+    <string name="verison">Sürüm</string>
+    <string name="dev_coolapk">Yazar Coolapk</string>
+    <string name="opensource">Açık Kaynak Deposu</string>
+    <string name="github_url">Geliştirmeye katılmak için daha fazla geliştiriciye hoş geldiniz</string>
+    <string name="issues">Geribildirim/Teklif</string>
+    <string name="issues_url">GitHub Sorunlarını görüntülemek için tıklayın</string>
+    <string name="xposeddescription">MIUI13 (Android 12) için özelleştirme aracı</string>
+    <string name="statusbar">Durum çubuğu</string>
+    <string name="status_bar_time_seconds">Saniye göster</string>
+    <string name="status_bar_network_speed_refresh_speed">Saniyeler içinde ağ hızı yenileme</string>
+    <string name="remove_the_maximum_number_of_notification_icons">Maksimum bildirim simgesi sayısını kaldırın</string>
+    <string name="main_switch">Modül ana şalteri</string>
+    <string name="hide_gps_icon">GPS simgesini gizle</string>
     <string name="hide_status_bar_network_speed_second">Hide network speed (/s) units</string>
     <string name="menu">Menu</string>
     <string name="Tips">Tips</string>
