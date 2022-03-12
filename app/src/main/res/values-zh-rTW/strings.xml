@@ -4,7 +4,7 @@
     <string name="lock_max_fps">鎖定當前刷新率上限</string>
     <string name="ui">界面</string>
     <string name="delete_on_post_notification">移除上層顯示通知</string>
-    <string name="delete_on_post_notification_summary">移除\"此應用正顯示在螢幕上其他應用的上層\"通知</string>
+    <string name="delete_on_post_notification_summary">移除 \"此應用正顯示在螢幕上其他應用的上層\" 通知</string>
     <string name="other">其他</string>
     <string name="disable_flag_secure">允許截圖</string>
     <string name="disable_flag_secure_summary">開啟後允許在不允許截圖的軟體中截圖\n支持添加下拉控制中心快速開關，保障安全</string>
@@ -150,4 +150,6 @@
     <string name="max_wallpaper_scale">壁紙縮放比例</string>
     <string name="def">"默認值："</string>
     <string name="current">當前值：</string>
+    <string name="participate_in_translation">參與評估</string>
+    <string name="participate_in_translation_summary">幫助我們將這個APP翻譯成您的語言</string>
 </resources>

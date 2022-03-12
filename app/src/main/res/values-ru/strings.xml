@@ -4,7 +4,7 @@
     <string name="lock_max_fps">Зафиксировать текущую частоту обновления</string>
     <string name="ui">Интерфейс</string>
     <string name="delete_on_post_notification">Удалить уведомление наложения</string>
-    <string name="delete_on_post_notification_summary">Удалить уведомление Это приложение отображается поверх других приложений</string>
+    <string name="delete_on_post_notification_summary">Удалить уведомление \"Это приложение отображается поверх других приложений\"</string>
     <string name="other">Другое</string>
     <string name="disable_flag_secure">Разрешить скриншот</string>
     <string name="disable_flag_secure_summary">Разрешить скриншот в приложениях, которые имеют ограничение на снятие скриншота</string>
@@ -154,4 +154,6 @@
     <string name="max_wallpaper_scale">Максимальный масштаб обоев</string>
     <string name="def">"Ум: "</string>
     <string name="current">Тек:</string>
+    <string name="participate_in_translation">Participate in translation</string>
+    <string name="participate_in_translation_summary">Help us translate the app into your language</string>
 </resources>

@@ -4,7 +4,7 @@
     <string name="lock_max_fps">Lock the current refresh rate upper limit</string>
     <string name="ui">Interface</string>
     <string name="delete_on_post_notification">Remove display over notification</string>
-    <string name="delete_on_post_notification_summary">Remove \&quot;This app is displaying over other apps\&quot; notification</string>
+    <string name="delete_on_post_notification_summary">Remove \"This app is displaying over other apps\" notification</string>
     <string name="other">Other</string>
     <string name="disable_flag_secure">Allow screenshot</string>
     <string name="disable_flag_secure_summary">Allow screenshot in software that does not allow to\nSupport adding drop-down quick setting on Control center for security</string>
@@ -150,4 +150,6 @@
     <string name="max_wallpaper_scale">Max wallpaper scale</string>
     <string name="def">"Default: "</string>
     <string name="current">Current:</string>
+    <string name="participate_in_translation">Participate in translation</string>
+    <string name="participate_in_translation_summary">Help us translate the app into your language</string>
 </resources>
