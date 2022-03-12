@@ -20,24 +20,15 @@ class NotificationWeather : IXposedHookLoadPackage {
             "com.android.systemui.qs.MiuiNotificationHeaderView".hookAfterMethod(lpparam.classLoader, "onFinishInflate") {
                 val viewGroup = it.thisObject as ViewGroup
                 val context = viewGroup.context
-                val layoutParam = loadClass("androidx.constraintlayout.widget.ConstraintLayout\$LayoutParams")
-                    .getConstructor(Int::class.java, Int::class.java).newInstance(
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT
-                    ) as ViewGroup.MarginLayoutParams
+                val layoutParam = loadClass("androidx.constraintlayout.widget.ConstraintLayout\$LayoutParams").getConstructor(Int::class.java, Int::class.java).newInstance(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT) as ViewGroup.MarginLayoutParams
                 layoutParam.setObjectField("bottomToTop", context.resources.getIdentifier("date_time", "id", context.packageName))
                 layoutParam.setObjectField("startToEnd", context.resources.getIdentifier("big_time", "id", context.packageName))
-
-                layoutParam.marginStart = context.resources.getDimensionPixelSize(
-                    context.resources.getIdentifier("notification_panel_time_date_space", "dimen", context.packageName)
-                )
-
+                layoutParam.marginStart = context.resources.getDimensionPixelSize(context.resources.getIdentifier("notification_panel_time_date_space", "dimen", context.packageName))
                 mWeatherView = WeatherView(context, isDisplayCity).apply {
                     setTextAppearance(context.resources.getIdentifier("TextAppearance.QSControl.Date", "style", context.packageName))
                     layoutParams = layoutParam
                 }
                 viewGroup.addView(mWeatherView)
-
                 (mWeatherView as WeatherView).setOnClickListener {
                     try {
                         val intent = Intent().apply {

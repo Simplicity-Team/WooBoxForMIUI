@@ -8,161 +8,124 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.widget.TextView
 import com.lt2333.simplicitytools.util.XSPUtils
+import com.lt2333.simplicitytools.util.findClass
+import com.lt2333.simplicitytools.util.hookAfterConstructor
+import com.lt2333.simplicitytools.util.hookAfterMethod
 import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.XC_MethodHook
-import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import java.lang.reflect.Method
 import java.text.SimpleDateFormat
 import java.util.*
 
 class StatusBarTimeCustomization : IXposedHookLoadPackage {
+    
+    private val isYear = XSPUtils.getBoolean("status_bar_time_year", false)
+    private val isMonth = XSPUtils.getBoolean("status_bar_time_month", false)
+    private val isDay = XSPUtils.getBoolean("status_bar_time_day", false)
+    private val isWeek = XSPUtils.getBoolean("status_bar_time_week", false)
+    private val isHideSpace = XSPUtils.getBoolean("status_bar_time_hide_space", false)
+    private val isDoubleLine = XSPUtils.getBoolean("status_bar_time_double_line", false)
+    private val isSecond = XSPUtils.getBoolean("status_bar_time_seconds", false)
+    private val isDoubleHour = XSPUtils.getBoolean("status_bar_time_double_hour", false)
+    private val isPeriod = XSPUtils.getBoolean("status_bar_time_period", true)
+    private val getClockSize = XSPUtils.getInt("status_bar_clock_size", 0)
+    private val isOpen = XSPUtils.getBoolean("custom_clock_switch", false)
+    private val getClockDoubleSize = XSPUtils.getInt("status_bar_clock_double_line_size", 0)
+    private var now_time: Date? = null
+    private var str = ""
 
-
-    val isYear = XSPUtils.getBoolean("status_bar_time_year", false)
-    val isMonth = XSPUtils.getBoolean("status_bar_time_month", false)
-    val isDay = XSPUtils.getBoolean("status_bar_time_day", false)
-    val isWeek = XSPUtils.getBoolean("status_bar_time_week", false)
-    val isHideSpace = XSPUtils.getBoolean("status_bar_time_hide_space", false)
-    val isDoubleLine = XSPUtils.getBoolean("status_bar_time_double_line", false)
-    val isSecond = XSPUtils.getBoolean("status_bar_time_seconds", false)
-    val isDoubleHour = XSPUtils.getBoolean("status_bar_time_double_hour", false)
-    val isPeriod = XSPUtils.getBoolean("status_bar_time_period", true)
-    val getClockSize = XSPUtils.getInt("status_bar_clock_size", 0)
-    val isOpen = XSPUtils.getBoolean("custom_clock_switch", false)
-    val getClockDoubleSize = XSPUtils.getInt("status_bar_clock_double_line_size", 0)
-
-
-    var now_time: Date? = null
-    var str = ""
-
+    @SuppressLint("SetTextI18n")
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         if (isOpen) {
             var c: Context? = null
-            val classIfExists = XposedHelpers.findClassIfExists(
-                "com.android.systemui.statusbar.views.MiuiClock",
-                lpparam.classLoader
-            )
-            XposedHelpers.findAndHookConstructor(classIfExists,
-                Context::class.java,
-                AttributeSet::class.java,
-                Integer.TYPE,
-                object : XC_MethodHook() {
-                    override fun afterHookedMethod(param: MethodHookParam) {
-                        try {
-                            c = param.args[0] as Context
-                            val textV = param.thisObject as TextView
-                            textV.isSingleLine = false
-
-                            if (isDoubleLine) {
-                                str = "\n"
-                                var clock_double_line_size = 7F
-                                if (getClockDoubleSize != 0) {
-                                    clock_double_line_size =
-                                        getClockDoubleSize
-                                            .toFloat()
-                                }
-                                textV.setTextSize(
-                                    TypedValue.COMPLEX_UNIT_DIP,
-                                    clock_double_line_size
-                                )
-                            } else {
-                                if (getClockSize != 0) {
-                                    val clock_size =
-                                        getClockSize.toFloat()
-                                    textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, clock_size)
-                                }
-                            }
-
-                            val d: Method = textV.javaClass.getDeclaredMethod("updateTime")
-                            val r = Runnable {
-                                d.isAccessible = true
-                                d.invoke(textV)
-                            }
-
-                            class T : TimerTask() {
-                                override fun run() {
-                                    Handler(textV.context.mainLooper).post(r)
-                                }
-                            }
-                            if (textV.resources.getResourceEntryName(textV.id) == "clock")
-                                Timer().scheduleAtFixedRate(
-                                    T(),
-                                    1000 - System.currentTimeMillis() % 1000,
-                                    1000
-                                )
-
-                        } catch (e: java.lang.Exception) {
+            val miuiClockClass = "com.android.systemui.statusbar.views.MiuiClock".findClass(lpparam.classLoader)
+            miuiClockClass.hookAfterConstructor(Context::class.java, AttributeSet::class.java, Integer.TYPE) {
+                try {
+                    c = it.args[0] as Context
+                    val textV = it.thisObject as TextView
+                    textV.isSingleLine = false
+                    if (isDoubleLine) {
+                        str = "\n"
+                        var clock_double_line_size = 7F
+                        if (getClockDoubleSize != 0) {
+                            clock_double_line_size = getClockDoubleSize.toFloat()
+                        }
+                        textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, clock_double_line_size)
+                    } else {
+                        if (getClockSize != 0) {
+                            val clock_size = getClockSize.toFloat()
+                            textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, clock_size)
                         }
                     }
+                    val d: Method = textV.javaClass.getDeclaredMethod("updateTime")
+                    val r = Runnable {
+                        d.isAccessible = true
+                        d.invoke(textV)
+                    }
+                    class T : TimerTask() {
+                        override fun run() {
+                            Handler(textV.context.mainLooper).post(r)
+                        }
+                    }
+                    if (textV.resources.getResourceEntryName(textV.id) == "clock")
+                        Timer().scheduleAtFixedRate(T(), 1000 - System.currentTimeMillis() % 1000, 1000)
+                } catch (e: java.lang.Exception) {
                 }
-            )
-            XposedHelpers.findAndHookMethod(classIfExists, "updateTime",
-                object : XC_MethodHook() {
-                    @SuppressLint("SetTextI18n", "SimpleDateFormat")
-                    override fun afterHookedMethod(param: MethodHookParam) {
-                        try {
-                            val textV = param.thisObject as TextView
-                            if (textV.resources.getResourceEntryName(textV.id) == "clock") {
-                                val t = Settings.System.getString(
-                                    c!!.contentResolver,
-                                    Settings.System.TIME_12_24
-                                )
-                                now_time = Calendar.getInstance().time
-
-                                textV.text = getDate(c!!, t) + str + getTime(c!!, t)
-                            }
-
-                        } catch (e: Exception) {
-                        }
+            }
+            miuiClockClass.hookAfterMethod("updateTime") {
+                try {
+                    val textV = it.thisObject as TextView
+                    if (textV.resources.getResourceEntryName(textV.id) == "clock") {
+                        val t = Settings.System.getString(c!!.contentResolver, Settings.System.TIME_12_24)
+                        now_time = Calendar.getInstance().time
+                        textV.text = getDate(c!!, t) + str + getTime(c!!, t)
                     }
-                })
+                } catch (e: Exception) {
+                }
+            }
         }
     }
 
 
     @SuppressLint("SimpleDateFormat")
     private fun getDate(context: Context, t: String): String {
-        var DatePattern = ""
+        var datePattern = ""
         val isZh = isZh(context)
 
         if (isYear) {
             if (isZh) {
-                DatePattern += "YY年"
-//                if (!isHideSpace) DatePattern = "$DatePattern "
+                datePattern += "YY年"
+//                if (!isHideSpace) datePattern = "$datePattern "
             } else {
-                DatePattern += "YY"
-                if (isMonth || isDay) DatePattern += "/"
+                datePattern += "YY"
+                if (isMonth || isDay) datePattern += "/"
             }
         }
         if (isMonth) {
             if (isZh) {
-                DatePattern += "M月"
-//                if (!isHideSpace) DatePattern = "$DatePattern "
+                datePattern += "M月"
+//                if (!isHideSpace) datePattern = "$datePattern "
             } else {
-                DatePattern += "M"
-                if (isDay) DatePattern += "/"
+                datePattern += "M"
+                if (isDay) datePattern += "/"
             }
         }
         if (isDay) {
-            if (isZh) {
-                DatePattern += "d日"
+            datePattern += if (isZh) {
+                "d日"
             } else {
-                DatePattern += "d"
+                "d"
             }
         }
-
         if (isWeek) {
-            if (!isHideSpace) DatePattern = "$DatePattern "
-            DatePattern += "E"
+            if (!isHideSpace) datePattern = "$datePattern "
+            datePattern += "E"
             if (!isDoubleLine) {
-                if (!isHideSpace) DatePattern = "$DatePattern "
+                if (!isHideSpace) datePattern = "$datePattern "
             }
         }
-
-        DatePattern = SimpleDateFormat(DatePattern).format(now_time)
-
-        return DatePattern
+        datePattern = SimpleDateFormat(datePattern).format(now_time)
+        return datePattern
     }
 
     @SuppressLint("SimpleDateFormat")
@@ -171,13 +134,9 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
         val isZh = isZh(context)
         timePattern += if (t == "24") "HH:mm" else "h:mm"
         if (isSecond) timePattern += ":ss"
-
         timePattern = SimpleDateFormat(timePattern).format(now_time)
-
         if (isZh) timePattern = getPeriod(isZh) + timePattern else timePattern += getPeriod(isZh)
-
         timePattern = getDoubleHour() + timePattern
-
         return timePattern
     }
 
@@ -186,8 +145,7 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
         var period = ""
         if (isPeriod) {
             if (isZh) {
-                val now = SimpleDateFormat("HH").format(now_time)
-                when (now) {
+                when (SimpleDateFormat("HH").format(now_time)) {
                     "00", "01", "02", "03", "04", "05" -> {
                         period = "凌晨"
                     }
@@ -222,8 +180,7 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
     private fun getDoubleHour(): String {
         var doubleHour = ""
         if (isDoubleHour) {
-            val now = SimpleDateFormat("HH").format(now_time)
-            when (now) {
+            when (SimpleDateFormat("HH").format(now_time)) {
                 "23", "00" -> {
                     doubleHour = "子时"
                 }
@@ -268,7 +225,7 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
         return doubleHour
     }
 
-    fun isZh(context: Context): Boolean {
+    private fun isZh(context: Context): Boolean {
         val locale = context.resources.configuration.locale
         val language = locale.language
         return language.endsWith("zh")

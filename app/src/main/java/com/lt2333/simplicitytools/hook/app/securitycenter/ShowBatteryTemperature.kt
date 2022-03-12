@@ -13,7 +13,10 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import cn.fkj233.ui.activity.dp2px
-import com.lt2333.simplicitytools.util.*
+import com.lt2333.simplicitytools.util.XSPUtils
+import com.lt2333.simplicitytools.util.findClass
+import com.lt2333.simplicitytools.util.hookAfterMethod
+import com.lt2333.simplicitytools.util.hookBeforeMethod
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import java.lang.reflect.Field
@@ -36,6 +39,7 @@ class ShowBatteryTemperature: IXposedHookLoadPackage {
             val textView = view.findViewById<TextView>(currentTemperatureValue)
             textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 36.399998f)
             textView.gravity = Gravity.NO_GRAVITY
+            textView.typeface = Typeface.create(null, 400, false)
             textView.setPadding(0, 0, 0, 0)
             textView.height = dp2px(context, 49.099983f)
             textView.textAlignment = View.TEXT_ALIGNMENT_VIEW_START
@@ -48,7 +52,7 @@ class ShowBatteryTemperature: IXposedHookLoadPackage {
             tempView.setPadding(0, dp2px(context, 25f), 0, 0)
             tempView.text = "℃"
             tempView.setTextColor(Color.parseColor(if (isDarkMode) "#e6e6e6" else "#333333"))
-            tempView.typeface = Typeface.create(null, 500, false)
+            tempView.typeface = Typeface.create(null, 400, false)
             tempView.textAlignment = View.TEXT_ALIGNMENT_VIEW_START
             val tempeValueContainer = context.resources.getIdentifier("tempe_value_container", "id", "com.miui.securitycenter")
             val linearLayout = view.findViewById<LinearLayout>(tempeValueContainer)

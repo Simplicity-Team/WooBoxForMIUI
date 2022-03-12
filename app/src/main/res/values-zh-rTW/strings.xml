@@ -151,4 +151,7 @@
     <string name="remove_thememanager_ads">拿掉主題壁紙的廣告</string>
     <string name="battery_life_function">電池頁面展示當前溫度</string>
     <string name="enable_wave_charge_animation">啟用Alpha充電動畫</string>
+    <string name="max_wallpaper_scale">壁紙縮放比例</string>
+    <string name="def">默認值：</string>
+    <string name="current">當前值：</string>
 </resources>

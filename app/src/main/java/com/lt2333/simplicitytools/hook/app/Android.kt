@@ -2,6 +2,7 @@ package com.lt2333.simplicitytools.hook.app
 
 import com.lt2333.simplicitytools.hook.app.android.DeleteOnPostNotification
 import com.lt2333.simplicitytools.hook.app.android.DisableFlagSecure
+import com.lt2333.simplicitytools.hook.app.android.MaxWallpaperScale
 import com.lt2333.simplicitytools.hook.app.android.RemoveSmallWindowRestrictions
 import com.lt2333.simplicitytools.hook.app.android.corepatch.CorePatch
 import de.robv.android.xposed.IXposedHookLoadPackage
@@ -19,5 +20,7 @@ class Android : IXposedHookLoadPackage {
         DeleteOnPostNotification().handleLoadPackage(lpparam)
         //解除小窗限制
         RemoveSmallWindowRestrictions().handleLoadPackage(lpparam)
+        //壁纸缩放比例
+        MaxWallpaperScale().handleLoadPackage(lpparam)
     }
 }

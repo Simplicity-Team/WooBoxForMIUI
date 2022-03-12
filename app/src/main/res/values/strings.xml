@@ -151,4 +151,7 @@
     <string name="remove_thememanager_ads">Remove ads for theme manager</string>
     <string name="battery_life_function">Battery page shows the current temperature</string>
     <string name="enable_wave_charge_animation">Enable wave charge animation</string>
+    <string name="max_wallpaper_scale">Max wallpaper scale</string>
+    <string name="def">"Default: "</string>
+    <string name="current">Current:</string>
 </resources>
