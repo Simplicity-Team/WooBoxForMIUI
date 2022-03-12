@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simplicity Tools</string>
     <string name="performance">性能</string>
     <string name="lock_max_fps">鎖定當前刷新率上限</string>
     <string name="ui">界面</string>
@@ -34,7 +33,6 @@
     <string name="about_module">關於模組</string>
     <string name="verison">版本</string>
     <string name="dev_coolapk">開發者酷安</string>
-    <string name="dev_coolapk_name">\@烏堆小透明</string>
     <string name="opensource">開源倉庫</string>
     <string name="github_url">歡迎更多開發者共同參與開發</string>
     <string name="issues">回饋/提議</string>
