@@ -9,7 +9,6 @@
     <string name="allow_screenshots">Разрешить скриншот</string>
     <string name="app_coolapk_url">Перейти и оставить отзыв</string>
     <string name="app_coolapk_url_summary">Это поможет в развитии проэкта</string>
-    <string name="app_name">Simplicity Tools</string>
     <string name="are_you_sure_reboot">Перезагрузить устройство?</string>
     <string name="are_you_sure_reboot_scope">Перезагрузить интерфейс?</string>
     <string name="battery_optimization">Оптимизация батареи</string>
@@ -24,7 +23,6 @@
     <string name="delete_on_post_notification">Удалить уведомление наложения</string>
     <string name="delete_on_post_notification_summary">Удалить уведомление Это приложение отображается поверх других приложений</string>
     <string name="dev_coolapk">Автор Coolapk</string>
-    <string name="dev_coolapk_name">\@乌堆小透明</string>
     <string name="developer">Разработчик</string>
     <string name="disable_flag_secure">Разрешить скриншот</string>
     <string name="disable_flag_secure_summary">Разрешить скриншот в приложениях, которые имеют ограничение на снятие скриншота</string>
