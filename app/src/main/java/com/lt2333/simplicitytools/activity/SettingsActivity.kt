@@ -395,6 +395,23 @@ class SettingsActivity : MIUIActivity() {
                         })
                 )
             )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.participate_in_translation,
+                        tipsId = R.string.participate_in_translation_summary,
+                        onClickListener = {
+                            try {
+                                val uri =
+                                    Uri.parse("https://crowdin.com/project/simplicitytools")
+                                val intent = Intent(Intent.ACTION_VIEW, uri)
+                                startActivity(intent)
+                            } catch (e: Exception) {
+                                Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
+                            }
+                        })
+                )
+            )
         }
     }
 
