@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simplicity Tools</string>
     <string name="performance">性能</string>
     <string name="lock_max_fps">鎖定當前刷新率上限</string>
     <string name="ui">界面</string>
     <string name="delete_on_post_notification">移除上層顯示通知</string>
-    <string name="delete_on_post_notification_summary">移除"此應用正顯示在螢幕上其他應用的上層"通知</string>
+    <string name="delete_on_post_notification_summary">移除\"此應用正顯示在螢幕上其他應用的上層\"通知</string>
     <string name="other">其他</string>
     <string name="disable_flag_secure">允許截圖</string>
     <string name="disable_flag_secure_summary">開啟後允許在不允許截圖的軟體中截圖\n支持添加下拉控制中心快速開關，保障安全</string>
@@ -13,8 +13,7 @@
     <string name="home_time">始終顯示桌面時鐘</string>
     <string name="reboot_host">重啟全部作用域</string>
     <string name="reboot">重啟系統</string>
-
-    <!--狀態欄圖示-->
+    <!--Status bar icons-->
     <string name="status_bar_icon">狀態欄圖示</string>
     <string name="hide_no_sim_icon">隱藏 無SIM卡 圖示</string>
     <string name="hide_sim_one_icon">隱藏 SIM卡一 圖示</string>
@@ -31,7 +30,6 @@
     <string name="hide_big_hd_icon">隱藏 大HD 圖示</string>
     <string name="hide_small_hd_icon">隱藏 小HD 圖示</string>
     <string name="hide_hd_no_service_icon">隱藏 HD無服務 圖示</string>
-
     <string name="about">關於</string>
     <string name="about_module">關於模組</string>
     <string name="verison">版本</string>
@@ -118,12 +116,12 @@
     <string name="hide_wifi_activity_icon">隱藏 WIFI箭頭 圖示</string>
     <string name="hide_mobile_activity_icon">隱藏 移動箭頭 圖示</string>
     <string name="hide_mobile_type_icon">隱藏 移動類型 圖示</string>
+    <string name="show_weather_main_switch">顯示天氣-總開關</string>
     <string name="lock_screen">鎖定螢幕</string>
     <string name="notification_center">通知中心</string>
-    <string name="lock_max_fps_summary">支持添加下拉控制中心快速開關，即時切換</string>
     <string name="show_city">顯示城市</string>
+    <string name="lock_max_fps_summary">支持添加下拉控制中心快速開關，即時切換</string>
     <string name="control_center">控制中心</string>
-    <string name="show_weather_main_switch">顯示天氣-總開關</string>
     <string name="control_center_weather_summary">暫不支持妙享版控制中心</string>
     <string name="not_support">您似乎正在使用過時的 LSPosed 版本或 LSPosed 未啟動，請更新 LSPosed 或者啟動後再試。</string>
     <string name="matters_needing_attention_context">首次啟動或更新後建議重啟手機\n絕大部分功能更改後需要在右上角重啟作用域後生效</string>
@@ -144,14 +142,14 @@
     <string name="updater">系統更新</string>
     <string name="remove_ota_validate">*移除OTA驗證 [實驗性]</string>
     <string name="remove_ota_validate_summary">- 僅支持VAB系列使用，其餘系列請不要開啟。\n- 無需內測試資格即可刷入完整內測包。\n- 擁有內測權限的用戶將無法接收內測更新\n可用於屏蔽系統更新。\n- 跨版本類型升級後，建議清空數據。\n- 不支持非官方ROM使用。</string>
+    <string name="settings">設定</string>
     <string name="show_notification_importance">顯示通知重要程度</string>
     <string name="show_notification_importance_summary">顯示 MIUI 12 及之後版本被隱藏的通知重要程度設定</string>
-    <string name="settings">設定</string>
     <string name="remove_ad">去廣告</string>
     <string name="remove_thememanager_ads">拿掉主題壁紙的廣告</string>
     <string name="battery_life_function">電池頁面展示當前溫度</string>
     <string name="enable_wave_charge_animation">啟用Alpha充電動畫</string>
     <string name="max_wallpaper_scale">壁紙縮放比例</string>
-    <string name="def">默認值：</string>
+    <string name="def">"默認值："</string>
     <string name="current">當前值：</string>
 </resources>
