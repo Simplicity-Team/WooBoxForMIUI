@@ -39,8 +39,8 @@
     <string name="issues_url">Ấn để xem GitHub Issues</string>
     <string name="xposeddescription">Công cụ tuỳ chỉnh hoá MIUI13(Android 12)</string>
     <string name="statusbar">Thanh trạng thái</string>
-    <string name="status_bar_time_seconds">Display seconds</string>
-    <string name="status_bar_network_speed_refresh_speed">Network speed refresh in seconds</string>
+    <string name="status_bar_time_seconds">Hiển thị giây</string>
+    <string name="status_bar_network_speed_refresh_speed">Làm mới tốc độ mạng trong vài giây</string>
     <string name="remove_the_maximum_number_of_notification_icons">Remove the maximum number of notification icons</string>
     <string name="main_switch">Module main switch</string>
     <string name="hide_gps_icon">Hide GPS icon</string>
