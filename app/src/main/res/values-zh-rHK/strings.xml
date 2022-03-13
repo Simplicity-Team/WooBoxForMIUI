@@ -154,5 +154,5 @@
     <string name="participate_in_translation_summary">幫助我們將這個APP翻譯成您的語言</string>
     <string name="lock_screen_current">鎖定螢幕顯示電流訊息</string>
     <string name="current_current">當前電流：</string>
-    <string name="charging">充電中：</string>
+    <string name="temp">temp.</string>
 </resources>
