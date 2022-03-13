@@ -76,12 +76,12 @@ class LockScreenCurrent(private var battery: String = "") : IXposedHookLoadPacka
             } else if (platName.startsWith("qcom")) {
                 val filePath = "/sys/class/power_supply/battery/current_now"
                 val current = (getMeanCurrentVal(filePath, 5, 0) / 1000.0f).roundToInt()
-                result = if (current < 0) {
+                result = if (current <= 0) {
                     "${InitFields.moduleRes.getString(R.string.current_current)}$current mA，${
                         InitFields.moduleRes.getString(
                             R.string.temp
                         )
-                    }$battery℃".replace("-", "")
+                    }$battery℃".replace("-", "").replace("${InitFields.moduleRes.getString(R.string.current_current)}0 mA，", "")
                 } else {
                     "${InitFields.moduleRes.getString(R.string.current_current)}-$current mA"
                 }
