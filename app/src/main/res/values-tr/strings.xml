@@ -158,6 +158,6 @@
     <string name="current">Akım</string>
     <string name="participate_in_translation">çeviriye katılmak</string>
     <string name="participate_in_translation_summary">Uygulamayı kendi dilinize çevirmemize yardımcı olun</string>
-    <string name="lock_screen_current">Lock screen displays current information</string>
+    <string name="lock_screen_charging_current">Display current information during charging</string>
     <string name="current_current">Current</string>
 </resources>
