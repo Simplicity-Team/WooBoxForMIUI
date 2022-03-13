@@ -10,7 +10,7 @@
     <string name="disable_flag_secure_summary">Permite realizar capturas de pantalla en aplicaciones que no lo permiten\nPor seguridad permite añadir un ajuste rápido en el Centro de Control</string>
     <string name="home">Inicio</string>
     <string name="home_time">Mostrar siempre el reloj en la pantalla de inicio</string>
-    <string name="reboot_host">Restart all scope</string>
+    <string name="reboot_host">Reinicia todo el ámbito</string>
     <string name="reboot">Reiniciar el sistema</string>
     <!--Status bar icons-->
     <string name="status_bar_icon">Iconos de la barra de estado</string>
@@ -48,20 +48,20 @@
     <string name="menu">Menú</string>
     <string name="Tips">Consejos</string>
     <string name="skip_waiting_time">Saltar advertencia de 5/10 segundos</string>
-    <string name="unlock_unlimited_cropping">Unlock unlimited cropping pictures/screenshots</string>
-    <string name="hide_slave_wifi_icon">Hide WIFI secondary icon</string>
-    <string name="HideLauncherIcon">Hide Launcher icon</string>
-    <string name="hide_battery_percentage_icon">Hide battery (%)</string>
-    <string name="hide_battery_icon">Hide battery icon</string>
-    <string name="status_bar_clock_format">Status bar clock format</string>
-    <string name="status_bar_time_year">Display year</string>
-    <string name="status_bar_time_month">Display month</string>
-    <string name="status_bar_time_day">Display date</string>
-    <string name="status_bar_time_week">Display day</string>
-    <string name="status_bar_time_hide_space">Hide space</string>
-    <string name="allow_screenshots">Allow screenshot</string>
-    <string name="lock_max">Lock current limit</string>
-    <string name="status_bar_time_double_hour">Display chinese twelve hour</string>
+    <string name="unlock_unlimited_cropping">Desbloquea el recorte de imágenes/capturas de pantalla ilimitado</string>
+    <string name="hide_slave_wifi_icon">Esconder icono de WIFI secundario</string>
+    <string name="HideLauncherIcon">Esconder el icono del Launcher</string>
+    <string name="hide_battery_percentage_icon">Esconder la batería (%)</string>
+    <string name="hide_battery_icon">Esconder icono de la batería</string>
+    <string name="status_bar_clock_format">Formato de reloj de la barra de estado</string>
+    <string name="status_bar_time_year">Mostrar año</string>
+    <string name="status_bar_time_month">Mostrar mes</string>
+    <string name="status_bar_time_day">Mostrar fecha</string>
+    <string name="status_bar_time_week">Mostrar día</string>
+    <string name="status_bar_time_hide_space">Ocultar espacio</string>
+    <string name="allow_screenshots">Permitir captura de pantalla</string>
+    <string name="lock_max">Bloquear límite actual</string>
+    <string name="status_bar_time_double_hour">Mostrar doce horas Chino</string>
     <string name="custom_clock_switch">Custom Clock Switch</string>
     <string name="status_bar_time_period">Display AM/PM</string>
     <string name="status_bar_time_double_line">Dual row</string>
@@ -153,6 +153,5 @@
     <string name="participate_in_translation">Participate in translation</string>
     <string name="participate_in_translation_summary">Help us translate the app into your language</string>
     <string name="lock_screen_current">Lock screen displays current information</string>
-    <string name="current_current">current:</string>
-    <string name="temp">temp.</string>
+    <string name="current_current">Current</string>
 </resources>
