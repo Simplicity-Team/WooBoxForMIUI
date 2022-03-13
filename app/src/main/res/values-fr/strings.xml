@@ -153,5 +153,5 @@
     <string name="participate_in_translation">Participate in translation</string>
     <string name="participate_in_translation_summary">Help us translate the app into your language</string>
     <string name="lock_screen_current">Lock screen displays current information</string>
-    <string name="current_current">Current</string>
+    <string name="current_current" comment="Current at the lock screen charging">Current</string>
 </resources>
