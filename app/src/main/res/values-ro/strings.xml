@@ -143,9 +143,9 @@
     <string name="settings">Setări</string>
     <string name="show_notification_importance">Arată importanța notificării</string>
     <string name="show_notification_importance_summary">Arată setările importanței notificărilor care sunt ascunse în MIUI 12 și versiunile ulterioare</string>
-    <string name="remove_ad">Remove ads</string>
+    <string name="remove_ad">Eliminare anunțuri</string>
     <string name="remove_thememanager_ads">Remove ads for theme manager</string>
-    <string name="battery_life_function">Battery page shows the current temperature</string>
+    <string name="battery_life_function">Pagina bateriei afișează temperatura curentă</string>
     <string name="enable_wave_charge_animation">Enable wave charge animation</string>
     <string name="max_wallpaper_scale">Max wallpaper scale</string>
     <string name="def">"Default: "</string>
