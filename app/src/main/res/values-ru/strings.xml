@@ -156,6 +156,6 @@
     <string name="current">Тек:</string>
     <string name="participate_in_translation">Участвуйте в переводе</string>
     <string name="participate_in_translation_summary">Помогите нам перевести приложение на ваш язык</string>
-    <string name="lock_screen_current">Экран блокировки показывает текущую информацию</string>
-    <string name="current_current">Current</string>
+    <string name="lock_screen_charging_current">Display current information during charging</string>
+    <string name="current_current">Текущее</string>
 </resources>

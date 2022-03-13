@@ -152,6 +152,6 @@
     <string name="current">当前值：</string>
     <string name="participate_in_translation">参与翻译</string>
     <string name="participate_in_translation_summary">帮助我们将应用翻译成您的语言</string>
-    <string name="lock_screen_current">锁屏显示电流信息</string>
+    <string name="lock_screen_charging_current">充电时显示当前电流</string>
     <string name="current_current">当前电流</string>
 </resources>

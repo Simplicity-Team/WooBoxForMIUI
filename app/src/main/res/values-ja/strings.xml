@@ -152,6 +152,6 @@
     <string name="current">現在:</string>
     <string name="participate_in_translation">翻訳に参加する</string>
     <string name="participate_in_translation_summary">翻訳を手伝ってください！</string>
-    <string name="lock_screen_current">Lock screen displays current information</string>
-    <string name="current_current" comment="Current at the lock screen charging">Current</string>
+    <string name="lock_screen_charging_current">Display current information during charging</string>
+    <string name="current_current">Current</string>
 </resources>
