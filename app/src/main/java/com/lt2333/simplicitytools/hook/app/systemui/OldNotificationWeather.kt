@@ -17,19 +17,53 @@ class OldNotificationWeather : IXposedHookLoadPackage {
         hasEnable("notification_weather") {
             var mWeatherView: TextView? = null
             val isDisplayCity = XSPUtils.getBoolean("notification_weather_city", false)
-            "com.android.systemui.qs.MiuiQSHeaderView".hookAfterMethod(lpparam.classLoader, "onFinishInflate") {
+            "com.android.systemui.qs.MiuiQSHeaderView".hookAfterMethod(
+                lpparam.classLoader,
+                "onFinishInflate"
+            ) {
                 val viewGroup = it.thisObject as ViewGroup
                 val context = viewGroup.context
-                val layoutParam = loadClass("androidx.constraintlayout.widget.ConstraintLayout\$LayoutParams")
-                    .getConstructor(Int::class.java, Int::class.java)
-                    .newInstance(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT) as ViewGroup.MarginLayoutParams
+                val layoutParam =
+                    loadClass("androidx.constraintlayout.widget.ConstraintLayout\$LayoutParams")
+                        .getConstructor(Int::class.java, Int::class.java)
+                        .newInstance(
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT
+                        ) as ViewGroup.MarginLayoutParams
 
-                layoutParam.setObjectField("engToStart", context.resources.getIdentifier("notification_shade_shortcut", "id", context.packageName))
-                layoutParam.setObjectField("topToTop", context.resources.getIdentifier("notification_shade_shortcut", "id", context.packageName))
-                layoutParam.setObjectField("bottomToBottom", context.resources.getIdentifier("notification_shade_shortcut", "id", context.packageName))
+                layoutParam.setObjectField(
+                    "endToStart",
+                    context.resources.getIdentifier(
+                        "notification_shade_shortcut",
+                        "id",
+                        context.packageName
+                    )
+                )
+                layoutParam.setObjectField(
+                    "topToTop",
+                    context.resources.getIdentifier(
+                        "notification_shade_shortcut",
+                        "id",
+                        context.packageName
+                    )
+                )
+                layoutParam.setObjectField(
+                    "bottomToBottom",
+                    context.resources.getIdentifier(
+                        "notification_shade_shortcut",
+                        "id",
+                        context.packageName
+                    )
+                )
 
                 mWeatherView = WeatherView(context, isDisplayCity).apply {
-                    setTextAppearance(context.resources.getIdentifier("TextAppearance.StatusBar.Expanded.Clock.QuickSettingDate", "style", context.packageName))
+                    setTextAppearance(
+                        context.resources.getIdentifier(
+                            "TextAppearance.StatusBar.Expanded.Clock.QuickSettingDate",
+                            "style",
+                            context.packageName
+                        )
+                    )
                     layoutParams = layoutParam
                 }
                 viewGroup.addView(mWeatherView)
@@ -37,7 +71,10 @@ class OldNotificationWeather : IXposedHookLoadPackage {
                     try {
                         val intent = Intent().apply {
                             flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                            component = ComponentName("com.miui.weather2", "com.miui.weather2.ActivityWeatherMain")
+                            component = ComponentName(
+                                "com.miui.weather2",
+                                "com.miui.weather2.ActivityWeatherMain"
+                            )
                         }
                         context.startActivity(intent)
                     } catch (e: Exception) {
@@ -46,7 +83,10 @@ class OldNotificationWeather : IXposedHookLoadPackage {
                 }
             }
             //解决横屏重叠
-            "com.android.systemui.qs.MiuiQSHeaderView".hookAfterMethod(lpparam.classLoader, "updateLayout") {
+            "com.android.systemui.qs.MiuiQSHeaderView".hookAfterMethod(
+                lpparam.classLoader,
+                "updateLayout"
+            ) {
                 val mOritation = it.thisObject.getObjectField("mOrientation") as Int
                 if (mOritation == 1) {
                     mWeatherView!!.visibility = View.VISIBLE
