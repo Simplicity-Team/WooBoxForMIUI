@@ -125,7 +125,7 @@
     <string name="matters_needing_attention_context">Se recomienda reiniciar el teléfono después de la primera activación o al actualizarla\nLa mayoría de los cambios requieren un reinicio desde la esquina superior derecha para que surtan efecto</string>
     <string name="are_you_sure_reboot">¿Está seguro de reiniciar?</string>
     <string name="cancel">Cancelar</string>
-    <string name="are_you_sure_reboot_scope">¿Está seguro de reiniciar todo el scope?</string>
+    <string name="are_you_sure_reboot_scope">¿Está seguro de reiniciar todo el ámbito?</string>
     <string name="hide_battery_charging_icon">Ocultar el icono de carga</string>
     <string name="hide_wifi_standard_icon">Ocultar el icono estándar de WIFI</string>
     <string name="status_bar_time_center">Centrar el reloj en la barra de estado</string>
@@ -139,7 +139,7 @@
     <string name="hide_network_speed_splitter">Remover el divisor de la velocidad de red</string>
     <string name="updater">Actualizador</string>
     <string name="remove_ota_validate">*Remueve validación de OTA [LAB]</string>
-    <string name="remove_ota_validate_summary">- Only support VAB series use, please do not open other series.\n- No need for internal testing qualification to flash into the full internal testing package.\n- Those who have internal testing permission will not be able to receive internal testing updates, and can be used to block system updates.\n- After cross-version type upgrade, it is recommended to clear data.\n- Unofficial ROM usage is not supported.</string>
+    <string name="remove_ota_validate_summary">- Sólo soporta series que usen VAB, por favor no use en otras series.\n- No se requiere aplicar para pruebas internas para flashear los paquetes completos de éstos.\n- Para aquellos que cuentan con permisos, ya no serán capaces de recibir actualizaciones de pruebas internas, y se podrá usar para bloquear actualizaciones del sistema.\n Después de actualizar entre versiones diferentes, se recomienda borrar datos.\n- ROM no oficiales no están soportadas.</string>
     <string name="settings">Configuración</string>
     <string name="show_notification_importance">Mostrar importancia de notificaciones</string>
     <string name="show_notification_importance_summary">Mostrar configuración de importancia de notificación que está oculto en MIUI 12 y versiones posteriores</string>
