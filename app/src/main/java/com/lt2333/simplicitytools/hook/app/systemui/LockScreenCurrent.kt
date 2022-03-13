@@ -1,60 +1,31 @@
 package com.lt2333.simplicitytools.hook.app.systemui
 
 import android.annotation.SuppressLint
-import android.content.BroadcastReceiver
 import android.content.Context
-import android.content.IntentFilter
-import android.graphics.Typeface
-import android.view.Gravity
-import android.view.ViewGroup
-import android.widget.TextView
-import cn.fkj233.ui.activity.dp2px
 import com.github.kyuubiran.ezxhelper.init.InitFields
 import com.lt2333.simplicitytools.R
 import com.lt2333.simplicitytools.util.findClass
 import com.lt2333.simplicitytools.util.hasEnable
-import com.lt2333.simplicitytools.util.hookAfterAllMethods
 import com.lt2333.simplicitytools.util.hookAfterMethod
-import com.microsoft.appcenter.utils.HandlerUtils.runOnUiThread
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import java.io.BufferedReader
 import java.io.FileReader
 import java.lang.reflect.Method
-import java.util.*
 import kotlin.math.roundToInt
 
-class LockScreenCurrent(private var battery: String = "") : IXposedHookLoadPackage {
-
+class LockScreenCurrent : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         hasEnable("lock_screen_current") {
-            val miuiPhoneStatusBarViewClass =
-                "com.android.systemui.statusbar.phone.KeyguardBottomAreaView".findClass(lpparam.classLoader)
-            miuiPhoneStatusBarViewClass.hookAfterMethod("onFinishInflate") { param ->
-                val viewGroup = param.thisObject as ViewGroup
-                battery = getBatteryTemperature(viewGroup.context).toString()
-                val textView = TextView(viewGroup.context).also {
-                    it.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
-                    it.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 14f)
-                    it.gravity = Gravity.CENTER or Gravity.BOTTOM
-                    it.setPadding(0, 0, 0, dp2px(viewGroup.context, 5f))
+            "com.android.keyguard.charge.ChargeUtils".findClass(lpparam.classLoader)
+                .hookAfterMethod(
+                    "getChargingHintText",
+                    Context::class.java,
+                    Boolean::class.java,
+                    Int::class.java
+                ) {
+                    it.result = getCurrent() + "\n" + it.result
                 }
-                Timer().schedule(object : TimerTask() {
-                    override fun run() {
-                        runOnUiThread {
-                            textView.text = getCurrent()
-                        }
-                    }
-
-                }, 0, 1000)
-                val darkIconDispatcherClass =
-                    "com.android.systemui.plugins.DarkIconDispatcher".findClass(lpparam.classLoader)
-                darkIconDispatcherClass.hookAfterAllMethods("getTint") {
-                    val areaTint = it.args[2] as Int
-                    textView.setTextColor(areaTint)
-                }
-                viewGroup.addView(textView)
-            }
         }
     }
 
@@ -72,19 +43,12 @@ class LockScreenCurrent(private var battery: String = "") : IXposedHookLoadPacka
             if (platName.startsWith("mt") || platName.startsWith("MT")) {
                 val filePath =
                     "/sys/class/power_supply/battery/device/FG_Battery_CurrentConsumption"
-                result = "${(getMeanCurrentVal(filePath, 5, 0) / 1000.0f).roundToInt()} mA"
+                val current = (getMeanCurrentVal(filePath, 5, 0) / 1000.0f).roundToInt()
+                result = "${InitFields.moduleRes.getString(R.string.current_current)} ${current}mA"
             } else if (platName.startsWith("qcom")) {
                 val filePath = "/sys/class/power_supply/battery/current_now"
                 val current = (getMeanCurrentVal(filePath, 5, 0) / 1000.0f).roundToInt()
-                result = if (current <= 0) {
-                    "${InitFields.moduleRes.getString(R.string.current_current)}$current mA，${
-                        InitFields.moduleRes.getString(
-                            R.string.temp
-                        )
-                    }$battery℃".replace("-", "").replace("${InitFields.moduleRes.getString(R.string.current_current)}0 mA，", "")
-                } else {
-                    "${InitFields.moduleRes.getString(R.string.current_current)}-$current mA"
-                }
+                result = "${InitFields.moduleRes.getString(R.string.current_current)} ${current}mA"
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -129,12 +93,5 @@ class LockScreenCurrent(private var battery: String = "") : IXposedHookLoadPacka
         } catch (localException: java.lang.Exception) {
         }
         return defaultValue
-    }
-
-    private fun getBatteryTemperature(context: Context): Int {
-        return context.registerReceiver(
-            null as BroadcastReceiver?,
-            IntentFilter("android.intent.action.BATTERY_CHANGED")
-        )!!.getIntExtra("temperature", 0) / 10
     }
 }
