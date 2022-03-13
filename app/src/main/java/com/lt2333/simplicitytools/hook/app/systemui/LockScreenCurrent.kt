@@ -18,7 +18,7 @@ import kotlin.math.roundToInt
 
 class LockScreenCurrent : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        hasEnable("lock_screen_current") {
+        hasEnable("lock_screen_charging_current") {
             "com.android.keyguard.charge.ChargeUtils".findClass(lpparam.classLoader)
                 .hookAfterMethod(
                     "getChargingHintText",
