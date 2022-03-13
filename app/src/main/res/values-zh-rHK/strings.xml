@@ -152,7 +152,7 @@
     <string name="current">當前值：</string>
     <string name="participate_in_translation">參與翻譯</string>
     <string name="participate_in_translation_summary">幫助我們將這個APP翻譯成您的語言</string>
-    <string name="lock_screen_current">Lock screen displays current information</string>
-    <string name="current_current">current:</string>
-    <string name="charging">charging:</string>
+    <string name="lock_screen_current">锁屏显示电流信息</string>
+    <string name="current_current">當前電流：</string>
+    <string name="charging">充電中：</string>
 </resources>
