@@ -152,4 +152,7 @@
     <string name="current">当前值：</string>
     <string name="participate_in_translation">参与翻译</string>
     <string name="participate_in_translation_summary">帮助我们将应用翻译成您的语言</string>
+    <string name="lock_screen_current">Lock screen displays current information</string>
+    <string name="current_current">current:</string>
+    <string name="charging">charging:</string>
 </resources>
