@@ -3,7 +3,7 @@
     <string name="performance">Rendimiento</string>
     <string name="lock_max_fps">Bloquear la tasa actual de refresco por arriba del límite</string>
     <string name="ui">Interfaz</string>
-    <string name="delete_on_post_notification">Eliminar notificación de mostar encima</string>
+    <string name="delete_on_post_notification">Eliminar notificación de mostrar encima</string>
     <string name="delete_on_post_notification_summary">Eliminar la notificación \"Está aplicación se está mostrando sobre otras aplicaciones\"</string>
     <string name="other">Otro</string>
     <string name="disable_flag_secure">Permitir capturas de pantalla</string>
