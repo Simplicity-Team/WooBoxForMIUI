@@ -160,5 +160,5 @@
     <string name="participate_in_translation_summary">Uygulamayı kendi dilinize çevirmemize yardımcı olun</string>
     <string name="lock_screen_current">Lock screen displays current information</string>
     <string name="current_current">current:</string>
-    <string name="charging">charging:</string>
+    <string name="temp">temp.</string>
 </resources>
