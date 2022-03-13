@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="performance">Performanță</string>
-    <string name="lock_max_fps">Blochează limita superioară a ratei de împrospătare curentă</string>
-    <string name="ui">Interfață</string>
+    <string name="performance">Performence</string>
+    <string name="lock_max_fps">Lock the current refresh rate upper limit</string>
+    <string name="ui">Interface</string>
     <string name="delete_on_post_notification">Remove display over notification</string>
-    <string name="delete_on_post_notification_summary">Elimină notificarea \"Această aplicație se afișează peste alte aplicații\"</string>
-    <string name="other">Altele</string>
-    <string name="disable_flag_secure">Permite captură ecran</string>
+    <string name="delete_on_post_notification_summary">Remove \"This app is displaying over other apps\" notification</string>
+    <string name="other">Other</string>
+    <string name="disable_flag_secure">Allow screenshot</string>
     <string name="disable_flag_secure_summary">Allow screenshot in software that does not allow to\nSupport adding drop-down quick setting on Control center for security</string>
-    <string name="home">Acasă</string>
-    <string name="home_time">Afișează întotdeauna ceasul pe ecranul de pornire</string>
+    <string name="home">Home</string>
+    <string name="home_time">Always display Home screen clock</string>
     <string name="reboot_host">Restart all scope</string>
-    <string name="reboot">Repornire sistem</string>
+    <string name="reboot">Reboot System</string>
     <!--Status bar icons-->
-    <string name="status_bar_icon">Pictograme bară de stare</string>
+    <string name="status_bar_icon">Status bar icons</string>
     <string name="hide_no_sim_icon">Hide No SIM icon</string>
     <string name="hide_sim_one_icon">Hide SIM Card 1 icon</string>
     <string name="hide_sim_two_icon">Hide SIM Card 2 icon</string>
