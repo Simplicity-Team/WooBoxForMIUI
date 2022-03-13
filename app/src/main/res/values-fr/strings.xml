@@ -40,7 +40,7 @@
     <string name="xposeddescription">Outil de personnalisation pour MIUI13(Android 12)</string>
     <string name="statusbar">Barre d\'État</string>
     <string name="status_bar_time_seconds">Affichage des secondes</string>
-    <string name="status_bar_network_speed_refresh_speed">Network speed refresh in seconds</string>
+    <string name="status_bar_network_speed_refresh_speed">Rafraichissement de la vitesse du réseau en secondes</string>
     <string name="remove_the_maximum_number_of_notification_icons">Supprimer le nombre maximum d\'icônes de notification</string>
     <string name="main_switch">Interrupteur Généra</string>
     <string name="hide_gps_icon">Masquer l\'icône GPS</string>
@@ -50,10 +50,10 @@
     <string name="skip_waiting_time">Sauter l\'alerte de 5/10 secondes</string>
     <string name="unlock_unlimited_cropping">Déverrouiller le recadrage limité des photos/captures d\'écran</string>
     <string name="hide_slave_wifi_icon">Masquer l\'icône secondaire WIFI</string>
-    <string name="HideLauncherIcon">Hide Launcher icon</string>
-    <string name="hide_battery_percentage_icon">Hide battery (%)</string>
-    <string name="hide_battery_icon">Hide battery icon</string>
-    <string name="status_bar_clock_format">Status bar clock format</string>
+    <string name="HideLauncherIcon">Masquer l\'icône en Homepage</string>
+    <string name="hide_battery_percentage_icon">Masquer l\'icône Batterie(%)</string>
+    <string name="hide_battery_icon">Masquer l\'icône batterie</string>
+    <string name="status_bar_clock_format">Format de l\'horloge de la barre d\'état</string>
     <string name="status_bar_time_year">Display year</string>
     <string name="status_bar_time_month">Display month</string>
     <string name="status_bar_time_day">Display date</string>
