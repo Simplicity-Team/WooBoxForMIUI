@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="performance">Performence</string>
+    <string name="performance">Perfoma</string>
     <string name="lock_max_fps">Lock the current refresh rate upper limit</string>
     <string name="ui">Interface</string>
     <string name="delete_on_post_notification">Remove display over notification</string>
@@ -50,9 +50,9 @@
     <string name="skip_waiting_time">Skip 5/10 second warning time</string>
     <string name="unlock_unlimited_cropping">Unlock unlimited cropping pictures/screenshots</string>
     <string name="hide_slave_wifi_icon">Hide WIFI secondary icon</string>
-    <string name="HideLauncherIcon">Hide Launcher icon</string>
+    <string name="HideLauncherIcon">Sembunyikan ikon</string>
     <string name="hide_battery_percentage_icon">Hide battery (%)</string>
-    <string name="hide_battery_icon">Hide battery icon</string>
+    <string name="hide_battery_icon">Sembunyikan ikon baterai</string>
     <string name="status_bar_clock_format">Status bar clock format</string>
     <string name="status_bar_time_year">Display year</string>
     <string name="status_bar_time_month">Display month</string>
