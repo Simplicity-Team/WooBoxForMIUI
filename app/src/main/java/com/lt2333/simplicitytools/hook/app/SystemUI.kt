@@ -70,6 +70,8 @@ class SystemUI : IXposedHookLoadPackage {
         HideNetworkSpeedSplitter().handleLoadPackage(lpparam)
         //Alpha充电动画
         WaveCharge().handleLoadPackage(lpparam)
+        //锁屏电流
+        LockScreenCurrent().handleLoadPackage(lpparam)
     }
 
 }
