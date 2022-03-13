@@ -945,9 +945,10 @@ class SettingsActivity : MIUIActivity() {
             add(
                 TextSummaryWithSwitchV(
                     TextSummaryV(
-                        textId = R.string.lock_screen_current,
+                        textId = R.string.lock_screen_charging_current,
+                        tipsId = R.string.only_official_default_themes_are_supported
                     ),
-                    SwitchV("lock_screen_current")
+                    SwitchV("lock_screen_charging_current")
                 )
             )
         }

@@ -2,12 +2,14 @@ package com.lt2333.simplicitytools.hook.app.systemui
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.init.InitFields
 import com.lt2333.simplicitytools.R
 import com.lt2333.simplicitytools.util.findClass
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.hookAfterMethod
 import de.robv.android.xposed.IXposedHookLoadPackage
+import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import java.io.BufferedReader
 import java.io.FileReader
@@ -26,6 +28,15 @@ class LockScreenCurrent : IXposedHookLoadPackage {
                 ) {
                     it.result = getCurrent() + "\n" + it.result
                 }
+            "com.android.systemui.statusbar.phone.KeyguardBottomAreaView".findClass(lpparam.classLoader)
+                .hookAfterMethod(
+                    "onFinishInflate"
+                ) {
+                    (XposedHelpers.getObjectField(
+                        it.thisObject,
+                        "mIndicationText"
+                    ) as TextView).isSingleLine = false
+                }
         }
     }
 
@@ -43,11 +54,11 @@ class LockScreenCurrent : IXposedHookLoadPackage {
             if (platName.startsWith("mt") || platName.startsWith("MT")) {
                 val filePath =
                     "/sys/class/power_supply/battery/device/FG_Battery_CurrentConsumption"
-                val current = (getMeanCurrentVal(filePath, 5, 0) / 1000.0f).roundToInt()
+                val current = (-getMeanCurrentVal(filePath, 5, 0) / 1000.0f).roundToInt()
                 result = "${InitFields.moduleRes.getString(R.string.current_current)} ${current}mA"
             } else if (platName.startsWith("qcom")) {
                 val filePath = "/sys/class/power_supply/battery/current_now"
-                val current = (getMeanCurrentVal(filePath, 5, 0) / 1000.0f).roundToInt()
+                val current = (-getMeanCurrentVal(filePath, 5, 0) / 1000.0f).roundToInt()
                 result = "${InitFields.moduleRes.getString(R.string.current_current)} ${current}mA"
             }
         } catch (e: Exception) {
