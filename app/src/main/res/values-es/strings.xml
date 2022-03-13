@@ -152,6 +152,6 @@
     <string name="current">Actual:</string>
     <string name="participate_in_translation">Participa en la traducción</string>
     <string name="participate_in_translation_summary">Ayúdanos a traducir la app en tu idioma</string>
-    <string name="lock_screen_charging_current">Display current information during charging</string>
+    <string name="lock_screen_charging_current">Mostrar la información de corriente durante la carga</string>
     <string name="current_current">Corriente de carga</string>
 </resources>
