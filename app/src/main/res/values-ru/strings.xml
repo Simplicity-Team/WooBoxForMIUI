@@ -156,6 +156,6 @@
     <string name="current">Тек:</string>
     <string name="participate_in_translation">Участвуйте в переводе</string>
     <string name="participate_in_translation_summary">Помогите нам перевести приложение на ваш язык</string>
-    <string name="lock_screen_charging_current">Отображать текущую информацию во время зарядки</string>
+    <string name="lock_screen_charging_current">Показывать ток при зарядке на экране блокировки</string>
     <string name="current_current">Текущее</string>
 </resources>
