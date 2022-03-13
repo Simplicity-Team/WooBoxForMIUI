@@ -147,11 +147,11 @@
     <string name="remove_thememanager_ads">Remueve publicidad del gestor de Temas</string>
     <string name="battery_life_function">La página de batería muestra la temperatura actual</string>
     <string name="enable_wave_charge_animation">Activar la animación de carga de onda</string>
-    <string name="max_wallpaper_scale">Max wallpaper scale</string>
-    <string name="def">"Default: "</string>
-    <string name="current">Current:</string>
-    <string name="participate_in_translation">Participate in translation</string>
-    <string name="participate_in_translation_summary">Help us translate the app into your language</string>
-    <string name="lock_screen_current">Lock screen displays current information</string>
-    <string name="current_current" comment="Current at the lock screen charging">Current</string>
+    <string name="max_wallpaper_scale">Escala máxima de fondo de pantalla</string>
+    <string name="def">"Predeterminado: "</string>
+    <string name="current">Actual:</string>
+    <string name="participate_in_translation">Participa en la traducción</string>
+    <string name="participate_in_translation_summary">Ayúdanos a traducir la app en tu idioma</string>
+    <string name="lock_screen_charging_current">Display current information during charging</string>
+    <string name="current_current">Corriente de carga</string>
 </resources>
