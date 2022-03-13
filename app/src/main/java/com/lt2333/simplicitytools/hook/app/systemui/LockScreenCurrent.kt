@@ -1,8 +1,8 @@
 package com.lt2333.simplicitytools.hook.app.systemui
 
 import android.annotation.SuppressLint
+import android.content.BroadcastReceiver
 import android.content.Context
-import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.Typeface
 import android.view.Gravity
@@ -32,13 +32,13 @@ class LockScreenCurrent(private var battery: String = "") : IXposedHookLoadPacka
                 "com.android.systemui.statusbar.phone.KeyguardBottomAreaView".findClass(lpparam.classLoader)
             miuiPhoneStatusBarViewClass.hookAfterMethod("onFinishInflate") { param ->
                 val viewGroup = param.thisObject as ViewGroup
-                battery = getSystemBattery(viewGroup.context)
+                battery = getBatteryTemperature(viewGroup.context).toString()
                 val textView = TextView(viewGroup.context).also {
                     it.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
-                    it.textSize = dp2px(viewGroup.context, 5f).toFloat()
+                    it.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 14f)
+                    it.gravity = Gravity.CENTER or Gravity.BOTTOM
+                    it.setPadding(0, 0, 0, dp2px(viewGroup.context, 5f))
                 }
-                textView.gravity = Gravity.CENTER or Gravity.BOTTOM
-                textView.setPadding(0, 0, 0, dp2px(viewGroup.context, 5f))
                 Timer().schedule(object : TimerTask() {
                     override fun run() {
                         runOnUiThread {
@@ -76,8 +76,12 @@ class LockScreenCurrent(private var battery: String = "") : IXposedHookLoadPacka
             } else if (platName.startsWith("qcom")) {
                 val filePath = "/sys/class/power_supply/battery/current_now"
                 val current = (getMeanCurrentVal(filePath, 5, 0) / 1000.0f).roundToInt()
-                result = if (current < 0) {
-                    "${InitFields.moduleRes.getString(R.string.current_current)}$current mA，${InitFields.moduleRes.getString(R.string.charging)}$battery%".replace("-", "")
+                result = if (current <= 0) {
+                    "${InitFields.moduleRes.getString(R.string.current_current)}$current mA，${
+                        InitFields.moduleRes.getString(
+                            R.string.temp
+                        )
+                    }$battery℃".replace("-", "").replace("${InitFields.moduleRes.getString(R.string.current_current)}0 mA，", "")
                 } else {
                     "${InitFields.moduleRes.getString(R.string.current_current)}-$current mA"
                 }
@@ -127,14 +131,10 @@ class LockScreenCurrent(private var battery: String = "") : IXposedHookLoadPacka
         return defaultValue
     }
 
-    private fun getSystemBattery(context: Context): String {
-        val batteryInfoIntent: Intent? = context.applicationContext.registerReceiver(
-            null,
-            IntentFilter(Intent.ACTION_BATTERY_CHANGED)
-        )
-        val level: Int = batteryInfoIntent!!.getIntExtra("level", 0)
-        val batterySum = batteryInfoIntent.getIntExtra("scale", 100)
-        val percentBattery = 100 * level / batterySum
-        return percentBattery.toString()
+    private fun getBatteryTemperature(context: Context): Int {
+        return context.registerReceiver(
+            null as BroadcastReceiver?,
+            IntentFilter("android.intent.action.BATTERY_CHANGED")
+        )!!.getIntExtra("temperature", 0) / 10
     }
 }
