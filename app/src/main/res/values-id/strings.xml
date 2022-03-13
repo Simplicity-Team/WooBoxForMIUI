@@ -153,6 +153,5 @@
     <string name="participate_in_translation">Partisipasi dalam penejermahan</string>
     <string name="participate_in_translation_summary">Bantu kami menerjemahkan aplikasi ke dalam bahasa Anda</string>
     <string name="lock_screen_current">Lock screen displays current information</string>
-    <string name="current_current">current:</string>
-    <string name="temp">temp.</string>
+    <string name="current_current">Current</string>
 </resources>
