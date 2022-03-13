@@ -942,6 +942,14 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("enable_wave_charge_animation")
                 )
             )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.lock_screen_current,
+                    ),
+                    SwitchV("lock_screen_current")
+                )
+            )
         }
     }
 

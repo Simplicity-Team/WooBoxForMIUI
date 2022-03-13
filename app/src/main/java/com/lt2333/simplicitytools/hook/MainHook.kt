@@ -4,11 +4,17 @@ import com.github.kyuubiran.ezxhelper.init.EzXHelperInit
 import com.lt2333.simplicitytools.BuildConfig
 import com.lt2333.simplicitytools.hook.app.*
 import de.robv.android.xposed.IXposedHookLoadPackage
+import de.robv.android.xposed.IXposedHookZygoteInit
 import de.robv.android.xposed.XSharedPreferences
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
 
-class MainHook : IXposedHookLoadPackage {
+class MainHook : IXposedHookLoadPackage,IXposedHookZygoteInit {
     private var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
+
+    override fun initZygote(startupParam: IXposedHookZygoteInit.StartupParam) {
+        EzXHelperInit.initZygote(startupParam)
+    }
+
     override fun handleLoadPackage(lpparam: LoadPackageParam) {
         if (prefs.getBoolean("main_switch", true)) {
             EzXHelperInit.initHandleLoadPackage(lpparam)
