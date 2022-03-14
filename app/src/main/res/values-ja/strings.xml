@@ -154,4 +154,6 @@
     <string name="participate_in_translation_summary">翻訳を手伝ってください！</string>
     <string name="lock_screen_charging_current">充電中に現在の情報を表示</string>
     <string name="current_current">現在</string>
+    <string name="remove_open_app_confirmation_popup">remove open app popup</string>
+    <string name="remove_open_app_confirmation_popup_summary">remove \"Allow XXX to open XXX\" Chain start popup</string>
 </resources>
