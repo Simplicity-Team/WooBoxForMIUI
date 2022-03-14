@@ -158,6 +158,6 @@
     <string name="participate_in_translation_summary">Помогите нам перевести приложение на ваш язык</string>
     <string name="lock_screen_charging_current">Показывать ток при зарядке на экране блокировки</string>
     <string name="current_current">Текущее</string>
-    <string name="remove_open_app_confirmation_popup">remove open app popup</string>
-    <string name="remove_open_app_confirmation_popup_summary">remove \"Allow XXX to open XXX\" Chain start popup</string>
+    <string name="remove_open_app_confirmation_popup">Удалить всплывающее окно открытия приложения</string>
+    <string name="remove_open_app_confirmation_popup_summary">Удалить уведомление цепного запуска</string>
 </resources>
