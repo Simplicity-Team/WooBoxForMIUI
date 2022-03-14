@@ -156,4 +156,6 @@
     <string name="current_current">Corriente de carga</string>
     <string name="remove_open_app_confirmation_popup">Eliminar ventana de inicio en cadena</string>
     <string name="remove_open_app_confirmation_popup_summary">Eliminar ventana \"Permitir XXX abrir XXX\" de inicio en cadena</string>
+    <string name="hide_volume_icon">Hide Volume icon</string>
+    <string name="hide_zen_icon">Hide ZEN icon</string>
 </resources>
