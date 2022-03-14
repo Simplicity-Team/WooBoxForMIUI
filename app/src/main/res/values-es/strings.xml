@@ -3,7 +3,7 @@
     <string name="performance">Rendimiento</string>
     <string name="lock_max_fps">Bloquear la tasa actual de refresco por arriba del límite</string>
     <string name="ui">Interfaz</string>
-    <string name="delete_on_post_notification">Eliminar notificación de mostar encima</string>
+    <string name="delete_on_post_notification">Eliminar notificación de mostrar encima</string>
     <string name="delete_on_post_notification_summary">Eliminar la notificación \"Está aplicación se está mostrando sobre otras aplicaciones\"</string>
     <string name="other">Otro</string>
     <string name="disable_flag_secure">Permitir capturas de pantalla</string>
@@ -152,6 +152,6 @@
     <string name="current">Actual:</string>
     <string name="participate_in_translation">Participa en la traducción</string>
     <string name="participate_in_translation_summary">Ayúdanos a traducir la app en tu idioma</string>
-    <string name="lock_screen_charging_current">Display current information during charging</string>
+    <string name="lock_screen_charging_current">Mostrar la información de corriente durante la carga</string>
     <string name="current_current">Corriente de carga</string>
 </resources>
