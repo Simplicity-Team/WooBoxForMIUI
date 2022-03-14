@@ -156,4 +156,6 @@
     <string name="current_current">現在</string>
     <string name="remove_open_app_confirmation_popup">remove open app popup</string>
     <string name="remove_open_app_confirmation_popup_summary">remove \"Allow XXX to open XXX\" Chain start popup</string>
+    <string name="hide_volume_icon">Hide Volume icon</string>
+    <string name="hide_zen_icon">Hide ZEN icon</string>
 </resources>
