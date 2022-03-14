@@ -4,29 +4,24 @@
     <string name="lock_max_fps">Geçerli yenileme hızı üst sınırını kilitle</string>
     <string name="ui">Arayüz </string>
     <string name="delete_on_post_notification">Bildirim üzerinden ekranı kaldır</string>
-    <string name="delete_on_post_notification_summary">Bildirim üzerinden ekranı kaldır</string>
+    <string name="delete_on_post_notification_summary">\"Bu uygulama diğer uygulamaların üzerinde görüntüleniyor\" bildirimini kaldırın</string>
     <string name="other">Diğer </string>
     <string name="disable_flag_secure">Ekran görüntüsüne izin ver</string>
-    <string name="disable_flag_secure_summary">Güvenlik için Kontrol merkezinde açılır hızlı ayar eklemeye izin vermeyen yazılımda ekran görüntüsüne izin ver
- İÇERİK TALEBİ</string>
+    <string name="disable_flag_secure_summary">Güvenlik için Kontrol merkezinde açılır hızlı ayar eklemeye izin vermeyen yazılımda ekran görüntüsüne izin ver</string>
     <string name="home">Ev</string>
     <string name="home_time">Her zaman Ana ekran saatini göster</string>
-    <string name="reboot_host">Tüm kapsamı yeniden başlat
- İÇERİK TALEBİ</string>
+    <string name="reboot_host">Tüm kapsamı yeniden başlat</string>
     <string name="reboot">Sistemi Yeniden Başlat </string>
     <!--Status bar icons-->
     <string name="status_bar_icon">Durum çubuğu simgeleri</string>
     <string name="hide_no_sim_icon">Hide No SIM icon</string>
     <string name="hide_sim_one_icon">SIM Kart 1 simgesini gizle</string>
     <string name="hide_sim_two_icon">SIM Kart 2 simgesini gizle</string>
-    <string name="hide_vpn_icon">VPN simgesini gizle
- İÇERİK TALEBİ</string>
+    <string name="hide_vpn_icon">VPN simgesini gizle</string>
     <string name="hide_airplane_icon">Uçak modu simgesini gizle</string>
     <string name="hide_wifi_icon">WIFI simgesini gizle</string>
-    <string name="hide_bluetooth_icon">Bluetooth simgesini gizle
- İÇERİK TALEBİ</string>
-    <string name="hide_volume_zen_icon">Sesi Gizle ve Rahatsız Etmeyin simgesi
- İÇERİK TALEBİ</string>
+    <string name="hide_bluetooth_icon">Bluetooth simgesini gizle</string>
+    <string name="hide_volume_zen_icon">Sesi Gizle ve Rahatsız Etmeyin simgesi</string>
     <string name="hide_alarm_icon">Alarm simgesini gizle</string>
     <string name="hide_hotspot_icon">Taşınabilir erişim noktası simgesini gizle</string>
     <string name="hide_headset_icon">Kulaklık simgesini gizle</string>
@@ -36,7 +31,7 @@
     <string name="hide_hd_no_service_icon">HD Hizmet Yok simgesini gizle
  </string>
     <string name="about">Hakkında</string>
-    <string name="about_module">About Module</string>
+    <string name="about_module">Modül Hakkında</string>
     <string name="verison">Sürüm</string>
     <string name="dev_coolapk">Yazar Coolapk</string>
     <string name="opensource">Açık Kaynak Deposu</string>
@@ -57,12 +52,12 @@
     <string name="unlock_unlimited_cropping">Sınırsız kırpma resimlerinin/ekran görüntülerinin kilidini açın</string>
     <string name="hide_slave_wifi_icon">WIFI ikincil simgesini gizle</string>
     <string name="HideLauncherIcon">Başlatıcı simgesini gizle</string>
-    <string name="hide_battery_percentage_icon">Pili gizle (%)</string>
+    <string name="hide_battery_percentage_icon">Pili yüzdesini gizle (%)</string>
     <string name="hide_battery_icon">Pil simgesini gizle</string>
     <string name="status_bar_clock_format">Durum çubuğu saat biçimi</string>
     <string name="status_bar_time_year">Yılı göster</string>
     <string name="status_bar_time_month">Ayı göster</string>
-    <string name="status_bar_time_day">Tarihi görüntüle</string>
+    <string name="status_bar_time_day">Tarihi göster</string>
     <string name="status_bar_time_week">Günü göster </string>
     <string name="status_bar_time_hide_space">Alanı gizle</string>
     <string name="allow_screenshots">Ekran görüntüsüne izin ver</string>
@@ -71,14 +66,14 @@
     <string name="custom_clock_switch">Özel Saat Anahtarı</string>
     <string name="status_bar_time_period">AM/PM\'yi göster</string>
     <string name="status_bar_time_double_line">Çift sıra</string>
-    <string name="status_bar_clock_size">Saat boyutu (0: değiştirme)</string>
+    <string name="status_bar_clock_size">Saat boyutu (0: değişmez)</string>
     <string name="status_bar_clock_double_line_size">Çift sıra boyutu (0: değişmez)</string>
     <string name="matters_needing_attention">Özellik çalışmıyor mu?</string>
     <string name="Done">Tamam</string>
     <string name="about_module_summary">Modülle ilgili bilgileri görüntüleyin</string>
     <string name="contributor_list">Açık kaynak deposu katkıda bulunan listesi</string>
     <string name="developer">Geliştirici</string>
-    <string name="thank_list">teşekkürler listesi</string>
+    <string name="thank_list">Teşekkürler listesi</string>
     <string name="third_party_open_source_statement">Üçüncü Taraf Açık Kaynak Bildirimi</string>
     <string name="corepacth">Kısıtlamaları kaldır</string>
     <string name="corepacth_summary">Sürüm düşürme/farklı imza/imzasız yükleme desteği</string>
@@ -92,7 +87,7 @@
     <string name="qq_channel">Resmi QQ kanalına katılın</string>
     <string name="tg_channel">Resmi Telegram kanalına katılın</string>
     <string name="tg_channel_summary">Sohbet grubuna kanal sayfasından girebilirsiniz.</string>
-    <string name="discussions">tartışmalar</string>
+    <string name="discussions">Tartışmalar</string>
     <string name="remove_small_window_restrictions_summary">Küçük pencerelerin sistem kara listesini ve yazılım yasağını yoksay</string>
     <string name="remove_the_left_side_of_the_lock_screen">Kilit ekranı yan panelini çıkarın</string>
     <string name="remove_lock_screen_camera">Kilit ekranı kamera özelliğini kaldırın</string>
@@ -123,7 +118,7 @@
     <string name="show_weather_main_switch">Hava Durumunu Göster - Ana Anahtar</string>
     <string name="lock_screen">Kilit ekranı</string>
     <string name="notification_center">Bildirim Merkezi</string>
-    <string name="show_city">şehri göster</string>
+    <string name="show_city">Şehri göster</string>
     <string name="lock_max_fps_summary">Gerçek zamanlı geçiş için açılır kontrol merkezi hızlı ayarı ekleme desteği</string>
     <string name="control_center">Kontrol Merkezi</string>
     <string name="control_center_weather_summary">Mi Smart Hub sürümü şu anda desteklenmiyor</string>
@@ -143,7 +138,7 @@
     <string name="layout_compatibility_mode_summary">Sol ve sağ delik ekranının normal olarak görüntülenebilmesini sağlayın</string>
     <string name="remove_macro_blacklist">Oyun makrosu kara listesini kaldır</string>
     <string name="hide_network_speed_splitter">Ağ hızı ayırıcısını gizle</string>
-    <string name="updater">güncelleyici</string>
+    <string name="updater">Güncelleyici</string>
     <string name="remove_ota_validate">*OTA doğrulamasını [LAB] kaldırın</string>
     <string name="remove_ota_validate_summary">- Yalnızca VAB serisi kullanımını destekleyin, lütfen diğer serileri açmayın.\n- Tam dahili test paketine geçmek için dahili test yeterliliğine gerek yoktur.\n- Dahili test iznine sahip olanlar dahili test güncellemelerini alamaz  , ve sistem güncellemelerini engellemek için kullanılabilir.\n- Sürümler arası tip yükseltmesinden sonra verilerin temizlenmesi önerilir.\n- Resmi olmayan ROM kullanımı desteklenmez.</string>
     <string name="settings">Ayarlar</string>
@@ -152,12 +147,12 @@
     <string name="remove_ad">Reklamları kaldır</string>
     <string name="remove_thememanager_ads">Tema yöneticisi için reklamları kaldırın</string>
     <string name="battery_life_function">Pil sayfası mevcut sıcaklığı gösterir</string>
-    <string name="enable_wave_charge_animation">Dalga yükü animasyonunu etkinleştir</string>
+    <string name="enable_wave_charge_animation">Dalga yükü şarj animasyonu</string>
     <string name="max_wallpaper_scale">Maksimum duvar kağıdı ölçeği</string>
     <string name="def">"Varsayılan:"</string>
     <string name="current">Akım</string>
-    <string name="participate_in_translation">çeviriye katılmak</string>
+    <string name="participate_in_translation">Çeviriye katılmak</string>
     <string name="participate_in_translation_summary">Uygulamayı kendi dilinize çevirmemize yardımcı olun</string>
-    <string name="lock_screen_charging_current">Display current information during charging</string>
-    <string name="current_current">Current</string>
+    <string name="lock_screen_charging_current">Şarj sırasında mevcut bilgileri görüntüleyin</string>
+    <string name="current_current">Akım </string>
 </resources>
