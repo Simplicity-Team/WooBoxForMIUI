@@ -156,4 +156,6 @@
     <string name="current_current">当前电流</string>
     <string name="remove_open_app_confirmation_popup">移除打开应用弹窗</string>
     <string name="remove_open_app_confirmation_popup_summary">移除 \"XXX 想要打开 XXX\" 的弹窗 。</string>
+    <string name="hide_volume_icon">Hide Volume icon</string>
+    <string name="hide_zen_icon">Hide ZEN icon</string>
 </resources>
