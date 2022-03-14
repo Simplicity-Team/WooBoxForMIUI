@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="performance">パフォーマンス 設定</string>
-    <string name="lock_max_fps">現在の更新レート上限をロック</string>
+    <string name="performance">パフォーマンス設定</string>
+    <string name="lock_max_fps">現在のリフレッシュレート上限をロック</string>
     <string name="ui">インタフェース</string>
-    <string name="delete_on_post_notification">他のアプリの上に表示され通知を削除</string>
+    <string name="delete_on_post_notification">「他のアプリの上に表示」通知を非表示</string>
     <string name="delete_on_post_notification_summary">「このアプリは他のアプリの上に表示されています」通知を削除します</string>
     <string name="other">以外</string>
     <string name="disable_flag_secure">スクリーンショットを許可</string>
@@ -152,6 +152,6 @@
     <string name="current">現在:</string>
     <string name="participate_in_translation">翻訳に参加する</string>
     <string name="participate_in_translation_summary">翻訳を手伝ってください！</string>
-    <string name="lock_screen_charging_current">Display current information during charging</string>
-    <string name="current_current">Current</string>
+    <string name="lock_screen_charging_current">充電中に現在の情報を表示</string>
+    <string name="current_current">現在</string>
 </resources>
