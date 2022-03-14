@@ -154,4 +154,6 @@
     <string name="participate_in_translation_summary">帮助我们将应用翻译成您的语言</string>
     <string name="lock_screen_charging_current">充电时显示当前电流</string>
     <string name="current_current">当前电流</string>
+    <string name="remove_open_app_confirmation_popup">移除打开应用弹窗</string>
+    <string name="remove_open_app_confirmation_popup_summary">移除 \"XXX 想要打开 XXX\" 的弹窗 。</string>
 </resources>

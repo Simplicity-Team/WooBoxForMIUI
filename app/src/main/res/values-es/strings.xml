@@ -154,4 +154,6 @@
     <string name="participate_in_translation_summary">Ayúdanos a traducir la app en tu idioma</string>
     <string name="lock_screen_charging_current">Mostrar la información de corriente durante la carga</string>
     <string name="current_current">Corriente de carga</string>
+    <string name="remove_open_app_confirmation_popup">remove open app popup</string>
+    <string name="remove_open_app_confirmation_popup_summary">remove \"Allow XXX to open XXX\" Chain start popup</string>
 </resources>
