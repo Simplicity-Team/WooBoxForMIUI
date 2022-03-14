@@ -34,6 +34,9 @@ jobs:
         path: |
           ~/.gradle/caches/build-cache-*
         key: gradle-builds-${{ github.sha }}
-
+    - name: Init Submodule
+      run: |
+        git submodule init
+        git submodule update
     - name: Build with Gradle
       run: bash ./gradlew :app:packageDebug
