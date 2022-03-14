@@ -1022,6 +1022,15 @@ class SettingsActivity : MIUIActivity() {
             add(
                 TextSummaryWithSwitchV(
                     TextSummaryV(
+                        textId = R.string.remove_open_app_confirmation_popup,
+                        tipsId = R.string.remove_open_app_confirmation_popup_summary
+                    ),
+                    SwitchV("remove_open_app_confirmation_popup")
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
                         textId = R.string.lock_one_hundred,
                         tipsId = R.string.lock_one_hundred_summary
                     ),
