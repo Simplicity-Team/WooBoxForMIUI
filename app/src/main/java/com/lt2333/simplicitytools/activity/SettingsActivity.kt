@@ -830,8 +830,14 @@ class SettingsActivity : MIUIActivity() {
             )
             add(
                 TextWithSwitchV(
-                    TextV(resId = R.string.hide_volume_zen_icon),
-                    SwitchV("hide_volume_zen_icon")
+                    TextV(resId = R.string.hide_volume_icon),
+                    SwitchV("hide_volume_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_zen_icon),
+                    SwitchV("hide_zen_icon")
                 )
             )
             add(
