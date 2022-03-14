@@ -49,7 +49,7 @@
     <string name="Tips">Consejos</string>
     <string name="skip_waiting_time">Saltar advertencia de 5/10 segundos</string>
     <string name="unlock_unlimited_cropping">Desbloquea el recorte de imágenes/capturas de pantalla ilimitado</string>
-    <string name="hide_slave_wifi_icon">Esconder icono de WIFI secundario</string>
+    <string name="hide_slave_wifi_icon">Ocultar icono de WIFI secundario</string>
     <string name="HideLauncherIcon">Esconder el icono del Launcher</string>
     <string name="hide_battery_percentage_icon">Esconder la batería (%)</string>
     <string name="hide_battery_icon">Esconder icono de la batería</string>
