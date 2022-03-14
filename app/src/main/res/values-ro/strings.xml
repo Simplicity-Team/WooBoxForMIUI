@@ -156,4 +156,6 @@
     <string name="current_current">Curent</string>
     <string name="remove_open_app_confirmation_popup">Elimină fereastra pop-up a aplicației deschise</string>
     <string name="remove_open_app_confirmation_popup_summary">Elimină mesajul \"Permite XXX să deschidă XXX\" în lanț</string>
+    <string name="hide_volume_icon">Hide Volume icon</string>
+    <string name="hide_zen_icon">Hide ZEN icon</string>
 </resources>
