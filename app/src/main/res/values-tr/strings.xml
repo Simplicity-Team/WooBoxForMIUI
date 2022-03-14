@@ -155,4 +155,6 @@
     <string name="participate_in_translation_summary">Uygulamayı kendi dilinize çevirmemize yardımcı olun</string>
     <string name="lock_screen_charging_current">Şarj sırasında mevcut bilgileri görüntüleyin</string>
     <string name="current_current">Akım </string>
+    <string name="remove_open_app_confirmation_popup">remove open app popup</string>
+    <string name="remove_open_app_confirmation_popup_summary">remove \"Allow XXX to open XXX\" Chain start popup</string>
 </resources>
