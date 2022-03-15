@@ -100,8 +100,20 @@ class ControlCenterWeather : IXposedHookLoadPackage {
                 val viewGroup = it.thisObject as ViewGroup
                 val context = viewGroup.context
 
-                // MIUI编译时间大于 2022-03-12 00:00:00
-                if (SystemProperties.get(context, "ro.build.date.utc")!!.toInt() >= 1647014400) {
+                // MIUI编译时间大于 2022-03-12 00:00:00 且为内测版
+                if (SystemProperties.get(context, "ro.build.date.utc")!!
+                        .toInt() >= 1647014400 &&
+
+                    !SystemProperties.get(
+                        context,
+                        "ro.build.version.incremental"
+                    )!!.endsWith("DEV") &&
+
+                    !SystemProperties.get(
+                        context,
+                        "ro.build.version.incremental"
+                    )!!.endsWith("XM")
+                ) {
                     //获取原组件
                     val big_time_ID =
                         context.resources.getIdentifier("big_time", "id", context.packageName)
@@ -251,8 +263,20 @@ class ControlCenterWeather : IXposedHookLoadPackage {
                 val viewGroup = it.thisObject as ViewGroup
                 val context = viewGroup.context
                 val mOrientation = viewGroup.getObjectField("mOrientation") as Int
-                // MIUI编译时间大于 2022-03-12 00:00:00
-                if (SystemProperties.get(context, "ro.build.date.utc")!!.toInt() >= 1647014400) {
+                // MIUI编译时间大于 2022-03-12 00:00:00 且为内测版
+                if (SystemProperties.get(context, "ro.build.date.utc")!!
+                        .toInt() >= 1647014400 &&
+
+                    !SystemProperties.get(
+                        context,
+                        "ro.build.version.incremental"
+                    )!!.endsWith("DEV") &&
+
+                    !SystemProperties.get(
+                        context,
+                        "ro.build.version.incremental"
+                    )!!.endsWith("XM")
+                ) {
                     if (mOrientation == 1) {
                         mConstraintLayout!!.visibility = View.VISIBLE
                     } else {
