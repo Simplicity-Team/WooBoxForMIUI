@@ -49,7 +49,7 @@
     <string name="Tips">Consejos</string>
     <string name="skip_waiting_time">Saltar advertencia de 5/10 segundos</string>
     <string name="unlock_unlimited_cropping">Desbloquea el recorte de imágenes/capturas de pantalla ilimitado</string>
-    <string name="hide_slave_wifi_icon">Esconder icono de WIFI secundario</string>
+    <string name="hide_slave_wifi_icon">Ocultar icono de WIFI secundario</string>
     <string name="HideLauncherIcon">Esconder el icono del Launcher</string>
     <string name="hide_battery_percentage_icon">Esconder la batería (%)</string>
     <string name="hide_battery_icon">Esconder icono de la batería</string>
@@ -156,6 +156,7 @@
     <string name="current_current">Corriente de carga</string>
     <string name="remove_open_app_confirmation_popup">Eliminar ventana de inicio en cadena</string>
     <string name="remove_open_app_confirmation_popup_summary">Eliminar ventana \"Permitir XXX abrir XXX\" de inicio en cadena</string>
-    <string name="hide_volume_icon">Hide Volume icon</string>
-    <string name="hide_zen_icon">Hide ZEN icon</string>
+    <string name="hide_volume_icon">Ocultar icono de volumen</string>
+    <string name="hide_zen_icon">Ocultar icono ZEN</string>
+    <string name="hide_icon">Hide Icon</string>
 </resources>

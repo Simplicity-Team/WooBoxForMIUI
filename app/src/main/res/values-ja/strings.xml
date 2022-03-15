@@ -14,7 +14,7 @@
     <string name="reboot">システムを再起動する</string>
     <!--Status bar icons-->
     <string name="status_bar_icon">ステータスバーのアイコン</string>
-    <string name="hide_no_sim_icon">SIMアイコンなしを隠す</string>
+    <string name="hide_no_sim_icon">SIM未挿入アイコンを隠す</string>
     <string name="hide_sim_one_icon">SIMカード1のアイコンを隠す</string>
     <string name="hide_sim_two_icon">SIMカード2のアイコンを隠す</string>
     <string name="hide_vpn_icon">VPN アイコンを隠す</string>
@@ -30,12 +30,12 @@
     <string name="hide_small_hd_icon">小さいHDアイコンを隠す</string>
     <string name="hide_hd_no_service_icon">HD サービスなしアイコンを隠す</string>
     <string name="about">概要</string>
-    <string name="about_module">モジュールの概要</string>
+    <string name="about_module">モジュールについて</string>
     <string name="verison">バージョン</string>
-    <string name="dev_coolapk">開発者Coolapk</string>
+    <string name="dev_coolapk">開発者のCoolapk</string>
     <string name="opensource">オープンソースリポジトリ</string>
     <string name="github_url">開発に参加できる開発者を歓迎します</string>
-    <string name="issues">ご意見/ご提案</string>
+    <string name="issues">ご意見・ご提案</string>
     <string name="issues_url">クリックして GitHub Issues を表示する</string>
     <string name="xposeddescription">MIUI13(Android 12)のカスタマイズツール</string>
     <string name="statusbar">ステータスバー</string>
@@ -44,7 +44,7 @@
     <string name="remove_the_maximum_number_of_notification_icons">通知アイコンの最大数を削除する</string>
     <string name="main_switch">モジュールのメインスイッチ</string>
     <string name="hide_gps_icon">GPS アイコンを隠す</string>
-    <string name="hide_status_bar_network_speed_second">ネットワーク速度の単位を隠す</string>
+    <string name="hide_status_bar_network_speed_second">ネットワーク速度の単位(/s)を隠す</string>
     <string name="menu">メニュー</string>
     <string name="Tips">注意事項</string>
     <string name="skip_waiting_time">5/10秒間の警告時間をスキップ</string>
@@ -75,7 +75,7 @@
     <string name="thank_list">感謝リスト</string>
     <string name="third_party_open_source_statement">サードパーティーのオープンソースに関する声明</string>
     <string name="corepacth">インストール制限を削除</string>
-    <string name="corepacth_summary">ダウングレード/異なる署名/署名なしインストールをサポート</string>
+    <string name="corepacth_summary">ダウングレード、異なる署名、署名なしでのインストールを許可</string>
     <string name="prevent_recovery_of_battery_optimization_white_list">バッテリー最適化ホワイトリストのリカバリを防止する</string>
     <string name="failed_after_restart">システム再起動後に復元されます</string>
     <string name="battery_optimization">電池の最適化</string>
@@ -99,7 +99,7 @@
     <string name="scope_other">その他</string>
     <string name="status_bar_network_speed_refresh_speed_summary">ステータスバーのネットワーク速度コンポーネントの更新頻度を1秒に変更します</string>
     <string name="hide_battery_percentage_icon_summary">バッテリー残量表示機能は自分でオンにする必要があります</string>
-    <string name="hide_status_bar_network_speed_second_summary">ステータスバーのネットワーク速度コンポーネントの (/s) 単位を隠す</string>
+    <string name="hide_status_bar_network_speed_second_summary">ステータスバーのネットワーク速度表示の (/s) 単位を隠す</string>
     <string name="remove_the_maximum_number_of_notification_icons_summary">ステータスバーの通知数の3つまでの上限を削除する</string>
     <string name="scope_systemui_summary">システムインターフェース、ステータスバー、ロック画面などをカスタマイズする</string>
     <string name="scope_android_summary">初めてモジュールを有効にした後、またはモジュールが更新された後、システムを再起動した後にここの機能が有効になります</string>
@@ -154,8 +154,9 @@
     <string name="participate_in_translation_summary">翻訳を手伝ってください！</string>
     <string name="lock_screen_charging_current">充電中に現在の情報を表示</string>
     <string name="current_current">現在</string>
-    <string name="remove_open_app_confirmation_popup">remove open app popup</string>
-    <string name="remove_open_app_confirmation_popup_summary">remove \"Allow XXX to open XXX\" Chain start popup</string>
-    <string name="hide_volume_icon">Hide Volume icon</string>
-    <string name="hide_zen_icon">Hide ZEN icon</string>
+    <string name="remove_open_app_confirmation_popup">アプリポップアップを削除</string>
+    <string name="remove_open_app_confirmation_popup_summary">「外部アプリを開く」ポップアップを削除します</string>
+    <string name="hide_volume_icon">音量アイコンを非表示</string>
+    <string name="hide_zen_icon">ZENアイコンを隠す</string>
+    <string name="hide_icon">Hide Icon</string>
 </resources>
