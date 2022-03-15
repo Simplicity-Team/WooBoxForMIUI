@@ -25,7 +25,7 @@
     <string name="hide_alarm_icon">隱藏 鬧鐘 圖標</string>
     <string name="hide_hotspot_icon">隱藏 WIFI熱點 圖標</string>
     <string name="hide_headset_icon">隱藏 耳機 圖標</string>
-    <string name="hide_bluetooth_battery_icon">隱藏 藍牙電量 圖標</string>
+    <string name="hide_bluetooth_battery_icon">Hide Bluetooth battery icon</string>
     <string name="hide_big_hd_icon">隱藏 大HD 圖標</string>
     <string name="hide_small_hd_icon">隱藏 小HD 圖標</string>
     <string name="hide_hd_no_service_icon">隱藏 HD無服務 圖標</string>
@@ -48,7 +48,7 @@
     <string name="menu">菜單</string>
     <string name="Tips">提示</string>
     <string name="skip_waiting_time">跳過 5/10 秒警告時間</string>
-    <string name="unlock_unlimited_cropping">解鎖無限裁切圖片/截圖</string>
+    <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>
     <string name="hide_slave_wifi_icon">隱藏 WIFI輔助 圖標</string>
     <string name="HideLauncherIcon">隱藏桌面圖標</string>
     <string name="hide_battery_percentage_icon">隱藏電量（%）</string>
