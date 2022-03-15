@@ -75,7 +75,7 @@
     <string name="thank_list">感謝リスト</string>
     <string name="third_party_open_source_statement">サードパーティーのオープンソースに関する声明</string>
     <string name="corepacth">インストール制限を削除</string>
-    <string name="corepacth_summary">ダウングレード/異なる署名/署名なしインストールをサポート</string>
+    <string name="corepacth_summary">ダウングレード、異なる署名、署名なしでのインストールを許可</string>
     <string name="prevent_recovery_of_battery_optimization_white_list">バッテリー最適化ホワイトリストのリカバリを防止する</string>
     <string name="failed_after_restart">システム再起動後に復元されます</string>
     <string name="battery_optimization">電池の最適化</string>
@@ -99,7 +99,7 @@
     <string name="scope_other">その他</string>
     <string name="status_bar_network_speed_refresh_speed_summary">ステータスバーのネットワーク速度コンポーネントの更新頻度を1秒に変更します</string>
     <string name="hide_battery_percentage_icon_summary">バッテリー残量表示機能は自分でオンにする必要があります</string>
-    <string name="hide_status_bar_network_speed_second_summary">ステータスバーのネットワーク速度コンポーネントの (/s) 単位を隠す</string>
+    <string name="hide_status_bar_network_speed_second_summary">ステータスバーのネットワーク速度表示の (/s) 単位を隠す</string>
     <string name="remove_the_maximum_number_of_notification_icons_summary">ステータスバーの通知数の3つまでの上限を削除する</string>
     <string name="scope_systemui_summary">システムインターフェース、ステータスバー、ロック画面などをカスタマイズする</string>
     <string name="scope_android_summary">初めてモジュールを有効にした後、またはモジュールが更新された後、システムを再起動した後にここの機能が有効になります</string>
