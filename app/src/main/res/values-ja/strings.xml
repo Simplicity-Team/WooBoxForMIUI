@@ -25,7 +25,7 @@
     <string name="hide_alarm_icon">アラームアイコンを隠す</string>
     <string name="hide_hotspot_icon">ポータブルホットスポットアイコンを隠す</string>
     <string name="hide_headset_icon">ヘッドセットアイコンを隠す</string>
-    <string name="hide_bluetooth_battery_icon">Bluetooth バッテリーアイコンを隠す</string>
+    <string name="hide_bluetooth_battery_icon">Hide Bluetooth battery icon</string>
     <string name="hide_big_hd_icon">大きなHDアイコンを隠す</string>
     <string name="hide_small_hd_icon">小さいHDアイコンを隠す</string>
     <string name="hide_hd_no_service_icon">HD サービスなしアイコンを隠す</string>
@@ -48,7 +48,7 @@
     <string name="menu">メニュー</string>
     <string name="Tips">注意事項</string>
     <string name="skip_waiting_time">5/10秒間の警告時間をスキップ</string>
-    <string name="unlock_unlimited_cropping">無制限のトリミング写真/スクリーンショットをロック解除</string>
+    <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>
     <string name="hide_slave_wifi_icon">Wi-Fiセカンダリアイコンを隠す</string>
     <string name="HideLauncherIcon">ランチャーアイコンを隠す</string>
     <string name="hide_battery_percentage_icon">バッテリー (%) を隠す</string>
