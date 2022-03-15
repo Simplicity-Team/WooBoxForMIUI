@@ -25,7 +25,7 @@
     <string name="hide_alarm_icon">Ascunde pictograma alarmă</string>
     <string name="hide_hotspot_icon">Ascunde pictograma pentru hotspot mobil</string>
     <string name="hide_headset_icon">Ascunde pictograma căștilor</string>
-    <string name="hide_bluetooth_battery_icon">Ascunde pictograma bateriei Bluetooth</string>
+    <string name="hide_bluetooth_battery_icon">Hide Bluetooth battery icon</string>
     <string name="hide_big_hd_icon">Ascunde pictograma mare HD</string>
     <string name="hide_small_hd_icon">Ascunde pictograma mică HD</string>
     <string name="hide_hd_no_service_icon">Ascunde pictograma Fără servicii HD</string>
@@ -48,7 +48,7 @@
     <string name="menu">Meniu</string>
     <string name="Tips">Sugestii</string>
     <string name="skip_waiting_time">Omite timpul de avertizare de 5/10 secunde</string>
-    <string name="unlock_unlimited_cropping">Deblochează decuparea nelimitată a imaginilor/capturilor de ecran</string>
+    <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>
     <string name="hide_slave_wifi_icon">Ascunde pictogramă secundară WIFI</string>
     <string name="HideLauncherIcon">Ascunde pictograma lansatorului</string>
     <string name="hide_battery_percentage_icon">Ascundere baterie (%)</string>
