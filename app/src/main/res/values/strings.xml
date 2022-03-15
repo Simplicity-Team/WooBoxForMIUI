@@ -52,7 +52,7 @@
     <string name="menu">Menu</string>
     <string name="Tips">Tips</string>
     <string name="skip_waiting_time">Skip 5/10 second warning time</string>
-    <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots </string>
+    <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>
     <string name="hide_slave_wifi_icon">Hide WIFI secondary icon</string>
     <string name="HideLauncherIcon">Hide Launcher icon</string>
     <string name="hide_battery_percentage_icon">Hide battery (%)</string>
