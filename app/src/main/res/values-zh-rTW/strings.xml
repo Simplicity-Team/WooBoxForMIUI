@@ -158,5 +158,5 @@
     <string name="remove_open_app_confirmation_popup_summary">移除 \"XXX 想要打開 XXX\" 的跳出視窗 。</string>
     <string name="hide_volume_icon">隱藏 音量 圖示</string>
     <string name="hide_zen_icon">隱藏 勿擾 圖示</string>
-    <string name="hide_icon">Hide Icon</string>
+    <string name="hide_icon">隱藏圖示</string>
 </resources>
