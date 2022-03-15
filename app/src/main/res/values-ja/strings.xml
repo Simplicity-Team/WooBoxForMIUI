@@ -158,4 +158,5 @@
     <string name="remove_open_app_confirmation_popup_summary">「外部アプリを開く」ポップアップを削除します</string>
     <string name="hide_volume_icon">音量アイコンを非表示</string>
     <string name="hide_zen_icon">ZENアイコンを隠す</string>
+    <string name="hide_icon">Hide Icon</string>
 </resources>
