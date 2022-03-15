@@ -417,6 +417,7 @@ class SettingsActivity : MIUIActivity() {
 
     //系统框架页面
     private fun androidItems(): ArrayList<BaseView> {
+        menuButton.visibility = View.VISIBLE
         return ArrayList<BaseView>().apply {
             add(
                 TextSummaryWithSwitchV(
@@ -478,6 +479,7 @@ class SettingsActivity : MIUIActivity() {
 
     //系统界面页面
     private fun systemuiItems(): ArrayList<BaseView> {
+        menuButton.visibility = View.VISIBLE
         return ArrayList<BaseView>().apply {
             add(TitleTextV(resId = R.string.statusbar))
             add(
@@ -700,152 +702,18 @@ class SettingsActivity : MIUIActivity() {
                     dataBindingRecv = custom_clock_binding.binding.getRecv(2)
                 )
             )
+
             add(LineV())
             add(TitleTextV(resId = R.string.status_bar_icon))
             add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_battery_icon),
-                    SwitchV("hide_battery_icon")
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.hide_icon,
+                        onClickListener = { showFragment(getString(R.string.hide_icon)) }
+                    )
                 )
             )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_battery_charging_icon),
-                    SwitchV("hide_battery_charging_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_gps_icon),
-                    SwitchV("hide_gps_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_bluetooth_icon),
-                    SwitchV("hide_bluetooth_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_bluetooth_battery_icon),
-                    SwitchV("hide_bluetooth_battery_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_small_hd_icon),
-                    SwitchV("hide_small_hd_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_big_hd_icon),
-                    SwitchV("hide_big_hd_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_hd_no_service_icon),
-                    SwitchV("hide_hd_no_service_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_sim_one_icon),
-                    SwitchV("hide_sim_one_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_sim_two_icon),
-                    SwitchV("hide_sim_two_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_mobile_activity_icon),
-                    SwitchV("hide_mobile_activity_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_mobile_type_icon),
-                    SwitchV("hide_mobile_type_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_wifi_icon),
-                    SwitchV("hide_wifi_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_wifi_activity_icon),
-                    SwitchV("hide_wifi_activity_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_wifi_standard_icon),
-                    SwitchV("hide_wifi_standard_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_slave_wifi_icon),
-                    SwitchV("hide_slave_wifi_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_hotspot_icon),
-                    SwitchV("hide_hotspot_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_vpn_icon),
-                    SwitchV("hide_vpn_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_airplane_icon),
-                    SwitchV("hide_airplane_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_alarm_icon),
-                    SwitchV("hide_alarm_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_headset_icon),
-                    SwitchV("hide_headset_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_volume_icon),
-                    SwitchV("hide_volume_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_zen_icon),
-                    SwitchV("hide_zen_icon")
-                )
-            )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_network_speed_splitter),
-                    SwitchV("hide_network_speed_splitter")
-                )
-            )
+
 
             add(LineV())
             add(TitleTextV(resId = R.string.notification_center))
@@ -1107,12 +975,172 @@ class SettingsActivity : MIUIActivity() {
         }
     }
 
+    //隐藏图标页面
+    private fun hideIconItems(): ArrayList<BaseView> {
+        menuButton.visibility = View.VISIBLE
+        return ArrayList<BaseView>().apply {
+            add(TitleTextV(resId = R.string.status_bar_icon))
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_battery_icon),
+                    SwitchV("hide_battery_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_battery_charging_icon),
+                    SwitchV("hide_battery_charging_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_gps_icon),
+                    SwitchV("hide_gps_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_bluetooth_icon),
+                    SwitchV("hide_bluetooth_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_bluetooth_battery_icon),
+                    SwitchV("hide_bluetooth_battery_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_small_hd_icon),
+                    SwitchV("hide_small_hd_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_big_hd_icon),
+                    SwitchV("hide_big_hd_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_hd_no_service_icon),
+                    SwitchV("hide_hd_no_service_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_no_sim_icon),
+                    SwitchV("hide_no_sim_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_sim_one_icon),
+                    SwitchV("hide_sim_one_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_sim_two_icon),
+                    SwitchV("hide_sim_two_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_mobile_activity_icon),
+                    SwitchV("hide_mobile_activity_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_mobile_type_icon),
+                    SwitchV("hide_mobile_type_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_wifi_icon),
+                    SwitchV("hide_wifi_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_wifi_activity_icon),
+                    SwitchV("hide_wifi_activity_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_wifi_standard_icon),
+                    SwitchV("hide_wifi_standard_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_slave_wifi_icon),
+                    SwitchV("hide_slave_wifi_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_hotspot_icon),
+                    SwitchV("hide_hotspot_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_vpn_icon),
+                    SwitchV("hide_vpn_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_airplane_icon),
+                    SwitchV("hide_airplane_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_alarm_icon),
+                    SwitchV("hide_alarm_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_headset_icon),
+                    SwitchV("hide_headset_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_volume_icon),
+                    SwitchV("hide_volume_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_zen_icon),
+                    SwitchV("hide_zen_icon")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_network_speed_splitter),
+                    SwitchV("hide_network_speed_splitter")
+                )
+            )
+
+        }
+    }
+
     override fun getItems(item: String): ArrayList<BaseView> {
         return when (item) {
             getString(R.string.scope_android) -> androidItems()
             getString(R.string.scope_systemui) -> systemuiItems()
             getString(R.string.scope_other) -> otherItems()
             getString(R.string.about_module) -> aboutItems()
+            getString(R.string.hide_icon) -> hideIconItems()
             menuName() -> menuItems()
             else -> mainItems()
         }
