@@ -25,7 +25,7 @@
     <string name="hide_alarm_icon">Ocultar icono de alarma</string>
     <string name="hide_hotspot_icon">Ocultar icono de punto de accesos inalámbrico</string>
     <string name="hide_headset_icon">Ocultar icono de audífonos</string>
-    <string name="hide_bluetooth_battery_icon">Ocultar icono de batería de Bluetooth</string>
+    <string name="hide_bluetooth_battery_icon">Hide Bluetooth battery icon</string>
     <string name="hide_big_hd_icon">Ocultar icono grande HD</string>
     <string name="hide_small_hd_icon">Ocultar icono pequeño HD</string>
     <string name="hide_hd_no_service_icon">Ocultar icono sin servicio HD</string>
@@ -48,7 +48,7 @@
     <string name="menu">Menú</string>
     <string name="Tips">Consejos</string>
     <string name="skip_waiting_time">Saltar advertencia de 5/10 segundos</string>
-    <string name="unlock_unlimited_cropping">Desbloquea el recorte de imágenes/capturas de pantalla ilimitado</string>
+    <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>
     <string name="hide_slave_wifi_icon">Ocultar icono de WIFI secundario</string>
     <string name="HideLauncherIcon">Esconder el icono del Launcher</string>
     <string name="hide_battery_percentage_icon">Esconder la batería (%)</string>
