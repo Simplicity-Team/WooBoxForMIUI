@@ -25,7 +25,7 @@
     <string name="hide_alarm_icon">Ẩn biểu tượng Báo thức</string>
     <string name="hide_hotspot_icon">Ẩn biểu tượng Điểm phát sóng di động</string>
     <string name="hide_headset_icon">Ẩn biểu tượng tai nghe</string>
-    <string name="hide_bluetooth_battery_icon">Ẩn biểu tượng Pin Bluetooth</string>
+    <string name="hide_bluetooth_battery_icon">Hide Bluetooth battery icon</string>
     <string name="hide_big_hd_icon">Hide big HD icon</string>
     <string name="hide_small_hd_icon">Hide small HD icon</string>
     <string name="hide_hd_no_service_icon">Hide HD No Service icon</string>
@@ -48,7 +48,7 @@
     <string name="menu">Menu</string>
     <string name="Tips">Mẹo</string>
     <string name="skip_waiting_time">Bỏ qua 5/10 giây cảnh báo</string>
-    <string name="unlock_unlimited_cropping">Mở khoá cắt ảnh/chụp màn hình không giới hạn</string>
+    <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>
     <string name="hide_slave_wifi_icon">Ẩn biểu tượng WIFI thứ hai</string>
     <string name="HideLauncherIcon">Ẩn biểu tượng Trình khởi chạy</string>
     <string name="hide_battery_percentage_icon">Ẩn pin (%)</string>
