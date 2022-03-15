@@ -52,7 +52,7 @@
     <string name="hide_slave_wifi_icon">Ocultar icono de WIFI secundario</string>
     <string name="HideLauncherIcon">Esconder el icono del Launcher</string>
     <string name="hide_battery_percentage_icon">Esconder la batería (%)</string>
-    <string name="hide_battery_icon">Esconder icono de la batería</string>
+    <string name="hide_battery_icon">Ocultar icono de la batería</string>
     <string name="status_bar_clock_format">Formato de reloj de la barra de estado</string>
     <string name="status_bar_time_year">Mostrar año</string>
     <string name="status_bar_time_month">Mostrar mes</string>
@@ -158,5 +158,5 @@
     <string name="remove_open_app_confirmation_popup_summary">Eliminar ventana \"Permitir XXX abrir XXX\" de inicio en cadena</string>
     <string name="hide_volume_icon">Ocultar icono de volumen</string>
     <string name="hide_zen_icon">Ocultar icono ZEN</string>
-    <string name="hide_icon">Hide Icon</string>
+    <string name="hide_icon">Ocultar Iconos</string>
 </resources>
