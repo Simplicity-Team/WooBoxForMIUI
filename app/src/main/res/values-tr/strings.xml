@@ -25,7 +25,7 @@
     <string name="hide_alarm_icon">Alarm simgesini gizle</string>
     <string name="hide_hotspot_icon">Taşınabilir erişim noktası simgesini gizle</string>
     <string name="hide_headset_icon">Kulaklık simgesini gizle</string>
-    <string name="hide_bluetooth_battery_icon">Bluetooth pil simgesini gizle</string>
+    <string name="hide_bluetooth_battery_icon">Hide Bluetooth battery icon</string>
     <string name="hide_big_hd_icon">Büyük HD simgesini gizle</string>
     <string name="hide_small_hd_icon">Küçük HD simgesini gizle</string>
     <string name="hide_hd_no_service_icon">HD Hizmet Yok simgesini gizle
@@ -49,7 +49,7 @@
     <string name="menu">Menü</string>
     <string name="Tips">İpuçları</string>
     <string name="skip_waiting_time">5/10 saniyelik uyarı süresini atla</string>
-    <string name="unlock_unlimited_cropping">Sınırsız kırpma resimlerinin/ekran görüntülerinin kilidini açın</string>
+    <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>
     <string name="hide_slave_wifi_icon">WIFI ikincil simgesini gizle</string>
     <string name="HideLauncherIcon">Başlatıcı simgesini gizle</string>
     <string name="hide_battery_percentage_icon">Pili yüzdesini gizle (%)</string>
