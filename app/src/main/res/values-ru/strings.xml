@@ -163,6 +163,6 @@
     <string name="hide_volume_icon">Скрыть иконку без звука</string>
     <string name="hide_zen_icon">Скрыть иконку не беспокоить</string>
     <string name="hide_icon">Скрытие иконок строки состояния</string>
-    <string name="double_tap_to_sleep">Double tap to sleep</string>
-    <string name="home_double_tap_to_sleep_summary">Double-tap the blank space to sleep</string>
+    <string name="double_tap_to_sleep">Двойное нажатие для отключения экрана</string>
+    <string name="home_double_tap_to_sleep_summary">Дважды коснитесь экрана для блокировки устройства</string>
 </resources>
