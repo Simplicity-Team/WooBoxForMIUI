@@ -163,4 +163,6 @@
     <string name="hide_volume_icon">Скрыть иконку без звука</string>
     <string name="hide_zen_icon">Скрыть иконку не беспокоить</string>
     <string name="hide_icon">Скрытие иконок строки состояния</string>
+    <string name="double_tap_to_sleep">Double tap to sleep</string>
+    <string name="home_double_tap_to_sleep_summary">Double-tap on an empty space on the home to sleep</string>
 </resources>
