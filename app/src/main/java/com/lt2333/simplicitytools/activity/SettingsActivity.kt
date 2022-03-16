@@ -455,25 +455,39 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("remove_small_window_restrictions")
                 )
             )
-            add(TextSummaryArrowV(TextSummaryV(textId = R.string.max_wallpaper_scale, onClickListener = {
-                MIUIDialog(activity).apply {
-                    setTitle(R.string.max_wallpaper_scale)
-                    setEditText("", "${activity.getString(R.string.def)}1.1, ${activity.getString(R.string.current)}${OwnSP.ownSP.getFloat("max_wallpaper_scale", 1.1f)}")
-                    setLButton(textId = R.string.cancel) {
-                        dismiss()
-                    }
-                    setRButton(textId = R.string.Done) {
-                        if (getEditText() != "") {
-                            OwnSP.ownSP.edit().run {
-                                putFloat("max_wallpaper_scale", getEditText().toFloat())
-                                apply()
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.max_wallpaper_scale,
+                        onClickListener = {
+                            MIUIDialog(activity).apply {
+                                setTitle(R.string.max_wallpaper_scale)
+                                setEditText(
+                                    "",
+                                    "${activity.getString(R.string.def)}1.1, ${activity.getString(R.string.current)}${
+                                        OwnSP.ownSP.getFloat(
+                                            "max_wallpaper_scale",
+                                            1.1f
+                                        )
+                                    }"
+                                )
+                                setLButton(textId = R.string.cancel) {
+                                    dismiss()
+                                }
+                                setRButton(textId = R.string.Done) {
+                                    if (getEditText() != "") {
+                                        OwnSP.ownSP.edit().run {
+                                            putFloat("max_wallpaper_scale", getEditText().toFloat())
+                                            apply()
+                                        }
+                                    }
+                                    dismiss()
+                                }
+                                show()
                             }
-                        }
-                        dismiss()
-                    }
-                    show()
-                }
-            })))
+                        })
+                )
+            )
         }
     }
 
@@ -838,6 +852,14 @@ class SettingsActivity : MIUIActivity() {
                         textId = R.string.home_time,
                         tipsId = R.string.home_time_summary
                     ), SwitchV("home_time")
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.double_tap_to_sleep,
+                        tipsId = R.string.home_double_tap_to_sleep_summary
+                    ), SwitchV("double_tap_to_sleep")
                 )
             )
             add(LineV())
