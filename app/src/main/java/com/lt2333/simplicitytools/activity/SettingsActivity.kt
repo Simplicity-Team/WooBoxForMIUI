@@ -844,6 +844,7 @@ class SettingsActivity : MIUIActivity() {
 
     //其他页面
     private fun otherItems(): ArrayList<BaseView> {
+        menuButton.visibility = View.VISIBLE
         return ArrayList<BaseView>().apply {
             add(TitleTextV(resId = R.string.scope_miuihome))
             add(
