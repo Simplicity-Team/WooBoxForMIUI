@@ -160,5 +160,5 @@
     <string name="hide_zen_icon">隱藏 勿擾 圖標</string>
     <string name="hide_icon">隱藏圖標</string>
     <string name="double_tap_to_sleep">雙擊鎖定螢幕</string>
-    <string name="home_double_tap_to_sleep_summary">雙擊空白位置鎖定螢幕</string>
+    <string name="home_double_tap_to_sleep_summary">Double-tap the blank space to sleep</string>
 </resources>
