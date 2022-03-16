@@ -25,7 +25,7 @@
     <string name="hide_alarm_icon">隱藏 鬧鐘 圖標</string>
     <string name="hide_hotspot_icon">隱藏 WIFI熱點 圖標</string>
     <string name="hide_headset_icon">隱藏 耳機 圖標</string>
-    <string name="hide_bluetooth_battery_icon">Hide Bluetooth battery icon</string>
+    <string name="hide_bluetooth_battery_icon">隱藏 藍牙電量 圖標</string>
     <string name="hide_big_hd_icon">隱藏 大HD 圖標</string>
     <string name="hide_small_hd_icon">隱藏 小HD 圖標</string>
     <string name="hide_hd_no_service_icon">隱藏 HD無服務 圖標</string>
@@ -48,7 +48,7 @@
     <string name="menu">菜單</string>
     <string name="Tips">提示</string>
     <string name="skip_waiting_time">跳過 5/10 秒警告時間</string>
-    <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>
+    <string name="unlock_unlimited_cropping">移除裁剪圖片/螢幕截圖的限制</string>
     <string name="hide_slave_wifi_icon">隱藏 WIFI輔助 圖標</string>
     <string name="HideLauncherIcon">隱藏桌面圖標</string>
     <string name="hide_battery_percentage_icon">隱藏電量（%）</string>
@@ -159,6 +159,6 @@
     <string name="hide_volume_icon">隱藏 音量 圖標</string>
     <string name="hide_zen_icon">隱藏 勿擾 圖標</string>
     <string name="hide_icon">隱藏圖標</string>
-    <string name="double_tap_to_sleep">Double tap to sleep</string>
-    <string name="home_double_tap_to_sleep_summary">Double-tap the blank space to sleep</string>
+    <string name="double_tap_to_sleep">雙擊鎖定螢幕</string>
+    <string name="home_double_tap_to_sleep_summary">雙擊空白位置鎖定螢幕</string>
 </resources>
