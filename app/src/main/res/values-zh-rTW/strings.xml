@@ -25,7 +25,7 @@
     <string name="hide_alarm_icon">隱藏 鬧鐘 圖示</string>
     <string name="hide_hotspot_icon">隱藏 WIFI熱點 圖示</string>
     <string name="hide_headset_icon">隱藏 耳機 圖示</string>
-    <string name="hide_bluetooth_battery_icon">Hide Bluetooth battery icon</string>
+    <string name="hide_bluetooth_battery_icon">隱藏 藍牙電量 圖示</string>
     <string name="hide_big_hd_icon">隱藏 大HD 圖示</string>
     <string name="hide_small_hd_icon">隱藏 小HD 圖示</string>
     <string name="hide_hd_no_service_icon">隱藏 HD無服務 圖示</string>
