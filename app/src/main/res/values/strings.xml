@@ -27,7 +27,7 @@
     <string name="hide_alarm_icon">Hide Alarm icon</string>
     <string name="hide_hotspot_icon">Hide Portable hotspot icon</string>
     <string name="hide_headset_icon">Hide Headset icon</string>
-    <string name="hide_bluetooth_battery_icon">hide Bluetooth battery icon</string>
+    <string name="hide_bluetooth_battery_icon">Hide Bluetooth battery icon</string>
     <string name="hide_big_hd_icon">Hide big HD icon</string>
     <string name="hide_small_hd_icon">Hide small HD icon</string>
     <string name="hide_hd_no_service_icon">Hide HD No Service icon</string>
@@ -52,7 +52,7 @@
     <string name="menu">Menu</string>
     <string name="Tips">Tips</string>
     <string name="skip_waiting_time">Skip 5/10 second warning time</string>
-    <string name="unlock_unlimited_cropping">Unlock unlimited cropping pictures/screenshots</string>
+    <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>
     <string name="hide_slave_wifi_icon">Hide WIFI secondary icon</string>
     <string name="HideLauncherIcon">Hide Launcher icon</string>
     <string name="hide_battery_percentage_icon">Hide battery (%)</string>
