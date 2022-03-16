@@ -25,7 +25,7 @@
     <string name="hide_alarm_icon">Скрыть будильник</string>
     <string name="hide_hotspot_icon">Скрыть точку доступа</string>
     <string name="hide_headset_icon">Скрыть гарнитуру</string>
-    <string name="hide_bluetooth_battery_icon">Hide Bluetooth battery icon</string>
+    <string name="hide_bluetooth_battery_icon">Скрыть батарею блютуз устройства</string>
     <string name="hide_big_hd_icon">Скрыть большую иконку HD</string>
     <string name="hide_small_hd_icon">Скрыть маленькую иконку HD</string>
     <string name="hide_hd_no_service_icon">Скрыть HD No Service</string>
@@ -48,7 +48,7 @@
     <string name="menu">Варианты перезагрузки</string>
     <string name="Tips">Подсказка</string>
     <string name="skip_waiting_time">Пропустить 5/10 секундное время предупреждения</string>
-    <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>
+    <string name="unlock_unlimited_cropping">Снять ограничение на обрезку изображений/скриншотов</string>
     <string name="hide_slave_wifi_icon">Скрыть вторичный wifi</string>
     <string name="HideLauncherIcon">Скрыть иконку с рабочего стола</string>
     <string name="hide_battery_percentage_icon">Скрыть проценты батареи</string>
