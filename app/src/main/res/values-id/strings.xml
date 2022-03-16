@@ -25,6 +25,7 @@
     <string name="hide_alarm_icon">Sembunyikan ikon Alarm</string>
     <string name="hide_hotspot_icon">Sembunyikan ikon hotspot portabel</string>
     <string name="hide_headset_icon">Sembunyikan ikon Headset</string>
+    <string name="hide_bluetooth_battery_icon">Sembunyikan ikon baterai pada Bluetooth</string>
     <string name="hide_big_hd_icon">Sembunyikan ikon HD besar (MIUI China)</string>
     <string name="hide_small_hd_icon">Sembunyikan ikon HD kecil (MIUI China)</string>
     <string name="hide_hd_no_service_icon">Sembunyikan ikon HD Tanpa Layanan (MIUI China)</string>
@@ -47,6 +48,7 @@
     <string name="menu">Menu</string>
     <string name="Tips">Tips</string>
     <string name="skip_waiting_time">Lewati 5/10 waktu peringatan</string>
+    <string name="unlock_unlimited_cropping">Hilangkan pembatasan untuk memotong gambar/cuplikan layar</string>
     <string name="hide_slave_wifi_icon">Sembunyikan ikon WIFI tambahan</string>
     <string name="HideLauncherIcon">Sembunyikan ikon launcher</string>
     <string name="hide_battery_percentage_icon">Sembunyikan battery (%)</string>
