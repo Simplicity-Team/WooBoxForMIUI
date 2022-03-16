@@ -161,5 +161,5 @@
     <string name="hide_zen_icon">Hide ZEN icon</string>
     <string name="hide_icon">Hide Icon</string>
     <string name="double_tap_to_sleep">Double tap to sleep</string>
-    <string name="home_double_tap_to_sleep_summary">Double-tap on an empty space on the home to sleep</string>
+    <string name="home_double_tap_to_sleep_summary">Double-tap the blank space to sleep</string>
 </resources>
