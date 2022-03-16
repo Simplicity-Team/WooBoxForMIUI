@@ -150,4 +150,13 @@
     <string name="current">Saat ini:</string>
     <string name="participate_in_translation">Partisipasi dalam penejermahan</string>
     <string name="participate_in_translation_summary">Bantu kami menerjemahkan aplikasi ke dalam bahasa Anda</string>
+    <string name="lock_screen_charging_current">Tampilkan informasi pengisian saat mengecas</string>
+    <string name="current_current">Pengisian</string>
+    <string name="remove_open_app_confirmation_popup">hilangkan pop-up aplikasi saat membukanya</string>
+    <string name="remove_open_app_confirmation_popup_summary">hilangkan \"Bolehkan XXX untuk membuka XXX\" pintasan rantai muncul pop-up</string>
+    <string name="hide_volume_icon">Sembunyikan ikon suara</string>
+    <string name="hide_zen_icon">Sembunyikan ikon ZEN (MIUI China)</string>
+    <string name="hide_icon">Sembunyikan ikon</string>
+    <string name="double_tap_to_sleep">Ketuk ganda untuk tidur</string>
+    <string name="home_double_tap_to_sleep_summary">Ketuk ganda pada layar kosong untuk membuat perangkat tidur</string>
 </resources>
