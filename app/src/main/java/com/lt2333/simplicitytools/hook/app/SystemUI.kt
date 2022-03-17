@@ -50,6 +50,8 @@ class SystemUI : IXposedHookLoadPackage {
         WaveCharge().handleLoadPackage(lpparam)
         //锁屏电流
         LockScreenCurrent().handleLoadPackage(lpparam)
+        //锁屏下双击锁屏
+        LockScreenDoubleTapToSleep().handleLoadPackage(lpparam)
     }
 
 }

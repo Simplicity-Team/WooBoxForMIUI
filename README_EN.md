@@ -40,11 +40,12 @@ Xposed Repo：[Click here to download the latest release](https://github.com/Xpo
 ## Third party open source references
 ##### GNU General Public License v3.0
 [qqlittleice/MiuiHome](https://github.com/qqlittleice/MiuiHome)  
-[yujincheng08/BiliRoaming](https://github.com/yujincheng08/BiliRoaming)
+[yujincheng08/BiliRoaming](https://github.com/yujincheng08/BiliRoaming)  
+[Mikanoshi/CustoMIUIzer](https://code.highspec.ru/Mikanoshi/CustoMIUIzer)
 ##### GNU General Public License v2.0
-[LSPosed/CorePatch](https://github.com/LSPosed/CorePatch)
+[LSPosed/CorePatch](https://github.com/LSPosed/CorePatch)  
 ##### GNU Lesser General Public License v2.1
-[577fkj/blockmiui](https://github.com/577fkj/blockmiui)
+[577fkj/blockmiui](https://github.com/577fkj/blockmiui)  
 
 ---
 

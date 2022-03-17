@@ -29,7 +29,8 @@ class DoubleTapController internal constructor(mContext: Context) {
                 val rawX = motionEvent.rawX
                 val rawY = motionEvent.rawY
                 if (abs(rawX - mActionDownRawX) <= mTouchSlop.toFloat() && abs(rawY - mActionDownRawY) <= mTouchSlop.toFloat()) {
-                    if (SystemClock.elapsedRealtime() - mLastClickTime > maxDuration || rawY - mFirstClickRawY > mTouchSlop.toFloat() || rawX - mFirstClickRawX > mTouchSlop.toFloat()) mClickCount = 0
+                    if (SystemClock.elapsedRealtime() - mLastClickTime > maxDuration || rawY - mFirstClickRawY > mTouchSlop.toFloat() || rawX - mFirstClickRawX > mTouchSlop.toFloat()) mClickCount =
+                        0
                     mClickCount++
                     if (mClickCount == 1) {
                         mFirstClickRawX = rawX

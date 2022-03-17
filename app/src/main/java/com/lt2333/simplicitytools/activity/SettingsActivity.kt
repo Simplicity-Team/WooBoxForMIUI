@@ -803,7 +803,6 @@ class SettingsActivity : MIUIActivity() {
 
             add(LineV())
             add(TitleTextV(resId = R.string.lock_screen))
-
             add(
                 TextSummaryWithSwitchV(
                     TextSummaryV(
@@ -837,6 +836,14 @@ class SettingsActivity : MIUIActivity() {
                         tipsId = R.string.only_official_default_themes_are_supported
                     ),
                     SwitchV("lock_screen_charging_current")
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.double_tap_to_sleep,
+                        tipsId = R.string.home_double_tap_to_sleep_summary
+                    ), SwitchV("lock_screen_double_tap_to_sleep")
                 )
             )
         }
