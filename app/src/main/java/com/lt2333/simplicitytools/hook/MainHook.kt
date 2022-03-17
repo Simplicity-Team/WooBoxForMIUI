@@ -38,6 +38,8 @@ class MainHook : IXposedHookLoadPackage,IXposedHookZygoteInit {
                 "com.android.settings" -> Settings().handleLoadPackage(lpparam)
                 //主题壁纸
                 "com.android.thememanager" -> ThemeManager().handleLoadPackage(lpparam)
+                //截屏
+                "com.miui.screenshot" -> ScreenShot().handleLoadPackage(lpparam)
             }
         }
     }

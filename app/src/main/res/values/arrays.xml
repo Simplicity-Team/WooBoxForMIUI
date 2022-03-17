@@ -10,5 +10,6 @@
         <item>com.android.updater</item>
         <item>com.android.settings</item>
         <item>com.android.thememanager</item>
+        <item>com.miui.screenshot</item>
     </string-array>
 </resources>

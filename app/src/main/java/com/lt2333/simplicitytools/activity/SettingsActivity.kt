@@ -186,13 +186,14 @@ class SettingsActivity : MIUIActivity() {
                             }
                             setRButton(R.string.Done) {
                                 val command = arrayOf(
+                                    "killall com.android.systemui",
                                     "killall com.miui.home",
                                     "killall com.miui.securitycenter ",
+                                    "killall com.android.settings",
                                     "killall com.miui.powerkeeper",
-                                    "killall com.miui.mediaeditor",
-                                    "killall com.android.systemui",
                                     "killall com.android.updater",
-                                    "killall com.android.settings"
+                                    "killall com.miui.mediaeditor",
+                                    "killall com.miui.screenshot"
                                 )
                                 ShellUtils.execCommand(command, true)
                                 dismiss()
