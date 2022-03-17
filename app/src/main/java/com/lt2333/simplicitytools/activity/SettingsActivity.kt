@@ -532,7 +532,13 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("remove_the_maximum_number_of_notification_icons")
                 )
             )
-
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.double_tap_to_sleep
+                    ), SwitchV("status_bar_double_tap_to_sleep")
+                )
+            )
             add(LineV())
             add(TitleTextV(resId = R.string.status_bar_layout))
             add(

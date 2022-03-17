@@ -52,6 +52,8 @@ class SystemUI : IXposedHookLoadPackage {
         LockScreenCurrent().handleLoadPackage(lpparam)
         //锁屏下双击锁屏
         LockScreenDoubleTapToSleep().handleLoadPackage(lpparam)
+        //双击状态栏锁屏
+        StatusBarDoubleTapToSleep().handleLoadPackage(lpparam)
     }
 
 }
