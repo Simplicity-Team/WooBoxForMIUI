@@ -49,6 +49,7 @@
     <string name="menu">Menü</string>
     <string name="Tips">İpuçları</string>
     <string name="skip_waiting_time">5/10 saniyelik uyarı süresini atla</string>
+    <string name="unlock_unlimited_cropping">Resimleri/ekran görüntülerini kırpma kısıtlamasını kaldırın</string>
     <string name="hide_slave_wifi_icon">WIFI ikincil simgesini gizle</string>
     <string name="HideLauncherIcon">Başlatıcı simgesini gizle</string>
     <string name="hide_battery_percentage_icon">Pili yüzdesini gizle (%)</string>
