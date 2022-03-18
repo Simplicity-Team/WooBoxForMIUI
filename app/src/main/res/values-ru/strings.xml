@@ -165,4 +165,10 @@
     <string name="hide_icon">Скрытие иконок строки состояния</string>
     <string name="double_tap_to_sleep">Двойное нажатие для отключения экрана</string>
     <string name="home_double_tap_to_sleep_summary">Дважды коснитесь экрана для блокировки устройства</string>
+    <string name="old_quick_settings_panel">Старая панель быстрых настроек</string>
+    <string name="old_qs_custom_switch">Настраиваемые строки и столбцы</string>
+    <string name="qs_custom_columns_unexpanded">Столбцы (нерасширенные)</string>
+    <string name="qs_custom_rows">Строки</string>
+    <string name="qs_custom_columns">Столбцы</string>
+    <string name="qs_custom_rows_horizontal">Строки (горизонтальные)</string>
 </resources>
