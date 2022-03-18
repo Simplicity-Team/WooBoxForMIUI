@@ -152,10 +152,10 @@
     <string name="current">目前值：</string>
     <string name="participate_in_translation">參與翻譯</string>
     <string name="participate_in_translation_summary">幫助我們將這個APP翻譯成您的語言</string>
-    <string name="lock_screen_charging_current">充電時顯示當前電流</string>
-    <string name="current_current">當前電流</string>
-    <string name="remove_open_app_confirmation_popup">移除打開應用跳出視窗</string>
-    <string name="remove_open_app_confirmation_popup_summary">移除 \"XXX 想要打開 XXX\" 的跳出視窗 。</string>
+    <string name="lock_screen_charging_current">充電時顯示目前電流</string>
+    <string name="current_current">目前電流</string>
+    <string name="remove_open_app_confirmation_popup">移除打開應用彈出視窗</string>
+    <string name="remove_open_app_confirmation_popup_summary">移除 \"XXX 想要打開 XXX\" 的彈出視窗 。</string>
     <string name="hide_volume_icon">隱藏 音量 圖示</string>
     <string name="hide_zen_icon">隱藏 勿擾 圖示</string>
     <string name="hide_icon">隱藏圖示</string>
