@@ -10,7 +10,7 @@ import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class Test : IXposedHookLoadPackage {
+class OldQSCustom : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         hasEnable("old_qs_custom_switch") {
             val mRows = XSPUtils.getInt("qs_custom_rows", 3)

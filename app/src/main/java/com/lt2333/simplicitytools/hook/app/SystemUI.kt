@@ -54,8 +54,8 @@ class SystemUI : IXposedHookLoadPackage {
         LockScreenDoubleTapToSleep().handleLoadPackage(lpparam)
         //双击状态栏锁屏
         StatusBarDoubleTapToSleep().handleLoadPackage(lpparam)
-
-        Test().handleLoadPackage(lpparam)
+        //旧版快速设置自定义
+        OldQSCustom().handleLoadPackage(lpparam)
     }
 
 }
