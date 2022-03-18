@@ -166,7 +166,7 @@
     <string name="double_tap_to_sleep">Double tap to sleep</string>
     <string name="home_double_tap_to_sleep_summary">Double-tap the blank space to sleep</string>
     <string name="old_quick_settings_panel">Old quick settings panel</string>
-    <string name="old_qs_custom_switch">Customize rows and columns</string>
+    <string name="old_qs_custom_switch">Custom rows and columns</string>
     <string name="qs_custom_columns_unexpanded">Columns (Unexpanded)</string>
     <string name="qs_custom_rows">Rows</string>
     <string name="qs_custom_columns">Columns</string>
