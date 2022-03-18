@@ -163,6 +163,8 @@
     <string name="double_tap_to_sleep">Uyumak için iki kez dokunun</string>
     <string name="home_double_tap_to_sleep_summary">Uyumak için boş alana iki kez dokunun</string>
     <string name="old_quick_settings_panel">Eski hızlı ayarlar paneli</string>
+    <string name="old_qs_custom_switch">Özel satırlar ve sütunlar</string>
+    <string name="qs_custom_columns_unexpanded">Sütunlar (Genişletilmemiş)</string>
     <string name="qs_custom_rows">satırlar</string>
     <string name="qs_custom_columns">sütunlar</string>
     <string name="qs_custom_rows_horizontal">Satırlar (yatay)</string>
