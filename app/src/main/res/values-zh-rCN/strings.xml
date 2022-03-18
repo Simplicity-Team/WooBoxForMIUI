@@ -161,4 +161,5 @@
     <string name="hide_icon">隐藏图标</string>
     <string name="double_tap_to_sleep">双击锁定屏幕</string>
     <string name="home_double_tap_to_sleep_summary">双击空白位置锁屏</string>
+    <string name="old_quick_settings_panel">旧版快速设置面板</string>
 </resources>
