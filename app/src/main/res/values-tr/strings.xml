@@ -25,6 +25,7 @@
     <string name="hide_alarm_icon">Alarm simgesini gizle</string>
     <string name="hide_hotspot_icon">Taşınabilir erişim noktası simgesini gizle</string>
     <string name="hide_headset_icon">Kulaklık simgesini gizle</string>
+    <string name="hide_bluetooth_battery_icon">Bluetooth pil simgesini gizle</string>
     <string name="hide_big_hd_icon">Büyük HD simgesini gizle</string>
     <string name="hide_small_hd_icon">Küçük HD simgesini gizle</string>
     <string name="hide_hd_no_service_icon">HD Hizmet Yok simgesini gizle
