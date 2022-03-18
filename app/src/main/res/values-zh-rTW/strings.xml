@@ -161,4 +161,10 @@
     <string name="hide_icon">隱藏圖示</string>
     <string name="double_tap_to_sleep">雙擊鎖定螢幕</string>
     <string name="home_double_tap_to_sleep_summary">雙擊空白位置鎖定螢幕</string>
+    <string name="old_quick_settings_panel">舊快速設定面板</string>
+    <string name="old_qs_custom_switch">自定義行與列</string>
+    <string name="qs_custom_columns_unexpanded">列 (未展開)</string>
+    <string name="qs_custom_rows">行</string>
+    <string name="qs_custom_columns">列</string>
+    <string name="qs_custom_rows_horizontal">行 (橫向)</string>
 </resources>
