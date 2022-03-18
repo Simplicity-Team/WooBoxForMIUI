@@ -161,4 +161,9 @@
     <string name="hide_icon">Ascundere pictograme</string>
     <string name="double_tap_to_sleep">Apăsare dublă pentru a opri ecranul</string>
     <string name="home_double_tap_to_sleep_summary">Atinge de două ori spațiul gol pentru a opri ecranul</string>
+    <string name="old_quick_settings_panel">Panoul vechi al setărilor rapide</string>
+    <string name="qs_custom_columns_unexpanded">Coloane (Restrâns)</string>
+    <string name="qs_custom_rows">Rânduri</string>
+    <string name="qs_custom_columns">Coloane</string>
+    <string name="qs_custom_rows_horizontal">Rânduri (orizontal)</string>
 </resources>

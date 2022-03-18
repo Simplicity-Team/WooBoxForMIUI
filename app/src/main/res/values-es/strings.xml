@@ -14,7 +14,7 @@
     <string name="reboot">Reiniciar el sistema</string>
     <!--Status bar icons-->
     <string name="status_bar_icon">Iconos de la barra de estado</string>
-    <string name="hide_no_sim_icon">Ocultar iconos sin SIM</string>
+    <string name="hide_no_sim_icon">Ocultar icono sin SIM</string>
     <string name="hide_sim_one_icon">Ocultar icono SIM 1</string>
     <string name="hide_sim_two_icon">Ocultar icono SIM 2</string>
     <string name="hide_vpn_icon">Ocultar icono VPN</string>
@@ -25,7 +25,7 @@
     <string name="hide_alarm_icon">Ocultar icono de alarma</string>
     <string name="hide_hotspot_icon">Ocultar icono de punto de accesos inalámbrico</string>
     <string name="hide_headset_icon">Ocultar icono de audífonos</string>
-    <string name="hide_bluetooth_battery_icon">Ocultar el icono de batería de Bluetooth</string>
+    <string name="hide_bluetooth_battery_icon">Ocultar icono de batería de Bluetooth</string>
     <string name="hide_big_hd_icon">Ocultar icono grande HD</string>
     <string name="hide_small_hd_icon">Ocultar icono pequeño HD</string>
     <string name="hide_hd_no_service_icon">Ocultar icono sin servicio HD</string>
@@ -52,7 +52,7 @@
     <string name="hide_slave_wifi_icon">Ocultar icono de WIFI secundario</string>
     <string name="HideLauncherIcon">Esconder el icono del Launcher</string>
     <string name="hide_battery_percentage_icon">Esconder la batería (%)</string>
-    <string name="hide_battery_icon">Ocultar icono de la batería</string>
+    <string name="hide_battery_icon">Ocultar icono de batería</string>
     <string name="status_bar_clock_format">Formato de reloj de la barra de estado</string>
     <string name="status_bar_time_year">Mostrar año</string>
     <string name="status_bar_time_month">Mostrar mes</string>
