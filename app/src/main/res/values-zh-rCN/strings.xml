@@ -162,4 +162,9 @@
     <string name="double_tap_to_sleep">双击锁定屏幕</string>
     <string name="home_double_tap_to_sleep_summary">双击空白位置锁屏</string>
     <string name="old_quick_settings_panel">旧版快速设置面板</string>
+    <string name="old_qs_custom_switch">自定义行列数</string>
+    <string name="qs_custom_columns_unexpanded">列 (未展开)</string>
+    <string name="qs_custom_rows">行</string>
+    <string name="qs_custom_columns">列</string>
+    <string name="qs_custom_rows_horizontal">行 (横向)</string>
 </resources>
