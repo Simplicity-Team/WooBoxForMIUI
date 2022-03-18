@@ -155,4 +155,15 @@
     <string name="participate_in_translation_summary">Uygulamayı kendi dilinize çevirmemize yardımcı olun</string>
     <string name="lock_screen_charging_current">Şarj sırasında mevcut bilgileri görüntüleyin</string>
     <string name="current_current">Akım </string>
+    <string name="remove_open_app_confirmation_popup">açık uygulama açılır penceresini kaldır</string>
+    <string name="remove_open_app_confirmation_popup_summary">\"XXX\'in XXX\'i açmasına izin ver\" Zincir başlatma açılır penceresini kaldırın</string>
+    <string name="hide_volume_icon">Ses Düzeyi simgesini gizle</string>
+    <string name="hide_zen_icon">ZEN simgesini gizle</string>
+    <string name="hide_icon">Simgeyi gizle</string>
+    <string name="double_tap_to_sleep">Uyumak için iki kez dokunun</string>
+    <string name="home_double_tap_to_sleep_summary">Uyumak için boş alana iki kez dokunun</string>
+    <string name="old_quick_settings_panel">Eski hızlı ayarlar paneli</string>
+    <string name="qs_custom_rows">satırlar</string>
+    <string name="qs_custom_columns">sütunlar</string>
+    <string name="qs_custom_rows_horizontal">Satırlar (yatay)</string>
 </resources>
