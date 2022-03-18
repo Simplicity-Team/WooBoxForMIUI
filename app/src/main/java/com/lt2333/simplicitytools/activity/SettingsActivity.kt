@@ -853,6 +853,97 @@ class SettingsActivity : MIUIActivity() {
                     ), SwitchV("lock_screen_double_tap_to_sleep")
                 )
             )
+
+            add(LineV())
+            add(TitleTextV(resId = R.string.old_quick_settings_panel))
+            val old_qs_custom_switch_binding = getDataBinding(
+                SPUtils.getBoolean(
+                    activity,
+                    "old_qs_custom_switch",
+                    false
+                )
+            ) { view, flags, data ->
+                when (flags) {
+                    1 -> (view as Switch).isEnabled = data as Boolean
+                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                }
+            }
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.old_qs_custom_switch,
+                        colorId = R.color.purple_700
+                    ),
+                    SwitchV(
+                        "old_qs_custom_switch",
+                        dataBindingSend = old_qs_custom_switch_binding.bindingSend
+                    )
+                )
+            )
+
+            add(
+                TextV(
+                    resId = R.string.qs_custom_rows,
+                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                )
+            )
+            add(
+                SeekBarWithTextV(
+                    "qs_custom_rows",
+                    1,
+                    6,
+                    3,
+                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                )
+            )
+
+
+            add(
+                TextV(
+                    resId = R.string.qs_custom_rows_horizontal,
+                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                )
+            )
+            add(
+                SeekBarWithTextV(
+                    "qs_custom_rows_horizontal",
+                    1,
+                    3,
+                    2,
+                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                )
+            )
+
+            add(
+                TextV(
+                    resId = R.string.qs_custom_columns,
+                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                )
+            )
+            add(
+                SeekBarWithTextV(
+                    "qs_custom_columns",
+                    1,
+                    7,
+                    4,
+                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                )
+            )
+            add(
+                TextV(
+                    resId = R.string.qs_custom_columns_unexpanded,
+                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                )
+            )
+            add(
+                SeekBarWithTextV(
+                    "qs_custom_columns_unexpanded",
+                    1,
+                    7,
+                    5,
+                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                )
+            )
         }
     }
 
