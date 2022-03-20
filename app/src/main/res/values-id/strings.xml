@@ -161,4 +161,10 @@
     <string name="hide_icon">Sembunyikan ikon</string>
     <string name="double_tap_to_sleep">Ketuk ganda untuk tidur</string>
     <string name="home_double_tap_to_sleep_summary">Ketuk ganda pada layar kosong untuk membuat perangkat tidur</string>
+    <string name="old_quick_settings_panel">Panel lama pengaturan cepat</string>
+    <string name="old_qs_custom_switch">Kustomisasi jumlah kolom dan baris</string>
+    <string name="qs_custom_columns_unexpanded">Kolom (tidak diperluas)</string>
+    <string name="qs_custom_rows">Baris</string>
+    <string name="qs_custom_columns">Kolom</string>
+    <string name="qs_custom_rows_horizontal">Baris (Horizontal)</string>
 </resources>
