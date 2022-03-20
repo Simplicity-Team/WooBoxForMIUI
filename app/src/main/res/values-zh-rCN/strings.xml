@@ -64,7 +64,7 @@
     <string name="status_bar_time_double_hour">显示时辰</string>
     <string name="custom_clock_switch">自定义时钟-总开关</string>
     <string name="status_bar_time_period">显示时段</string>
-    <string name="status_bar_time_double_line">双行显示</string>
+    <string name="status_bar_time_double_line">双排显示</string>
     <string name="status_bar_clock_size">时钟大小（0：不更改）</string>
     <string name="status_bar_clock_double_line_size">双排大小（0：不更改）</string>
     <string name="matters_needing_attention">功能无法生效？</string>
@@ -167,7 +167,7 @@
     <string name="qs_custom_rows">行</string>
     <string name="qs_custom_columns">列</string>
     <string name="qs_custom_rows_horizontal">行 (横向)</string>
-    <string name="status_bar_dual_row_network_speed">双行网络速度</string>
+    <string name="status_bar_dual_row_network_speed">双排网络速度</string>
     <string name="status_bar_dual_row_network_speed_summary">上下行网络速度显示</string>
     <string name="status_bar_network_speed">状态栏网络速度</string>
     <string name="status_bar_network_speed_dual_row_size">双排大小（0：不更改）</string>
