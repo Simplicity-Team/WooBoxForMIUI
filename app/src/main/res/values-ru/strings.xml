@@ -171,4 +171,10 @@
     <string name="qs_custom_rows">Строки</string>
     <string name="qs_custom_columns">Столбцы</string>
     <string name="qs_custom_rows_horizontal">Строки (горизонтальные)</string>
+    <string name="status_bar_dual_row_network_speed">Скорость сети в 2 строки</string>
+    <string name="status_bar_dual_row_network_speed_summary">Смещение скорости сети по вертикали</string>
+    <string name="status_bar_network_speed">Скорость сети в строке состояния</string>
+    <string name="status_bar_network_speed_dual_row_size">Размер скорости сети в 2 строки (0: не изменять)</string>
+    <string name="status_bar_network_speed_dual_row_icon">Иконка двойной скорости сети</string>
+    <string name="none">Нет</string>
 </resources>
