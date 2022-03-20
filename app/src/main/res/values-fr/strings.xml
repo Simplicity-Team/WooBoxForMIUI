@@ -161,4 +161,8 @@
     <string name="hide_icon">Masquer l\'icône</string>
     <string name="double_tap_to_sleep">Double tapper pour veille</string>
     <string name="home_double_tap_to_sleep_summary">Double-tapez l\'espace vide pour mettre en veille</string>
+    <string name="old_quick_settings_panel">Vieux panneau de réglages rapide</string>
+    <string name="old_qs_custom_switch">Lignes et colonnes personnalisés</string>
+    <string name="qs_custom_columns_unexpanded">Colonnes (Inexpansé)</string>
+    <string name="qs_custom_rows">Lignes</string>
 </resources>
