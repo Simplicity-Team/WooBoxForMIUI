@@ -167,4 +167,7 @@
     <string name="qs_custom_rows">Rânduri</string>
     <string name="qs_custom_columns">Coloane</string>
     <string name="qs_custom_rows_horizontal">Rânduri (orizontal)</string>
+    <string name="status_bar_dual_row_network_speed">Viteză rețea în linie dublă</string>
+    <string name="status_bar_network_speed">Viteza rețelei în bara de stare</string>
+    <string name="status_bar_network_speed_dual_row_size">Dimensiune rând dublu (0: nu se modifică)</string>
 </resources>
