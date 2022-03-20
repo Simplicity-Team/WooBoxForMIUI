@@ -171,6 +171,6 @@
     <string name="status_bar_dual_row_network_speed_summary">上下行网络速度显示</string>
     <string name="status_bar_network_speed">状态栏网络速度</string>
     <string name="status_bar_network_speed_dual_row_size">双排大小（0：不更改）</string>
-    <string name="status_bar_network_speed_dual_row_icon">双行图标</string>
+    <string name="status_bar_network_speed_dual_row_icon">双排图标</string>
     <string name="none">无</string>
 </resources>
