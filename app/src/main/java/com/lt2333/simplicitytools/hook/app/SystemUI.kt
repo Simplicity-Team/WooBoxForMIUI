@@ -56,6 +56,8 @@ class SystemUI : IXposedHookLoadPackage {
         StatusBarDoubleTapToSleep().handleLoadPackage(lpparam)
         //旧版快速设置自定义
         OldQSCustom().handleLoadPackage(lpparam)
+        //双排网速
+        DoubleLineNetworkSpeed().handleLoadPackage(lpparam)
     }
 
 }

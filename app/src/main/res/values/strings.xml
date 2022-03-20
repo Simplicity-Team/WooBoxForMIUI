@@ -171,4 +171,12 @@
     <string name="qs_custom_rows">Rows</string>
     <string name="qs_custom_columns">Columns</string>
     <string name="qs_custom_rows_horizontal">Rows (horizontal)</string>
+    <string name="status_bar_dual_row_network_speed">Dual row network speed</string>
+    <string name="status_bar_dual_row_network_speed_summary">Up and down network speed display</string>
+    <string name="status_bar_network_speed">Status bar network speed</string>
+    <string name="status_bar_network_speed_size">Netwrok speed size (0: do not change)</string>
+    <string name="status_bar_network_speed_dual_row_size">Dual row size (0: do not change)</string>
+    <string name="status_bar_network_speed_size_switch">Custom size switch</string>
+    <string name="status_bar_network_speed_dual_row_icon">Dual row icon</string>
+    <string name="none">None</string>
 </resources>

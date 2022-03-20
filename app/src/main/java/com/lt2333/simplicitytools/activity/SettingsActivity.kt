@@ -13,6 +13,7 @@ import android.widget.Switch
 import android.widget.Toast
 import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.activity.OwnSP
+import cn.fkj233.ui.activity.data.MIUIPopupData
 import cn.fkj233.ui.activity.view.*
 import cn.fkj233.ui.dialog.MIUIDialog
 import com.lt2333.simplicitytools.BuildConfig
@@ -500,28 +501,10 @@ class SettingsActivity : MIUIActivity() {
             add(
                 TextSummaryWithSwitchV(
                     TextSummaryV(
-                        textId = R.string.status_bar_network_speed_refresh_speed,
-                        tipsId = R.string.status_bar_network_speed_refresh_speed_summary
-                    ),
-                    SwitchV("status_bar_network_speed_refresh_speed")
-                )
-            )
-            add(
-                TextSummaryWithSwitchV(
-                    TextSummaryV(
                         textId = R.string.hide_battery_percentage_icon,
                         tipsId = R.string.hide_battery_percentage_icon_summary
                     ),
                     SwitchV("hide_battery_percentage_icon")
-                )
-            )
-            add(
-                TextSummaryWithSwitchV(
-                    TextSummaryV(
-                        textId = R.string.hide_status_bar_network_speed_second,
-                        tipsId = R.string.hide_status_bar_network_speed_second_summary
-                    ),
-                    SwitchV("hide_status_bar_network_speed_second")
                 )
             )
             add(
@@ -732,6 +715,114 @@ class SettingsActivity : MIUIActivity() {
                         textId = R.string.hide_icon,
                         onClickListener = { showFragment(getString(R.string.hide_icon)) }
                     )
+                )
+            )
+            add(LineV())
+            add(TitleTextV(resId = R.string.status_bar_network_speed))
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.status_bar_network_speed_refresh_speed,
+                        tipsId = R.string.status_bar_network_speed_refresh_speed_summary
+                    ),
+                    SwitchV("status_bar_network_speed_refresh_speed")
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.hide_status_bar_network_speed_second,
+                        tipsId = R.string.hide_status_bar_network_speed_second_summary
+                    ),
+                    SwitchV("hide_status_bar_network_speed_second")
+                )
+            )
+            add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.hide_network_speed_splitter),
+                    SwitchV("hide_network_speed_splitter")
+                )
+            )
+
+            val status_bar_dual_row_network_speed_binding = getDataBinding(
+                SPUtils.getBoolean(
+                    activity,
+                    "status_bar_dual_row_network_speed",
+                    false
+                )
+            ) { view, flags, data ->
+                when (flags) {
+                    1 -> (view as Switch).isEnabled = data as Boolean
+                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                }
+            }
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.status_bar_dual_row_network_speed,
+                        tipsId = R.string.status_bar_dual_row_network_speed_summary
+                    ),
+                    SwitchV(
+                        "status_bar_dual_row_network_speed",
+                        dataBindingSend = status_bar_dual_row_network_speed_binding.bindingSend
+                    )
+                )
+            )
+            add(
+                TextWithSpinnerV(
+                    TextV(resId = R.string.status_bar_network_speed_dual_row_icon),
+                    SpinnerV(
+                        arrayListOf<MIUIPopupData>().apply {
+                            add(MIUIPopupData(getString(R.string.none)) {
+                                OwnSP.ownSP.edit().run {
+                                    putString(
+                                        "status_bar_network_speed_dual_row_icon",
+                                        getString(R.string.none)
+                                    )
+                                    apply()
+                                }
+                            })
+                            add(MIUIPopupData("▲▼") {
+                                OwnSP.ownSP.edit().run {
+                                    putString("status_bar_network_speed_dual_row_icon", "▲▼")
+                                    apply()
+                                }
+                            })
+                            add(MIUIPopupData("△▽") {
+                                OwnSP.ownSP.edit().run {
+                                    putString("status_bar_network_speed_dual_row_icon", "△▽")
+                                    apply()
+                                }
+                            })
+                            add(MIUIPopupData("↑↓") {
+                                OwnSP.ownSP.edit().run {
+                                    putString("status_bar_network_speed_dual_row_icon", "↑↓")
+                                    apply()
+                                }
+                            })
+                        }, "${
+                            OwnSP.ownSP.getString(
+                                "status_bar_network_speed_dual_row_icon",
+                                getString(R.string.none)
+                            )
+                        }"
+                    ),
+                    dataBindingRecv = status_bar_dual_row_network_speed_binding.binding.getRecv(2)
+                )
+            )
+            add(
+                TextV(
+                    resId = R.string.status_bar_network_speed_dual_row_size,
+                    dataBindingRecv = status_bar_dual_row_network_speed_binding.binding.getRecv(2)
+                )
+            )
+            add(
+                SeekBarWithTextV(
+                    "status_bar_network_speed_dual_row_size",
+                    0,
+                    9,
+                    0,
+                    dataBindingRecv = status_bar_dual_row_network_speed_binding.binding.getRecv(2)
                 )
             )
 
@@ -1252,13 +1343,6 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("hide_zen_icon")
                 )
             )
-            add(
-                TextWithSwitchV(
-                    TextV(resId = R.string.hide_network_speed_splitter),
-                    SwitchV("hide_network_speed_splitter")
-                )
-            )
-
         }
     }
 

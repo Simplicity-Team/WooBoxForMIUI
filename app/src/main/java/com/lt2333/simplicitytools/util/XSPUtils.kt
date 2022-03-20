@@ -25,6 +25,13 @@ object XSPUtils {
         }
         return prefs.getFloat(key, defValue)
     }
+
+    fun getString(key: String, defValue: String): String? {
+        if (prefs.hasFileChanged()) {
+            prefs.reload()
+        }
+        return prefs.getString(key, defValue)
+    }
 }
 
 inline fun hasEnable(key: String, default: Boolean = false, noinline extraCondition: (() -> Boolean)? = null, crossinline block: () -> Unit) {
