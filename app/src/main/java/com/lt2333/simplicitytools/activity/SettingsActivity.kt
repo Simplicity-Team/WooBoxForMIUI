@@ -719,7 +719,7 @@ class SettingsActivity : MIUIActivity() {
             )
             add(
                 SeekBarWithTextV(
-                    "status_bar_clock_double_line_size", 0, 8, 0,
+                    "status_bar_clock_double_line_size", 0, 9, 0,
                     dataBindingRecv = custom_clock_binding.binding.getRecv(2)
                 )
             )

@@ -51,6 +51,7 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
                             clock_double_line_size = getClockDoubleSize.toFloat()
                         }
                         textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, clock_double_line_size)
+                        textV.setLineSpacing(0F,0.8F)
                     } else {
                         if (getClockSize != 0) {
                             val clock_size = getClockSize.toFloat()
