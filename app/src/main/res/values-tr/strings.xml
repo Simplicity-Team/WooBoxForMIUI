@@ -14,7 +14,7 @@
     <string name="reboot">Sistemi Yeniden Başlat </string>
     <!--Status bar icons-->
     <string name="status_bar_icon">Durum çubuğu simgeleri</string>
-    <string name="hide_no_sim_icon">Hide No SIM icon</string>
+    <string name="hide_no_sim_icon">SIM yok simgesini gizle</string>
     <string name="hide_sim_one_icon">SIM Kart 1 simgesini gizle</string>
     <string name="hide_sim_two_icon">SIM Kart 2 simgesini gizle</string>
     <string name="hide_vpn_icon">VPN simgesini gizle</string>
@@ -168,4 +168,10 @@
     <string name="qs_custom_rows">satırlar</string>
     <string name="qs_custom_columns">sütunlar</string>
     <string name="qs_custom_rows_horizontal">Satırlar (yatay)</string>
+    <string name="status_bar_dual_row_network_speed">Çift sıra ağ hızı</string>
+    <string name="status_bar_dual_row_network_speed_summary">Yukarı ve aşağı ağ hızı göstergesi</string>
+    <string name="status_bar_network_speed">Durum çubuğu ağ hızı</string>
+    <string name="status_bar_network_speed_dual_row_size">Çift sıra boyutu (0: değişmez)</string>
+    <string name="status_bar_network_speed_dual_row_icon">Çift satır simgesi</string>
+    <string name="none">Hiçbiri</string>
 </resources>
