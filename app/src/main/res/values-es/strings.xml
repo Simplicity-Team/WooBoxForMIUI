@@ -162,6 +162,7 @@
     <string name="double_tap_to_sleep">Doble toque para bloquear</string>
     <string name="home_double_tap_to_sleep_summary">Doble toque en espacio en blanco para bloquear</string>
     <string name="old_quick_settings_panel">Panel de ajustes rápido antiguo</string>
+    <string name="old_qs_custom_switch">Filas y columnas personalizadas</string>
     <string name="qs_custom_columns_unexpanded">Columnas (contraídas)</string>
     <string name="qs_custom_rows">Filas</string>
     <string name="qs_custom_columns">Columnas</string>

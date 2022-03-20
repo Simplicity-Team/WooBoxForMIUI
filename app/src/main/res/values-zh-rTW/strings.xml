@@ -167,4 +167,10 @@
     <string name="qs_custom_rows">行</string>
     <string name="qs_custom_columns">列</string>
     <string name="qs_custom_rows_horizontal">行 (橫向)</string>
+    <string name="status_bar_dual_row_network_speed">雙行網路速度</string>
+    <string name="status_bar_dual_row_network_speed_summary">上下行網路速度顯示</string>
+    <string name="status_bar_network_speed">狀態欄網路速度</string>
+    <string name="status_bar_network_speed_dual_row_size">雙排大小（0：不更改）</string>
+    <string name="status_bar_network_speed_dual_row_icon">雙行圖示</string>
+    <string name="none">無</string>
 </resources>
