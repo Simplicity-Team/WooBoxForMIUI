@@ -165,4 +165,12 @@
     <string name="old_qs_custom_switch">Lignes et colonnes personnalisés</string>
     <string name="qs_custom_columns_unexpanded">Colonnes (Inexpansé)</string>
     <string name="qs_custom_rows">Lignes</string>
+    <string name="qs_custom_columns">Colonnes</string>
+    <string name="qs_custom_rows_horizontal">Lignes (horizontal)</string>
+    <string name="status_bar_dual_row_network_speed">Vitesse du réseau à double ligne</string>
+    <string name="status_bar_dual_row_network_speed_summary">Affichage de download et upload en vitesse de réseau</string>
+    <string name="status_bar_network_speed">Vitesse du réseau en barre d\'état</string>
+    <string name="status_bar_network_speed_dual_row_size">Taille de double ligne (0: ne pas changer)</string>
+    <string name="status_bar_network_speed_dual_row_icon">Icône de double ligne</string>
+    <string name="none">Aucune</string>
 </resources>
