@@ -6,6 +6,8 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
 import android.widget.TextView
+import com.github.kyuubiran.ezxhelper.init.InitFields
+import com.lt2333.simplicitytools.R
 import com.lt2333.simplicitytools.util.*
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.callbacks.XC_LoadPackage
@@ -26,10 +28,12 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
 
-        if (XSPUtils.getString("status_bar_network_speed_dual_row_icon", "None") != "None") {
-            upIcon = XSPUtils.getString("status_bar_network_speed_dual_row_icon", "None")
+        val none = InitFields.moduleRes.getString(R.string.none)
+
+        if (XSPUtils.getString("status_bar_network_speed_dual_row_icon", none) != none) {
+            upIcon = XSPUtils.getString("status_bar_network_speed_dual_row_icon", none)
                 ?.firstOrNull()?.plus(" ") ?: String()
-            downIcon = XSPUtils.getString("status_bar_network_speed_dual_row_icon", "None")
+            downIcon = XSPUtils.getString("status_bar_network_speed_dual_row_icon", none)
                 ?.lastOrNull()?.plus(" ") ?: String()
         }
 
