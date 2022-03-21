@@ -177,4 +177,7 @@
     <string name="status_bar_network_speed_dual_row_size">Размер скорости сети в 2 строки (0: не изменять)</string>
     <string name="status_bar_network_speed_dual_row_icon">Иконка двойной скорости сети</string>
     <string name="none">Нет</string>
+    <string name="status_bar_network_speed_dual_row_gravity">Выравнивание скорости сети в 2 ряда</string>
+    <string name="left">Влево</string>
+    <string name="right">Вправо</string>
 </resources>
