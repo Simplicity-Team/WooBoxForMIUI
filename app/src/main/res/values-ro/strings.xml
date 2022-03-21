@@ -176,4 +176,5 @@
     <string name="status_bar_network_speed_dual_row_gravity">Aliniere rândul dublu</string>
     <string name="left">Stânga</string>
     <string name="right">Dreapta</string>
+    <string name="big_mobile_type_icon">Pictogramă mare pentru tipul datelor mobile</string>
 </resources>
