@@ -61,13 +61,13 @@ class StatusBarBigMobileTypeIcon : IXposedHookLoadPackage {
                     mobile_container_left,
                     mobile_container_right_Index - 1
                 )
-                mobile_container_left_fl.topMargin = dp2px(context, 3f)
+                mobile_container_left_fl.topMargin = dp2px(context, 1.5f)
                 mobile_container_left.layoutParams = mobile_container_left_fl
                 val mobile_type = StatusBarMobileView.findViewById<TextView>(mobile_type_ID)
                 mobile_type.setTextAppearance(TextAppearance_StatusBar_Carrier_ID)
                 val mobile_type_fl = mobile_type.layoutParams as FrameLayout.LayoutParams
                 mobile_type_fl.width = dp2px(context, 30f)
-                mobile_type_fl.gravity = Gravity.CENTER or Gravity.START or Gravity.TOP
+                mobile_type_fl.gravity = Gravity.CENTER or Gravity.START
                 mobile_type.layoutParams = mobile_type_fl
                 val mobile_left_mobile_inout =
                     StatusBarMobileView.findViewById<ImageView>(mobile_left_mobile_inout_ID)
