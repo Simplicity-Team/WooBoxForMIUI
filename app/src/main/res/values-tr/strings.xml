@@ -10,7 +10,7 @@
     <string name="disable_flag_secure_summary">Güvenlik için Kontrol merkezinde açılır hızlı ayar eklemeye izin vermeyen yazılımda ekran görüntüsüne izin ver</string>
     <string name="home">Ev</string>
     <string name="home_time">Her zaman Ana ekran saatini göster</string>
-    <string name="reboot_host">Tüm kapsamı yeniden başlat</string>
+    <string name="reboot_host">Cihazı yeniden başlat</string>
     <string name="reboot">Sistemi Yeniden Başlat </string>
     <!--Status bar icons-->
     <string name="status_bar_icon">Durum çubuğu simgeleri</string>
@@ -174,4 +174,8 @@
     <string name="status_bar_network_speed_dual_row_size">Çift sıra boyutu (0: değişmez)</string>
     <string name="status_bar_network_speed_dual_row_icon">Çift satır simgesi</string>
     <string name="none">Hiçbiri</string>
+    <string name="status_bar_network_speed_dual_row_gravity">Çift sıra hizalama</string>
+    <string name="left">Sol</string>
+    <string name="right">Sağ </string>
+    <string name="big_mobile_type_icon">Büyük mobil ikon tipi</string>
 </resources>
