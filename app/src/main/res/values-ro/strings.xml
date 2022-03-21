@@ -173,4 +173,7 @@
     <string name="status_bar_network_speed_dual_row_size">Dimensiune rând dublu (0: nu se modifică)</string>
     <string name="status_bar_network_speed_dual_row_icon">Pictogramă rând dublu</string>
     <string name="none">Nimic</string>
+    <string name="status_bar_network_speed_dual_row_gravity">Aliniere rândul dublu</string>
+    <string name="left">Stânga</string>
+    <string name="right">Dreapta</string>
 </resources>
