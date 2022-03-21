@@ -87,11 +87,11 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
         if (bytes >= 1048576) {
             totalUpSpeed =
                 DecimalFormat("0.0").format(bytes / 1048576).toFloat()
-            unit = context.resources.getString(context.resources.getIdentifier("kilobyte_per_second","string",context.packageName))
+            unit = context.resources.getString(context.resources.getIdentifier("megabyte_per_second","string",context.packageName))
         } else {
             totalUpSpeed =
                 DecimalFormat("0.0").format(bytes / 1024).toFloat()
-            unit = context.resources.getString(context.resources.getIdentifier("megabyte_per_second","string",context.packageName))
+            unit = context.resources.getString(context.resources.getIdentifier("kilobyte_per_second","string",context.packageName))
         }
 
         //保存当前的流量总和和上次的时间戳
@@ -120,11 +120,11 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
         if (bytes >= 1048576) {
             totalDownSpeed =
                 DecimalFormat("0.0").format(bytes / 1048576).toFloat()
-            unit = context.resources.getString(context.resources.getIdentifier("kilobyte_per_second","string",context.packageName))
+            unit = context.resources.getString(context.resources.getIdentifier("megabyte_per_second","string",context.packageName))
         } else {
             totalDownSpeed =
                 DecimalFormat("0.0").format(bytes / 1024).toFloat()
-            unit = context.resources.getString(context.resources.getIdentifier("megabyte_per_second","string",context.packageName))
+            unit = context.resources.getString(context.resources.getIdentifier("kilobyte_per_second","string",context.packageName))
         }
         //保存当前的流量总和和上次的时间戳
         mLastTotalDown = currentTotalRxBytes
