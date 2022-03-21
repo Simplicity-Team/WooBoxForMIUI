@@ -501,6 +501,14 @@ class SettingsActivity : MIUIActivity() {
             add(
                 TextSummaryWithSwitchV(
                     TextSummaryV(
+                        textId = R.string.big_mobile_type_icon
+                    ),
+                    SwitchV("big_mobile_type_icon")
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
                         textId = R.string.hide_battery_percentage_icon,
                         tipsId = R.string.hide_battery_percentage_icon_summary
                     ),

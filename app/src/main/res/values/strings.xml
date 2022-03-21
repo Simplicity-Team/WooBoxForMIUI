@@ -180,4 +180,5 @@
     <string name="status_bar_network_speed_dual_row_gravity">Dual row align</string>
     <string name="left">Left</string>
     <string name="right">Right</string>
+    <string name="big_mobile_type_icon">Big Mobile Type Icon</string>
 </resources>

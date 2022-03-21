@@ -58,6 +58,8 @@ class SystemUI : IXposedHookLoadPackage {
         OldQSCustom().handleLoadPackage(lpparam)
         //双排网速
         DoubleLineNetworkSpeed().handleLoadPackage(lpparam)
+
+        StatusBarBigMobileTypeIcon().handleLoadPackage(lpparam)
     }
 
 }
