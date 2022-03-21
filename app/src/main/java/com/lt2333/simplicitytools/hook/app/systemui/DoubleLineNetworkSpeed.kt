@@ -63,17 +63,17 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
             ) {
                 if (getDualAlign == 0) {
                     it.result =
-                        "${upIcon} ${getTotalUpSpeed()}\n${downIcon} ${getTotalDownloadSpeed()}"
+                        "${upIcon} ${getTotalUpSpeed(it.args[0]as Context)}\n${downIcon} ${getTotalDownloadSpeed(it.args[0]as Context)}"
                 } else {
                     it.result =
-                        "${getTotalUpSpeed()} ${upIcon}\n${getTotalDownloadSpeed()} ${downIcon}"
+                        "${getTotalUpSpeed(it.args[0]as Context)} ${upIcon}\n${getTotalDownloadSpeed(it.args[0]as Context)} ${downIcon}"
                 }
             }
         }
     }
 
     //获取总的上行速度
-    fun getTotalUpSpeed(): String {
+    fun getTotalUpSpeed(context: Context): String {
         var totalUpSpeed = 0F
 
         val currentTotalTxBytes = TrafficStats.getTotalTxBytes()
@@ -87,11 +87,11 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
         if (bytes >= 1048576) {
             totalUpSpeed =
                 DecimalFormat("0.0").format(bytes / 1048576).toFloat()
-            unit = "MB/s"
+            unit = context.resources.getString(context.resources.getIdentifier("kilobyte_per_second","string",context.packageName))
         } else {
             totalUpSpeed =
                 DecimalFormat("0.0").format(bytes / 1024).toFloat()
-            unit = "KB/s"
+            unit = context.resources.getString(context.resources.getIdentifier("megabyte_per_second","string",context.packageName))
         }
 
         //保存当前的流量总和和上次的时间戳
@@ -106,7 +106,7 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
     }
 
     //获取总的下行速度
-    fun getTotalDownloadSpeed(): String {
+    fun getTotalDownloadSpeed(context: Context): String {
         var totalDownSpeed = 0F
         val currentTotalRxBytes = TrafficStats.getTotalRxBytes()
         val nowTimeStampTotalDown = System.currentTimeMillis()
@@ -120,11 +120,11 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
         if (bytes >= 1048576) {
             totalDownSpeed =
                 DecimalFormat("0.0").format(bytes / 1048576).toFloat()
-            unit = "MB/s"
+            unit = context.resources.getString(context.resources.getIdentifier("kilobyte_per_second","string",context.packageName))
         } else {
             totalDownSpeed =
                 DecimalFormat("0.0").format(bytes / 1024).toFloat()
-            unit = "KB/s"
+            unit = context.resources.getString(context.resources.getIdentifier("megabyte_per_second","string",context.packageName))
         }
         //保存当前的流量总和和上次的时间戳
         mLastTotalDown = currentTotalRxBytes
