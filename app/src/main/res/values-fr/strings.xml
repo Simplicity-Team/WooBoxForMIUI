@@ -173,4 +173,7 @@
     <string name="status_bar_network_speed_dual_row_size">Taille de double ligne (0: ne pas changer)</string>
     <string name="status_bar_network_speed_dual_row_icon">Icône de double ligne</string>
     <string name="none">Aucune</string>
+    <string name="status_bar_network_speed_dual_row_gravity">Alignement double ligne</string>
+    <string name="left">Gauche</string>
+    <string name="right">Droite</string>
 </resources>
