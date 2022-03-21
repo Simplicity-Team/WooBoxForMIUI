@@ -167,4 +167,10 @@
     <string name="qs_custom_rows">Filas</string>
     <string name="qs_custom_columns">Columnas</string>
     <string name="qs_custom_rows_horizontal">Filas (horizontal)</string>
+    <string name="status_bar_dual_row_network_speed">Velocidad de red en fila dual</string>
+    <string name="status_bar_dual_row_network_speed_summary">Mostrar velocidad de subida y bajada</string>
+    <string name="status_bar_network_speed">Velocidad de red en barra de estado</string>
+    <string name="status_bar_network_speed_dual_row_size">Tamaño de fila dual (0: no cambiar)</string>
+    <string name="status_bar_network_speed_dual_row_icon">Icono de fila dual</string>
+    <string name="none">Ninguno</string>
 </resources>

@@ -173,4 +173,7 @@
     <string name="status_bar_network_speed_dual_row_size">双排大小（0：不更改）</string>
     <string name="status_bar_network_speed_dual_row_icon">双排图标</string>
     <string name="none">无</string>
+    <string name="status_bar_network_speed_dual_row_gravity">双排对齐</string>
+    <string name="left">左边</string>
+    <string name="right">右边</string>
 </resources>
