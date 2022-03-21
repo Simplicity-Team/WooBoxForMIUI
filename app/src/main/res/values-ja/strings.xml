@@ -25,6 +25,7 @@
     <string name="hide_alarm_icon">アラームアイコンを隠す</string>
     <string name="hide_hotspot_icon">ポータブルホットスポットアイコンを隠す</string>
     <string name="hide_headset_icon">ヘッドセットアイコンを隠す</string>
+    <string name="hide_bluetooth_battery_icon">Bluetooth機器のバッテリーアイコンを非表示</string>
     <string name="hide_big_hd_icon">大きなHDアイコンを隠す</string>
     <string name="hide_small_hd_icon">小さいHDアイコンを隠す</string>
     <string name="hide_hd_no_service_icon">HD サービスなしアイコンを隠す</string>
@@ -40,13 +41,14 @@
     <string name="statusbar">ステータスバー</string>
     <string name="status_bar_time_seconds">秒を表示する</string>
     <string name="status_bar_network_speed_refresh_speed">ネットワーク速度を秒単位で更新</string>
-    <string name="remove_the_maximum_number_of_notification_icons">通知アイコンの最大数を削除する</string>
+    <string name="remove_the_maximum_number_of_notification_icons">通知アイコン数の上限を削除する</string>
     <string name="main_switch">モジュールのメインスイッチ</string>
     <string name="hide_gps_icon">GPS アイコンを隠す</string>
     <string name="hide_status_bar_network_speed_second">ネットワーク速度の単位(/s)を隠す</string>
     <string name="menu">メニュー</string>
     <string name="Tips">注意事項</string>
     <string name="skip_waiting_time">5/10秒間の警告時間をスキップ</string>
+    <string name="unlock_unlimited_cropping">写真・スクリーンショットをトリミングする際の制限を解除する</string>
     <string name="hide_slave_wifi_icon">Wi-Fiセカンダリアイコンを隠す</string>
     <string name="HideLauncherIcon">ランチャーアイコンを隠す</string>
     <string name="hide_battery_percentage_icon">バッテリー (%) を隠す</string>
@@ -156,4 +158,22 @@
     <string name="remove_open_app_confirmation_popup_summary">「外部アプリを開く」ポップアップを削除します</string>
     <string name="hide_volume_icon">音量アイコンを非表示</string>
     <string name="hide_zen_icon">ZENアイコンを隠す</string>
+    <string name="hide_icon">アイコンを隠す</string>
+    <string name="double_tap_to_sleep">2回タップでスリープ</string>
+    <string name="home_double_tap_to_sleep_summary">ホーム画面の空白を2回タップしてスリープする</string>
+    <string name="old_quick_settings_panel">古いクイック設定パネル</string>
+    <string name="old_qs_custom_switch">クイック設定の行数と列数をカスタマイズ</string>
+    <string name="qs_custom_columns_unexpanded">縦（未展開時）</string>
+    <string name="qs_custom_rows">横</string>
+    <string name="qs_custom_columns">縦</string>
+    <string name="qs_custom_rows_horizontal">横（横持ち時）</string>
+    <string name="status_bar_dual_row_network_speed">ネットワーク速度の2行表示</string>
+    <string name="status_bar_dual_row_network_speed_summary">ネットワーク速度を上下に表示する</string>
+    <string name="status_bar_network_speed">ステータスバーのネットワーク速度</string>
+    <string name="status_bar_network_speed_dual_row_size">2行のサイズ（0：変更なし）</string>
+    <string name="status_bar_network_speed_dual_row_icon">2行アイコン</string>
+    <string name="none">なし</string>
+    <string name="status_bar_network_speed_dual_row_gravity">2行の配置</string>
+    <string name="left">左</string>
+    <string name="right">右</string>
 </resources>
