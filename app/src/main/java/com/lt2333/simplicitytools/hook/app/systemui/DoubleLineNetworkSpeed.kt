@@ -25,6 +25,7 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
     private var downIcon = ""
 
     private val getDualSize = XSPUtils.getInt("status_bar_network_speed_dual_row_size", 0)
+    private val getDualAlign = XSPUtils.getInt("status_bar_network_speed_dual_row_gravity", 0)
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
 
@@ -32,9 +33,9 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
 
         if (XSPUtils.getString("status_bar_network_speed_dual_row_icon", none) != none) {
             upIcon = XSPUtils.getString("status_bar_network_speed_dual_row_icon", none)
-                ?.firstOrNull()?.plus(" ") ?: String()
+                ?.firstOrNull().toString()
             downIcon = XSPUtils.getString("status_bar_network_speed_dual_row_icon", none)
-                ?.lastOrNull()?.plus(" ") ?: String()
+                ?.lastOrNull().toString()
         }
 
         hasEnable("status_bar_dual_row_network_speed") {
@@ -42,12 +43,16 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
                 .hookAfterConstructor(Context::class.java, AttributeSet::class.java) {
                     val mView = it.thisObject as TextView
                     mView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 7f)
-                    if (getDualSize!=0){
+                    if (getDualSize != 0) {
                         mView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, getDualSize.toFloat())
                     }
                     mView.isSingleLine = false
                     mView.setLineSpacing(0F, 0.8F)
-                    mView.gravity = Gravity.LEFT or Gravity.CENTER_VERTICAL
+                    if (getDualAlign == 0) {
+                        mView.gravity = Gravity.LEFT or Gravity.CENTER_VERTICAL
+                    } else {
+                        mView.gravity = Gravity.RIGHT or Gravity.CENTER_VERTICAL
+                    }
                 }
 
             "com.android.systemui.statusbar.policy.NetworkSpeedController".hookBeforeMethod(
@@ -56,7 +61,13 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
                 Context::class.java,
                 Long::class.java
             ) {
-                it.result = "${upIcon}${getTotalUpSpeed()}\n${downIcon}${getTotalDownloadSpeed()}"
+                if (getDualAlign == 0) {
+                    it.result =
+                        "${upIcon} ${getTotalUpSpeed()}\n${downIcon} ${getTotalDownloadSpeed()}"
+                } else {
+                    it.result =
+                        "${getTotalUpSpeed()} ${upIcon}\n${getTotalDownloadSpeed()} ${downIcon}"
+                }
             }
         }
     }

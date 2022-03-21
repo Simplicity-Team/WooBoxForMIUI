@@ -768,6 +768,40 @@ class SettingsActivity : MIUIActivity() {
                     )
                 )
             )
+            val align: HashMap<Int, String> = hashMapOf()
+            align[0] = getString(R.string.left)
+            align[1] = getString(R.string.right)
+            add(
+                TextWithSpinnerV(
+                    TextV(resId = R.string.status_bar_network_speed_dual_row_gravity),
+                    SpinnerV(
+                        arrayListOf<MIUIPopupData>().apply {
+                            add(MIUIPopupData(getString(R.string.left)) {
+                                OwnSP.ownSP.edit().run {
+                                    putInt(
+                                        "status_bar_network_speed_dual_row_gravity",
+                                        0
+                                    )
+                                    apply()
+                                }
+                            })
+                            add(MIUIPopupData(getString(R.string.right)) {
+                                OwnSP.ownSP.edit().run {
+                                    putInt(
+                                        "status_bar_network_speed_dual_row_gravity",
+                                        1
+                                    )
+                                    apply()
+                                }
+                            })
+                        }, currentValue = align[OwnSP.ownSP.getInt(
+                            "status_bar_network_speed_dual_row_gravity",
+                            0
+                        )].toString()
+                    ),
+                    dataBindingRecv = status_bar_dual_row_network_speed_binding.binding.getRecv(2)
+                )
+            )
             add(
                 TextWithSpinnerV(
                     TextV(resId = R.string.status_bar_network_speed_dual_row_icon),

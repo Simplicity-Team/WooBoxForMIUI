@@ -177,4 +177,7 @@
     <string name="status_bar_network_speed_dual_row_size">Dual row size (0: do not change)</string>
     <string name="status_bar_network_speed_dual_row_icon">Dual row icon</string>
     <string name="none">None</string>
+    <string name="status_bar_network_speed_dual_row_gravity">Dual row align</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
 </resources>
