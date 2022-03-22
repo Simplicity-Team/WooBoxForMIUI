@@ -173,4 +173,8 @@
     <string name="status_bar_network_speed_dual_row_size">雙排大小（0：不更改）</string>
     <string name="status_bar_network_speed_dual_row_icon">雙行圖示</string>
     <string name="none">無</string>
+    <string name="status_bar_network_speed_dual_row_gravity">雙行網速對齊</string>
+    <string name="left">置左</string>
+    <string name="right">置右</string>
+    <string name="big_mobile_type_icon">大行動網路圖示</string>
 </resources>

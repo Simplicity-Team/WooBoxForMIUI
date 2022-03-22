@@ -173,4 +173,8 @@
     <string name="status_bar_network_speed_dual_row_size">Tamaño de fila dual (0: no cambiar)</string>
     <string name="status_bar_network_speed_dual_row_icon">Icono de fila dual</string>
     <string name="none">Ninguno</string>
+    <string name="status_bar_network_speed_dual_row_gravity">Alineación de icono en fila dual</string>
+    <string name="left">Izquierda</string>
+    <string name="right">Derecha</string>
+    <string name="big_mobile_type_icon">Icono grande de red móvil</string>
 </resources>

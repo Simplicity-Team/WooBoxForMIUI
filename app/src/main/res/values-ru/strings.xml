@@ -180,4 +180,5 @@
     <string name="status_bar_network_speed_dual_row_gravity">Выравнивание скорости сети в 2 ряда</string>
     <string name="left">Влево</string>
     <string name="right">Вправо</string>
+    <string name="big_mobile_type_icon">Большая иконка типа сети</string>
 </resources>
