@@ -60,6 +60,8 @@ class SystemUI : IXposedHookLoadPackage {
         DoubleLineNetworkSpeed().handleLoadPackage(lpparam)
 
         StatusBarBigMobileTypeIcon().handleLoadPackage(lpparam)
+        //允许下滑通知打开小窗
+        CanNotificationSlide().handleLoadPackage(lpparam)
     }
 
 }

@@ -181,4 +181,5 @@
     <string name="left">Left</string>
     <string name="right">Right</string>
     <string name="big_mobile_type_icon">Big Mobile Type Icon</string>
+    <string name="can_notification_slide">Make all notification can be slide to small window</string>
 </resources>
