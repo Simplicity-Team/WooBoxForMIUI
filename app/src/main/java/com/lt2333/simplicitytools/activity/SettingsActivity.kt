@@ -903,14 +903,7 @@ class SettingsActivity : MIUIActivity() {
                     dataBindingRecv = show_weather_main_switch_binding.binding.getRecv(2)
                 )
             )
-            add(
-                TextSummaryWithSwitchV(
-                    TextSummaryV(
-                        textId = R.string.can_notification_slide,
-                    ),
-                    SwitchV("can_notification_slide")
-                )
-            )
+
 
             add(LineV())
             add(TitleTextV(resId = R.string.control_center))
