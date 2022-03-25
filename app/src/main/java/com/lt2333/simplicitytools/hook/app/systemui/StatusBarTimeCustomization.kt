@@ -78,8 +78,9 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
                     val textV = it.thisObject as TextView
                     if (textV.resources.getResourceEntryName(textV.id) == "clock") {
                         val t = Settings.System.getString(c!!.contentResolver, Settings.System.TIME_12_24)
+                        val is24 = t == "24"
                         now_time = Calendar.getInstance().time
-                        textV.text = getDate(c!!, t) + str + getTime(c!!, t)
+                        textV.text = getDate(c!!) + str + getTime(c!!, is24)
                     }
                 } catch (e: Exception) {
                 }
@@ -89,7 +90,7 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
 
 
     @SuppressLint("SimpleDateFormat")
-    private fun getDate(context: Context, t: String): String {
+    private fun getDate(context: Context): String {
         var datePattern = ""
         val isZh = isZh(context)
 
@@ -130,10 +131,10 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
     }
 
     @SuppressLint("SimpleDateFormat")
-    private fun getTime(context: Context, t: String): String {
+    private fun getTime(context: Context, t: Boolean): String {
         var timePattern = ""
         val isZh = isZh(context)
-        timePattern += if (t == "24") "HH:mm" else "h:mm"
+        timePattern += if (t) "HH:mm" else "h:mm"
         if (isSecond) timePattern += ":ss"
         timePattern = SimpleDateFormat(timePattern).format(now_time)
         if (isZh) timePattern = getPeriod(isZh) + timePattern else timePattern += getPeriod(isZh)
