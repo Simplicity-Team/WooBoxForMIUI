@@ -176,4 +176,6 @@
     <string name="status_bar_network_speed_dual_row_gravity">2行の配置</string>
     <string name="left">左</string>
     <string name="right">右</string>
+    <string name="big_mobile_type_icon">大きなモバイルタイプアイコン</string>
+    <string name="can_notification_slide">すべての通知を小さなウィンドウにスライドできるようにする</string>
 </resources>
