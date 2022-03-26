@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class StatusBarTimeCustomization : IXposedHookLoadPackage {
-    
+
     private val isYear = XSPUtils.getBoolean("status_bar_time_year", false)
     private val isMonth = XSPUtils.getBoolean("status_bar_time_month", false)
     private val isDay = XSPUtils.getBoolean("status_bar_time_day", false)
@@ -38,11 +38,17 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         if (isOpen) {
             var c: Context? = null
-            val miuiClockClass = "com.android.systemui.statusbar.views.MiuiClock".findClass(lpparam.classLoader)
-            miuiClockClass.hookAfterConstructor(Context::class.java, AttributeSet::class.java, Integer.TYPE) {
+            val miuiClockClass =
+                "com.android.systemui.statusbar.views.MiuiClock".findClass(lpparam.classLoader)
+            miuiClockClass.hookAfterConstructor(
+                Context::class.java,
+                AttributeSet::class.java,
+                Integer.TYPE
+            ) {
                 try {
                     c = it.args[0] as Context
                     val textV = it.thisObject as TextView
+                    if (textV.resources.getResourceEntryName(textV.id) != "clock") return@hookAfterConstructor
                     textV.isSingleLine = false
                     if (isDoubleLine) {
                         str = "\n"
@@ -51,7 +57,7 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
                             clock_double_line_size = getClockDoubleSize.toFloat()
                         }
                         textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, clock_double_line_size)
-                        textV.setLineSpacing(0F,0.8F)
+                        textV.setLineSpacing(0F, 0.8F)
                     } else {
                         if (getClockSize != 0) {
                             val clock_size = getClockSize.toFloat()
@@ -68,8 +74,7 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
                             Handler(textV.context.mainLooper).post(r)
                         }
                     }
-                    if (textV.resources.getResourceEntryName(textV.id) == "clock")
-                        Timer().scheduleAtFixedRate(T(), 1000 - System.currentTimeMillis() % 1000, 1000)
+                    Timer().scheduleAtFixedRate(T(), 1000 - System.currentTimeMillis() % 1000, 1000)
                 } catch (e: java.lang.Exception) {
                 }
             }
@@ -77,7 +82,10 @@ class StatusBarTimeCustomization : IXposedHookLoadPackage {
                 try {
                     val textV = it.thisObject as TextView
                     if (textV.resources.getResourceEntryName(textV.id) == "clock") {
-                        val t = Settings.System.getString(c!!.contentResolver, Settings.System.TIME_12_24)
+                        val t = Settings.System.getString(
+                            c!!.contentResolver,
+                            Settings.System.TIME_12_24
+                        )
                         val is24 = t == "24"
                         now_time = Calendar.getInstance().time
                         textV.text = getDate(c!!) + str + getTime(c!!, is24)
