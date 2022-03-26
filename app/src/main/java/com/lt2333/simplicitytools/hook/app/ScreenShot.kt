@@ -12,7 +12,8 @@ object ScreenShot: AppRegister() {
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         XposedBridge.log("Simplicitytools: 成功 Hook " + javaClass.simpleName)
-        //锁定最高刷新率
-        UnlockUnlimitedCropping().handleLoadPackage(lpparam)
+        autoInitHooks(lpparam,
+            UnlockUnlimitedCropping, //锁定最高刷新率
+        )
     }
 }
