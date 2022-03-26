@@ -823,7 +823,7 @@ class SettingsActivity : MIUIActivity() {
                     ) {
                         MIUIDialog(activity).apply {
                             setTitle(R.string.big_mobile_type_icon_left_and_right_margins)
-                            setMessage("${activity.getString(R.string.range)} -30~30")
+                            setMessage("${activity.getString(R.string.range)} 0~30")
                             setEditText(
                                 "",
                                 "${activity.getString(R.string.def)}0, ${activity.getString(R.string.current)}${
@@ -840,7 +840,7 @@ class SettingsActivity : MIUIActivity() {
                                 if (getEditText().isNotEmpty()) {
                                     try {
                                         val value = getEditText().toInt()
-                                        if (value in (-30..30)) {
+                                        if (value in (0..30)) {
                                             OwnSP.ownSP.edit().run {
                                                 putInt(
                                                     "big_mobile_type_icon_left_and_right_margins",
