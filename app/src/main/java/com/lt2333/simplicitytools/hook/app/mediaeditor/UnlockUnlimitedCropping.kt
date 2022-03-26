@@ -1,17 +1,17 @@
 package com.lt2333.simplicitytools.hook.app.mediaeditor
 
 import com.lt2333.simplicitytools.util.XSPUtils
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedHelpers
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class UnlockUnlimitedCropping :IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+object UnlockUnlimitedCropping : HookRegister() {
+
+    override fun init() {
         //解锁图库裁切最小值
         val classIfExists = XposedHelpers.findClassIfExists(
             "com.miui.gallery.editor.photo.core.imports.obsoletes.Crop\$ResizeDetector",
-            lpparam.classLoader
+            getDefaultClassLoader()
         )
         XposedHelpers.findAndHookMethod(
             classIfExists,
@@ -26,7 +26,7 @@ class UnlockUnlimitedCropping :IXposedHookLoadPackage {
         //截图无限裁切
         val classIfExists2 = XposedHelpers.findClassIfExists(
             "com.miui.gallery.editor.photo.screen.crop.ScreenCropView\$ResizeDetector",
-            lpparam.classLoader
+            getDefaultClassLoader()
         )
 
         XposedHelpers.findAndHookMethod(
@@ -40,4 +40,5 @@ class UnlockUnlimitedCropping :IXposedHookLoadPackage {
                 }
             })
     }
+
 }
