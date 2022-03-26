@@ -60,6 +60,8 @@ class SystemUI : IXposedHookLoadPackage {
         DoubleLineNetworkSpeed().handleLoadPackage(lpparam)
         //大移动类型
         StatusBarBigMobileTypeIcon().handleLoadPackage(lpparam)
+        //电量百分比
+        BatteryPercentage().handleLoadPackage(lpparam)
     }
 
 }
