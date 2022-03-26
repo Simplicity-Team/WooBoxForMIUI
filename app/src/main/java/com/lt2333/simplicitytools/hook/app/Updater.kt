@@ -2,11 +2,15 @@ package com.lt2333.simplicitytools.hook.app
 
 import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.hookBeforeMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.AppRegister
 import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class Updater : IXposedHookLoadPackage {
+object Updater: AppRegister() {
+    override val packageName: String = "com.android.updater"
+    override val processName: List<String> = emptyList()
+    override val logTag: String = "Simplicitytools"
+
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         if (XSPUtils.getBoolean("remove_ota_validate", false)) {
             var letter = 'a'

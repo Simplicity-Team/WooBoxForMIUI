@@ -1,13 +1,16 @@
 package com.lt2333.simplicitytools.hook.app
 
 import com.lt2333.simplicitytools.hook.app.systemui.*
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.AppRegister
 import de.robv.android.xposed.XposedBridge
-import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
+import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class SystemUI : IXposedHookLoadPackage {
+object SystemUI: AppRegister() {
+    override val packageName: String = "com.android.systemui"
+    override val processName: List<String> = emptyList()
+    override val logTag: String = "Simplicitytools"
 
-    override fun handleLoadPackage(lpparam: LoadPackageParam) {
+    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         XposedBridge.log("Simplicitytools: 成功 Hook "+javaClass.simpleName)
         //隐藏状态栏图标
         HideStatusBarIcon().handleLoadPackage(lpparam)
@@ -63,5 +66,4 @@ class SystemUI : IXposedHookLoadPackage {
         //电量百分比
         BatteryPercentage().handleLoadPackage(lpparam)
     }
-
 }

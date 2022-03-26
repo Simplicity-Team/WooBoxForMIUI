@@ -2,15 +2,16 @@ package com.lt2333.simplicitytools.hook.app.android
 
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.hookBeforeMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.callbacks.XC_LoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
-class DisableFlagSecure : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        "com.android.server.wm.WindowState".hookBeforeMethod(lpparam.classLoader, "isSecureLocked") {
+object DisableFlagSecure : HookRegister() {
+
+    override fun init() {
+        "com.android.server.wm.WindowState".hookBeforeMethod(getDefaultClassLoader(), "isSecureLocked") {
             hasEnable("disable_flag_secure") {
                 it.result = false
             }
         }
     }
+
 }
