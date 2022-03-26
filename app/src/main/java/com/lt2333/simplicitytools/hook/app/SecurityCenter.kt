@@ -12,15 +12,12 @@ object SecurityCenter: AppRegister() {
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         XposedBridge.log("Simplicitytools: 成功 Hook " + javaClass.simpleName)
-        //跳过 5/10秒等待时间
-        SkipWaitingTime().handleLoadPackage(lpparam)
-        //锁定 100分
-        LockOneHundred().handleLoadPackage(lpparam)
-        //去除自动连招黑名单
-        RemoveMacroBlacklist().handleLoadPackage(lpparam)
-        //显示电池温度
-        ShowBatteryTemperature().handleLoadPackage(lpparam)
-        //去除打开应用弹窗
-        RemoveOpenAppConfirmationPopup().handleLoadPackage(lpparam)
+        autoInitHooks(lpparam,
+            SkipWaitingTime, //跳过 5/10秒等待时间
+            LockOneHundred, //锁定 100分
+            RemoveMacroBlacklist, //去除自动连招黑名单
+            ShowBatteryTemperature, //显示电池温度
+            RemoveOpenAppConfirmationPopup, //去除打开应用弹窗
+        )
     }
 }
