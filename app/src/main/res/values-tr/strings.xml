@@ -178,4 +178,13 @@
     <string name="left">Sol</string>
     <string name="right">Sağ </string>
     <string name="big_mobile_type_icon">Büyük mobil ikon tipi</string>
+    <string name="can_notification_slide">Tüm bildirimlerin küçük pencereye kaydırılabilmesini sağlayın</string>
+    <string name="battery_percentage_font_size">Pil yüzdesi yazı tipi boyutu</string>
+    <string name="zero_do_no_change">0: değiştirme</string>
+    <string name="big_mobile_type_icon_size">Büyük mobil tip simge boyutu</string>
+    <string name="big_mobile_type_icon_bold">Büyük mobil tip simgesi kalın</string>
+    <string name="big_mobile_type_icon_up_and_down_position">Büyük mobil tip simgesi yukarı ve aşağı konumu</string>
+    <string name="input_error">Giriş hatası</string>
+    <string name="range">Menzil:</string>
+    <string name="big_mobile_type_icon_left_and_right_margins">Büyük mobil tip simgesi sol ve sağ kenar boşlukları</string>
 </resources>
