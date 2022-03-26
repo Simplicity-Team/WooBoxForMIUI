@@ -501,32 +501,6 @@ class SettingsActivity : MIUIActivity() {
             add(
                 TextSummaryWithSwitchV(
                     TextSummaryV(
-                        textId = R.string.big_mobile_type_icon
-                    ),
-                    SwitchV("big_mobile_type_icon")
-                )
-            )
-            add(
-                TextSummaryWithSwitchV(
-                    TextSummaryV(
-                        textId = R.string.hide_battery_percentage_icon,
-                        tipsId = R.string.hide_battery_percentage_icon_summary
-                    ),
-                    SwitchV("hide_battery_percentage_icon")
-                )
-            )
-            add(
-                TextSummaryWithSwitchV(
-                    TextSummaryV(
-                        textId = R.string.remove_the_maximum_number_of_notification_icons,
-                        tipsId = R.string.remove_the_maximum_number_of_notification_icons_summary
-                    ),
-                    SwitchV("remove_the_maximum_number_of_notification_icons")
-                )
-            )
-            add(
-                TextSummaryWithSwitchV(
-                    TextSummaryV(
                         textId = R.string.double_tap_to_sleep
                     ), SwitchV("status_bar_double_tap_to_sleep")
                 )
@@ -723,6 +697,227 @@ class SettingsActivity : MIUIActivity() {
                         textId = R.string.hide_icon,
                         onClickListener = { showFragment(getString(R.string.hide_icon)) }
                     )
+                )
+            )
+            val big_mobile_type_icon_binding = getDataBinding(
+                SPUtils.getBoolean(
+                    activity,
+                    "big_mobile_type_icon",
+                    false
+                )
+            ) { view, flags, data ->
+                when (flags) {
+                    1 -> (view as Switch).isEnabled = data as Boolean
+                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                }
+            }
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.big_mobile_type_icon
+                    ),
+                    SwitchV(
+                        "big_mobile_type_icon",
+                        dataBindingSend = big_mobile_type_icon_binding.bindingSend
+                    )
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.big_mobile_type_icon_bold
+                    ),
+                    SwitchV("big_mobile_type_icon_bold", true),
+                    dataBindingRecv = big_mobile_type_icon_binding.binding.getRecv(2)
+                )
+            )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.big_mobile_type_icon_size,
+                        onClickListener = {
+                            MIUIDialog(activity).apply {
+                                setTitle(R.string.big_mobile_type_icon_size)
+                                setEditText(
+                                    "",
+                                    "${activity.getString(R.string.def)}12.5, ${activity.getString(R.string.current)}${
+                                        OwnSP.ownSP.getFloat(
+                                            "big_mobile_type_icon_size",
+                                            12.5f
+                                        )
+                                    }"
+                                )
+                                setLButton(textId = R.string.cancel) {
+                                    dismiss()
+                                }
+                                setRButton(textId = R.string.Done) {
+                                    if (getEditText() != "") {
+                                        OwnSP.ownSP.edit().run {
+                                            putFloat(
+                                                "big_mobile_type_icon_size",
+                                                getEditText().toFloat()
+                                            )
+                                            apply()
+                                        }
+                                    }
+                                    dismiss()
+                                }
+                                show()
+                            }
+                        }), dataBindingRecv = big_mobile_type_icon_binding.binding.getRecv(2)
+                )
+            )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.big_mobile_type_icon_up_and_down_position
+                    ) {
+                        MIUIDialog(activity).apply {
+                            setTitle(R.string.big_mobile_type_icon_up_and_down_position)
+                            setMessage("${activity.getString(R.string.range)} -15~15")
+                            setEditText(
+                                "",
+                                "${activity.getString(R.string.def)}0, ${activity.getString(R.string.current)}${
+                                    OwnSP.ownSP.getInt(
+                                        "big_mobile_type_icon_up_and_down_position",
+                                        0
+                                    )
+                                }"
+                            )
+                            setLButton(textId = R.string.cancel) {
+                                dismiss()
+                            }
+                            setRButton(textId = R.string.Done) {
+                                if (getEditText().isNotEmpty()) {
+                                    try {
+                                        val value = getEditText().toInt()
+                                        if (value in (-15..15)) {
+                                            OwnSP.ownSP.edit().run {
+                                                putInt(
+                                                    "big_mobile_type_icon_up_and_down_position",
+                                                    value
+                                                )
+                                                apply()
+                                            }
+                                            dismiss()
+                                            return@setRButton
+                                        }
+                                    } catch (_: Throwable) {
+                                    }
+                                }
+                                Toast.makeText(
+                                    activity,
+                                    R.string.input_error,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                            show()
+                        }
+                    }, dataBindingRecv = big_mobile_type_icon_binding.binding.getRecv(2)
+                )
+            )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.big_mobile_type_icon_left_and_right_margins
+                    ) {
+                        MIUIDialog(activity).apply {
+                            setTitle(R.string.big_mobile_type_icon_left_and_right_margins)
+                            setMessage("${activity.getString(R.string.range)} -30~30")
+                            setEditText(
+                                "",
+                                "${activity.getString(R.string.def)}0, ${activity.getString(R.string.current)}${
+                                    OwnSP.ownSP.getInt(
+                                        "big_mobile_type_icon_left_and_right_margins",
+                                        0
+                                    )
+                                }"
+                            )
+                            setLButton(textId = R.string.cancel) {
+                                dismiss()
+                            }
+                            setRButton(textId = R.string.Done) {
+                                if (getEditText().isNotEmpty()) {
+                                    try {
+                                        val value = getEditText().toInt()
+                                        if (value in (-30..30)) {
+                                            OwnSP.ownSP.edit().run {
+                                                putInt(
+                                                    "big_mobile_type_icon_left_and_right_margins",
+                                                    value
+                                                )
+                                                apply()
+                                            }
+                                            dismiss()
+                                            return@setRButton
+                                        }
+                                    } catch (_: Throwable) {
+                                    }
+                                }
+                                Toast.makeText(
+                                    activity,
+                                    R.string.input_error,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                            show()
+                        }
+                    }, dataBindingRecv = big_mobile_type_icon_binding.binding.getRecv(2)
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.remove_the_maximum_number_of_notification_icons,
+                        tipsId = R.string.remove_the_maximum_number_of_notification_icons_summary
+                    ),
+                    SwitchV("remove_the_maximum_number_of_notification_icons")
+                )
+            )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.battery_percentage_font_size,
+                        onClickListener = {
+                            MIUIDialog(activity).apply {
+                                setTitle(R.string.battery_percentage_font_size)
+                                setMessage(R.string.zero_do_no_change)
+                                setEditText(
+                                    "",
+                                    "${activity.getString(R.string.current)}${
+                                        OwnSP.ownSP.getFloat(
+                                            "battery_percentage_font_size",
+                                            0f
+                                        )
+                                    }"
+                                )
+                                setLButton(textId = R.string.cancel) {
+                                    dismiss()
+                                }
+                                setRButton(textId = R.string.Done) {
+                                    if (getEditText() != "") {
+                                        OwnSP.ownSP.edit().run {
+                                            putFloat(
+                                                "battery_percentage_font_size",
+                                                getEditText().toFloat()
+                                            )
+                                            apply()
+                                        }
+                                    }
+                                    dismiss()
+                                }
+                                show()
+                            }
+                        })
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.hide_battery_percentage_icon,
+                        tipsId = R.string.hide_battery_percentage_icon_summary
+                    ),
+                    SwitchV("hide_battery_percentage_icon")
                 )
             )
             add(LineV())

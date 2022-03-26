@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.hookAfterMethod
 import com.lt2333.simplicitytools.util.hookBeforeMethod
@@ -18,6 +19,11 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 
 class StatusBarBigMobileTypeIcon : IXposedHookLoadPackage {
+    val upAndDownPosition = XSPUtils.getInt("big_mobile_type_icon_up_and_down_position", 0)
+    val leftAndRightMargin = XSPUtils.getInt("big_mobile_type_icon_left_and_right_margins", 0)
+    val isBold = XSPUtils.getBoolean("big_mobile_type_icon_bold", true)
+    val size = XSPUtils.getFloat("big_mobile_type_icon_size", 12.5f)
+
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         hasEnable("big_mobile_type_icon") {
             "com.android.systemui.statusbar.StatusBarMobileView".hookAfterMethod(
@@ -63,10 +69,13 @@ class StatusBarBigMobileTypeIcon : IXposedHookLoadPackage {
                 val newLinearLayoutLP = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.MATCH_PARENT
-                )
+                ).also {
+
+                }
                 val newLinearlayout = LinearLayout(context).also {
                     it.layoutParams = newLinearLayoutLP
                     it.id = mobile_container_left_ID
+                    it.setPadding(leftAndRightMargin, 0, leftAndRightMargin, 0)
                 }
                 XposedHelpers.setObjectField(it.thisObject, "mMobileLeftContainer", newLinearlayout)
                 RightParentLayout.addView(
@@ -86,10 +95,13 @@ class StatusBarBigMobileTypeIcon : IXposedHookLoadPackage {
                     LinearLayout.LayoutParams.WRAP_CONTENT
                 ).also {
                     it.gravity = Gravity.CENTER_VERTICAL
+                    it.topMargin = upAndDownPosition
                 }
                 mobile_type.also {
-                    it.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12.5F)
-                    it.typeface = Typeface.DEFAULT_BOLD
+                    it.setTextSize(TypedValue.COMPLEX_UNIT_DIP, size)
+                    if (isBold) {
+                        it.typeface = Typeface.DEFAULT_BOLD
+                    }
                     it.layoutParams = mobile_type_lp
                 }
 

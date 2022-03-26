@@ -182,4 +182,12 @@
     <string name="right">Right</string>
     <string name="big_mobile_type_icon">Big Mobile Type Icon</string>
     <string name="can_notification_slide">Make all notification can be slide to small window</string>
+    <string name="battery_percentage_font_size">Battery percentage font size</string>
+    <string name="zero_do_no_change">0: do not change</string>
+    <string name="big_mobile_type_icon_size">Big mobile type icon size</string>
+    <string name="big_mobile_type_icon_bold">Big mobile type icon bold</string>
+    <string name="big_mobile_type_icon_up_and_down_position">Big mobile type icon up and down position</string>
+    <string name="input_error">Input error</string>
+    <string name="range">Range: </string>
+    <string name="big_mobile_type_icon_left_and_right_margins">Big mobile type icon left and right margins</string>
 </resources>
