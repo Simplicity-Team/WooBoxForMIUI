@@ -15,8 +15,7 @@
 
 ### Description
 
-Only MIUI13 (Android12) is supported. The rest of the versions may not be valid, please do not install and use.   
-It is in the early stage of development, with fewer functions, and will be improved gradually.
+Only MIUI13 (Android12) is supported. The rest of the versions not be valid.  
 
 ---
 
