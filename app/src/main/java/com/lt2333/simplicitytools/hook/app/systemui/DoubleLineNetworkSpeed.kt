@@ -9,11 +9,10 @@ import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.init.InitFields
 import com.lt2333.simplicitytools.R
 import com.lt2333.simplicitytools.util.*
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.callbacks.XC_LoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import java.text.DecimalFormat
 
-class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
+object DoubleLineNetworkSpeed: HookRegister() {
 
     private var mLastTotalUp: Long = 0
     private var mLastTotalDown: Long = 0
@@ -27,7 +26,7 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
     private val getDualSize = XSPUtils.getInt("status_bar_network_speed_dual_row_size", 0)
     private val getDualAlign = XSPUtils.getInt("status_bar_network_speed_dual_row_gravity", 0)
 
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+    override fun init() {
 
         val none = InitFields.moduleRes.getString(R.string.none)
 
@@ -39,7 +38,7 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
         }
 
         hasEnable("status_bar_dual_row_network_speed") {
-            "com.android.systemui.statusbar.views.NetworkSpeedView".findClass(lpparam.classLoader)
+            "com.android.systemui.statusbar.views.NetworkSpeedView".findClass(getDefaultClassLoader())
                 .hookAfterConstructor(Context::class.java, AttributeSet::class.java) {
                     val mView = it.thisObject as TextView
                     mView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 7f)
@@ -56,24 +55,24 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
                 }
 
             "com.android.systemui.statusbar.policy.NetworkSpeedController".hookBeforeMethod(
-                lpparam.classLoader,
+                getDefaultClassLoader(),
                 "formatSpeed",
                 Context::class.java,
                 Long::class.java
             ) {
                 if (getDualAlign == 0) {
                     it.result =
-                        "${upIcon} ${getTotalUpSpeed(it.args[0]as Context)}\n${downIcon} ${getTotalDownloadSpeed(it.args[0]as Context)}"
+                        "$upIcon ${getTotalUpSpeed(it.args[0]as Context)}\n${downIcon} ${getTotalDownloadSpeed(it.args[0]as Context)}"
                 } else {
                     it.result =
-                        "${getTotalUpSpeed(it.args[0]as Context)} ${upIcon}\n${getTotalDownloadSpeed(it.args[0]as Context)} ${downIcon}"
+                        "${getTotalUpSpeed(it.args[0]as Context)} ${upIcon}\n${getTotalDownloadSpeed(it.args[0]as Context)} $downIcon"
                 }
             }
         }
     }
 
     //获取总的上行速度
-    fun getTotalUpSpeed(context: Context): String {
+    private fun getTotalUpSpeed(context: Context): String {
         var totalUpSpeed = 0F
 
         val currentTotalTxBytes = TrafficStats.getTotalTxBytes()
@@ -98,15 +97,15 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
         mLastTotalUp = currentTotalTxBytes
         lastTimeStampTotalUp = nowTimeStampTotalUp
 
-        if (totalUpSpeed >= 100) {
-            return "" + totalUpSpeed.toInt() + unit
+        return if (totalUpSpeed >= 100) {
+            "" + totalUpSpeed.toInt() + unit
         } else {
-            return "" + totalUpSpeed + unit
+            "" + totalUpSpeed + unit
         }
     }
 
     //获取总的下行速度
-    fun getTotalDownloadSpeed(context: Context): String {
+    private fun getTotalDownloadSpeed(context: Context): String {
         var totalDownSpeed = 0F
         val currentTotalRxBytes = TrafficStats.getTotalRxBytes()
         val nowTimeStampTotalDown = System.currentTimeMillis()
@@ -130,13 +129,12 @@ class DoubleLineNetworkSpeed : IXposedHookLoadPackage {
         mLastTotalDown = currentTotalRxBytes
         lastTimeStampTotalDown = nowTimeStampTotalDown
 
-        if (totalDownSpeed >= 100) {
-            return "" + totalDownSpeed.toInt() + unit
+        return if (totalDownSpeed >= 100) {
+            "" + totalDownSpeed.toInt() + unit
         } else {
-            return "" + totalDownSpeed + unit
+            "" + totalDownSpeed + unit
         }
 
     }
-
 
 }

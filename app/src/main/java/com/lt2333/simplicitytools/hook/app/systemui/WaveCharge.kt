@@ -3,12 +3,12 @@ package com.lt2333.simplicitytools.hook.app.systemui
 import com.github.kyuubiran.ezxhelper.utils.findMethod
 import com.github.kyuubiran.ezxhelper.utils.hookMethod
 import com.lt2333.simplicitytools.util.hasEnable
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XposedHelpers
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class WaveCharge : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?) {
+object WaveCharge: HookRegister() {
+
+    override fun init() {
         hasEnable("enable_wave_charge_animation") {
             findMethod("com.android.keyguard.charge.ChargeUtils") {
                 name == "supportWaveChargeAnimation"
@@ -41,4 +41,5 @@ class WaveCharge : IXposedHookLoadPackage {
             }
         }
     }
+
 }

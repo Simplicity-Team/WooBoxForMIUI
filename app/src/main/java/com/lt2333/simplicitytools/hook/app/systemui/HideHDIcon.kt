@@ -5,13 +5,13 @@ import android.widget.ImageView
 import com.lt2333.simplicitytools.util.getObjectField
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.hookAfterMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.callbacks.XC_LoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
-class HideHDIcon :IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+object HideHDIcon: HookRegister() {
+
+    override fun init() {
         val iconState = "com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$MobileIconState"
-        "com.android.systemui.statusbar.StatusBarMobileView".hookAfterMethod(lpparam.classLoader, "initViewState", iconState) {
+        "com.android.systemui.statusbar.StatusBarMobileView".hookAfterMethod(getDefaultClassLoader(), "initViewState", iconState) {
             hasEnable("hide_big_hd_icon") {
                 (it.thisObject.getObjectField("mVolte") as ImageView).visibility = View.GONE
             }
@@ -23,7 +23,7 @@ class HideHDIcon :IXposedHookLoadPackage {
             }
         }
 
-        "com.android.systemui.statusbar.StatusBarMobileView".hookAfterMethod(lpparam.classLoader, "updateState", iconState) {
+        "com.android.systemui.statusbar.StatusBarMobileView".hookAfterMethod(getDefaultClassLoader(), "updateState", iconState) {
             hasEnable("hide_big_hd_icon") {
                 (it.thisObject.getObjectField("mVolte") as ImageView).visibility = View.GONE
             }
@@ -35,4 +35,5 @@ class HideHDIcon :IXposedHookLoadPackage {
             }
         }
     }
+
 }

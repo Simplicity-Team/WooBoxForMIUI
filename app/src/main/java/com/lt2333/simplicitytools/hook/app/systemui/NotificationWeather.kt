@@ -11,20 +11,18 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import cn.fkj233.ui.activity.dp2px
 import com.github.kyuubiran.ezxhelper.utils.loadClass
 import com.lt2333.simplicitytools.util.*
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import com.lt2333.simplicitytools.view.WeatherView
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class NotificationWeather : IXposedHookLoadPackage {
+object NotificationWeather: HookRegister() {
 
-
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+    override fun init() {
         hasEnable("notification_weather") {
             var mWeatherView: TextView? = null
             var mConstraintLayout: ConstraintLayout? = null
             val isDisplayCity = XSPUtils.getBoolean("notification_weather_city", false)
             "com.android.systemui.qs.MiuiNotificationHeaderView".hookAfterMethod(
-                lpparam.classLoader,
+                getDefaultClassLoader(),
                 "onFinishInflate"
             ) {
                 val viewGroup = it.thisObject as ViewGroup
@@ -187,7 +185,7 @@ class NotificationWeather : IXposedHookLoadPackage {
             }
             //解决横屏重叠
             "com.android.systemui.qs.MiuiNotificationHeaderView".hookAfterMethod(
-                lpparam.classLoader,
+                getDefaultClassLoader(),
                 "updateLayout"
             ) {
                 val viewGroup = it.thisObject as ViewGroup
@@ -222,4 +220,5 @@ class NotificationWeather : IXposedHookLoadPackage {
             }
         }
     }
+
 }

@@ -1,14 +1,19 @@
 package com.lt2333.simplicitytools.hook.app
 
 import com.lt2333.simplicitytools.hook.app.thememanager.RemoveAds
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.AppRegister
 import de.robv.android.xposed.XposedBridge
-import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
+import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class ThemeManager : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: LoadPackageParam) {
+object ThemeManager: AppRegister() {
+    override val packageName: String = "com.android.thememanager"
+    override val processName: List<String> = emptyList()
+    override val logTag: String = "Simplicitytools"
+
+    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         XposedBridge.log("Simplicitytools: 成功 Hook "+javaClass.simpleName)
-        //移除主题壁纸的广告
-        RemoveAds().handleLoadPackage(lpparam)
+        autoInitHooks(lpparam,
+            RemoveAds, //移除主题壁纸的广告
+        )
     }
 }

@@ -4,13 +4,12 @@ import android.widget.TextView
 import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.findClass
 import com.lt2333.simplicitytools.util.hookBeforeMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.callbacks.XC_LoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
-class SkipWaitingTime : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+object SkipWaitingTime : HookRegister() {
 
-        val textViewClass = "android.widget.TextView".findClass(lpparam.classLoader)
+    override fun init() {
+        val textViewClass = "android.widget.TextView".findClass(getDefaultClassLoader())
         textViewClass.hookBeforeMethod(
             "setText",
             CharSequence::class.java,
@@ -35,4 +34,5 @@ class SkipWaitingTime : IXposedHookLoadPackage {
             }
         }
     }
+
 }

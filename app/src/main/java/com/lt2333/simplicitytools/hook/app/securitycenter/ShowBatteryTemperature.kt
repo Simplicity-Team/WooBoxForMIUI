@@ -17,17 +17,23 @@ import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.findClass
 import com.lt2333.simplicitytools.util.hookAfterMethod
 import com.lt2333.simplicitytools.util.hookBeforeMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.callbacks.XC_LoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import java.lang.reflect.Field
 
-class ShowBatteryTemperature: IXposedHookLoadPackage {
+object ShowBatteryTemperature: HookRegister() {
 
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+    private fun getBatteryTemperature(context: Context): Int {
+        return context.registerReceiver(
+            null as BroadcastReceiver?,
+            IntentFilter("android.intent.action.BATTERY_CHANGED")
+        )!!.getIntExtra("temperature", 0) / 10
+    }
+
+    override fun init() {
         if (!XSPUtils.getBoolean("battery_life_function", false)) return
-        val a = "com.miui.powercenter.a\$a".findClass(lpparam.classLoader)
-        "com.miui.powercenter.a".hookBeforeMethod(lpparam.classLoader, "b", Context::class.java) {
-           it.result = getBatteryTemperature(it.args[0] as Context).toString()
+        val a = "com.miui.powercenter.a\$a".findClass(getDefaultClassLoader())
+        "com.miui.powercenter.a".hookBeforeMethod(getDefaultClassLoader(), "b", Context::class.java) {
+            it.result = getBatteryTemperature(it.args[0] as Context).toString()
         }
         a.hookAfterMethod("run") {
             val context = AndroidAppHelper.currentApplication().applicationContext
@@ -59,10 +65,5 @@ class ShowBatteryTemperature: IXposedHookLoadPackage {
             linearLayout.addView(tempView)
         }
     }
-    private fun getBatteryTemperature(context: Context): Int {
-        return context.registerReceiver(
-            null as BroadcastReceiver?,
-            IntentFilter("android.intent.action.BATTERY_CHANGED")
-        )!!.getIntExtra("temperature", 0) / 10
-    }
+
 }

@@ -11,17 +11,17 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import cn.fkj233.ui.activity.dp2px
 import com.github.kyuubiran.ezxhelper.utils.loadClass
 import com.lt2333.simplicitytools.util.*
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import com.lt2333.simplicitytools.view.WeatherView
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class ControlCenterWeather : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+object ControlCenterWeather: HookRegister() {
+
+    override fun init() {
         hasEnable("") {
             var mWeatherView: TextView? = null
             val isDisplayCity = XSPUtils.getBoolean("", false)
             "com.android.systemui.controlcenter.phone.widget.QSControlCenterHeaderView".hookAfterMethod(
-                lpparam.classLoader,
+                getDefaultClassLoader(),
                 "onFinishInflate"
             ) {
                 val viewGroup = it.thisObject as ViewGroup
@@ -78,7 +78,7 @@ class ControlCenterWeather : IXposedHookLoadPackage {
             }
             //解决横屏重叠
             "com.android.systemui.controlcenter.phone.widget.QSControlCenterHeaderView".hookAfterMethod(
-                lpparam.classLoader,
+                getDefaultClassLoader(),
                 "updateLayout"
             ) {
                 val mOrientation = it.thisObject.getObjectField("mOrientation") as Int
@@ -94,7 +94,7 @@ class ControlCenterWeather : IXposedHookLoadPackage {
             var mConstraintLayout: ConstraintLayout? = null
             val isDisplayCity = XSPUtils.getBoolean("control_center_weather_city", false)
             "com.android.systemui.controlcenter.phone.widget.QSControlCenterHeaderView".hookAfterMethod(
-                lpparam.classLoader,
+                getDefaultClassLoader(),
                 "onFinishInflate"
             ) {
                 val viewGroup = it.thisObject as ViewGroup
@@ -257,7 +257,7 @@ class ControlCenterWeather : IXposedHookLoadPackage {
             }
             //解决横屏重叠
             "com.android.systemui.controlcenter.phone.widget.QSControlCenterHeaderView".hookAfterMethod(
-                lpparam.classLoader,
+                getDefaultClassLoader(),
                 "updateLayout"
             ) {
                 val viewGroup = it.thisObject as ViewGroup
@@ -292,4 +292,5 @@ class ControlCenterWeather : IXposedHookLoadPackage {
             }
         }
     }
+
 }

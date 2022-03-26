@@ -6,13 +6,13 @@ import android.widget.TextView
 import com.lt2333.simplicitytools.util.getObjectField
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.hookAfterMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.callbacks.XC_LoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
-class HideWifiActivityIcon : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+object HideWifiActivityIcon: HookRegister() {
+
+    override fun init() {
         val iconState = "com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$WifiIconState"
-        "com.android.systemui.statusbar.StatusBarWifiView".hookAfterMethod(lpparam.classLoader, "initViewState", iconState) {
+        "com.android.systemui.statusbar.StatusBarWifiView".hookAfterMethod(getDefaultClassLoader(), "initViewState", iconState) {
             //隐藏WIFI箭头
             hasEnable("hide_wifi_activity_icon") {
                 (it.thisObject.getObjectField("mWifiActivityView") as ImageView).visibility = View.INVISIBLE
@@ -23,7 +23,7 @@ class HideWifiActivityIcon : IXposedHookLoadPackage {
             }
         }
 
-        "com.android.systemui.statusbar.StatusBarWifiView".hookAfterMethod(lpparam.classLoader, "updateState", iconState) {
+        "com.android.systemui.statusbar.StatusBarWifiView".hookAfterMethod(getDefaultClassLoader(), "updateState", iconState) {
             //隐藏WIFI箭头
             hasEnable("hide_wifi_activity_icon") {
                 (it.thisObject.getObjectField("mWifiActivityView") as ImageView).visibility = View.INVISIBLE
@@ -34,4 +34,5 @@ class HideWifiActivityIcon : IXposedHookLoadPackage {
             }
         }
     }
+
 }

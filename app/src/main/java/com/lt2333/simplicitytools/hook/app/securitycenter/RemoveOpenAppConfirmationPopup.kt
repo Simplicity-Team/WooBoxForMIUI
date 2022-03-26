@@ -4,12 +4,14 @@ import android.widget.TextView
 import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.findClass
 import com.lt2333.simplicitytools.util.hookAfterMethod
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class RemoveOpenAppConfirmationPopup : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        val textViewClass = "android.widget.TextView".findClass(lpparam.classLoader)
+object RemoveOpenAppConfirmationPopup : HookRegister() {
+
+    override fun init() {
+        val textViewClass = "android.widget.TextView".findClass(getDefaultClassLoader())
         textViewClass.hookAfterMethod(
             "setText",
             CharSequence::class.java
@@ -31,4 +33,5 @@ class RemoveOpenAppConfirmationPopup : IXposedHookLoadPackage {
             }
         }
     }
+
 }

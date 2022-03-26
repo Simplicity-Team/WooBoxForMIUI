@@ -2,13 +2,13 @@ package com.lt2333.simplicitytools.hook.app.settings
 
 import android.app.NotificationChannel
 import com.lt2333.simplicitytools.util.*
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XposedHelpers
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class ShowNotificationImportance : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        val channelNotificationSettingsClass = "com.android.settings.notification.ChannelNotificationSettings".findClass(lpparam.classLoader)
+object ShowNotificationImportance : HookRegister() {
+
+    override fun init() {
+        val channelNotificationSettingsClass = "com.android.settings.notification.ChannelNotificationSettings".findClass(getDefaultClassLoader())
         channelNotificationSettingsClass.hookBeforeMethod("removeDefaultPrefs") {
             if (!XSPUtils.getBoolean("show_notification_importance", false)) return@hookBeforeMethod
             val importance = it.thisObject.callMethod("findPreference", "importance") ?: return@hookBeforeMethod
@@ -20,7 +20,7 @@ class ShowNotificationImportance : IXposedHookLoadPackage {
             it.result = null
         }
 
-        val dropDownPreferenceClass = XposedHelpers.findClass("androidx.preference.Preference", lpparam.classLoader)
+        val dropDownPreferenceClass = XposedHelpers.findClass("androidx.preference.Preference", getDefaultClassLoader())
         dropDownPreferenceClass.hookAfterMethod("callChangeListener", Any::class.java) {
             val channelNotificationSettings = XposedHelpers.getAdditionalInstanceField(it.thisObject, "channelNotificationSettings") ?: return@hookAfterMethod
             val mChannel = channelNotificationSettings.getObjectField("mChannel") as NotificationChannel
@@ -31,4 +31,5 @@ class ShowNotificationImportance : IXposedHookLoadPackage {
             mBackend.callMethod("updateChannel", mPkg, mUid, mChannel)
         }
     }
+
 }

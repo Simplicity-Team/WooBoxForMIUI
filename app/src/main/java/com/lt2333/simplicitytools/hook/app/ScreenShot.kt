@@ -1,15 +1,19 @@
 package com.lt2333.simplicitytools.hook.app
 
 import com.lt2333.simplicitytools.hook.app.screenshot.UnlockUnlimitedCropping
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.AppRegister
 import de.robv.android.xposed.XposedBridge
-import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam
+import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class ScreenShot : IXposedHookLoadPackage {
+object ScreenShot: AppRegister() {
+    override val packageName: String = "com.miui.screenshot"
+    override val processName: List<String> = emptyList()
+    override val logTag: String = "Simplicitytools"
 
-    override fun handleLoadPackage(lpparam: LoadPackageParam) {
+    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         XposedBridge.log("Simplicitytools: 成功 Hook " + javaClass.simpleName)
-        //锁定最高刷新率
-        UnlockUnlimitedCropping().handleLoadPackage(lpparam)
+        autoInitHooks(lpparam,
+            UnlockUnlimitedCropping, //锁定最高刷新率
+        )
     }
 }

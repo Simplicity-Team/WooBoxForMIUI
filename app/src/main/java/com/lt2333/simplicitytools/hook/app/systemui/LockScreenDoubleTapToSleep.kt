@@ -10,16 +10,16 @@ import android.view.View.OnTouchListener
 import com.lt2333.simplicitytools.util.findClass
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.hookBeforeMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XposedHelpers
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class LockScreenDoubleTapToSleep : IXposedHookLoadPackage {
+object LockScreenDoubleTapToSleep: HookRegister() {
+
     @SuppressLint("ClickableViewAccessibility")
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+    override fun init() {
         hasEnable("lock_screen_double_tap_to_sleep") {
             "com.android.systemui.statusbar.phone.NotificationsQuickSettingsContainer".findClass(
-                lpparam.classLoader
+                getDefaultClassLoader()
             ).hookBeforeMethod("onFinishInflate") {
                 val view = it.thisObject as View
                 XposedHelpers.setAdditionalInstanceField(view, "currentTouchTime", 0L)
@@ -68,4 +68,5 @@ class LockScreenDoubleTapToSleep : IXposedHookLoadPackage {
             }
         }
     }
+
 }

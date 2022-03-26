@@ -4,14 +4,13 @@ import android.view.View
 import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.findClass
 import com.lt2333.simplicitytools.util.hookBeforeMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.callbacks.XC_LoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
-class LockOneHundred : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+object LockOneHundred : HookRegister() {
 
+    override fun init() {
         //防止点击重新检测
-        val mainContentFrameClass = "com.miui.securityscan.ui.main.MainContentFrame".findClass(lpparam.classLoader)
+        val mainContentFrameClass = "com.miui.securityscan.ui.main.MainContentFrame".findClass(getDefaultClassLoader())
         mainContentFrameClass.hookBeforeMethod("onClick", View::class.java) {
             if (XSPUtils.getBoolean("lock_one_hundred", false)) {
                 it.result = null
@@ -19,11 +18,12 @@ class LockOneHundred : IXposedHookLoadPackage {
         }
 
         //锁定100分
-        var scoreManagerClass = "com.miui.securityscan.scanner.ScoreManager".findClass(lpparam.classLoader)
+        val scoreManagerClass = "com.miui.securityscan.scanner.ScoreManager".findClass(getDefaultClassLoader())
         scoreManagerClass.hookBeforeMethod("B") {
             if (XSPUtils.getBoolean("lock_one_hundred", false)) {
                 it.result = 0
             }
         }
     }
+
 }

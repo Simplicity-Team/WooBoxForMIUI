@@ -8,18 +8,18 @@ import com.lt2333.simplicitytools.R
 import com.lt2333.simplicitytools.util.findClass
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.hookAfterMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XposedHelpers
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 import java.io.BufferedReader
 import java.io.FileReader
 import java.lang.reflect.Method
 import kotlin.math.roundToInt
 
-class LockScreenCurrent : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+object LockScreenCurrent : HookRegister() {
+
+    override fun init() {
         hasEnable("lock_screen_charging_current") {
-            "com.android.keyguard.charge.ChargeUtils".findClass(lpparam.classLoader)
+            "com.android.keyguard.charge.ChargeUtils".findClass(getDefaultClassLoader())
                 .hookAfterMethod(
                     "getChargingHintText",
                     Context::class.java,
@@ -28,7 +28,7 @@ class LockScreenCurrent : IXposedHookLoadPackage {
                 ) {
                     it.result = getCurrent() + "\n" + it.result
                 }
-            "com.android.systemui.statusbar.phone.KeyguardBottomAreaView".findClass(lpparam.classLoader)
+            "com.android.systemui.statusbar.phone.KeyguardBottomAreaView".findClass(getDefaultClassLoader())
                 .hookAfterMethod(
                     "onFinishInflate"
                 ) {
@@ -105,4 +105,5 @@ class LockScreenCurrent : IXposedHookLoadPackage {
         }
         return defaultValue
     }
+
 }

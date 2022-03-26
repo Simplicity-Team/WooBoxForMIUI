@@ -27,6 +27,8 @@
     public void *(de.robv.android.xposed.IXposedHookZygoteInit$StartupParam);
 }
 
+-keep class * extends com.lt2333.simplicitytools.util.xposed.EasyXposedInit
+
 -assumenosideeffects class kotlin.jvm.internal.Intrinsics {
     public static void check*(...);
     public static void throw*(...);

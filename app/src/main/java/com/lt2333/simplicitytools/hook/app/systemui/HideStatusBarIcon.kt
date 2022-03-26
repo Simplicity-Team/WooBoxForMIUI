@@ -2,27 +2,25 @@ package com.lt2333.simplicitytools.hook.app.systemui
 
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.hookBeforeMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XC_MethodHook
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class HideStatusBarIcon : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+object HideStatusBarIcon: HookRegister() {
 
+    override fun init() {
         "com.android.systemui.statusbar.phone.StatusBarIconControllerImpl".hookBeforeMethod(
-            lpparam.classLoader,
+            getDefaultClassLoader(),
             "setIconVisibility",
             String::class.java,
             Boolean::class.java
         ) { hideIcon(it) }
 
         "com.android.systemui.statusbar.phone.MiuiDripLeftStatusBarIconControllerImpl".hookBeforeMethod(
-            lpparam.classLoader,
+            getDefaultClassLoader(),
             "setIconVisibility",
             String::class.java,
             Boolean::class.java
         ) { hideIcon(it) }
-
     }
 
     private fun hideIcon(it: XC_MethodHook.MethodHookParam) {

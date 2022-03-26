@@ -7,17 +7,17 @@ import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.getObjectField
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.hookAfterMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XC_MethodHook
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class HideMobileTypeIcon : IXposedHookLoadPackage {
-    val isBigType=XSPUtils.getBoolean("big_mobile_type_icon", false)
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        val iconState =
-            "com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$MobileIconState"
+object HideMobileTypeIcon: HookRegister() {
+
+    private val isBigType = XSPUtils.getBoolean("big_mobile_type_icon", false)
+
+    override fun init() {
+        val iconState = "com.android.systemui.statusbar.phone.StatusBarSignalPolicy\$MobileIconState"
         "com.android.systemui.statusbar.StatusBarMobileView".hookAfterMethod(
-            lpparam.classLoader,
+            getDefaultClassLoader(),
             "initViewState",
             iconState
         ) {
@@ -25,7 +25,7 @@ class HideMobileTypeIcon : IXposedHookLoadPackage {
         }
 
         "com.android.systemui.statusbar.StatusBarMobileView".hookAfterMethod(
-            lpparam.classLoader,
+            getDefaultClassLoader(),
             "updateState",
             iconState
         ) {
@@ -33,7 +33,7 @@ class HideMobileTypeIcon : IXposedHookLoadPackage {
         }
     }
 
-    fun hideMobileTypeIcon(it: XC_MethodHook.MethodHookParam) {
+    private fun hideMobileTypeIcon(it: XC_MethodHook.MethodHookParam) {
         hasEnable("hide_mobile_type_icon") {
             if (isBigType) {
                 (it.thisObject.getObjectField("mMobileType") as TextView).visibility =
