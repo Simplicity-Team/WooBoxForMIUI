@@ -178,4 +178,12 @@
     <string name="right">右边</string>
     <string name="big_mobile_type_icon">大移动类型图标</string>
     <string name="can_notification_slide">强制允许全部通知可使用小窗</string>
+    <string name="battery_percentage_font_size">电池百分比字体大小</string>
+    <string name="zero_do_no_change">0: 不更改</string>
+    <string name="big_mobile_type_icon_size">大移动类型图标大小</string>
+    <string name="big_mobile_type_icon_bold">大移动类型图标加粗</string>
+    <string name="big_mobile_type_icon_up_and_down_position">大移动类型图标上下位置</string>
+    <string name="input_error">输入错误</string>
+    <string name="range">范围：</string>
+    <string name="big_mobile_type_icon_left_and_right_margins">大移动类型图标左右边距</string>
 </resources>
