@@ -12,6 +12,8 @@ object Settings: AppRegister() {
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         XposedBridge.log("Simplicitytools: 成功 Hook "+javaClass.simpleName)
-        ShowNotificationImportance().handleLoadPackage(lpparam)
+        autoInitHooks(lpparam,
+            ShowNotificationImportance, //显示通知重要程度
+        )
     }
 }
