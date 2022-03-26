@@ -12,7 +12,6 @@ object MediaEditor: AppRegister() {
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         XposedBridge.log("Simplicitytools: 成功 Hook "+javaClass.simpleName)
-        //解锁裁切最小值
         autoInitHooks(lpparam,
             UnlockUnlimitedCropping, //解锁裁切最小值
         )

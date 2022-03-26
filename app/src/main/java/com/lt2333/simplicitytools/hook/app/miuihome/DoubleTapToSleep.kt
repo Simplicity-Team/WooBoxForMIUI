@@ -4,15 +4,15 @@ import android.content.Context
 import android.content.Intent
 import android.view.MotionEvent
 import com.lt2333.simplicitytools.util.*
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import com.yuk.miuihome.module.DoubleTapController
-import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XposedHelpers
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class DoubleTapToSleep : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+object DoubleTapToSleep : HookRegister() {
+
+    override fun init() {
         hasEnable("double_tap_to_sleep") {
-            "com.miui.home.launcher.Workspace".findClass(lpparam.classLoader)
+            "com.miui.home.launcher.Workspace".findClass(getDefaultClassLoader())
                 .hookAfterAllConstructors {
                     var mDoubleTapControllerEx =
                         XposedHelpers.getAdditionalInstanceField(
@@ -28,7 +28,7 @@ class DoubleTapToSleep : IXposedHookLoadPackage {
                     )
                 }
 
-            "com.miui.home.launcher.Workspace".findClass(lpparam.classLoader).hookBeforeMethod(
+            "com.miui.home.launcher.Workspace".findClass(getDefaultClassLoader()).hookBeforeMethod(
                 "dispatchTouchEvent", MotionEvent::class.java
             ) {
                 val mDoubleTapControllerEx = XposedHelpers.getAdditionalInstanceField(
@@ -50,4 +50,5 @@ class DoubleTapToSleep : IXposedHookLoadPackage {
             }
         }
     }
+
 }

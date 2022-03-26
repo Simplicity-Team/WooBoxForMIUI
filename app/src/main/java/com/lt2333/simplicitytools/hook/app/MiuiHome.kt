@@ -13,9 +13,9 @@ object MiuiHome: AppRegister() {
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         XposedBridge.log("Simplicitytools: 成功 Hook "+javaClass.simpleName)
-        //时钟显示时钟
-        AlwaysDisplayTime().handleLoadPackage(lpparam)
-        //双击锁屏
-        DoubleTapToSleep().handleLoadPackage(lpparam)
+        autoInitHooks(lpparam,
+            AlwaysDisplayTime, //时钟显示时钟
+            DoubleTapToSleep, //双击锁屏
+        )
     }
 }

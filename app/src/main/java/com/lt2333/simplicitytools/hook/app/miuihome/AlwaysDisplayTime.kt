@@ -1,16 +1,16 @@
 package com.lt2333.simplicitytools.hook.app.miuihome
 
 import com.lt2333.simplicitytools.util.XSPUtils
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedHelpers
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class AlwaysDisplayTime : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+object AlwaysDisplayTime : HookRegister() {
+
+    override fun init() {
         val classIfExists = XposedHelpers.findClassIfExists(
             "com.miui.home.launcher.Workspace",
-            lpparam.classLoader
+            getDefaultClassLoader()
         )
         XposedHelpers.findAndHookMethod(
             classIfExists,
@@ -23,4 +23,5 @@ class AlwaysDisplayTime : IXposedHookLoadPackage {
                 }
             })
     }
+
 }
