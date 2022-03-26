@@ -13,9 +13,9 @@ object PowerKeeper: AppRegister() {
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         XposedBridge.log("Simplicitytools: 成功 Hook "+javaClass.simpleName)
-        //锁定最高刷新率
-        LockMaxFps().handleLoadPackage(lpparam)
-        //防止恢复电池优化白名单
-        PreventRecoveryOfBatteryOptimizationWhitelist().handleLoadPackage(lpparam)
+        autoInitHooks(lpparam,
+            LockMaxFps, //锁定最高刷新率
+            PreventRecoveryOfBatteryOptimizationWhitelist, //防止恢复电池优化白名单
+        )
     }
 }

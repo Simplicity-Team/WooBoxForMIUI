@@ -1,16 +1,16 @@
 package com.lt2333.simplicitytools.hook.app.powerkeeper
 
 import com.lt2333.simplicitytools.util.XSPUtils
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedHelpers
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class PreventRecoveryOfBatteryOptimizationWhitelist : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+object PreventRecoveryOfBatteryOptimizationWhitelist : HookRegister() {
+
+    override fun init() {
         val classIfExists = XposedHelpers.findClassIfExists(
             "com.miui.powerkeeper.statemachine.ForceDozeController",
-            lpparam.classLoader
+            getDefaultClassLoader()
         )
         XposedHelpers.findAndHookMethod(
             classIfExists,
@@ -28,4 +28,5 @@ class PreventRecoveryOfBatteryOptimizationWhitelist : IXposedHookLoadPackage {
                 }
             })
     }
+
 }
