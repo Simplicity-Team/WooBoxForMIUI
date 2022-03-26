@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.findClass
@@ -53,26 +54,26 @@ object StatusBarLayout: HookRegister() {
             val clockId: Int = res.getIdentifier("clock", "id", "com.android.systemui")
             val phoneStatusBarLeftContainerId: Int =
                 res.getIdentifier("phone_status_bar_left_container", "id", "com.android.systemui")
-            val fullscreenNotificationIconAreaId: Int =
-                res.getIdentifier("fullscreen_notification_icon_area", "id", "com.android.systemui")
+            val notificationIconAreaInnerId: Int =
+                res.getIdentifier("notification_icon_area_inner", "id", "com.android.systemui")
             statusBar = MiuiPhoneStatusBarView.findViewById(statusBarId)
             val statusBarContents: ViewGroup =
                 MiuiPhoneStatusBarView.findViewById(statusBarContentsId)
             if (statusBar == null) return@hookAfterMethod
-            val Clock: View = MiuiPhoneStatusBarView.findViewById(clockId)
+            val clock: TextView = MiuiPhoneStatusBarView.findViewById(clockId)
             val phoneStatusBarLeftContainer: ViewGroup =
                 MiuiPhoneStatusBarView.findViewById(phoneStatusBarLeftContainerId)
-            val fullscreenNotificationIconArea: ViewGroup =
-                MiuiPhoneStatusBarView.findViewById(fullscreenNotificationIconAreaId)
+            val notificationIconAreaInner: ViewGroup =
+                MiuiPhoneStatusBarView.findViewById(notificationIconAreaInnerId)
             val systemIconArea: ViewGroup =
                 MiuiPhoneStatusBarView.findViewById(systemIconAreaId)
 
-            (Clock.parent as ViewGroup).removeView(Clock)
+            (clock.parent as ViewGroup).removeView(clock)
             (phoneStatusBarLeftContainer.parent as ViewGroup).removeView(
                 phoneStatusBarLeftContainer
             )
-            (fullscreenNotificationIconArea.parent as ViewGroup).removeView(
-                fullscreenNotificationIconArea
+            (notificationIconAreaInner.parent as ViewGroup).removeView(
+                notificationIconAreaInner
             )
             (systemIconArea.parent as ViewGroup).removeView(systemIconArea)
 
@@ -84,14 +85,14 @@ object StatusBarLayout: HookRegister() {
             val mConstraintLayout =
                 ConstraintLayout(context).also { it.layoutParams = mConstraintLayoutLp }
 
-            mConstraintLayout.addView(fullscreenNotificationIconArea)
+            mConstraintLayout.addView(notificationIconAreaInner)
 
-            val fullscreen_notification_icon_area_lp = FrameLayout.LayoutParams(
+            val fullscreen_notification_icon_area_lp = LinearLayout.LayoutParams(
                 ConstraintLayout.LayoutParams.MATCH_PARENT,
                 ConstraintLayout.LayoutParams.MATCH_PARENT
             )
 
-            fullscreenNotificationIconArea.layoutParams = fullscreen_notification_icon_area_lp
+            notificationIconAreaInner.layoutParams = fullscreen_notification_icon_area_lp
 
             //增加一个左对齐布局
             mLeftLayout = LinearLayout(context)
@@ -116,7 +117,7 @@ object StatusBarLayout: HookRegister() {
             mLeftLayout!!.addView(phoneStatusBarLeftContainer)
             mLeftLayout!!.addView(mConstraintLayout)
 
-            mCenterLayout!!.addView(Clock)
+            mCenterLayout!!.addView(clock)
             mRightLayout!!.addView(systemIconArea)
             statusBarContents.addView(mLeftLayout, 0)
             statusBarContents.addView(mCenterLayout)
@@ -151,6 +152,17 @@ object StatusBarLayout: HookRegister() {
                 val context = (it.thisObject as ViewGroup).context
                 updateLayout(context)
             }
+        }
+        val miuiPhoneStatusBarViewClass =
+            "com.android.systemui.statusbar.phone.MiuiPhoneStatusBarView".findClass(getDefaultClassLoader())
+
+        miuiPhoneStatusBarViewClass.hookAfterMethod("updateNotificationIconAreaInnnerParent") {
+            val viewGroup = it.thisObject as ViewGroup
+            val fullscreen_notification_icon_area_lp = FrameLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.MATCH_PARENT
+            )
+            viewGroup.layoutParams = fullscreen_notification_icon_area_lp
         }
     }
 
