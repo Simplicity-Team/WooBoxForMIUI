@@ -5,15 +5,15 @@ import android.widget.TextView
 import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.getObjectField
 import com.lt2333.simplicitytools.util.hookAfterMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.callbacks.XC_LoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
-class BatteryPercentage : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+object BatteryPercentage: HookRegister() {
+
+    override fun init() {
         val size = XSPUtils.getFloat("battery_percentage_font_size", 0f)
         if (size == 0f) return
         "com.android.systemui.statusbar.views.MiuiBatteryMeterView".hookAfterMethod(
-            lpparam.classLoader,
+            getDefaultClassLoader(),
             "updateResources"
         ) {
             (it.thisObject.getObjectField("mBatteryPercentView") as TextView).setTextSize(
@@ -21,4 +21,5 @@ class BatteryPercentage : IXposedHookLoadPackage {
             )
         }
     }
+
 }

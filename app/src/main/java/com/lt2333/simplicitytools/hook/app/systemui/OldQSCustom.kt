@@ -6,12 +6,12 @@ import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.hookAfterMethod
 import com.lt2333.simplicitytools.util.hookBeforeMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XposedHelpers
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class OldQSCustom : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+object OldQSCustom: HookRegister() {
+
+    override fun init() {
         hasEnable("old_qs_custom_switch") {
             val mRows = XSPUtils.getInt("qs_custom_rows", 3)
             val mRowsHorizontal = XSPUtils.getInt("qs_custom_rows_horizontal", 2)
@@ -19,7 +19,7 @@ class OldQSCustom : IXposedHookLoadPackage {
             val mColumnsUnexpanded = XSPUtils.getInt("qs_custom_columns_unexpanded", 5)
 
             "com.android.systemui.qs.MiuiQuickQSPanel".hookBeforeMethod(
-                lpparam.classLoader,
+                getDefaultClassLoader(),
                 "setMaxTiles", Int::class.java
             ) {
                 //未展开时的列数
@@ -27,14 +27,14 @@ class OldQSCustom : IXposedHookLoadPackage {
             }
 
             "com.android.systemui.qs.MiuiTileLayout".hookAfterMethod(
-                lpparam.classLoader,
+                getDefaultClassLoader(),
                 "updateColumns"
             ) {
                 //展开时的列数
                 XposedHelpers.setObjectField(it.thisObject, "mColumns", mColumns)
             }
             "com.android.systemui.qs.MiuiTileLayout".hookAfterMethod(
-                lpparam.classLoader,
+                getDefaultClassLoader(),
                 "updateResources"
             ) {
                 //展开时的行数
@@ -49,4 +49,5 @@ class OldQSCustom : IXposedHookLoadPackage {
             }
         }
     }
+
 }

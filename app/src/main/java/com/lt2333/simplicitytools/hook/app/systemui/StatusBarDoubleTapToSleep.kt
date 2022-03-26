@@ -9,16 +9,16 @@ import android.view.ViewGroup
 import com.lt2333.simplicitytools.util.findClass
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.hookBeforeMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XposedHelpers
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class StatusBarDoubleTapToSleep : IXposedHookLoadPackage {
+object StatusBarDoubleTapToSleep: HookRegister() {
+
     @SuppressLint("ClickableViewAccessibility")
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+    override fun init() {
         hasEnable("status_bar_double_tap_to_sleep") {
             "com.android.systemui.statusbar.phone.MiuiPhoneStatusBarView".findClass(
-                lpparam.classLoader
+                getDefaultClassLoader()
             ).hookBeforeMethod(
                 "onFinishInflate"
             ) {
@@ -65,4 +65,5 @@ class StatusBarDoubleTapToSleep : IXposedHookLoadPackage {
             }
         }
     }
+
 }

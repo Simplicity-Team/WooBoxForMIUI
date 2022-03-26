@@ -7,12 +7,12 @@ import android.widget.TextView
 import com.lt2333.simplicitytools.util.getObjectField
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.hookAfterMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.callbacks.XC_LoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
-class HideBatteryIcon : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        "com.android.systemui.statusbar.views.MiuiBatteryMeterView".hookAfterMethod(lpparam.classLoader, "updateResources") {
+object HideBatteryIcon : HookRegister() {
+
+    override fun init() {
+        "com.android.systemui.statusbar.views.MiuiBatteryMeterView".hookAfterMethod(getDefaultClassLoader(), "updateResources") {
 
             //隐藏电池图标
             hasEnable("hide_battery_icon") {
@@ -32,7 +32,7 @@ class HideBatteryIcon : IXposedHookLoadPackage {
                 (it.thisObject.getObjectField("mBatteryPercentMarkView") as TextView).textSize = 0F
             }
 
-            "com.android.systemui.statusbar.views.MiuiBatteryMeterView".hookAfterMethod(lpparam.classLoader, "updateChargeAndText") {
+            "com.android.systemui.statusbar.views.MiuiBatteryMeterView".hookAfterMethod(getDefaultClassLoader(), "updateChargeAndText") {
                 //隐藏电池充电图标
                 hasEnable("hide_battery_charging_icon") {
                     (it.thisObject.getObjectField("mBatteryChargingInView") as ImageView).visibility = View.GONE
@@ -41,4 +41,5 @@ class HideBatteryIcon : IXposedHookLoadPackage {
             }
         }
     }
+
 }

@@ -2,15 +2,16 @@ package com.lt2333.simplicitytools.hook.app.systemui
 
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.hookBeforeMethod
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.callbacks.XC_LoadPackage
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
-class RemoveTheLeftSideOfTheLockScreen : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        "com.android.keyguard.negative.MiuiKeyguardMoveLeftViewContainer".hookBeforeMethod(lpparam.classLoader, "inflateLeftView") {
+object RemoveTheLeftSideOfTheLockScreen: HookRegister() {
+
+    override fun init() {
+        "com.android.keyguard.negative.MiuiKeyguardMoveLeftViewContainer".hookBeforeMethod(getDefaultClassLoader(), "inflateLeftView") {
             hasEnable("remove_the_left_side_of_the_lock_screen") {
                 it.result = null
             }
         }
     }
+
 }

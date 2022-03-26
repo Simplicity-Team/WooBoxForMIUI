@@ -8,17 +8,17 @@ import android.widget.TextView
 import android.widget.Toast
 import com.github.kyuubiran.ezxhelper.utils.loadClass
 import com.lt2333.simplicitytools.util.*
+import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import com.lt2333.simplicitytools.view.WeatherView
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class OldNotificationWeather : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+object OldNotificationWeather: HookRegister() {
+
+    override fun init() {
         hasEnable("notification_weather") {
             var mWeatherView: TextView? = null
             val isDisplayCity = XSPUtils.getBoolean("notification_weather_city", false)
             "com.android.systemui.qs.MiuiQSHeaderView".hookAfterMethod(
-                lpparam.classLoader,
+                getDefaultClassLoader(),
                 "onFinishInflate"
             ) {
                 val viewGroup = it.thisObject as ViewGroup
@@ -84,7 +84,7 @@ class OldNotificationWeather : IXposedHookLoadPackage {
             }
             //解决横屏重叠
             "com.android.systemui.qs.MiuiQSHeaderView".hookAfterMethod(
-                lpparam.classLoader,
+                getDefaultClassLoader(),
                 "updateLayout"
             ) {
                 val mOritation = it.thisObject.getObjectField("mOrientation") as Int
@@ -96,5 +96,6 @@ class OldNotificationWeather : IXposedHookLoadPackage {
             }
         }
     }
+
 }
 
