@@ -180,9 +180,10 @@
     <string name="can_notification_slide">Hacer que todas las notificaciones puedan deslizarse hacia una ventana pequeña</string>
     <string name="battery_percentage_font_size">Tamaño de la fuente del porcentaje de batería</string>
     <string name="zero_do_no_change">0: sin cambios</string>
-    <string name="big_mobile_type_icon_size">Tamaño del icono del estilo red móvil grande</string>
-    <string name="big_mobile_type_icon_bold">Icono estilo red móvil grande en negrita</string>
+    <string name="big_mobile_type_icon_size">Tamaño del icono red móvil grande</string>
+    <string name="big_mobile_type_icon_bold">Icono red móvil grande en negrita</string>
     <string name="big_mobile_type_icon_up_and_down_position">Posición arriba y abajo del icono red móvil grande</string>
     <string name="input_error">Error de entrada</string>
     <string name="range">Rango: </string>
+    <string name="big_mobile_type_icon_left_and_right_margins">Margen izquierdo y derecho del icono de red móvil grande</string>
 </resources>
