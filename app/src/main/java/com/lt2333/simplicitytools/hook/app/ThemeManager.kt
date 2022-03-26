@@ -12,7 +12,8 @@ object ThemeManager: AppRegister() {
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         XposedBridge.log("Simplicitytools: 成功 Hook "+javaClass.simpleName)
-        //移除主题壁纸的广告
-        RemoveAds().handleLoadPackage(lpparam)
+        autoInitHooks(lpparam,
+            RemoveAds, //移除主题壁纸的广告
+        )
     }
 }
