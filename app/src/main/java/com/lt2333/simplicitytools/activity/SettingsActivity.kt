@@ -666,6 +666,13 @@ class SettingsActivity : MIUIActivity() {
                 )
             )
             add(
+                TextWithSwitchV(
+                    TextV(resId = R.string.status_bar_time_double_line_center_align),
+                    SwitchV("status_bar_time_double_line_center_align"),
+                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                )
+            )
+            add(
                 TextV(
                     resId = R.string.status_bar_clock_size,
                     dataBindingRecv = customClockBinding.binding.getRecv(2)

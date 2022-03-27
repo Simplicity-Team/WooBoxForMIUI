@@ -2,21 +2,23 @@ package com.lt2333.simplicitytools.hook.app.systemui
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.Resources
+import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
 import android.util.AttributeSet
 import android.util.TypedValue
+import android.view.Gravity
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
-import com.lt2333.simplicitytools.util.XSPUtils
-import com.lt2333.simplicitytools.util.findClass
-import com.lt2333.simplicitytools.util.hookAfterConstructor
-import com.lt2333.simplicitytools.util.hookAfterMethod
+import com.lt2333.simplicitytools.util.*
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import java.lang.reflect.Method
 import java.text.SimpleDateFormat
 import java.util.*
 
-object StatusBarTimeCustomization: HookRegister() {
+object StatusBarTimeCustomization : HookRegister() {
 
     private val isYear = XSPUtils.getBoolean("status_bar_time_year", false)
     private val isMonth = XSPUtils.getBoolean("status_bar_time_month", false)
@@ -29,6 +31,8 @@ object StatusBarTimeCustomization: HookRegister() {
     private val isPeriod = XSPUtils.getBoolean("status_bar_time_period", true)
     private val getClockSize = XSPUtils.getInt("status_bar_clock_size", 0)
     private val isOpen = XSPUtils.getBoolean("custom_clock_switch", false)
+    private val isCenterAlign =
+        XSPUtils.getBoolean("status_bar_time_double_line_center_align", false)
     private val getClockDoubleSize = XSPUtils.getInt("status_bar_clock_double_line_size", 0)
     private var nowTime: Date? = null
     private var str = ""
@@ -68,6 +72,7 @@ object StatusBarTimeCustomization: HookRegister() {
                         d.isAccessible = true
                         d.invoke(textV)
                     }
+
                     class T : TimerTask() {
                         override fun run() {
                             Handler(textV.context.mainLooper).post(r)
@@ -90,6 +95,24 @@ object StatusBarTimeCustomization: HookRegister() {
                         textV.text = getDate(c!!) + str + getTime(c!!, is24)
                     }
                 } catch (e: Exception) {
+                }
+            }
+            if (isCenterAlign) {
+                val collapsedStatusBarFragmentClass =
+                    "com.android.systemui.statusbar.phone.CollapsedStatusBarFragment".findClass(
+                        getDefaultClassLoader()
+                    )
+                collapsedStatusBarFragmentClass.hookAfterMethod(
+                    "onViewCreated",
+                    View::class.java,
+                    Bundle::class.java
+                ) {
+                    val MiuiPhoneStatusBarView: ViewGroup =
+                        it.thisObject.getObjectField("mStatusBar") as ViewGroup
+                    val res: Resources = MiuiPhoneStatusBarView.resources
+                    val clockId: Int = res.getIdentifier("clock", "id", "com.android.systemui")
+                    val clock: TextView = MiuiPhoneStatusBarView.findViewById(clockId)
+                    clock.gravity = Gravity.CENTER_HORIZONTAL
                 }
             }
         }
