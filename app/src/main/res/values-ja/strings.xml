@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="performance">パフォーマンス設定</string>
     <string name="lock_max_fps">現在のリフレッシュレート上限をロック</string>
     <string name="ui">インタフェース</string>
     <string name="delete_on_post_notification">「他のアプリの上に表示」通知を削除</string>
@@ -47,7 +46,6 @@
     <string name="hide_status_bar_network_speed_second">ネットワーク速度の単位(/s)を隠す</string>
     <string name="menu">メニュー</string>
     <string name="Tips">注意事項</string>
-    <string name="skip_waiting_time">5/10秒間の警告時間をスキップ</string>
     <string name="unlock_unlimited_cropping">写真・スクリーンショットをトリミングする際の制限を解除する</string>
     <string name="hide_slave_wifi_icon">Wi-Fiセカンダリアイコンを隠す</string>
     <string name="HideLauncherIcon">ランチャーアイコンを隠す</string>
@@ -154,8 +152,6 @@
     <string name="participate_in_translation_summary">翻訳を手伝ってください！</string>
     <string name="lock_screen_charging_current">充電中に現在の情報を表示</string>
     <string name="current_current">現在</string>
-    <string name="remove_open_app_confirmation_popup">アプリポップアップを削除</string>
-    <string name="remove_open_app_confirmation_popup_summary">「外部アプリを開く」ポップアップを削除します</string>
     <string name="hide_volume_icon">音量アイコンを非表示</string>
     <string name="hide_zen_icon">ZENアイコンを隠す</string>
     <string name="hide_icon">アイコンを隠す</string>
