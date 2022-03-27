@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="performance">Производительность</string>
     <string name="lock_max_fps">Зафиксировать текущую частоту обновления</string>
     <string name="ui">Интерфейс</string>
     <string name="delete_on_post_notification">Удалить уведомление наложения</string>
@@ -47,7 +46,6 @@
     <string name="hide_status_bar_network_speed_second">Скрыть единицы измерения скорости сети</string>
     <string name="menu">Варианты перезагрузки</string>
     <string name="Tips">Подсказка</string>
-    <string name="skip_waiting_time">Пропустить 5/10 секундное время предупреждения</string>
     <string name="unlock_unlimited_cropping">Снять ограничение на обрезку изображений/скриншотов</string>
     <string name="hide_slave_wifi_icon">Скрыть вторичный wifi</string>
     <string name="HideLauncherIcon">Скрыть иконку с рабочего стола</string>
@@ -158,8 +156,6 @@
     <string name="participate_in_translation_summary">Помогите нам перевести приложение на ваш язык</string>
     <string name="lock_screen_charging_current">Показывать ток при зарядке на экране блокировки</string>
     <string name="current_current">Текущее</string>
-    <string name="remove_open_app_confirmation_popup">Удалить всплывающее окно открытия приложения</string>
-    <string name="remove_open_app_confirmation_popup_summary">Удалить уведомление цепного запуска</string>
     <string name="hide_volume_icon">Скрыть иконку без звука</string>
     <string name="hide_zen_icon">Скрыть иконку не беспокоить</string>
     <string name="hide_icon">Скрытие иконок строки состояния</string>
