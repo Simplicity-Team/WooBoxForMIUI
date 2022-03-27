@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="performance">Perfoma</string>
     <string name="lock_max_fps">Kunci batas atas kecepatan refresh layar saat ini</string>
     <string name="ui">Tampilan</string>
     <string name="delete_on_post_notification">Hapus tampilan di atas notifikasi</string>
@@ -47,7 +46,6 @@
     <string name="hide_status_bar_network_speed_second">Sembunyikan unit kecepatan jaringan (/d)</string>
     <string name="menu">Menu</string>
     <string name="Tips">Tips</string>
-    <string name="skip_waiting_time">Lewati 5/10 waktu peringatan</string>
     <string name="unlock_unlimited_cropping">Hilangkan pembatasan untuk memotong gambar/cuplikan layar</string>
     <string name="hide_slave_wifi_icon">Sembunyikan ikon WIFI tambahan</string>
     <string name="HideLauncherIcon">Sembunyikan ikon launcher</string>
@@ -154,8 +152,6 @@
     <string name="participate_in_translation_summary">Bantu kami menerjemahkan aplikasi ke dalam bahasa Anda</string>
     <string name="lock_screen_charging_current">Tampilkan informasi pengisian saat mengecas</string>
     <string name="current_current">Pengisian</string>
-    <string name="remove_open_app_confirmation_popup">hilangkan pop-up aplikasi saat membukanya</string>
-    <string name="remove_open_app_confirmation_popup_summary">hilangkan \"Bolehkan XXX untuk membuka XXX\" pintasan rantai muncul pop-up</string>
     <string name="hide_volume_icon">Sembunyikan ikon suara</string>
     <string name="hide_zen_icon">Sembunyikan ikon ZEN (MIUI China)</string>
     <string name="hide_icon">Sembunyikan ikon</string>
