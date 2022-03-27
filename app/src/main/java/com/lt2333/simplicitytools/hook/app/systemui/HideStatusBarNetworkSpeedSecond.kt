@@ -15,6 +15,7 @@ object HideStatusBarNetworkSpeedSecond: HookRegister() {
                         .replace("/", "")
                         .replace("s", "")
                         .replace("'", "")
+                        .replace("วิ", "")
                 }
             }
         }
