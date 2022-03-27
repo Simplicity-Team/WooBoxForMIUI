@@ -187,4 +187,6 @@
     <string name="range">范围：</string>
     <string name="big_mobile_type_icon_left_and_right_margins">大移动类型图标左右边距</string>
     <string name="cast">投屏</string>
+    <string name="force_support_send_app">强制所有应用支持在另一个设备打开</string>
+    <string name="status_bar_time_double_line_center_align">双排居中对齐</string>
 </resources>
