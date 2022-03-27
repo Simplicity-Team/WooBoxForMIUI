@@ -187,4 +187,8 @@
     <string name="range">Rango: </string>
     <string name="big_mobile_type_icon_left_and_right_margins">Margen izquierdo y derecho del icono de red móvil grande</string>
     <string name="cast">Transmitir</string>
+    <string name="default1">Por defecto</string>
+    <string name="clock_center">Reloj centrado</string>
+    <string name="clock_right">Reloj a la derecha</string>
+    <string name="status_bar_layout_mode">Modo de diseño de barra de estado</string>
 </resources>
