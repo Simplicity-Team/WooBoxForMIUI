@@ -517,7 +517,7 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("status_bar_time_center")
                 )
             )
-            val layout_compatibility_mode_binding = getDataBinding(
+            val layoutCompatibilityModeBinding = getDataBinding(
                 SPUtils.getBoolean(
                     activity,
                     "layout_compatibility_mode",
@@ -537,7 +537,7 @@ class SettingsActivity : MIUIActivity() {
                     ),
                     SwitchV(
                         "layout_compatibility_mode",
-                        dataBindingSend = layout_compatibility_mode_binding.bindingSend
+                        dataBindingSend = layoutCompatibilityModeBinding.bindingSend
                     )
                 )
             )
@@ -546,7 +546,7 @@ class SettingsActivity : MIUIActivity() {
             add(
                 TextV(
                     resId = R.string.left_margin,
-                    dataBindingRecv = layout_compatibility_mode_binding.binding.getRecv(2)
+                    dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
                 )
             )
             add(
@@ -555,14 +555,14 @@ class SettingsActivity : MIUIActivity() {
                     0,
                     300,
                     0,
-                    dataBindingRecv = layout_compatibility_mode_binding.binding.getRecv(2)
+                    dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
                 )
             )
 
             add(
                 TextV(
                     resId = R.string.right_margin,
-                    dataBindingRecv = layout_compatibility_mode_binding.binding.getRecv(2)
+                    dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
                 )
             )
             add(
@@ -571,7 +571,7 @@ class SettingsActivity : MIUIActivity() {
                     0,
                     300,
                     0,
-                    dataBindingRecv = layout_compatibility_mode_binding.binding.getRecv(2)
+                    dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
                 )
             )
 
@@ -579,7 +579,7 @@ class SettingsActivity : MIUIActivity() {
             add(LineV())
             add(TitleTextV(resId = R.string.status_bar_clock_format))
 
-            val custom_clock_binding = getDataBinding(
+            val customClockBinding = getDataBinding(
                 SPUtils.getBoolean(
                     activity,
                     "custom_clock_switch",
@@ -598,7 +598,7 @@ class SettingsActivity : MIUIActivity() {
                     TextV(resId = R.string.custom_clock_switch, colorId = R.color.purple_700),
                     SwitchV(
                         "custom_clock_switch",
-                        dataBindingSend = custom_clock_binding.bindingSend
+                        dataBindingSend = customClockBinding.bindingSend
                     )
                 )
             )
@@ -606,87 +606,87 @@ class SettingsActivity : MIUIActivity() {
                 TextWithSwitchV(
                     TextV(resId = R.string.status_bar_time_year),
                     SwitchV("status_bar_time_year"),
-                    dataBindingRecv = custom_clock_binding.binding.getRecv(2)
+                    dataBindingRecv = customClockBinding.binding.getRecv(2)
                 )
             )
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.status_bar_time_month),
                     SwitchV("status_bar_time_month"),
-                    dataBindingRecv = custom_clock_binding.binding.getRecv(2)
+                    dataBindingRecv = customClockBinding.binding.getRecv(2)
                 )
             )
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.status_bar_time_day),
                     SwitchV("status_bar_time_day"),
-                    dataBindingRecv = custom_clock_binding.binding.getRecv(2)
+                    dataBindingRecv = customClockBinding.binding.getRecv(2)
                 )
             )
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.status_bar_time_week),
                     SwitchV("status_bar_time_week"),
-                    dataBindingRecv = custom_clock_binding.binding.getRecv(2)
+                    dataBindingRecv = customClockBinding.binding.getRecv(2)
                 )
             )
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.status_bar_time_double_hour),
                     SwitchV("status_bar_time_double_hour"),
-                    dataBindingRecv = custom_clock_binding.binding.getRecv(2)
+                    dataBindingRecv = customClockBinding.binding.getRecv(2)
                 )
             )
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.status_bar_time_period),
                     SwitchV("status_bar_time_period", true),
-                    dataBindingRecv = custom_clock_binding.binding.getRecv(2)
+                    dataBindingRecv = customClockBinding.binding.getRecv(2)
                 )
             )
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.status_bar_time_seconds),
                     SwitchV("status_bar_time_seconds"),
-                    dataBindingRecv = custom_clock_binding.binding.getRecv(2)
+                    dataBindingRecv = customClockBinding.binding.getRecv(2)
                 )
             )
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.status_bar_time_hide_space),
                     SwitchV("status_bar_time_hide_space"),
-                    dataBindingRecv = custom_clock_binding.binding.getRecv(2)
+                    dataBindingRecv = customClockBinding.binding.getRecv(2)
                 )
             )
             add(
                 TextWithSwitchV(
                     TextV(resId = R.string.status_bar_time_double_line),
                     SwitchV("status_bar_time_double_line"),
-                    dataBindingRecv = custom_clock_binding.binding.getRecv(2)
+                    dataBindingRecv = customClockBinding.binding.getRecv(2)
                 )
             )
             add(
                 TextV(
                     resId = R.string.status_bar_clock_size,
-                    dataBindingRecv = custom_clock_binding.binding.getRecv(2)
+                    dataBindingRecv = customClockBinding.binding.getRecv(2)
                 )
             )
             add(
                 SeekBarWithTextV(
                     "status_bar_clock_size", 0, 18, 0,
-                    dataBindingRecv = custom_clock_binding.binding.getRecv(2)
+                    dataBindingRecv = customClockBinding.binding.getRecv(2)
                 )
             )
             add(
                 TextV(
                     resId = R.string.status_bar_clock_double_line_size,
-                    dataBindingRecv = custom_clock_binding.binding.getRecv(2)
+                    dataBindingRecv = customClockBinding.binding.getRecv(2)
                 )
             )
             add(
                 SeekBarWithTextV(
                     "status_bar_clock_double_line_size", 0, 9, 0,
-                    dataBindingRecv = custom_clock_binding.binding.getRecv(2)
+                    dataBindingRecv = customClockBinding.binding.getRecv(2)
                 )
             )
 
@@ -700,7 +700,7 @@ class SettingsActivity : MIUIActivity() {
                     )
                 )
             )
-            val big_mobile_type_icon_binding = getDataBinding(
+            val bigMobileTypeIconBinding = getDataBinding(
                 SPUtils.getBoolean(
                     activity,
                     "big_mobile_type_icon",
@@ -719,7 +719,7 @@ class SettingsActivity : MIUIActivity() {
                     ),
                     SwitchV(
                         "big_mobile_type_icon",
-                        dataBindingSend = big_mobile_type_icon_binding.bindingSend
+                        dataBindingSend = bigMobileTypeIconBinding.bindingSend
                     )
                 )
             )
@@ -729,7 +729,7 @@ class SettingsActivity : MIUIActivity() {
                         textId = R.string.big_mobile_type_icon_bold
                     ),
                     SwitchV("big_mobile_type_icon_bold", true),
-                    dataBindingRecv = big_mobile_type_icon_binding.binding.getRecv(2)
+                    dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
                 )
             )
             add(
@@ -765,7 +765,7 @@ class SettingsActivity : MIUIActivity() {
                                 }
                                 show()
                             }
-                        }), dataBindingRecv = big_mobile_type_icon_binding.binding.getRecv(2)
+                        }), dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
                 )
             )
             add(
@@ -814,7 +814,7 @@ class SettingsActivity : MIUIActivity() {
                             }
                             show()
                         }
-                    }, dataBindingRecv = big_mobile_type_icon_binding.binding.getRecv(2)
+                    }, dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
                 )
             )
             add(
@@ -863,7 +863,7 @@ class SettingsActivity : MIUIActivity() {
                             }
                             show()
                         }
-                    }, dataBindingRecv = big_mobile_type_icon_binding.binding.getRecv(2)
+                    }, dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
                 )
             )
             add(
@@ -948,7 +948,7 @@ class SettingsActivity : MIUIActivity() {
                 )
             )
 
-            val status_bar_dual_row_network_speed_binding = getDataBinding(
+            val statusBarDualRowNetworkSpeedBinding = getDataBinding(
                 SPUtils.getBoolean(
                     activity,
                     "status_bar_dual_row_network_speed",
@@ -968,7 +968,7 @@ class SettingsActivity : MIUIActivity() {
                     ),
                     SwitchV(
                         "status_bar_dual_row_network_speed",
-                        dataBindingSend = status_bar_dual_row_network_speed_binding.bindingSend
+                        dataBindingSend = statusBarDualRowNetworkSpeedBinding.bindingSend
                     )
                 )
             )
@@ -1003,7 +1003,7 @@ class SettingsActivity : MIUIActivity() {
                             0
                         )].toString()
                     ),
-                    dataBindingRecv = status_bar_dual_row_network_speed_binding.binding.getRecv(2)
+                    dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
                 )
             )
             add(
@@ -1045,13 +1045,13 @@ class SettingsActivity : MIUIActivity() {
                             )
                         }"
                     ),
-                    dataBindingRecv = status_bar_dual_row_network_speed_binding.binding.getRecv(2)
+                    dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
                 )
             )
             add(
                 TextV(
                     resId = R.string.status_bar_network_speed_dual_row_size,
-                    dataBindingRecv = status_bar_dual_row_network_speed_binding.binding.getRecv(2)
+                    dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
                 )
             )
             add(
@@ -1060,14 +1060,14 @@ class SettingsActivity : MIUIActivity() {
                     0,
                     9,
                     0,
-                    dataBindingRecv = status_bar_dual_row_network_speed_binding.binding.getRecv(2)
+                    dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
                 )
             )
 
 
             add(LineV())
             add(TitleTextV(resId = R.string.notification_center))
-            val show_weather_main_switch_binding = getDataBinding(
+            val showWeatherMainSwitchBinding = getDataBinding(
                 SPUtils.getBoolean(
                     activity,
                     "notification_weather",
@@ -1086,7 +1086,7 @@ class SettingsActivity : MIUIActivity() {
                     ),
                     SwitchV(
                         "notification_weather",
-                        dataBindingSend = show_weather_main_switch_binding.bindingSend
+                        dataBindingSend = showWeatherMainSwitchBinding.bindingSend
                     )
                 )
             )
@@ -1096,14 +1096,14 @@ class SettingsActivity : MIUIActivity() {
                         textId = R.string.show_city,
                     ),
                     SwitchV("notification_weather_city"),
-                    dataBindingRecv = show_weather_main_switch_binding.binding.getRecv(2)
+                    dataBindingRecv = showWeatherMainSwitchBinding.binding.getRecv(2)
                 )
             )
 
 
             add(LineV())
             add(TitleTextV(resId = R.string.control_center))
-            val control_center_weather_binding = getDataBinding(
+            val controlCenterWeatherBinding = getDataBinding(
                 SPUtils.getBoolean(
                     activity,
                     "control_center_weather",
@@ -1124,7 +1124,7 @@ class SettingsActivity : MIUIActivity() {
                     ),
                     SwitchV(
                         "control_center_weather",
-                        dataBindingSend = control_center_weather_binding.bindingSend
+                        dataBindingSend = controlCenterWeatherBinding.bindingSend
                     )
                 )
             )
@@ -1134,7 +1134,7 @@ class SettingsActivity : MIUIActivity() {
                         textId = R.string.show_city,
                     ),
                     SwitchV("control_center_weather_city"),
-                    dataBindingRecv = control_center_weather_binding.binding.getRecv(2)
+                    dataBindingRecv = controlCenterWeatherBinding.binding.getRecv(2)
                 )
             )
 
@@ -1186,7 +1186,7 @@ class SettingsActivity : MIUIActivity() {
 
             add(LineV())
             add(TitleTextV(resId = R.string.old_quick_settings_panel))
-            val old_qs_custom_switch_binding = getDataBinding(
+            val oldQSCustomSwitchBinding = getDataBinding(
                 SPUtils.getBoolean(
                     activity,
                     "old_qs_custom_switch",
@@ -1206,7 +1206,7 @@ class SettingsActivity : MIUIActivity() {
                     ),
                     SwitchV(
                         "old_qs_custom_switch",
-                        dataBindingSend = old_qs_custom_switch_binding.bindingSend
+                        dataBindingSend = oldQSCustomSwitchBinding.bindingSend
                     )
                 )
             )
@@ -1214,7 +1214,7 @@ class SettingsActivity : MIUIActivity() {
             add(
                 TextV(
                     resId = R.string.qs_custom_rows,
-                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                    dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
             )
             add(
@@ -1223,7 +1223,7 @@ class SettingsActivity : MIUIActivity() {
                     1,
                     6,
                     3,
-                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                    dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
             )
 
@@ -1231,7 +1231,7 @@ class SettingsActivity : MIUIActivity() {
             add(
                 TextV(
                     resId = R.string.qs_custom_rows_horizontal,
-                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                    dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
             )
             add(
@@ -1240,14 +1240,14 @@ class SettingsActivity : MIUIActivity() {
                     1,
                     3,
                     2,
-                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                    dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
             )
 
             add(
                 TextV(
                     resId = R.string.qs_custom_columns,
-                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                    dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
             )
             add(
@@ -1256,13 +1256,13 @@ class SettingsActivity : MIUIActivity() {
                     1,
                     7,
                     4,
-                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                    dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
             )
             add(
                 TextV(
                     resId = R.string.qs_custom_columns_unexpanded,
-                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                    dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
             )
             add(
@@ -1271,7 +1271,7 @@ class SettingsActivity : MIUIActivity() {
                     1,
                     7,
                     5,
-                    dataBindingRecv = old_qs_custom_switch_binding.binding.getRecv(2)
+                    dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
             )
         }
