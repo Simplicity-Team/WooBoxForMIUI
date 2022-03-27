@@ -190,4 +190,8 @@
     <string name="cast">Yayınlama</string>
     <string name="force_support_send_app">Tüm uygulama desteğini başka bir cihazda açmaya zorla</string>
     <string name="status_bar_time_double_line_center_align">Çift sıralı merkez hizalama</string>
+    <string name="default1">Varsayılan </string>
+    <string name="clock_center">Merkezi saat</string>
+    <string name="clock_right">Saat Sağ</string>
+    <string name="status_bar_layout_mode">Durum çubuğu düzeni modu</string>
 </resources>
