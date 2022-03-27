@@ -182,4 +182,7 @@
     <string name="zero_do_no_change">0: nu se modifică</string>
     <string name="big_mobile_type_icon_size">Dimensiune pictogramă tip mobil mare</string>
     <string name="big_mobile_type_icon_bold">Pictogramă tip mobil mare îngroșată</string>
+    <string name="input_error">Eroare de intrare</string>
+    <string name="range">Interval: </string>
+    <string name="cast">Proiectare</string>
 </resources>
