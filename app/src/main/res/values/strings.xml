@@ -190,4 +190,6 @@
     <string name="input_error">Input error</string>
     <string name="range">Range: </string>
     <string name="big_mobile_type_icon_left_and_right_margins">Big mobile type icon left and right margins</string>
+    <string name="cast">Cast</string>
+    <string name="force_support_send_app">Force all apps support Handoff</string>
 </resources>

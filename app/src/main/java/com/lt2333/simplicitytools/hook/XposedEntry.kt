@@ -22,6 +22,7 @@ class XposedEntry: EasyXposedInit() {
         Settings, // 设置
         ThemeManager, // 主题壁纸
         ScreenShot, // 截屏
+        Cast, //投屏
     )
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?) {
