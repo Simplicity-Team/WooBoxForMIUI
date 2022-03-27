@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="performance">Rendimiento</string>
     <string name="lock_max_fps">Bloquear la tasa actual de refresco por arriba del límite</string>
     <string name="ui">Interfaz</string>
     <string name="delete_on_post_notification">Eliminar notificación de mostrar encima</string>
@@ -46,6 +47,7 @@
     <string name="hide_status_bar_network_speed_second">Ocultar unidad (/s) en velocidad de red</string>
     <string name="menu">Menú</string>
     <string name="Tips">Consejos</string>
+    <string name="skip_waiting_time">Saltar tiempo de advertencia de 5/10 segundos</string>
     <string name="unlock_unlimited_cropping">Elimina la restricción de recorte en imágenes/capturas de pantalla</string>
     <string name="hide_slave_wifi_icon">Ocultar icono de WIFI secundario</string>
     <string name="HideLauncherIcon">Esconder el icono del Launcher</string>
@@ -152,6 +154,8 @@
     <string name="participate_in_translation_summary">Ayúdanos a traducir la app en tu idioma</string>
     <string name="lock_screen_charging_current">Mostrar la información de corriente durante la carga</string>
     <string name="current_current">Corriente de carga</string>
+    <string name="remove_open_app_confirmation_popup">Remover popup de inicio en cadena</string>
+    <string name="remove_open_app_confirmation_popup_summary">Eliminar ventana de inicio en cadena \"Permitir XXX abrir XXX\"</string>
     <string name="hide_volume_icon">Ocultar icono de volumen</string>
     <string name="hide_zen_icon">Ocultar icono ZEN</string>
     <string name="hide_icon">Ocultar Iconos</string>
@@ -183,6 +187,8 @@
     <string name="range">Rango: </string>
     <string name="big_mobile_type_icon_left_and_right_margins">Margen izquierdo y derecho del icono de red móvil grande</string>
     <string name="cast">Transmitir</string>
+    <string name="force_support_send_app">Forzar que todas las apps soporten abrir en otro dispositivo</string>
+    <string name="status_bar_time_double_line_center_align">Alinear al centro fila dual</string>
     <string name="default1">Por defecto</string>
     <string name="clock_center">Reloj centrado</string>
     <string name="clock_right">Reloj a la derecha</string>
