@@ -190,4 +190,6 @@
     <string name="input_error">Ошибка ввода</string>
     <string name="range">Диапазон: </string>
     <string name="big_mobile_type_icon_left_and_right_margins">Положение типа сети по горизонтали</string>
+    <string name="cast">Трансляция</string>
+    <string name="force_support_send_app">Принудительно включить передачу всех приложений</string>
 </resources>
