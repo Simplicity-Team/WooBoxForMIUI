@@ -112,7 +112,7 @@ object StatusBarTimeCustomization : HookRegister() {
                     val res: Resources = MiuiPhoneStatusBarView.resources
                     val clockId: Int = res.getIdentifier("clock", "id", "com.android.systemui")
                     val clock: TextView = MiuiPhoneStatusBarView.findViewById(clockId)
-                    clock.gravity = Gravity.CENTER_HORIZONTAL
+                    clock.gravity = Gravity.CENTER
                 }
             }
         }
