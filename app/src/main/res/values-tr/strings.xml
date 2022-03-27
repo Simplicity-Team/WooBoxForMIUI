@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="performance">Performans </string>
     <string name="lock_max_fps">Geçerli yenileme hızı üst sınırını kilitle</string>
     <string name="ui">Arayüz </string>
     <string name="delete_on_post_notification">Bildirim üzerinden ekranı kaldır</string>
@@ -47,6 +48,7 @@
     <string name="hide_status_bar_network_speed_second">Ağ hızı (/s) birimlerini gizle</string>
     <string name="menu">Menü</string>
     <string name="Tips">İpuçları</string>
+    <string name="skip_waiting_time">5/10 saniye uyarı süresini atla</string>
     <string name="unlock_unlimited_cropping">Resimleri/ekran görüntülerini kırpma kısıtlamasını kaldırın</string>
     <string name="hide_slave_wifi_icon">WIFI ikincil simgesini gizle</string>
     <string name="HideLauncherIcon">Başlatıcı simgesini gizle</string>
@@ -153,6 +155,8 @@
     <string name="participate_in_translation_summary">Uygulamayı kendi dilinize çevirmemize yardımcı olun</string>
     <string name="lock_screen_charging_current">Şarj sırasında mevcut bilgileri görüntüleyin</string>
     <string name="current_current">Akım </string>
+    <string name="remove_open_app_confirmation_popup">Açık uygulama açılır penceresini kaldır</string>
+    <string name="remove_open_app_confirmation_popup_summary">\"XXX\'in XXX\'i açmasına izin ver\" Zincir başlatma açılır penceresini kaldırın</string>
     <string name="hide_volume_icon">Ses Düzeyi simgesini gizle</string>
     <string name="hide_zen_icon">ZEN simgesini gizle</string>
     <string name="hide_icon">Simgeyi gizle</string>
