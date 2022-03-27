@@ -44,7 +44,9 @@ Xposed Repo：[Click here to download the latest release](https://github.com/Xpo
 ##### GNU General Public License v2.0
 [LSPosed/CorePatch](https://github.com/LSPosed/CorePatch)  
 ##### GNU Lesser General Public License v2.1
-[577fkj/blockmiui](https://github.com/577fkj/blockmiui)  
+[577fkj/blockmiui](https://github.com/577fkj/blockmiui)
+##### Apache License 2.0
+[KyuubiRan/EzXHelper](https://github.com/KyuubiRan/EzXHelper)
 
 ---
 

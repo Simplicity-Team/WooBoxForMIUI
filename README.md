@@ -48,6 +48,8 @@ Xposed仓库下载：[点击此处下载最新发行版](https://github.com/Xpos
 [LSPosed/CorePatch](https://github.com/LSPosed/CorePatch)  
 ##### GNU Lesser General Public License v2.1
 [577fkj/blockmiui](https://github.com/577fkj/blockmiui)  
+##### Apache License 2.0
+[KyuubiRan/EzXHelper](https://github.com/KyuubiRan/EzXHelper)  
 
 ---
 
