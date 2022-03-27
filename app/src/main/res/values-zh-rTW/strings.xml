@@ -186,4 +186,7 @@
     <string name="input_error">輸入錯誤</string>
     <string name="range">範圍：</string>
     <string name="big_mobile_type_icon_left_and_right_margins">大行動網路圖示左右邊距</string>
+    <string name="cast">投影</string>
+    <string name="force_support_send_app">強制所有應用支援在另一個裝置開啟</string>
+    <string name="status_bar_time_double_line_center_align">雙排居中對齊</string>
 </resources>
