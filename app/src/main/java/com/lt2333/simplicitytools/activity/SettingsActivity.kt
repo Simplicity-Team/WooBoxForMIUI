@@ -194,7 +194,8 @@ class SettingsActivity : MIUIActivity() {
                                     "killall com.miui.powerkeeper",
                                     "killall com.android.updater",
                                     "killall com.miui.mediaeditor",
-                                    "killall com.miui.screenshot"
+                                    "killall com.miui.screenshot",
+                                    "killall com.milink.service"
                                 )
                                 ShellUtils.execCommand(command, true)
                                 dismiss()
@@ -1417,6 +1418,16 @@ class SettingsActivity : MIUIActivity() {
                         tipsId = R.string.show_notification_importance_summary
                     ),
                     SwitchV("show_notification_importance")
+                )
+            )
+            add(LineV())
+            add(TitleTextV(resId = R.string.cast))
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.force_support_send_app,
+                    ),
+                    SwitchV("force_support_send_app")
                 )
             )
             add(LineV())
