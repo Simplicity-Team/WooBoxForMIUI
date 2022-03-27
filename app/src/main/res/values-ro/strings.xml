@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="performance">Performanță</string>
     <string name="lock_max_fps">Blochează limita superioară a ratei de împrospătare curentă</string>
     <string name="ui">Interfață</string>
     <string name="delete_on_post_notification">Elimină notificarea Afișare peste</string>
@@ -47,7 +46,6 @@
     <string name="hide_status_bar_network_speed_second">Ascunde unitățile de viteză a rețelei (/s)</string>
     <string name="menu">Meniu</string>
     <string name="Tips">Sfaturi</string>
-    <string name="skip_waiting_time">Omite timpul de avertizare de 5/10 secunde</string>
     <string name="unlock_unlimited_cropping">Elimină restricția la decuparea fotografiilor/capturilor de ecran</string>
     <string name="hide_slave_wifi_icon">Ascunde pictograma secundară WIFI</string>
     <string name="HideLauncherIcon">Ascunde pictograma în lansator</string>
@@ -154,8 +152,6 @@
     <string name="participate_in_translation_summary">Ajută-ne să traducem aplicația</string>
     <string name="lock_screen_charging_current">Afișare informații despre curent în timpul încărcării</string>
     <string name="current_current">Curent</string>
-    <string name="remove_open_app_confirmation_popup">Elimină fereastra pop-up a aplicației deschise</string>
-    <string name="remove_open_app_confirmation_popup_summary">Elimină mesajul \"Permite XXX să deschidă XXX\" în lanț</string>
     <string name="hide_volume_icon">Ascunde pictograma volum</string>
     <string name="hide_zen_icon">Ascunde pictograma ZEN</string>
     <string name="hide_icon">Ascundere pictograme</string>
