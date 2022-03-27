@@ -24,6 +24,9 @@
     <string name="hide_alarm_icon">Ẩn biểu tượng Báo thức</string>
     <string name="hide_hotspot_icon">Ẩn biểu tượng Điểm phát sóng di động</string>
     <string name="hide_headset_icon">Ẩn biểu tượng tai nghe</string>
+    <string name="hide_big_hd_icon">Ẩn biểu tượng mạng HD lớn</string>
+    <string name="hide_small_hd_icon">Ẩn biểu tượng mạng HD nhỏ</string>
+    <string name="hide_hd_no_service_icon">Ẩn biểu tượng không có dịch vụ</string>
     <string name="about">Giới thiệu</string>
     <string name="about_module">Về Module</string>
     <string name="verison">Phiên bản</string>
@@ -50,7 +53,9 @@
     <string name="status_bar_clock_format">Định dạng đồng hồ trên thanh trạng thái</string>
     <string name="status_bar_time_year">Hiển thị năm</string>
     <string name="status_bar_time_month">Hiển thị tháng</string>
+    <string name="status_bar_time_day">Hiện thị ngày</string>
     <string name="status_bar_time_week">Hiển thị ngày</string>
+    <string name="status_bar_time_hide_space">Không có khoảng cách</string>
     <string name="allow_screenshots">Cho phép chụp màn hình</string>
     <string name="lock_max">Khoá giới hạn hiện tại</string>
     <string name="custom_clock_switch">Công Tắc Đồng Hồ Tuỳ Chỉnh</string>
