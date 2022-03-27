@@ -186,4 +186,5 @@
     <string name="input_error">Error de entrada</string>
     <string name="range">Rango: </string>
     <string name="big_mobile_type_icon_left_and_right_margins">Margen izquierdo y derecho del icono de red móvil grande</string>
+    <string name="cast">Transmitir</string>
 </resources>
