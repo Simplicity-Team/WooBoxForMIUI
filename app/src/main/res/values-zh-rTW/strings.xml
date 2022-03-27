@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="performance">表現</string>
     <string name="lock_max_fps">鎖定螢幕更新率上限</string>
     <string name="ui">介面</string>
     <string name="delete_on_post_notification">移除上層顯示通知</string>
@@ -47,7 +46,6 @@
     <string name="hide_status_bar_network_speed_second">隱藏網速（/s）單位</string>
     <string name="menu">選單</string>
     <string name="Tips">提示</string>
-    <string name="skip_waiting_time">跳過 5/10 秒警告時間</string>
     <string name="unlock_unlimited_cropping">移除裁剪圖片/螢幕截圖的限制</string>
     <string name="hide_slave_wifi_icon">隱藏 WIFI輔助 圖示</string>
     <string name="HideLauncherIcon">隱藏桌面圖示</string>
@@ -154,8 +152,6 @@
     <string name="participate_in_translation_summary">幫助我們將這個APP翻譯成您的語言</string>
     <string name="lock_screen_charging_current">充電時顯示目前電流</string>
     <string name="current_current">目前電流</string>
-    <string name="remove_open_app_confirmation_popup">移除打開應用彈出視窗</string>
-    <string name="remove_open_app_confirmation_popup_summary">移除 \"XXX 想要打開 XXX\" 的彈出視窗 。</string>
     <string name="hide_volume_icon">隱藏 音量 圖示</string>
     <string name="hide_zen_icon">隱藏 勿擾 圖示</string>
     <string name="hide_icon">隱藏圖示</string>
