@@ -187,4 +187,7 @@
     <string name="input_error">Giriş hatası</string>
     <string name="range">Menzil:</string>
     <string name="big_mobile_type_icon_left_and_right_margins">Büyük mobil tip simgesi sol ve sağ kenar boşlukları</string>
+    <string name="cast">Yayınlama</string>
+    <string name="force_support_send_app">Tüm uygulama desteğini başka bir cihazda açmaya zorla</string>
+    <string name="status_bar_time_double_line_center_align">Çift sıralı merkez hizalama</string>
 </resources>
