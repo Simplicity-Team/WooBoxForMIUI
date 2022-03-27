@@ -508,13 +508,47 @@ class SettingsActivity : MIUIActivity() {
             )
             add(LineV())
             add(TitleTextV(resId = R.string.status_bar_layout))
+            val statusBarLayoutMode: HashMap<Int, String> = hashMapOf()
+            statusBarLayoutMode[0] = getString(R.string.default1)
+            statusBarLayoutMode[1] = getString(R.string.clock_center)
+            statusBarLayoutMode[2] = getString(R.string.clock_right)
             add(
-                TextSummaryWithSwitchV(
-                    TextSummaryV(
-                        textId = R.string.status_bar_time_center,
-                        tipsId = R.string.status_bar_layout_summary
-                    ),
-                    SwitchV("status_bar_time_center")
+                TextWithSpinnerV(
+                    TextV(resId = R.string.status_bar_layout_mode),
+                    SpinnerV(
+                        arrayListOf<MIUIPopupData>().apply {
+                            add(MIUIPopupData(statusBarLayoutMode[0].toString()) {
+                                OwnSP.ownSP.edit().run {
+                                    putInt(
+                                        "status_bar_layout_mode",
+                                        0
+                                    )
+                                    apply()
+                                }
+                            })
+                            add(MIUIPopupData(statusBarLayoutMode[1].toString()) {
+                                OwnSP.ownSP.edit().run {
+                                    putInt(
+                                        "status_bar_layout_mode",
+                                        1
+                                    )
+                                    apply()
+                                }
+                            })
+                            add(MIUIPopupData(statusBarLayoutMode[2].toString()) {
+                                OwnSP.ownSP.edit().run {
+                                    putInt(
+                                        "status_bar_layout_mode",
+                                        2
+                                    )
+                                    apply()
+                                }
+                            })
+                        }, currentValue = statusBarLayoutMode[OwnSP.ownSP.getInt(
+                            "status_bar_layout_mode",
+                            0
+                        )].toString()
+                    )
                 )
             )
             val layoutCompatibilityModeBinding = getDataBinding(
