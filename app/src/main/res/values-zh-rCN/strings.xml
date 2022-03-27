@@ -186,4 +186,6 @@
     <string name="input_error">输入错误</string>
     <string name="range">范围：</string>
     <string name="big_mobile_type_icon_left_and_right_margins">大移动类型图标左右边距</string>
+    <string name="cast">投屏</string>
+    <string name="force_support_send_app">强制允许所有应用接力</string>
 </resources>
