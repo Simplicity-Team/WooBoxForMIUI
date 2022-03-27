@@ -187,5 +187,4 @@
     <string name="range">Interval: </string>
     <string name="big_mobile_type_icon_left_and_right_margins">Pictogramă mare tip date mobil, marginile din stânga și din dreapta</string>
     <string name="cast">Proiectare</string>
-    <string name="force_support_send_app">Forțează toate aplicațiile să accepte Handoff</string>
 </resources>
