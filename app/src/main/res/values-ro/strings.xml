@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="performance">Performanță</string>
     <string name="lock_max_fps">Blochează limita superioară a ratei de împrospătare curentă</string>
     <string name="ui">Interfață</string>
     <string name="delete_on_post_notification">Elimină notificarea Afișare peste</string>
@@ -46,6 +47,7 @@
     <string name="hide_status_bar_network_speed_second">Ascunde unitățile de viteză a rețelei (/s)</string>
     <string name="menu">Meniu</string>
     <string name="Tips">Sfaturi</string>
+    <string name="skip_waiting_time">Se omite timpul de avertizare de 5/10 secunde</string>
     <string name="unlock_unlimited_cropping">Elimină restricția la decuparea fotografiilor/capturilor de ecran</string>
     <string name="hide_slave_wifi_icon">Ascunde pictograma secundară WIFI</string>
     <string name="HideLauncherIcon">Ascunde pictograma în lansator</string>
@@ -152,6 +154,8 @@
     <string name="participate_in_translation_summary">Ajută-ne să traducem aplicația</string>
     <string name="lock_screen_charging_current">Afișare informații despre curent în timpul încărcării</string>
     <string name="current_current">Curent</string>
+    <string name="remove_open_app_confirmation_popup">Elimină fereastra pop-up a aplicației deschise</string>
+    <string name="remove_open_app_confirmation_popup_summary">Elimină mesajul \"Permite XXX să deschidă XXX\" în lanț</string>
     <string name="hide_volume_icon">Ascunde pictograma volum</string>
     <string name="hide_zen_icon">Ascunde pictograma ZEN</string>
     <string name="hide_icon">Ascundere pictograme</string>
@@ -183,4 +187,10 @@
     <string name="range">Interval: </string>
     <string name="big_mobile_type_icon_left_and_right_margins">Pictogramă mare tip date mobil, marginile din stânga și din dreapta</string>
     <string name="cast">Proiectare</string>
+    <string name="force_support_send_app">Forțează trimiterea tuturor aplicațiilor către alt dispozitiv</string>
+    <string name="status_bar_time_double_line_center_align">Aliniere rândului dublu la centru</string>
+    <string name="default1">Implicit</string>
+    <string name="clock_center">Ceas la centru</string>
+    <string name="clock_right">Ceas la dreapta</string>
+    <string name="status_bar_layout_mode">Aspect bară de stare</string>
 </resources>
