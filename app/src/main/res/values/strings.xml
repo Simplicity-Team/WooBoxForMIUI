@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">Simplicity Tools</string>
-    <string name="performance">Performence</string>
+    <string name="performance">Performance</string>
     <string name="lock_max_fps">Lock the current refresh rate upper limit</string>
     <string name="ui">Interface</string>
     <string name="delete_on_post_notification">Remove display over notification</string>
@@ -51,7 +51,7 @@
     <string name="hide_status_bar_network_speed_second">Hide network speed (/s) units</string>
     <string name="menu">Menu</string>
     <string name="Tips">Tips</string>
-    <string name="skip_waiting_time">Skip 5/10 second warning time</string>
+    <string name="skip_waiting_time">Skip 5/10 seconds warning time</string>
     <string name="unlock_unlimited_cropping">Remove restriction on cropping pictures/screenshots</string>
     <string name="hide_slave_wifi_icon">Hide WIFI secondary icon</string>
     <string name="HideLauncherIcon">Hide Launcher icon</string>
@@ -158,8 +158,8 @@
     <string name="participate_in_translation_summary">Help us translate the app into your language</string>
     <string name="lock_screen_charging_current">Display current information during charging</string>
     <string name="current_current">Current</string>
-    <string name="remove_open_app_confirmation_popup">remove open app popup</string>
-    <string name="remove_open_app_confirmation_popup_summary">remove \"Allow XXX to open XXX\" Chain start popup</string>
+    <string name="remove_open_app_confirmation_popup">Remove open app popup</string>
+    <string name="remove_open_app_confirmation_popup_summary">Remove \"Allow XXX to open XXX\" Chain start popup</string>
     <string name="hide_volume_icon">Hide Volume icon</string>
     <string name="hide_zen_icon">Hide ZEN icon</string>
     <string name="hide_icon">Hide Icon</string>
