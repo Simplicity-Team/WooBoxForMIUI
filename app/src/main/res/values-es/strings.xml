@@ -193,4 +193,5 @@
     <string name="clock_center">Reloj centrado</string>
     <string name="clock_right">Reloj a la derecha</string>
     <string name="status_bar_layout_mode">Modo de diseño de barra de estado</string>
+    <string name="clock_center_and_icon_left">Centrar reloj e icono a la izquierda</string>
 </resources>
