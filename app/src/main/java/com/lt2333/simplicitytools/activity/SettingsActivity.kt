@@ -508,10 +508,12 @@ class SettingsActivity : MIUIActivity() {
             )
             add(LineV())
             add(TitleTextV(resId = R.string.status_bar_layout))
-            val statusBarLayoutMode: HashMap<Int, String> = hashMapOf()
-            statusBarLayoutMode[0] = getString(R.string.default1)
-            statusBarLayoutMode[1] = getString(R.string.clock_center)
-            statusBarLayoutMode[2] = getString(R.string.clock_right)
+            val statusBarLayoutMode: HashMap<Int, String> = hashMapOf<Int, String>().also {
+                it[0] = getString(R.string.default1)
+                it[1] = getString(R.string.clock_center)
+                it[2] = getString(R.string.clock_right)
+                it[3] = getString(R.string.clock_center_and_icon_left)
+            }
             add(
                 TextWithSpinnerV(
                     TextV(resId = R.string.status_bar_layout_mode),
@@ -540,6 +542,15 @@ class SettingsActivity : MIUIActivity() {
                                     putInt(
                                         "status_bar_layout_mode",
                                         2
+                                    )
+                                    apply()
+                                }
+                            })
+                            add(MIUIPopupData(statusBarLayoutMode[3].toString()) {
+                                OwnSP.ownSP.edit().run {
+                                    putInt(
+                                        "status_bar_layout_mode",
+                                        3
                                     )
                                     apply()
                                 }
