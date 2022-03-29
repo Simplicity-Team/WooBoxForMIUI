@@ -21,7 +21,7 @@ object SystemUI: AppRegister() {
             HideMobileTypeIcon, //隐藏移动类型图标
             HideStatusBarNetworkSpeedSecond, //隐藏状态栏网速/s
             HideWifiActivityIcon, //隐藏WIFI活动箭头图标
-            RemoveTheMaximumNumberOfNotificationIcons, //移除通知图标上限
+            MaximumNumberOfNotificationIcons, //通知图标上限
             StatusBarNetworkSpeedRefreshSpeed, //状态栏网速秒刷新
             StatusBarTimeCustomization, //状态栏时钟自定义
             RemoveTheLeftSideOfTheLockScreen, //移除锁屏负一屏功能

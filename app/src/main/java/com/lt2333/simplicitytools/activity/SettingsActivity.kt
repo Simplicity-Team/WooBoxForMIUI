@@ -919,12 +919,16 @@ class SettingsActivity : MIUIActivity() {
                 )
             )
             add(
-                TextSummaryWithSwitchV(
-                    TextSummaryV(
-                        textId = R.string.remove_the_maximum_number_of_notification_icons,
-                        tipsId = R.string.remove_the_maximum_number_of_notification_icons_summary
-                    ),
-                    SwitchV("remove_the_maximum_number_of_notification_icons")
+                TextV(
+                    resId = R.string.maximum_number_of_notification_icons
+                )
+            )
+            add(
+                SeekBarWithTextV(
+                    "maximum_number_of_notification_icons",
+                    1,
+                    30,
+                    3
                 )
             )
             add(
