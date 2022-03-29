@@ -193,4 +193,5 @@
     <string name="clock_center">Ceas la centru</string>
     <string name="clock_right">Ceas la dreapta</string>
     <string name="status_bar_layout_mode">Aspect bară de stare</string>
+    <string name="clock_center_and_icon_left">Ceas la centru și pictograme în stânga</string>
 </resources>
