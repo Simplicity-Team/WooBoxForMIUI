@@ -198,4 +198,5 @@
     <string name="clock_right">Часы справа</string>
     <string name="status_bar_layout_mode">Стиль строки состояния</string>
     <string name="clock_center_and_icon_left">Часы по центру и иконки слева</string>
+    <string name="maximum_number_of_notification_icons">Максимальное количество значков уведомлений</string>
 </resources>
