@@ -194,4 +194,5 @@
     <string name="clock_right">Ceas la dreapta</string>
     <string name="status_bar_layout_mode">Aspect bară de stare</string>
     <string name="clock_center_and_icon_left">Ceas la centru și pictograme în stânga</string>
+    <string name="maximum_number_of_notification_icons">Numărul maxim de pictograme de notificare</string>
 </resources>
