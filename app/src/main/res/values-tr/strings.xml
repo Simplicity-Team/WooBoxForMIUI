@@ -195,4 +195,5 @@
     <string name="clock_right">Saat Sağ</string>
     <string name="status_bar_layout_mode">Durum çubuğu düzeni modu</string>
     <string name="clock_center_and_icon_left">Saat Merkezi ve Sol Simge</string>
+    <string name="maximum_number_of_notification_icons">Maksimum bildirim simgesi sayısı</string>
 </resources>
