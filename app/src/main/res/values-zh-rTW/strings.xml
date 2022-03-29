@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="performance">表現</string>
+    <string name="performance">性能</string>
     <string name="lock_max_fps">鎖定螢幕更新率上限</string>
     <string name="ui">介面</string>
     <string name="delete_on_post_notification">移除上層顯示通知</string>
@@ -186,4 +186,11 @@
     <string name="input_error">輸入錯誤</string>
     <string name="range">範圍：</string>
     <string name="big_mobile_type_icon_left_and_right_margins">大行動網路圖示左右邊距</string>
+    <string name="cast">接力</string>
+    <string name="force_support_send_app">允許所有應用使用接力</string>
+    <string name="status_bar_time_double_line_center_align">雙排居中對齊</string>
+    <string name="default1">預設值</string>
+    <string name="clock_center">時鐘置中</string>
+    <string name="clock_right">時鐘置右</string>
+    <string name="status_bar_layout_mode">狀態欄布局模式</string>
 </resources>

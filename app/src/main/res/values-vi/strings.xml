@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="performance">Hiệu năng</string>
     <string name="lock_max_fps">Khoá giới hạn tốc độ làm mới hiện tại</string>
     <string name="ui">Giao diện</string>
     <string name="delete_on_post_notification">Xoá thông báo hiển thị trên ứng dụng khác</string>
@@ -47,7 +46,6 @@
     <string name="hide_status_bar_network_speed_second">Ẩn đơn vị tốc độ mạng (/s)</string>
     <string name="menu">Menu</string>
     <string name="Tips">Mẹo</string>
-    <string name="skip_waiting_time">Bỏ qua 5/10 giây cảnh báo</string>
     <string name="unlock_unlimited_cropping">Bỏ qua danh sách đen hệ thống và phần mềm cấm cửa sổ nhỏ</string>
     <string name="hide_slave_wifi_icon">Ẩn biểu tượng WIFI thứ hai</string>
     <string name="HideLauncherIcon">Ẩn biểu tượng ứng dụng này khỏi màn hình chính</string>
@@ -154,9 +152,6 @@
     <string name="participate_in_translation_summary">Giúp chúng tôi dịch ứng dụng sang ngôn ngữ của bạn</string>
     <string name="lock_screen_charging_current">Hiển thị thông tin hiện tại trong khi sạc</string>
     <string name="current_current">Hiện tại</string>
-    <string name="remove_open_app_confirmation_popup">xóa cửa sổ bật lên ứng dụng đang mở</string>
-    <string name="remove_open_app_confirmation_popup_summary">loại bỏ \"Cho phép XXX mở XXX\" Cửa sổ bật lên bắt đầu chuỗi
- TIẾP TỤC</string>
     <string name="hide_volume_icon">Ẩn biểu tượng Âm lượng</string>
     <string name="hide_zen_icon">Ẩn biểu tượng ZEN</string>
     <string name="hide_icon">Ẩn biểu tượng</string>

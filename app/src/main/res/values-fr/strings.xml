@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="performance">Performance</string>
     <string name="lock_max_fps">Verrouiller le taux de rafraîchissement actuel</string>
     <string name="ui">Interface</string>
     <string name="delete_on_post_notification">Supprimer l\'affichage sur la notification</string>
@@ -47,7 +46,6 @@
     <string name="hide_status_bar_network_speed_second">Masquer les unités de vitesse réseau (/s)</string>
     <string name="menu">Menu</string>
     <string name="Tips">Conseils</string>
-    <string name="skip_waiting_time">Sauter l\'alerte de 5/10 secondes</string>
     <string name="unlock_unlimited_cropping">Supprimer la restriction lors du recadrage des photos/captures d\'écran</string>
     <string name="hide_slave_wifi_icon">Masquer l\'icône secondaire WIFI</string>
     <string name="HideLauncherIcon">Masquer l\'icône en Homepage</string>
@@ -154,8 +152,6 @@
     <string name="participate_in_translation_summary">Aidez-nous à traduire l\'application dans votre langue</string>
     <string name="lock_screen_charging_current">Afficher les informations actuelles pendant le chargement</string>
     <string name="current_current">Actuelles</string>
-    <string name="remove_open_app_confirmation_popup">supprimer la popup de l\'application ouverte</string>
-    <string name="remove_open_app_confirmation_popup_summary">supprimer le popup de démarrage de la chaîne \"Autoriser XXX à ouvrir XXX\"</string>
     <string name="hide_volume_icon">Masquer l\'icône de le volume</string>
     <string name="hide_zen_icon">Masquer l\'icône ZEN</string>
     <string name="hide_icon">Masquer l\'icône</string>

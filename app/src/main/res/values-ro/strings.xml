@@ -47,7 +47,7 @@
     <string name="hide_status_bar_network_speed_second">Ascunde unitățile de viteză a rețelei (/s)</string>
     <string name="menu">Meniu</string>
     <string name="Tips">Sfaturi</string>
-    <string name="skip_waiting_time">Omite timpul de avertizare de 5/10 secunde</string>
+    <string name="skip_waiting_time">Se omite timpul de avertizare de 5/10 secunde</string>
     <string name="unlock_unlimited_cropping">Elimină restricția la decuparea fotografiilor/capturilor de ecran</string>
     <string name="hide_slave_wifi_icon">Ascunde pictograma secundară WIFI</string>
     <string name="HideLauncherIcon">Ascunde pictograma în lansator</string>
@@ -187,4 +187,11 @@
     <string name="range">Interval: </string>
     <string name="big_mobile_type_icon_left_and_right_margins">Pictogramă mare tip date mobil, marginile din stânga și din dreapta</string>
     <string name="cast">Proiectare</string>
+    <string name="force_support_send_app">Forțează trimiterea tuturor aplicațiilor către alt dispozitiv</string>
+    <string name="status_bar_time_double_line_center_align">Aliniere rândului dublu la centru</string>
+    <string name="default1">Implicit</string>
+    <string name="clock_center">Ceas la centru</string>
+    <string name="clock_right">Ceas la dreapta</string>
+    <string name="status_bar_layout_mode">Aspect bară de stare</string>
+    <string name="clock_center_and_icon_left">Ceas la centru și pictograme în stânga</string>
 </resources>

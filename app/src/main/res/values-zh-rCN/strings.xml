@@ -189,4 +189,10 @@
     <string name="cast">投屏</string>
     <string name="force_support_send_app">强制所有应用支持在另一个设备打开</string>
     <string name="status_bar_time_double_line_center_align">双排居中对齐</string>
+    <string name="default1">默认</string>
+    <string name="clock_center">时钟居中</string>
+    <string name="clock_right">时钟居右</string>
+    <string name="status_bar_layout_mode">状态栏布局模式</string>
+    <string name="clock_center_and_icon_left">时间居中+左侧图标</string>
+    <string name="maximum_number_of_notification_icons">通知图标最大数量</string>
 </resources>
