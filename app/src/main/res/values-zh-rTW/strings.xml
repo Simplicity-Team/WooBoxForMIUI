@@ -193,4 +193,6 @@
     <string name="clock_center">時鐘置中</string>
     <string name="clock_right">時鐘置右</string>
     <string name="status_bar_layout_mode">狀態欄布局模式</string>
+    <string name="clock_center_and_icon_left">時間居中+圖示置左</string>
+    <string name="maximum_number_of_notification_icons">通知圖示最大數量</string>
 </resources>
