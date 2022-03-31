@@ -13,7 +13,6 @@ object SystemUI: AppRegister() {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         XposedBridge.log("Simplicitytools: 成功 Hook "+javaClass.simpleName)
         autoInitHooks(lpparam,
-            AppCenterService, //AppCenter统计服务
             HideStatusBarIcon, //隐藏状态栏图标
             HideBatteryIcon, //隐藏电池
             HideHDIcon, //隐藏HD图标

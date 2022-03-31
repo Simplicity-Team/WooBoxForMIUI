@@ -29,6 +29,12 @@ class SettingsActivity : MIUIActivity() {
     private val activity = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (BuildConfig.BUILD_TYPE != "debug") {
+            AppCenter.start(
+                application, "ae2037d3-9914-4e0c-b02b-f9b2bb2574e5",
+                Analytics::class.java, Crashes::class.java
+            )
+        }
         checkLSPosed()
         super.onCreate(savedInstanceState)
     }
