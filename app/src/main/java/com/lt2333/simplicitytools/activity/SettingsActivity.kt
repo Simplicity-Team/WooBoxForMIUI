@@ -932,6 +932,19 @@ class SettingsActivity : MIUIActivity() {
                 )
             )
             add(
+                TextV(
+                    resId = R.string.maximum_number_of_notification_dots
+                )
+            )
+            add(
+                SeekBarWithTextV(
+                    "maximum_number_of_notification_dots",
+                    0,
+                    4,
+                    3
+                )
+            )
+            add(
                 TextSummaryArrowV(
                     TextSummaryV(
                         textId = R.string.battery_percentage_font_size,

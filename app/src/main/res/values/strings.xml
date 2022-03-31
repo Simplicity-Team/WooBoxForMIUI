@@ -199,4 +199,5 @@
     <string name="status_bar_layout_mode">Status bar layout mode</string>
     <string name="clock_center_and_icon_left">Clock Center and Icon Left</string>
     <string name="maximum_number_of_notification_icons">Maximum number of notification icons</string>
+    <string name="maximum_number_of_notification_dots">Maximum number of notification dots</string>
 </resources>
