@@ -66,7 +66,7 @@
     <string name="status_bar_time_period">顯示時段</string>
     <string name="status_bar_time_double_line">雙行顯示</string>
     <string name="status_bar_clock_size">時鐘大小（0：不更改）</string>
-    <string name="status_bar_clock_double_line_size">雙排大小（0：不更改）</string>
+    <string name="status_bar_clock_double_line_size">雙行大小（0：不更改）</string>
     <string name="matters_needing_attention">功能無法生效？</string>
     <string name="Done">確定</string>
     <string name="about_module_summary">查看模組相關訊息</string>
@@ -170,7 +170,7 @@
     <string name="status_bar_dual_row_network_speed">雙行網路速度</string>
     <string name="status_bar_dual_row_network_speed_summary">上下行網路速度顯示</string>
     <string name="status_bar_network_speed">狀態欄網路速度</string>
-    <string name="status_bar_network_speed_dual_row_size">雙排大小（0：不更改）</string>
+    <string name="status_bar_network_speed_dual_row_size">雙行大小（0：不更改）</string>
     <string name="status_bar_network_speed_dual_row_icon">雙行圖示</string>
     <string name="none">無</string>
     <string name="status_bar_network_speed_dual_row_gravity">雙行網速對齊</string>
@@ -188,9 +188,11 @@
     <string name="big_mobile_type_icon_left_and_right_margins">大行動網路圖示左右邊距</string>
     <string name="cast">接力</string>
     <string name="force_support_send_app">允許所有應用使用接力</string>
-    <string name="status_bar_time_double_line_center_align">雙排居中對齊</string>
+    <string name="status_bar_time_double_line_center_align">雙行居中對齊</string>
     <string name="default1">預設值</string>
     <string name="clock_center">時鐘置中</string>
     <string name="clock_right">時鐘置右</string>
     <string name="status_bar_layout_mode">狀態欄布局模式</string>
+    <string name="clock_center_and_icon_left">時間居中+圖示置左</string>
+    <string name="maximum_number_of_notification_icons">通知圖示最大數量</string>
 </resources>
