@@ -194,4 +194,6 @@
     <string name="clock_right">Reloj a la derecha</string>
     <string name="status_bar_layout_mode">Modo de diseño de barra de estado</string>
     <string name="clock_center_and_icon_left">Centrar reloj e icono a la izquierda</string>
+    <string name="maximum_number_of_notification_icons">Número máximo de iconos de notificación</string>
+    <string name="maximum_number_of_notification_dots">Número máximo de puntos de notificaciones</string>
 </resources>
