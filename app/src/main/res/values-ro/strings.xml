@@ -197,4 +197,8 @@
     <string name="maximum_number_of_notification_icons">Numărul maxim de pictograme de notificare</string>
     <string name="maximum_number_of_notification_dots">Numărul maxim de puncte de notificare</string>
     <string name="custom_mobile_type_text">Text personalizat tip date mobile</string>
+    <string name="custom_mobile_type_text_switch">Comutator text personalizat tip date mobile</string>
+    <string name="downgr">Permite downgrade</string>
+    <string name="downgr_summary">Permite retrogradarea aplicațiilor.</string>
+    <string name="authcreak">Dezactivare verificare digest</string>
 </resources>

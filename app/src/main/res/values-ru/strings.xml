@@ -200,4 +200,16 @@
     <string name="clock_center_and_icon_left">Часы по центру и иконки слева</string>
     <string name="maximum_number_of_notification_icons">Максимальное количество значков уведомлений</string>
     <string name="maximum_number_of_notification_dots">Максимальное количество значков уведомлений</string>
+    <string name="custom_mobile_type_text">Пользовательский текст типа сети</string>
+    <string name="custom_mobile_type_text_switch">Переключатель текста типа сети</string>
+    <string name="downgr">Разрешить понижение</string>
+    <string name="downgr_summary">Разрешить понижение версий приложений.</string>
+    <string name="authcreak">Отключить дайджест проверки</string>
+    <string name="authcreak_summary">Позволяет устанавливать приложения после изменения apk. (игнорирует ошибку дайджеста).</string>
+    <string name="digestCreak">Отключить сравнение подписи</string>
+    <string name="digestCreak_summary">Разрешить повторную установку приложения с изменённой подписью.</string>
+    <string name="UsePreSig">Использование установленных подписей</string>
+    <string name="UsePreSig_summary">Всегда использовать подписи из уже установленных приложений при установке.\nЭто чрезвычайно <b>опасно</b>.\nВключайте только при необходимости!</string>
+    <string name="enhancedMode">Улучшенный режим</string>
+    <string name="enhancedMode_summary">Пройдите проверку в приложении</string>
 </resources>
