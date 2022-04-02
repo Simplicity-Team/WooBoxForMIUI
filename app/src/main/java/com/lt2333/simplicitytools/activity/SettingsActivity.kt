@@ -752,6 +752,73 @@ class SettingsActivity : MIUIActivity() {
                     )
                 )
             )
+            val customMobileTypeTextBinding = getDataBinding(
+                SPUtils.getBoolean(
+                    activity,
+                    "custom_mobile_type_text_switch",
+                    false
+                )
+            ) { view, flags, data ->
+                when (flags) {
+                    1 -> (view as Switch).isEnabled = data as Boolean
+                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                }
+            }
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.custom_mobile_type_text_switch
+                    ),
+                    SwitchV(
+                        "custom_mobile_type_text_switch",
+                        dataBindingSend = customMobileTypeTextBinding.bindingSend
+                    )
+                )
+            )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.custom_mobile_type_text
+                    ) {
+                        MIUIDialog(activity).apply {
+                            setTitle(R.string.custom_mobile_type_text)
+                            setEditText(
+                                "${
+                                    OwnSP.ownSP.getString(
+                                        "custom_mobile_type_text", "5G"
+                                    )
+                                }",
+                                ""
+                            )
+                            setLButton(textId = R.string.cancel) {
+                                dismiss()
+                            }
+                            setRButton(textId = R.string.Done) {
+                                if (getEditText().isNotEmpty()) {
+                                    try {
+                                        OwnSP.ownSP.edit().run {
+                                            putString(
+                                                "custom_mobile_type_text",
+                                                getEditText()
+                                            )
+                                            apply()
+                                        }
+                                        dismiss()
+                                        return@setRButton
+                                    } catch (_: Throwable) {
+                                    }
+                                }
+                                Toast.makeText(
+                                    activity,
+                                    R.string.input_error,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                            show()
+                        }
+                    },dataBindingRecv = customMobileTypeTextBinding.binding.getRecv(2)
+                )
+            )
             val bigMobileTypeIconBinding = getDataBinding(
                 SPUtils.getBoolean(
                     activity,

@@ -200,4 +200,6 @@
     <string name="clock_center_and_icon_left">Clock Center and Icon Left</string>
     <string name="maximum_number_of_notification_icons">Maximum number of notification icons</string>
     <string name="maximum_number_of_notification_dots">Maximum number of notification dots</string>
+    <string name="custom_mobile_type_text">Custom mobile type text</string>
+    <string name="custom_mobile_type_text_switch">Custom mobile type text switch</string>
 </resources>

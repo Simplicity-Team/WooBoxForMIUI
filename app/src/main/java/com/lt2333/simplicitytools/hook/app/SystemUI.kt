@@ -40,6 +40,7 @@ object SystemUI: AppRegister() {
             DoubleLineNetworkSpeed, //双排网速
             StatusBarBigMobileTypeIcon, //大移动类型
             BatteryPercentage, //电量百分比
+            CustomMobileTypeText, //自定义移动类型文本
         )
     }
 }
