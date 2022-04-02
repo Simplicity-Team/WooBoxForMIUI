@@ -196,4 +196,5 @@
     <string name="clock_center_and_icon_left">Ceas la centru și pictograme în stânga</string>
     <string name="maximum_number_of_notification_icons">Numărul maxim de pictograme de notificare</string>
     <string name="maximum_number_of_notification_dots">Numărul maxim de puncte de notificare</string>
+    <string name="custom_mobile_type_text">Text personalizat tip date mobile</string>
 </resources>
