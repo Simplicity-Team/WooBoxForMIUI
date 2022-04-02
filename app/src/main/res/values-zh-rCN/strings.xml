@@ -196,4 +196,16 @@
     <string name="clock_center_and_icon_left">时间居中+左侧图标</string>
     <string name="maximum_number_of_notification_icons">通知图标最大数量</string>
     <string name="maximum_number_of_notification_dots">通知点数最大数量</string>
+    <string name="custom_mobile_type_text">自定义移动类型文本</string>
+    <string name="custom_mobile_type_text_switch">自定义移动类型文本开关</string>
+    <string name="downgr">允许降级安装应用</string>
+    <string name="downgr_summary">允许应用在安装新版本的情况下直接覆盖安装旧版本</string>
+    <string name="authcreak">禁用软件包管理器签名验证</string>
+    <string name="authcreak_summary">关闭安装应用时的签名验证，可以安装被篡改的应用</string>
+    <string name="digestCreak">禁用APK签名验证</string>
+    <string name="digestCreak_summary">允许直接覆盖安装同包名不同签名的应用</string>
+    <string name="UsePreSig">安装时始终使用已装app的签名</string>
+    <string name="UsePreSig_summary">安装时总是使用已安装应用的签名。\n不是一般的<b>危险</b>\n仅在绝对需要时启用</string>
+    <string name="enhancedMode">增强模式</string>
+    <string name="enhancedMode_summary">可以解决一些APP内部的完整性校验，一般不需要开启</string>
 </resources>
