@@ -196,4 +196,6 @@
     <string name="clock_center_and_icon_left">Centrar reloj e icono a la izquierda</string>
     <string name="maximum_number_of_notification_icons">Número máximo de iconos de notificación</string>
     <string name="maximum_number_of_notification_dots">Número máximo de puntos de notificaciones</string>
+    <string name="custom_mobile_type_text">Texto red móvil personalizado</string>
+    <string name="custom_mobile_type_text_switch">Interruptor texto red móvil personalizado</string>
 </resources>
