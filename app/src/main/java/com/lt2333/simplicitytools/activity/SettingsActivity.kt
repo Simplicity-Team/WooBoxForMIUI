@@ -422,6 +422,53 @@ class SettingsActivity : MIUIActivity() {
     private fun androidItems(): ArrayList<BaseView> {
         menuButton.visibility = View.VISIBLE
         return ArrayList<BaseView>().apply {
+            add(TitleTextV(resId = R.string.corepacth))
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.downgr,
+                        tipsId = R.string.downgr_summary
+                    ),
+                    SwitchV("downgrade")
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.authcreak,
+                        tipsId = R.string.authcreak_summary
+                    ),
+                    SwitchV("authcreak")
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.digestCreak,
+                        tipsId = R.string.digestCreak_summary
+                    ),
+                    SwitchV("digestCreak")
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.UsePreSig,
+                        tipsId = R.string.UsePreSig_summary
+                    ),
+                    SwitchV("UsePreSig")
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.enhancedMode,
+                        tipsId = R.string.enhancedMode_summary
+                    ),
+                    SwitchV("enhancedMode")
+                )
+            )
+            add(LineV())
             add(
                 TextSummaryWithSwitchV(
                     TextSummaryV(
@@ -429,15 +476,6 @@ class SettingsActivity : MIUIActivity() {
                         tipsId = R.string.disable_flag_secure_summary
                     ),
                     SwitchV("disable_flag_secure")
-                )
-            )
-            add(
-                TextSummaryWithSwitchV(
-                    TextSummaryV(
-                        textId = R.string.corepacth,
-                        tipsId = R.string.corepacth_summary
-                    ),
-                    SwitchV("corepatch")
                 )
             )
             add(

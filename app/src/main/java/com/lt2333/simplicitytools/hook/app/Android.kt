@@ -26,4 +26,5 @@ object Android: AppRegister() {
             MaxWallpaperScale, //壁纸缩放比例
         )
     }
+
 }
