@@ -196,4 +196,6 @@
     <string name="clock_center_and_icon_left">時間居中+圖示置左</string>
     <string name="maximum_number_of_notification_icons">通知圖示最大數量</string>
     <string name="maximum_number_of_notification_dots">通知點點數量</string>
+    <string name="custom_mobile_type_text">自訂行動網路類型文字</string>
+    <string name="custom_mobile_type_text_switch">自訂行動網路類型文字開關</string>
 </resources>
