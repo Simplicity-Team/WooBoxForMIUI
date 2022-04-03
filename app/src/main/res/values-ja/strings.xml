@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="performance">パフォーマンス</string>
     <string name="lock_max_fps">現在のリフレッシュレート上限をロック</string>
     <string name="ui">インタフェース</string>
     <string name="delete_on_post_notification">「他のアプリの上に表示」通知を削除</string>
@@ -46,6 +47,7 @@
     <string name="hide_status_bar_network_speed_second">ネットワーク速度の単位(/s)を隠す</string>
     <string name="menu">メニュー</string>
     <string name="Tips">注意事項</string>
+    <string name="skip_waiting_time">5/10秒間の警告時間をスキップ</string>
     <string name="unlock_unlimited_cropping">写真・スクリーンショットをトリミングする際の制限を解除する</string>
     <string name="hide_slave_wifi_icon">Wi-Fiセカンダリアイコンを隠す</string>
     <string name="HideLauncherIcon">ランチャーアイコンを隠す</string>
@@ -152,6 +154,8 @@
     <string name="participate_in_translation_summary">翻訳を手伝ってください！</string>
     <string name="lock_screen_charging_current">充電中に現在の情報を表示</string>
     <string name="current_current">現在</string>
+    <string name="remove_open_app_confirmation_popup">外部アプリを開くときのポップアップを削除</string>
+    <string name="remove_open_app_confirmation_popup_summary">「アプリAがアプリBを開くことを許可」のチェーンのポップアップを削除します</string>
     <string name="hide_volume_icon">音量アイコンを非表示</string>
     <string name="hide_zen_icon">ZENアイコンを隠す</string>
     <string name="hide_icon">アイコンを隠す</string>
@@ -174,4 +178,19 @@
     <string name="right">右</string>
     <string name="big_mobile_type_icon">大きなモバイルタイプアイコン</string>
     <string name="can_notification_slide">すべての通知を小さなウィンドウにスライドできるようにする</string>
+    <string name="battery_percentage_font_size">バッテリー残量のフォントサイズ</string>
+    <string name="zero_do_no_change">0：変更しない</string>
+    <string name="big_mobile_type_icon_size">大きな電波アイコンのサイズ</string>
+    <string name="big_mobile_type_icon_bold">大きな電波アイコンの太さ</string>
+    <string name="big_mobile_type_icon_up_and_down_position">大きな電波アイコンの上下の位置</string>
+    <string name="input_error">入力エラー</string>
+    <string name="range">範囲： </string>
+    <string name="big_mobile_type_icon_left_and_right_margins">大きな電波アイコンの左右の余白</string>
+    <string name="cast">キャスト</string>
+    <string name="force_support_send_app">すべてのアプリを別のデバイスで開くようにする</string>
+    <string name="status_bar_time_double_line_center_align">2行中央揃え</string>
+    <string name="default1">デフォルト</string>
+    <string name="enhancedMode">強化モード</string>
+    <string name="enhancedMode_summary">アプリケーションでいくつかの検証に合格する</string>
+    <string name="rear_display">背面ディスプレイ (11 Ultra)</string>
 </resources>
