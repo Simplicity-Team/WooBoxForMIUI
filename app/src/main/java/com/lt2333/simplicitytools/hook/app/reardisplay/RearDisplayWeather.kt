@@ -22,7 +22,7 @@ object RearDisplayWeather : HookRegister() {
             findMethod("com.xiaomi.misubscreenui.light.aod.view.VerticalClockView") {
                 name == "onFinishInflate"
             }.hookMethod {
-                before {
+                after {
                     val viewGroup = it.thisObject as ViewGroup
                     val context = viewGroup.context
 
@@ -51,7 +51,7 @@ object RearDisplayWeather : HookRegister() {
                             )
                         )
                         typeface = Typeface.create("mipro-medium", Typeface.NORMAL)
-                        setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14f)
+                        setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12f)
 
                     }
                     gradientLayout.addView(mWeatherView, (gradientLayout.indexOfChild(date) + 1))
@@ -100,8 +100,8 @@ object RearDisplayWeather : HookRegister() {
                             RelativeLayout.LayoutParams.WRAP_CONTENT, dp2px(context, 30f)
                         ).also {
                             it.addRule(RelativeLayout.END_OF, dateID)
-                            it.marginStart = dp2px(context, 2f)
-                            it.marginEnd = dp2px(context, 2f)
+                            it.marginStart = dp2px(context, 3f)
+                            it.marginEnd = dp2px(context, 3f)
                         }
                     }
                     dateParentLayout.addView(
@@ -123,7 +123,7 @@ object RearDisplayWeather : HookRegister() {
                     ).also {
                         it.addRule(RelativeLayout.END_OF, mWeatherView.id)
                     }
-
+                    gradientLayout.setPadding(0, dp2px(context,5f),0,0)
                 }
             }
         }
