@@ -212,4 +212,5 @@
     <string name="UsePreSig_summary">Always use signatures from already installed apps when installing.\nThis is extremely <b>dangerous</b>.\nOnly enable when really needed!</string>
     <string name="enhancedMode">Enhanced Mode</string>
     <string name="enhancedMode_summary">Pass some validation in the application</string>
+    <string name="rear_display">Rear Display (11Ultra)</string>
 </resources>

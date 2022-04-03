@@ -195,7 +195,8 @@ class SettingsActivity : MIUIActivity() {
                                     "killall com.android.updater",
                                     "killall com.miui.mediaeditor",
                                     "killall com.miui.screenshot",
-                                    "killall com.milink.service"
+                                    "killall com.milink.service",
+                                    "killall com.xiaomi.misubscreenui",
                                 )
                                 ShellUtils.execCommand(command, true)
                                 dismiss()
@@ -854,7 +855,7 @@ class SettingsActivity : MIUIActivity() {
                             }
                             show()
                         }
-                    },dataBindingRecv = customMobileTypeTextBinding.binding.getRecv(2)
+                    }, dataBindingRecv = customMobileTypeTextBinding.binding.getRecv(2)
                 )
             )
             val bigMobileTypeIconBinding = getDataBinding(
@@ -1602,6 +1603,16 @@ class SettingsActivity : MIUIActivity() {
                         textId = R.string.force_support_send_app,
                     ),
                     SwitchV("force_support_send_app")
+                )
+            )
+            add(LineV())
+            add(TitleTextV(resId = R.string.rear_display))
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.show_weather_main_switch,
+                    ),
+                    SwitchV("rear_show_weather")
                 )
             )
             add(LineV())
