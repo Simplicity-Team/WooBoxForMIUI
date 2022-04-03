@@ -208,4 +208,5 @@
     <string name="UsePreSig_summary">安装时总是使用已安装应用的签名。\n不是一般的<b>危险</b>\n仅在绝对需要时启用</string>
     <string name="enhancedMode">增强模式</string>
     <string name="enhancedMode_summary">可以解决一些APP内部的完整性校验，一般不需要开启</string>
+    <string name="rear_display">背屏 (11Ultra)</string>
 </resources>
