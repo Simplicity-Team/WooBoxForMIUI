@@ -198,6 +198,14 @@
     <string name="maximum_number_of_notification_dots">通知點點數量</string>
     <string name="custom_mobile_type_text">自訂行動網路類型文字</string>
     <string name="custom_mobile_type_text_switch">自訂行動網路類型文字開關</string>
-    <string name="digestCreak_summary">允許覆蓋安裝不同簽名的應用</string>
-    <string name="UsePreSig">使用已安裝App的簽名</string>
+    <string name="downgr">允許降級安裝應用</string>
+    <string name="downgr_summary">允許在已安裝新版的情況下覆蓋安裝舊版本</string>
+    <string name="authcreak">禁用應用安裝管理器簽名驗證</string>
+    <string name="authcreak_summary">關閉安裝應用時的簽名驗證，可以安裝被修改的APK</string>
+    <string name="digestCreak">禁用APK簽名驗證</string>
+    <string name="digestCreak_summary">允許覆蓋安裝同包名不同簽名的應用</string>
+    <string name="UsePreSig">安裝時始終使用已安裝應用的簽名</string>
+    <string name="UsePreSig_summary">安裝時始終使用已安裝應用的簽名\n這非常<b>危險</b>\n僅在真正需要時啟用！</string>
+    <string name="enhancedMode">增強模式</string>
+    <string name="enhancedMode_summary">可以解決一些應用內部的完整性較驗，一般不需要開啟</string>
 </resources>
