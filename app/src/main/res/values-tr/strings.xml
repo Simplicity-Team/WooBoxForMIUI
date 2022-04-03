@@ -209,4 +209,5 @@
     <string name="UsePreSig_summary">Yüklerken her zaman önceden yüklenmiş uygulamaların imzalarını kullanın.\nBu son derece <b>tehlikelidir</b>.\nYalnızca gerçekten gerektiğinde etkinleştirin!</string>
     <string name="enhancedMode">Gelişmiş Mod</string>
     <string name="enhancedMode_summary">Uygulamada bazı doğrulamaları geç</string>
+    <string name="rear_display">Arka Ekran (11Ultra</string>
 </resources>
