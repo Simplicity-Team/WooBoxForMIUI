@@ -198,4 +198,6 @@
     <string name="maximum_number_of_notification_dots">通知點點數量</string>
     <string name="custom_mobile_type_text">自訂行動網路類型文字</string>
     <string name="custom_mobile_type_text_switch">自訂行動網路類型文字開關</string>
+    <string name="digestCreak_summary">允許覆蓋安裝不同簽名的應用</string>
+    <string name="UsePreSig">使用已安裝App的簽名</string>
 </resources>
