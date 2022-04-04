@@ -2,5 +2,10 @@
 <resources>
     <string name="performance">Desempenho</string>
     <string name="lock_max_fps">Bloqueie o limite superior da taxa de atualização atual</string>
+    <string name="ui">‘Interface’</string>
+    <string name="delete_on_post_notification">Remover exibição sobre notificação</string>
+    <string name="delete_on_post_notification_summary">Remover a notificação \"este aplicativo é exibido sobre outros aplicativos\"</string>
+    <string name="other">Outros</string>
+    <string name="disable_flag_secure">Permitir captura de ecrã</string>
     <!--Status bar icons-->
 </resources>
