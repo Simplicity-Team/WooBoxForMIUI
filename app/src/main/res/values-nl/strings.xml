@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="performance">Prestatie</string>
+    <string name="lock_max_fps">Vergrendel het huidige ververspercentage van het bovenlimiet</string>
     <!--Status bar icons-->
 </resources>
