@@ -18,7 +18,6 @@ import java.util.*
 object LockScreenClockDisplaySeconds : HookRegister() {
 
     private var nowTime: Date = Calendar.getInstance().time
-    private var isVertical: Boolean = false
 
     override fun init() {
         hasEnable("lock_screen_clock_display_seconds") {
@@ -53,37 +52,33 @@ object LockScreenClockDisplaySeconds : HookRegister() {
                 getDefaultClassLoader(),
                 "updateTime"
             ) {
-                updateTime(it)
-                isVertical = false
+                updateTime(it, false)
             }
 
             "com.miui.clock.MiuiLeftTopLargeClock".hookAfterMethod(
                 getDefaultClassLoader(),
                 "updateTime"
             ) {
-                updateTime(it)
-                isVertical = false
+                updateTime(it, false)
             }
 
             "com.miui.clock.MiuiCenterHorizontalClock".hookAfterMethod(
                 getDefaultClassLoader(),
                 "updateTime"
             ) {
-                updateTime(it)
-                isVertical = false
+                updateTime(it, false)
             }
 
             "com.miui.clock.MiuiVerticalClock".hookAfterMethod(
                 getDefaultClassLoader(),
                 "updateTime"
             ) {
-                updateTime(it)
-                isVertical = true
+                updateTime(it, true)
             }
         }
     }
 
-    private fun updateTime(it: XC_MethodHook.MethodHookParam) {
+    private fun updateTime(it: XC_MethodHook.MethodHookParam, isVertical: Boolean) {
         val textV = it.thisObject.getObjectField("mTimeText") as TextView
         val c: Context = textV.context
 
@@ -98,18 +93,19 @@ object LockScreenClockDisplaySeconds : HookRegister() {
 
         nowTime = Calendar.getInstance().time
 
-        textV.text = getTime(c, is24)
+        textV.text = getTime(is24, isVertical)
 
     }
 
 
     @SuppressLint("SimpleDateFormat")
-    private fun getTime(context: Context, is24: Boolean): String {
+    private fun getTime(is24: Boolean, isVertical: Boolean): String {
         var timePattern = ""
-        timePattern += if (is24) if (isVertical) "HH\n" else "HH" else if (isVertical) "h\n" else "h"
-        timePattern += if (isVertical) "mm\n" else ":mm"
-        timePattern += if (isVertical) "ss" else ":ss"
-
+        if (isVertical) { //垂直
+            timePattern += if (is24) "HH\nmm\nss" else "hh\nmm\nss"
+        } else { //水平
+            timePattern += if (is24) "HH:mm:ss" else "h:mm:ss"
+        }
         timePattern = SimpleDateFormat(timePattern).format(nowTime)
         return timePattern
     }
