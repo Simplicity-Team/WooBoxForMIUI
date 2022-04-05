@@ -213,4 +213,5 @@
     <string name="enhancedMode">Enhanced Mode</string>
     <string name="enhancedMode_summary">Pass some validation in the application</string>
     <string name="rear_display">Rear Display (11Ultra)</string>
+    <string name="lock_screen_clock_display_seconds">Lock screen clock display seconds</string>
 </resources>

@@ -1318,6 +1318,15 @@ class SettingsActivity : MIUIActivity() {
             add(
                 TextSummaryWithSwitchV(
                     TextSummaryV(
+                        textId = R.string.lock_screen_clock_display_seconds,
+                        tipsId = R.string.only_official_default_themes_are_supported
+                    ),
+                    SwitchV("lock_screen_clock_display_seconds")
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
                         textId = R.string.remove_the_left_side_of_the_lock_screen,
                         tipsId = R.string.only_official_default_themes_are_supported
                     ),
