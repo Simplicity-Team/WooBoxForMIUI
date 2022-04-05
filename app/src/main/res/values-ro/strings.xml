@@ -209,4 +209,5 @@
     <string name="enhancedMode">Mod îmbunătățit</string>
     <string name="enhancedMode_summary">Trece o anumită validare în aplicație</string>
     <string name="rear_display">Afișaj spate (11Ultra)</string>
+    <string name="lock_screen_clock_display_seconds">Afișare secunde ceas</string>
 </resources>
