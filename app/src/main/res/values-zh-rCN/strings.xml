@@ -209,4 +209,5 @@
     <string name="enhancedMode">增强模式</string>
     <string name="enhancedMode_summary">可以解决一些APP内部的完整性校验，一般不需要开启</string>
     <string name="rear_display">背屏 (11Ultra)</string>
+    <string name="lock_screen_clock_display_seconds">锁屏时钟显示秒数</string>
 </resources>
