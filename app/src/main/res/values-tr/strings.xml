@@ -210,4 +210,5 @@
     <string name="enhancedMode">Gelişmiş Mod</string>
     <string name="enhancedMode_summary">Uygulamada bazı doğrulamaları geç</string>
     <string name="rear_display">Arka Ekran (11Ultra</string>
+    <string name="lock_screen_clock_display_seconds">Saat göstergesi saniye</string>
 </resources>
