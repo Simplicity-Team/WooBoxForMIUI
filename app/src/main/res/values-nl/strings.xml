@@ -3,4 +3,7 @@
     <string name="performance">Prestatie</string>
     <string name="lock_max_fps">Vergrendel het huidige ververspercentage van het bovenlimiet</string>
     <!--Status bar icons-->
+    <string name="hide_sim_one_icon">Verberg SIM-Kaart 1 icoon</string>
+    <string name="menu">Menu</string>
+    <string name="Tips">Hint</string>
 </resources>
