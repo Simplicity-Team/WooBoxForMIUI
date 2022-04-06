@@ -194,4 +194,18 @@
     <string name="clock_right">Reloj a la derecha</string>
     <string name="status_bar_layout_mode">Modo de diseño de barra de estado</string>
     <string name="clock_center_and_icon_left">Centrar reloj e icono a la izquierda</string>
+    <string name="maximum_number_of_notification_icons">Número máximo de iconos de notificación</string>
+    <string name="maximum_number_of_notification_dots">Número máximo de puntos de notificaciones</string>
+    <string name="custom_mobile_type_text">Texto red móvil personalizado</string>
+    <string name="custom_mobile_type_text_switch">Interruptor texto red móvil personalizado</string>
+    <string name="downgr">Permitir volver a la versión anterior</string>
+    <string name="downgr_summary">Permitir volver a la versión anterior de la aplicación.</string>
+    <string name="authcreak">Deshabilitar verificación de digest</string>
+    <string name="authcreak_summary">Permite instalar las apps después de modificar el archivo apk (ignorar error de digest inválido).</string>
+    <string name="digestCreak">Deshabilitar comparación de firmas</string>
+    <string name="digestCreak_summary">Permitir reinstalar apps con firmas diferentes.</string>
+    <string name="UsePreSig">Usar firmas instaladas</string>
+    <string name="UsePreSig_summary">Usar siempre las firmas de las aplicaciones instaladas cuando se instale una.\nEsto es extremadamente&lt;b&lt;peligroso&lt;/b&gt;.\n¡Habilitar únicamente cuando sea necesario!</string>
+    <string name="enhancedMode">Modo mejorado</string>
+    <string name="enhancedMode_summary">Pasar algunas validaciones en la aplicación</string>
 </resources>

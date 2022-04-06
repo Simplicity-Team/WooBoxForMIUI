@@ -12,5 +12,6 @@
         <item>com.android.thememanager</item>
         <item>com.miui.screenshot</item>
         <item>com.milink.service</item>
+        <item>com.xiaomi.misubscreenui</item>
     </string-array>
 </resources>

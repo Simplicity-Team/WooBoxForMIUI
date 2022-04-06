@@ -189,7 +189,8 @@ class SettingsActivity : MIUIActivity() {
                                     "killall com.android.updater",
                                     "killall com.miui.mediaeditor",
                                     "killall com.miui.screenshot",
-                                    "killall com.milink.service"
+                                    "killall com.milink.service",
+                                    "killall com.xiaomi.misubscreenui",
                                 )
                                 ShellUtils.execCommand(command, true)
                                 dismiss()
@@ -416,6 +417,53 @@ class SettingsActivity : MIUIActivity() {
     private fun androidItems(): ArrayList<BaseView> {
         menuButton.visibility = View.VISIBLE
         return ArrayList<BaseView>().apply {
+            add(TitleTextV(resId = R.string.corepacth))
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.downgr,
+                        tipsId = R.string.downgr_summary
+                    ),
+                    SwitchV("downgrade")
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.authcreak,
+                        tipsId = R.string.authcreak_summary
+                    ),
+                    SwitchV("authcreak")
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.digestCreak,
+                        tipsId = R.string.digestCreak_summary
+                    ),
+                    SwitchV("digestCreak")
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.UsePreSig,
+                        tipsId = R.string.UsePreSig_summary
+                    ),
+                    SwitchV("UsePreSig")
+                )
+            )
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.enhancedMode,
+                        tipsId = R.string.enhancedMode_summary
+                    ),
+                    SwitchV("enhancedMode")
+                )
+            )
+            add(LineV())
             add(
                 TextSummaryWithSwitchV(
                     TextSummaryV(
@@ -423,15 +471,6 @@ class SettingsActivity : MIUIActivity() {
                         tipsId = R.string.disable_flag_secure_summary
                     ),
                     SwitchV("disable_flag_secure")
-                )
-            )
-            add(
-                TextSummaryWithSwitchV(
-                    TextSummaryV(
-                        textId = R.string.corepacth,
-                        tipsId = R.string.corepacth_summary
-                    ),
-                    SwitchV("corepatch")
                 )
             )
             add(
@@ -746,6 +785,73 @@ class SettingsActivity : MIUIActivity() {
                     )
                 )
             )
+            val customMobileTypeTextBinding = getDataBinding(
+                SPUtils.getBoolean(
+                    activity,
+                    "custom_mobile_type_text_switch",
+                    false
+                )
+            ) { view, flags, data ->
+                when (flags) {
+                    1 -> (view as Switch).isEnabled = data as Boolean
+                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                }
+            }
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.custom_mobile_type_text_switch
+                    ),
+                    SwitchV(
+                        "custom_mobile_type_text_switch",
+                        dataBindingSend = customMobileTypeTextBinding.bindingSend
+                    )
+                )
+            )
+            add(
+                TextSummaryArrowV(
+                    TextSummaryV(
+                        textId = R.string.custom_mobile_type_text
+                    ) {
+                        MIUIDialog(activity).apply {
+                            setTitle(R.string.custom_mobile_type_text)
+                            setEditText(
+                                "${
+                                    OwnSP.ownSP.getString(
+                                        "custom_mobile_type_text", "5G"
+                                    )
+                                }",
+                                ""
+                            )
+                            setLButton(textId = R.string.cancel) {
+                                dismiss()
+                            }
+                            setRButton(textId = R.string.Done) {
+                                if (getEditText().isNotEmpty()) {
+                                    try {
+                                        OwnSP.ownSP.edit().run {
+                                            putString(
+                                                "custom_mobile_type_text",
+                                                getEditText()
+                                            )
+                                            apply()
+                                        }
+                                        dismiss()
+                                        return@setRButton
+                                    } catch (_: Throwable) {
+                                    }
+                                }
+                                Toast.makeText(
+                                    activity,
+                                    R.string.input_error,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                            show()
+                        }
+                    }, dataBindingRecv = customMobileTypeTextBinding.binding.getRecv(2)
+                )
+            )
             val bigMobileTypeIconBinding = getDataBinding(
                 SPUtils.getBoolean(
                     activity,
@@ -922,6 +1028,19 @@ class SettingsActivity : MIUIActivity() {
                     "maximum_number_of_notification_icons",
                     1,
                     30,
+                    3
+                )
+            )
+            add(
+                TextV(
+                    resId = R.string.maximum_number_of_notification_dots
+                )
+            )
+            add(
+                SeekBarWithTextV(
+                    "maximum_number_of_notification_dots",
+                    0,
+                    4,
                     3
                 )
             )
@@ -1190,6 +1309,15 @@ class SettingsActivity : MIUIActivity() {
 
             add(LineV())
             add(TitleTextV(resId = R.string.lock_screen))
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.lock_screen_clock_display_seconds,
+                        tipsId = R.string.only_official_default_themes_are_supported
+                    ),
+                    SwitchV("lock_screen_clock_display_seconds")
+                )
+            )
             add(
                 TextSummaryWithSwitchV(
                     TextSummaryV(
@@ -1478,6 +1606,16 @@ class SettingsActivity : MIUIActivity() {
                         textId = R.string.force_support_send_app,
                     ),
                     SwitchV("force_support_send_app")
+                )
+            )
+            add(LineV())
+            add(TitleTextV(resId = R.string.rear_display))
+            add(
+                TextSummaryWithSwitchV(
+                    TextSummaryV(
+                        textId = R.string.show_weather_main_switch,
+                    ),
+                    SwitchV("rear_show_weather")
                 )
             )
             add(LineV())

@@ -305,8 +305,8 @@ object StatusBarLayout : HookRegister() {
                     (statusIcons.parent as ViewGroup).removeView(statusIcons)
                     (systemIcons.parent as ViewGroup).removeView(systemIcons)
                     (battery.parent as ViewGroup).removeView(battery)
-                    (notificationIconAreaInner.parent as ViewGroup).removeView(
-                        notificationIconAreaInner
+                    (fullscreenNotificationIconArea.parent as ViewGroup).removeView(
+                        fullscreenNotificationIconArea
                     )
 
                     val mConstraintLayout =
@@ -317,7 +317,7 @@ object StatusBarLayout : HookRegister() {
                             )
                         }
 
-                    mConstraintLayout.addView(notificationIconAreaInner)
+                    mConstraintLayout.addView(fullscreenNotificationIconArea)
                     mConstraintLayout.addView(battery)
 
 
@@ -329,14 +329,14 @@ object StatusBarLayout : HookRegister() {
                     }
 
 
-                    notificationIconAreaInner.layoutParams = ConstraintLayout.LayoutParams(
+                    fullscreenNotificationIconArea.layoutParams = ConstraintLayout.LayoutParams(
                         0,
                         ConstraintLayout.LayoutParams.MATCH_PARENT
                     ).also {
                         it.startToEnd = batteryId
                         it.endToEnd = 0
                     }
-                    notificationIconAreaInner.layoutDirection = View.LAYOUT_DIRECTION_RTL
+                    fullscreenNotificationIconArea.layoutDirection = View.LAYOUT_DIRECTION_RTL
 
 
                     //增加一个左对齐布局

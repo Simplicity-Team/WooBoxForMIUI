@@ -195,4 +195,18 @@
     <string name="clock_right">Saat Sağ</string>
     <string name="status_bar_layout_mode">Durum çubuğu düzeni modu</string>
     <string name="clock_center_and_icon_left">Saat Merkezi ve Sol Simge</string>
+    <string name="maximum_number_of_notification_icons">Maksimum bildirim simgesi sayısı</string>
+    <string name="maximum_number_of_notification_dots">Maksimum bildirim noktası sayısı</string>
+    <string name="custom_mobile_type_text">Özel mobil tip metin</string>
+    <string name="custom_mobile_type_text_switch">Özel mobil tip metin anahtarı</string>
+    <string name="downgr">Sürüm düşürmeye izin ver</string>
+    <string name="downgr_summary">Sürüm düşürme uygulamalarına izin ver.</string>
+    <string name="authcreak">Özet doğrulamayı devre dışı bırak</string>
+    <string name="authcreak_summary">Apk\'te dosya değiştirildikten sonra uygulamaların yüklenmesine izin verir (geçersiz özet hatasını yoksay).</string>
+    <string name="digestCreak">Karşılaştırma imzalarını devre dışı bırak</string>
+    <string name="digestCreak_summary">Uygulamayı farklı imzalarla yeniden yüklemeye izin ver</string>
+    <string name="UsePreSig">Yüklü imzaları kullan</string>
+    <string name="UsePreSig_summary">Yüklerken her zaman önceden yüklenmiş uygulamaların imzalarını kullanın.\nBu son derece <b>tehlikelidir</b>.\nYalnızca gerçekten gerektiğinde etkinleştirin!</string>
+    <string name="enhancedMode">Gelişmiş Mod</string>
+    <string name="enhancedMode_summary">Uygulamada bazı doğrulamaları geç</string>
 </resources>

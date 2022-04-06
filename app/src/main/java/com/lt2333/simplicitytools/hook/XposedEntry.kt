@@ -2,13 +2,14 @@ package com.lt2333.simplicitytools.hook
 
 import com.lt2333.simplicitytools.BuildConfig
 import com.lt2333.simplicitytools.hook.app.*
+import com.lt2333.simplicitytools.hook.app.android.corepatch.CorePatch
 import com.lt2333.simplicitytools.util.xposed.EasyXposedInit
 import com.lt2333.simplicitytools.util.xposed.base.AppRegister
 import de.robv.android.xposed.IXposedHookZygoteInit
 import de.robv.android.xposed.XSharedPreferences
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class XposedEntry: EasyXposedInit() {
+class XposedEntry : EasyXposedInit() {
     private var prefs = XSharedPreferences(BuildConfig.APPLICATION_ID, "config")
 
     override val registeredApp: List<AppRegister> = listOf(
@@ -23,6 +24,7 @@ class XposedEntry: EasyXposedInit() {
         ThemeManager, // 主题壁纸
         ScreenShot, // 截屏
         Cast, //投屏
+        RearDisplay, //背屏
     )
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?) {
@@ -33,6 +35,7 @@ class XposedEntry: EasyXposedInit() {
 
     override fun initZygote(startupParam: IXposedHookZygoteInit.StartupParam?) {
         super.initZygote(startupParam)
+        CorePatch().initZygote(startupParam)
     }
 
 }
