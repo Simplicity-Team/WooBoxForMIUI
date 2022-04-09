@@ -201,4 +201,13 @@
     <string name="downgr">Permite downgrade</string>
     <string name="downgr_summary">Permite retrogradarea aplicațiilor.</string>
     <string name="authcreak">Dezactivare verificare digest</string>
+    <string name="authcreak_summary">Permite instalarea aplicațiilor după modificarea fișierului în apk (ignorați eroarea de rezumat nevalidă).</string>
+    <string name="digestCreak">Dezactivează compararea semnăturilor</string>
+    <string name="digestCreak_summary">Permite reinstalarea aplicației cu semnături diferite.</string>
+    <string name="UsePreSig">Utilizează semnăturile instalate</string>
+    <string name="UsePreSig_summary">Se folosesc întotdeauna semnături din aplicațiile deja instalate.\nAcest lucru este extrem de <b>periculos</b>.\nActiveză numai dacă este cu adevărat necesar!</string>
+    <string name="enhancedMode">Mod îmbunătățit</string>
+    <string name="enhancedMode_summary">Trece o anumită validare în aplicație</string>
+    <string name="rear_display">Afișaj spate (11Ultra)</string>
+    <string name="lock_screen_clock_display_seconds">Afișare secunde ceas</string>
 </resources>

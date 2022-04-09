@@ -208,4 +208,6 @@
     <string name="UsePreSig_summary">安裝時始終使用已安裝應用的簽名\n這非常<b>危險</b>\n僅在真正需要時啟用！</string>
     <string name="enhancedMode">增強模式</string>
     <string name="enhancedMode_summary">可以解決一些應用內部的完整性較驗，一般不需要開啟</string>
+    <string name="rear_display">後螢幕（11Ultra）</string>
+    <string name="lock_screen_clock_display_seconds">時鐘顯示秒數</string>
 </resources>
