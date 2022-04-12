@@ -322,7 +322,7 @@ class SettingsActivity : MIUIActivity() {
                 TextSummaryArrow(
                     TextSummaryV(
                         textId = R.string.hide_icon,
-                        onClickListener = { showFragment(getString(R.string.hide_icon)) }
+                        onClickListener = { showFragment("hide_icon") }
                     )
                 )
                 val customMobileTypeTextBinding = GetDataBinding(object : DefValue {
