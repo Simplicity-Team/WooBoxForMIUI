@@ -11,6 +11,7 @@ import android.widget.Switch
 import android.widget.Toast
 import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.activity.OwnSP
+import cn.fkj233.ui.activity.data.DefValue
 import cn.fkj233.ui.activity.view.SpinnerV
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
@@ -18,7 +19,6 @@ import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import com.lt2333.simplicitytools.BuildConfig
 import com.lt2333.simplicitytools.R
-import com.lt2333.simplicitytools.util.SPUtils
 import com.lt2333.simplicitytools.util.ShellUtils
 import com.microsoft.appcenter.AppCenter
 import com.microsoft.appcenter.analytics.Analytics
@@ -189,11 +189,11 @@ class SettingsActivity : MIUIActivity() {
                     }
                 )
                 val layoutCompatibilityModeBinding = GetDataBinding(
-                    SPUtils.getBoolean(
-                        activity,
-                        "layout_compatibility_mode",
-                        false
-                    )
+                    object : DefValue {
+                        override fun getValue(): Any {
+                            return getSP().getBoolean("layout_compatibility_mode", false)
+                        }
+                    }
                 ) { view, flags, data ->
                     when (flags) {
                         1 -> (view as Switch).isEnabled = data as Boolean
@@ -234,13 +234,11 @@ class SettingsActivity : MIUIActivity() {
                 )
                 Line()
                 TitleText(resId = R.string.status_bar_clock_format)
-                val customClockBinding = GetDataBinding(
-                    SPUtils.getBoolean(
-                        activity,
-                        "custom_clock_switch",
-                        false
-                    )
-                ) { view, flags, data ->
+                val customClockBinding = GetDataBinding(object : DefValue {
+                    override fun getValue(): Any {
+                        return getSP().getBoolean("custom_clock_switch", false)
+                    }
+                }) { view, flags, data ->
                     when (flags) {
                         1 -> (view as Switch).isEnabled = data as Boolean
                         2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
@@ -327,13 +325,11 @@ class SettingsActivity : MIUIActivity() {
                         onClickListener = { showFragment(getString(R.string.hide_icon)) }
                     )
                 )
-                val customMobileTypeTextBinding = GetDataBinding(
-                    SPUtils.getBoolean(
-                        activity,
-                        "custom_mobile_type_text_switch",
-                        false
-                    )
-                ) { view, flags, data ->
+                val customMobileTypeTextBinding = GetDataBinding(object : DefValue {
+                    override fun getValue(): Any {
+                        return getSP().getBoolean("custom_mobile_type_text_switch", false)
+                    }
+                }) { view, flags, data ->
                     when (flags) {
                         1 -> (view as Switch).isEnabled = data as Boolean
                         2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
@@ -389,18 +385,16 @@ class SettingsActivity : MIUIActivity() {
                         }.show()
                     }, dataBindingRecv = customMobileTypeTextBinding.binding.getRecv(2)
                 )
-                val bigMobileTypeIconBinding = GetDataBinding(
-                    SPUtils.getBoolean(
-                        activity,
-                        "big_mobile_type_icon",
-                        false
-                    )
-                ) { view, flags, data ->
-                    when (flags) {
-                        1 -> (view as Switch).isEnabled = data as Boolean
-                        2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                val bigMobileTypeIconBinding = GetDataBinding(object : DefValue {
+                    override fun getValue(): Any {
+                        return getSP().getBoolean("big_mobile_type_icon", false)
                     }
+                }) { view, flags, data ->
+                when (flags) {
+                    1 -> (view as Switch).isEnabled = data as Boolean
+                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
                 }
+            }
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.big_mobile_type_icon
@@ -621,18 +615,16 @@ class SettingsActivity : MIUIActivity() {
                     TextV(resId = R.string.hide_network_speed_splitter),
                     SwitchV("hide_network_speed_splitter")
                 )
-                val statusBarDualRowNetworkSpeedBinding = GetDataBinding(
-                    SPUtils.getBoolean(
-                        activity,
-                        "status_bar_dual_row_network_speed",
-                        false
-                    )
-                ) { view, flags, data ->
-                    when (flags) {
-                        1 -> (view as Switch).isEnabled = data as Boolean
-                        2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                val statusBarDualRowNetworkSpeedBinding = GetDataBinding(object : DefValue {
+                    override fun getValue(): Any {
+                        return getSP().getBoolean("status_bar_dual_row_network_speed", false)
                     }
+                }) { view, flags, data ->
+                when (flags) {
+                    1 -> (view as Switch).isEnabled = data as Boolean
+                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
                 }
+            }
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.status_bar_dual_row_network_speed,
@@ -727,18 +719,16 @@ class SettingsActivity : MIUIActivity() {
                 )
                 Line()
                 TitleText(resId = R.string.notification_center)
-                val showWeatherMainSwitchBinding = GetDataBinding(
-                    SPUtils.getBoolean(
-                        activity,
-                        "notification_weather",
-                        false
-                    )
-                ) { view, flags, data ->
-                    when (flags) {
-                        1 -> (view as Switch).isEnabled = data as Boolean
-                        2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                val showWeatherMainSwitchBinding = GetDataBinding(object : DefValue {
+                    override fun getValue(): Any {
+                        return getSP().getBoolean("notification_weather", false)
                     }
+                }) { view, flags, data ->
+                when (flags) {
+                    1 -> (view as Switch).isEnabled = data as Boolean
+                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
                 }
+            }
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.show_weather_main_switch, colorId = R.color.purple_700
@@ -757,18 +747,16 @@ class SettingsActivity : MIUIActivity() {
                 )
                 Line()
                 TitleText(resId = R.string.control_center)
-                val controlCenterWeatherBinding = GetDataBinding(
-                    SPUtils.getBoolean(
-                        activity,
-                        "control_center_weather",
-                        false
-                    )
-                ) { view, flags, data ->
-                    when (flags) {
-                        1 -> (view as Switch).isEnabled = data as Boolean
-                        2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                val controlCenterWeatherBinding = GetDataBinding(object : DefValue {
+                    override fun getValue(): Any {
+                        return getSP().getBoolean("control_center_weather", false)
                     }
+                }) { view, flags, data ->
+                when (flags) {
+                    1 -> (view as Switch).isEnabled = data as Boolean
+                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
                 }
+            }
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.show_weather_main_switch,
@@ -831,18 +819,16 @@ class SettingsActivity : MIUIActivity() {
                 )
                 Line()
                 TitleText(resId = R.string.old_quick_settings_panel)
-                val oldQSCustomSwitchBinding = GetDataBinding(
-                    SPUtils.getBoolean(
-                        activity,
-                        "old_qs_custom_switch",
-                        false
-                    )
-                ) { view, flags, data ->
-                    when (flags) {
-                        1 -> (view as Switch).isEnabled = data as Boolean
-                        2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                val oldQSCustomSwitchBinding = GetDataBinding(object : DefValue {
+                    override fun getValue(): Any {
+                        return getSP().getBoolean("old_qs_custom_switch", false)
                     }
+                }) { view, flags, data ->
+                when (flags) {
+                    1 -> (view as Switch).isEnabled = data as Boolean
+                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
                 }
+            }
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.old_qs_custom_switch,
@@ -1224,7 +1210,7 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("hide_zen_icon")
                 )
             }
-            register("about_module", getString(R.string.about_module), false) {
+            register("about_module", getString(R.string.about_module), true) {
                 Author(
                     authorHead = getDrawable(R.drawable.app_icon)!!,
                     authorName = getString(R.string.app_name),
