@@ -210,4 +210,6 @@
     <string name="enhancedMode_summary">Trece o anumită validare în aplicație</string>
     <string name="rear_display">Afișaj spate (11Ultra)</string>
     <string name="lock_screen_clock_display_seconds">Afișare secunde ceas</string>
+    <string name="sound">Sunet</string>
+    <string name="media_volume_steps">Pași de volum media (intră în vigoare după repornire)</string>
 </resources>
