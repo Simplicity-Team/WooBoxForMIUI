@@ -974,6 +974,17 @@ class SettingsActivity : MIUIActivity() {
                             }.show()
                         })
                 )
+                Line()
+                TitleText(resId = R.string.sound)
+                Text(
+                    resId = R.string.media_volume_steps,
+                )
+                SeekBarWithText(
+                    "media_volume_steps",
+                    15,
+                    29,
+                    15
+                )
             }
             register("scope_other", getString(R.string.scope_other), false) {
                 TitleText(resId = R.string.scope_miuihome)
