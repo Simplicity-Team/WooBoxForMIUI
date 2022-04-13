@@ -211,5 +211,4 @@
     <string name="rear_display">背屏 (11Ultra)</string>
     <string name="lock_screen_clock_display_seconds">时钟显示秒数</string>
     <string name="sound">声音</string>
-    <string name="media_volume_steps">媒体音量步数 (重启后生效)</string>
 </resources>
