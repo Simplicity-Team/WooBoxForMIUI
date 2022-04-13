@@ -211,5 +211,4 @@
     <string name="rear_display">後螢幕（11Ultra）</string>
     <string name="lock_screen_clock_display_seconds">時鐘顯示秒數</string>
     <string name="sound">聲音</string>
-    <string name="media_volume_steps">媒體音量階數（重啟後生效）</string>
 </resources>
