@@ -211,5 +211,4 @@
     <string name="rear_display">Pantalla trasera (11Ultra)</string>
     <string name="lock_screen_clock_display_seconds">Mostrar segundos en el reloj</string>
     <string name="sound">Sonido</string>
-    <string name="media_volume_steps">Pasos de volumen multimedia (Es necesario reiniciar)</string>
 </resources>
