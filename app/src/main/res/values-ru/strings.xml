@@ -215,5 +215,4 @@
     <string name="rear_display">Индикация задней части (11Ultra)</string>
     <string name="lock_screen_clock_display_seconds">Часы отображают секунды</string>
     <string name="sound">Звук</string>
-    <string name="media_volume_steps">Шаги громкости (применяется после перезагрузки)</string>
 </resources>
