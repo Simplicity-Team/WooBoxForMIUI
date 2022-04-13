@@ -211,4 +211,8 @@
     <string name="rear_display">背屏 (11Ultra)</string>
     <string name="lock_screen_clock_display_seconds">时钟显示秒数</string>
     <string name="sound">声音</string>
+    <string name="media_volume_steps_switch">媒体音量阶数</string>
+    <string name="allow_untrusted_touches">允许不受信任的触摸</string>
+    <string name="take_effect_after_reboot">重新启动后生效</string>
+    <string name="media_volume_steps_summary">打开可能会导致音量条的滚动或蓝牙音量异常。</string>
 </resources>
