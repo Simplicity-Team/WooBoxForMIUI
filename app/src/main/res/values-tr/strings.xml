@@ -211,4 +211,9 @@
     <string name="enhancedMode_summary">Uygulamada bazı doğrulamaları geç</string>
     <string name="rear_display">Arka Ekran (11Ultra</string>
     <string name="lock_screen_clock_display_seconds">Saat göstergesi saniye</string>
+    <string name="sound">Ses</string>
+    <string name="media_volume_steps_switch">Medya ses adımları</string>
+    <string name="allow_untrusted_touches">Güvenilmeyen dokunuşlara izin ver</string>
+    <string name="take_effect_after_reboot">Yeniden başlattıktan sonra etkili ol</string>
+    <string name="media_volume_steps_summary">Açmak, ses seviyesi çubuğunun kaymasının donmasına veya Bluetooth ses seviyesinin anormal olmasına neden olabilir.</string>
 </resources>
