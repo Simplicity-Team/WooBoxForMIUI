@@ -976,14 +976,33 @@ class SettingsActivity : MIUIActivity() {
                 )
                 Line()
                 TitleText(resId = R.string.sound)
-                Text(
-                    resId = R.string.media_volume_steps,
+                val mediaVolumeStepsSwitchBinding = GetDataBinding(
+                    object : DefValue {
+                        override fun getValue(): Any {
+                            return getSP().getBoolean("media_volume_steps_switch", false)
+                        }
+                    }
+                ) { view, flags, data ->
+                    when (flags) {
+                        1 -> (view as Switch).isEnabled = data as Boolean
+                        2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                    }
+                }
+                TextSummaryWithSwitch(
+                    TextSummaryV(
+                        textId = R.string.media_volume_steps_switch,
+                        tips = "${getString(R.string.take_effect_after_reboot)}\n${getString(R.string.media_volume_steps_summary)}"
+                    ),
+                    SwitchV(
+                        "media_volume_steps_switch",
+                        dataBindingSend = mediaVolumeStepsSwitchBinding.bindingSend
+                    )
                 )
                 SeekBarWithText(
                     "media_volume_steps",
                     15,
                     29,
-                    15
+                    15, dataBindingRecv = mediaVolumeStepsSwitchBinding.binding.getRecv(2)
                 )
             }
             register("scope_other", getString(R.string.scope_other), false) {
