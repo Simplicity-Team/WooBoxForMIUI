@@ -211,4 +211,8 @@
     <string name="rear_display">Pantalla trasera (11Ultra)</string>
     <string name="lock_screen_clock_display_seconds">Mostrar segundos en el reloj</string>
     <string name="sound">Sonido</string>
+    <string name="media_volume_steps_switch">Pasos de volumen multimedia</string>
+    <string name="allow_untrusted_touches">Permitir toques no confiables</string>
+    <string name="take_effect_after_reboot">Se activa después de reiniciar</string>
+    <string name="media_volume_steps_summary">Activar esta opción puede hacer que el desplazamiento de la barra de volumen se congele o que el volumen Bluetooth sea anormal</string>
 </resources>
