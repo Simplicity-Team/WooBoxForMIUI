@@ -215,5 +215,8 @@
     <string name="rear_display">Rear Display (11Ultra)</string>
     <string name="lock_screen_clock_display_seconds">Clock display seconds</string>
     <string name="sound">Sound</string>
-    <string name="media_volume_steps">Media volume steps (Take effect after reboot)</string>
+    <string name="media_volume_steps_switch">Media volume steps</string>
+    <string name="allow_untrusted_touches">Allow untrusted touches</string>
+    <string name="take_effect_after_reboot">Take effect after reboot</string>
+    <string name="media_volume_steps_summary">Turning on may cause the scrolling of the volume bar to freeze or the Bluetooth volume to be abnormal</string>
 </resources>

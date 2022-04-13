@@ -390,11 +390,11 @@ class SettingsActivity : MIUIActivity() {
                         return getSP().getBoolean("big_mobile_type_icon", false)
                     }
                 }) { view, flags, data ->
-                when (flags) {
-                    1 -> (view as Switch).isEnabled = data as Boolean
-                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                    when (flags) {
+                        1 -> (view as Switch).isEnabled = data as Boolean
+                        2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                    }
                 }
-            }
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.big_mobile_type_icon
@@ -620,11 +620,11 @@ class SettingsActivity : MIUIActivity() {
                         return getSP().getBoolean("status_bar_dual_row_network_speed", false)
                     }
                 }) { view, flags, data ->
-                when (flags) {
-                    1 -> (view as Switch).isEnabled = data as Boolean
-                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                    when (flags) {
+                        1 -> (view as Switch).isEnabled = data as Boolean
+                        2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                    }
                 }
-            }
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.status_bar_dual_row_network_speed,
@@ -724,11 +724,11 @@ class SettingsActivity : MIUIActivity() {
                         return getSP().getBoolean("notification_weather", false)
                     }
                 }) { view, flags, data ->
-                when (flags) {
-                    1 -> (view as Switch).isEnabled = data as Boolean
-                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                    when (flags) {
+                        1 -> (view as Switch).isEnabled = data as Boolean
+                        2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                    }
                 }
-            }
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.show_weather_main_switch, colorId = R.color.purple_700
@@ -752,11 +752,11 @@ class SettingsActivity : MIUIActivity() {
                         return getSP().getBoolean("control_center_weather", false)
                     }
                 }) { view, flags, data ->
-                when (flags) {
-                    1 -> (view as Switch).isEnabled = data as Boolean
-                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                    when (flags) {
+                        1 -> (view as Switch).isEnabled = data as Boolean
+                        2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                    }
                 }
-            }
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.show_weather_main_switch,
@@ -824,11 +824,11 @@ class SettingsActivity : MIUIActivity() {
                         return getSP().getBoolean("old_qs_custom_switch", false)
                     }
                 }) { view, flags, data ->
-                when (flags) {
-                    1 -> (view as Switch).isEnabled = data as Boolean
-                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                    when (flags) {
+                        1 -> (view as Switch).isEnabled = data as Boolean
+                        2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                    }
                 }
-            }
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.old_qs_custom_switch,
@@ -973,6 +973,13 @@ class SettingsActivity : MIUIActivity() {
                                 }
                             }.show()
                         })
+                )
+                TextSummaryWithSwitch(
+                    TextSummaryV(
+                        textId = R.string.allow_untrusted_touches,
+                        tipsId = R.string.take_effect_after_reboot
+                    ),
+                    SwitchV("allow_untrusted_touches")
                 )
                 Line()
                 TitleText(resId = R.string.sound)
