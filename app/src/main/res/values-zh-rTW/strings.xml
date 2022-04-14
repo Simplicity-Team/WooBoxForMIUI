@@ -211,4 +211,8 @@
     <string name="rear_display">後螢幕（11Ultra）</string>
     <string name="lock_screen_clock_display_seconds">時鐘顯示秒數</string>
     <string name="sound">聲音</string>
+    <string name="media_volume_steps_switch">媒體音量階數</string>
+    <string name="allow_untrusted_touches">允許不受信任的觸控</string>
+    <string name="take_effect_after_reboot">重新開機後生效</string>
+    <string name="media_volume_steps_summary">開啟後可能會導致音量條的滾動卡頓或藍芽音量異常</string>
 </resources>
