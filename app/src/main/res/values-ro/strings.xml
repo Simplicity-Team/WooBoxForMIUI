@@ -211,4 +211,8 @@
     <string name="rear_display">Afișaj spate (11Ultra)</string>
     <string name="lock_screen_clock_display_seconds">Afișare secunde ceas</string>
     <string name="sound">Sunet</string>
+    <string name="media_volume_steps_switch">Trepte volum media</string>
+    <string name="allow_untrusted_touches">Permite atingeri nesigure</string>
+    <string name="take_effect_after_reboot">Intră în vigoare după repornire</string>
+    <string name="media_volume_steps_summary">Activarea poate provoca înghețarea derulării barei de volum sau volumul Bluetooth să fie anormal</string>
 </resources>
