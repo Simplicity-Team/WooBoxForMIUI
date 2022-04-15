@@ -8,10 +8,10 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 object ScreenShot: AppRegister() {
     override val packageName: String = "com.miui.screenshot"
     override val processName: List<String> = emptyList()
-    override val logTag: String = "Simplicitytools"
+    override val logTag: String = "WooBox"
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        XposedBridge.log("Simplicitytools: 成功 Hook " + javaClass.simpleName)
+        XposedBridge.log("WooBox: 成功 Hook " + javaClass.simpleName)
         autoInitHooks(lpparam,
             UnlockUnlimitedCropping, //锁定最高刷新率
         )

@@ -9,10 +9,10 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 object Android : AppRegister() {
     override val packageName: String = "android"
     override val processName: List<String> = emptyList()
-    override val logTag: String = "Simplicitytools"
+    override val logTag: String = "WooBox"
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        XposedBridge.log("Simplicitytools: 成功 Hook " + javaClass.simpleName)
+        XposedBridge.log("WooBox: 成功 Hook " + javaClass.simpleName)
         //核心破解
         CorePatch().handleLoadPackage(lpparam)
 

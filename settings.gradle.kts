@@ -6,6 +6,6 @@ dependencyResolutionManagement {
         maven("https://api.xposed.info")
     }
 }
-rootProject.name = "Simplicity Tools"
+rootProject.name = "WooBoxForMIUI"
 include(":app")
 include(":blockmiui")

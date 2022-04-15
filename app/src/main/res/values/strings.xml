@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Simplicity Tools</string>
+    <string name="app_name" translatable="false">WooBox For MIUI</string>
     <string name="performance">Performance</string>
     <string name="lock_max_fps">Lock the current refresh rate upper limit</string>
     <string name="ui">Interface</string>

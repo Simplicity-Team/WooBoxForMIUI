@@ -1,6 +1,6 @@
 <div align="center">
    <img width="160" src="https://raw.githubusercontent.com/LittleTurtle2333/SimplicityTools/main/doc/ic_launcher.png" alt="logo">
-   <h1>Simplicity Tools</h1>
+   <h1>WooBox For MIUI</h1>
    <p>
        <b>English  丨 <a href="https://github.com/LittleTurtle2333/SimplicityTools/blob/main/README.md">简体中文</a></b>
     </p>
