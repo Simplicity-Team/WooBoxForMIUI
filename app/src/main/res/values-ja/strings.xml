@@ -213,4 +213,6 @@
     <string name="sound">サウンド</string>
     <string name="media_volume_steps_switch">メデイア音量の段階数</string>
     <string name="allow_untrusted_touches">信頼されていないタッチを許可</string>
+    <string name="take_effect_after_reboot">機能は再起動後に有効になります</string>
+    <string name="media_volume_steps_summary">オンにすると、ボリュームバーのスクロールがフリーズしたり、Bluetoothの音量が異常になる場合があります</string>
 </resources>
