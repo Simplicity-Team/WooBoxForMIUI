@@ -209,4 +209,8 @@
     <string name="enhancedMode">強化モード</string>
     <string name="enhancedMode_summary">アプリケーションでいくつかの検証に合格する</string>
     <string name="rear_display">背面ディスプレイ (11 Ultra)</string>
+    <string name="lock_screen_clock_display_seconds">時計の秒数表示</string>
+    <string name="sound">サウンド</string>
+    <string name="media_volume_steps_switch">メデイア音量の段階数</string>
+    <string name="allow_untrusted_touches">信頼されていないタッチを許可</string>
 </resources>
