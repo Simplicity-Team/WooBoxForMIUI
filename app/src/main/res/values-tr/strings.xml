@@ -178,6 +178,7 @@
     <string name="left">Sol</string>
     <string name="right">Sağ </string>
     <string name="big_mobile_type_icon">Büyük mobil ikon tipi</string>
+    <string name="can_notification_slide">Çoğu bildirimin küçük pencereye kaydırılabilmesini sağlayın</string>
     <string name="battery_percentage_font_size">Pil yüzdesi yazı tipi boyutu</string>
     <string name="zero_do_no_change">0: değiştirme</string>
     <string name="big_mobile_type_icon_size">Büyük mobil tip simge boyutu</string>
@@ -215,4 +216,5 @@
     <string name="allow_untrusted_touches">Güvenilmeyen dokunuşlara izin ver</string>
     <string name="take_effect_after_reboot">Yeniden başlattıktan sonra etkili ol</string>
     <string name="media_volume_steps_summary">Açmak, ses seviyesi çubuğunun kaymasının donmasına veya Bluetooth ses seviyesinin anormal olmasına neden olabilir.</string>
+    <string name="can_notification_slide_summary">Mi Push aracılığıyla yapılan bazı bildirimler desteklenmeyebilir.</string>
 </resources>
