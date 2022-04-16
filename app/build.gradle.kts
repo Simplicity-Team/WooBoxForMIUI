@@ -12,8 +12,8 @@ android {
         applicationId = "com.lt2333.simplicitytools"
         minSdk = 31
         targetSdk = 32
-        versionCode = 64
-        versionName = "1.6.3"
+        versionCode = 65
+        versionName = "1.6.4"
     }
 
     buildTypes {
@@ -45,7 +45,7 @@ android {
     applicationVariants.all {
         outputs.all {
             (this as BaseVariantOutputImpl).outputFileName =
-                "Simplicity_Tools_Xposed-$versionName-$name.apk"
+                "WooBoxForMIUI-$versionName-$name.apk"
         }
     }
 }
