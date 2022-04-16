@@ -177,7 +177,6 @@
     <string name="left">Do lewej</string>
     <string name="right">Do prawej</string>
     <string name="big_mobile_type_icon">Duża ikona typu sieci</string>
-    <string name="can_notification_slide">Zezwól wszystkim powiadomieniom na otwieranie się w pływających oknach</string>
     <string name="battery_percentage_font_size">Procent rozmiaru czcionki baterii</string>
     <string name="zero_do_no_change">0: brak zmian</string>
     <string name="big_mobile_type_icon_size">Rozmiar dużej ikony typu sieci</string>
