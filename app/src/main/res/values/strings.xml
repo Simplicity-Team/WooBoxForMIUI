@@ -219,5 +219,5 @@
     <string name="allow_untrusted_touches">Allow untrusted touches</string>
     <string name="take_effect_after_reboot">Take effect after reboot</string>
     <string name="media_volume_steps_summary">Turning on may cause the scrolling of the volume bar to freeze or the Bluetooth volume to be abnormal</string>
-    <string name="can_notification_slide_summary">Some notifications through Mi Push may not supported.</string>
+    <string name="can_notification_slide_summary">Some notifications through Mi Push may not be supported.</string>
 </resources>
