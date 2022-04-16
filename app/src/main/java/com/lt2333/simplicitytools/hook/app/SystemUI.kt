@@ -41,6 +41,7 @@ object SystemUI: AppRegister() {
             StatusBarBigMobileTypeIcon, //大移动类型
             BatteryPercentage, //电量百分比
             CustomMobileTypeText, //自定义移动类型文本
+            CanNotificationSlide, //允许下滑通知打开小窗
             LockScreenClockDisplaySeconds, // 锁屏时钟显示秒
         )
     }
