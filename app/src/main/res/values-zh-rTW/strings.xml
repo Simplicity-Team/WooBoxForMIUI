@@ -177,7 +177,6 @@
     <string name="left">置左</string>
     <string name="right">置右</string>
     <string name="big_mobile_type_icon">大行動網路圖示</string>
-    <string name="can_notification_slide">強制允許全部通知可使用小窗</string>
     <string name="battery_percentage_font_size">電量百分比字體大小</string>
     <string name="zero_do_no_change">0：不修改</string>
     <string name="big_mobile_type_icon_size">大行動網路圖示大小</string>
