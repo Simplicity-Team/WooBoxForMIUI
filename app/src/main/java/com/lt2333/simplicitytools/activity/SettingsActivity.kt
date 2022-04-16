@@ -745,6 +745,13 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("notification_weather_city"),
                     dataBindingRecv = showWeatherMainSwitchBinding.binding.getRecv(2)
                 )
+                TextSummaryWithSwitch(
+                    TextSummaryV(
+                        textId = R.string.can_notification_slide,
+                        tipsId = R.string.can_notification_slide_summary,
+                    ),
+                    SwitchV("can_notification_slide"),
+                )
                 Line()
                 TitleText(resId = R.string.control_center)
                 val controlCenterWeatherBinding = GetDataBinding(object : DefValue {

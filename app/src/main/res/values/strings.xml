@@ -181,7 +181,7 @@
     <string name="left">Left</string>
     <string name="right">Right</string>
     <string name="big_mobile_type_icon">Big Mobile Type Icon</string>
-    <string name="can_notification_slide">Make all notification can be slide to small window</string>
+    <string name="can_notification_slide">Make most notifications can be slide to small window</string>
     <string name="battery_percentage_font_size">Battery percentage font size</string>
     <string name="zero_do_no_change">0: do not change</string>
     <string name="big_mobile_type_icon_size">Big mobile type icon size</string>
@@ -219,4 +219,5 @@
     <string name="allow_untrusted_touches">Allow untrusted touches</string>
     <string name="take_effect_after_reboot">Take effect after reboot</string>
     <string name="media_volume_steps_summary">Turning on may cause the scrolling of the volume bar to freeze or the Bluetooth volume to be abnormal</string>
+    <string name="can_notification_slide_summary">Some notifications through Mi Push may not support.</string>
 </resources>
