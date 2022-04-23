@@ -1,11 +1,9 @@
 package com.lt2333.simplicitytools.hook.app.systemui
 
-import android.annotation.SuppressLint
 import android.app.KeyguardManager
 import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Resources
-import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -13,21 +11,16 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import cn.fkj233.ui.activity.dp2px
+import com.github.kyuubiran.ezxhelper.utils.findMethod
+import com.github.kyuubiran.ezxhelper.utils.getObject
+import com.github.kyuubiran.ezxhelper.utils.hookAfter
 import com.lt2333.simplicitytools.util.XSPUtils
-import com.lt2333.simplicitytools.util.findClass
-import com.lt2333.simplicitytools.util.getObjectField
-import com.lt2333.simplicitytools.util.hookAfterMethod
+import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XposedHelpers
 
 
-@SuppressLint("StaticFieldLeak")
 object StatusBarLayout : HookRegister() {
-
-    private var mLeftLayout: LinearLayout? = null
-    private var mRightLayout: LinearLayout? = null
-    private var mCenterLayout: LinearLayout? = null
-    private var statusBar: ViewGroup? = null
 
     private var statusBarLeft = 0
     private var statusBarTop = 0
@@ -35,23 +28,36 @@ object StatusBarLayout : HookRegister() {
     private var statusBarBottom = 0
 
     override fun init() {
+        var mLeftLayout: LinearLayout? = null
+        var mRightLayout: LinearLayout? = null
+        var mCenterLayout: LinearLayout? = null
+        var statusBar: ViewGroup? = null
+
+        fun updateLayout(context: Context) {
+            //判断屏幕方向
+            val mConfiguration: Configuration = context.resources.configuration
+            if (mConfiguration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                mLeftLayout!!.setPadding(statusBarLeft, 0, 0, 0)
+                mRightLayout!!.setPadding(0, 0, statusBarRight, 0)
+                statusBar!!.setPadding(0, statusBarTop, 0, statusBarBottom)
+            } else {
+                //横屏状态
+                mLeftLayout!!.setPadding(175, 0, 0, 0)
+                mRightLayout!!.setPadding(0, 0, 175, 0)
+                statusBar!!.setPadding(0, statusBarTop, 0, statusBarBottom)
+            }
+        }
+
         when (XSPUtils.getInt("status_bar_layout_mode", 0)) {
             //默认
             0 -> return
             //时钟居中
             1 -> {
-                val collapsedStatusBarFragmentClass =
-                    "com.android.systemui.statusbar.phone.CollapsedStatusBarFragment".findClass(
-                        getDefaultClassLoader()
-                    )
-
-                collapsedStatusBarFragmentClass.hookAfterMethod(
-                    "onViewCreated",
-                    View::class.java,
-                    Bundle::class.java
-                ) { param ->
+                findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
+                    name == "onViewCreated" && parameterCount == 2
+                }.hookAfter {
                     val MiuiPhoneStatusBarView: ViewGroup =
-                        param.thisObject.getObjectField("mStatusBar") as ViewGroup
+                        it.thisObject.getObject("mStatusBar") as ViewGroup
                     val context: Context = MiuiPhoneStatusBarView.context
                     val res: Resources = MiuiPhoneStatusBarView.resources
                     val statusBarId: Int =
@@ -76,7 +82,7 @@ object StatusBarLayout : HookRegister() {
                     statusBar = MiuiPhoneStatusBarView.findViewById(statusBarId)
                     val statusBarContents: ViewGroup =
                         MiuiPhoneStatusBarView.findViewById(statusBarContentsId)
-                    if (statusBar == null) return@hookAfterMethod
+                    if (statusBar == null) return@hookAfter
                     val clock: TextView = MiuiPhoneStatusBarView.findViewById(clockId)
                     val phoneStatusBarLeftContainer: ViewGroup =
                         MiuiPhoneStatusBarView.findViewById(phoneStatusBarLeftContainerId)
@@ -159,13 +165,11 @@ object StatusBarLayout : HookRegister() {
                         updateLayout(context)
                     }
                 }
-                val phoneStatusBarViewClass =
-                    "com.android.systemui.statusbar.phone.PhoneStatusBarView".findClass(
-                        getDefaultClassLoader()
-                    )
 
-                phoneStatusBarViewClass.hookAfterMethod("updateLayoutForCutout") {
-                    if (XSPUtils.getBoolean("layout_compatibility_mode", false)) {
+                findMethod("com.android.systemui.statusbar.phone.PhoneStatusBarView") {
+                    name == "updateLayoutForCutout"
+                }.hookAfter {
+                    hasEnable("layout_compatibility_mode") {
                         val context = (it.thisObject as ViewGroup).context
                         updateLayout(context)
                     }
@@ -173,18 +177,11 @@ object StatusBarLayout : HookRegister() {
             }
             //时钟居右
             2 -> {
-                val collapsedStatusBarFragmentClass =
-                    "com.android.systemui.statusbar.phone.CollapsedStatusBarFragment".findClass(
-                        getDefaultClassLoader()
-                    )
-
-                collapsedStatusBarFragmentClass.hookAfterMethod(
-                    "onViewCreated",
-                    View::class.java,
-                    Bundle::class.java
-                ) { param ->
-                    val MiuiPhoneStatusBarView: ViewGroup =
-                        param.thisObject.getObjectField("mStatusBar") as ViewGroup
+                findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
+                    name == "onViewCreated" && parameterCount == 2
+                }.hookAfter {
+                    val MiuiPhoneStatusBarView =
+                        it.thisObject.getObject("mStatusBar") as ViewGroup
                     val context: Context = MiuiPhoneStatusBarView.context
                     val res: Resources = MiuiPhoneStatusBarView.resources
 
@@ -196,7 +193,7 @@ object StatusBarLayout : HookRegister() {
 
                     //查找组件
                     statusBar = MiuiPhoneStatusBarView.findViewById(statusBarId)
-                    if (statusBar == null) return@hookAfterMethod
+                    if (statusBar == null) return@hookAfter
                     val clock: TextView = MiuiPhoneStatusBarView.findViewById(clockId)
                     val battery: ViewGroup = MiuiPhoneStatusBarView.findViewById(batteryId)
 
@@ -219,18 +216,11 @@ object StatusBarLayout : HookRegister() {
             }
             //时钟居中+图标居左
             3 -> {
-                val collapsedStatusBarFragmentClass =
-                    "com.android.systemui.statusbar.phone.CollapsedStatusBarFragment".findClass(
-                        getDefaultClassLoader()
-                    )
-
-                collapsedStatusBarFragmentClass.hookAfterMethod(
-                    "onViewCreated",
-                    View::class.java,
-                    Bundle::class.java
-                ) { param ->
-                    val MiuiPhoneStatusBarView: ViewGroup =
-                        param.thisObject.getObjectField("mStatusBar") as ViewGroup
+                findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
+                    name == "onViewCreated" && parameterCount == 2
+                }.hookAfter {
+                    val MiuiPhoneStatusBarView =
+                        it.thisObject.getObject("mStatusBar") as ViewGroup
                     val context: Context = MiuiPhoneStatusBarView.context
                     val res: Resources = MiuiPhoneStatusBarView.resources
                     val statusBarId: Int =
@@ -280,7 +270,7 @@ object StatusBarLayout : HookRegister() {
                     statusBar = MiuiPhoneStatusBarView.findViewById(statusBarId)
                     val statusBarContents: ViewGroup =
                         MiuiPhoneStatusBarView.findViewById(statusBarContentsId)
-                    if (statusBar == null) return@hookAfterMethod
+                    if (statusBar == null) return@hookAfter
                     val clock: TextView = MiuiPhoneStatusBarView.findViewById(clockId)
                     val phoneStatusBarLeftContainer: ViewGroup =
                         MiuiPhoneStatusBarView.findViewById(phoneStatusBarLeftContainerId)
@@ -399,26 +389,19 @@ object StatusBarLayout : HookRegister() {
                     }
                 }
                 //兼容模式
-                val phoneStatusBarViewClass =
-                    "com.android.systemui.statusbar.phone.PhoneStatusBarView".findClass(
-                        getDefaultClassLoader()
-                    )
-                phoneStatusBarViewClass.hookAfterMethod("updateLayoutForCutout") {
+                findMethod("com.android.systemui.statusbar.phone.PhoneStatusBarView") {
+                    name == "updateLayoutForCutout"
+                }.hookAfter {
                     if (XSPUtils.getBoolean("layout_compatibility_mode", false)) {
                         val context = (it.thisObject as ViewGroup).context
                         updateLayout(context)
                     }
                 }
-                //解决重叠
-                val miuiCollapsedStatusBarFragmentClass =
-                    "com.android.systemui.statusbar.phone.MiuiCollapsedStatusBarFragment".findClass(
-                        getDefaultClassLoader()
-                    )
 
-                miuiCollapsedStatusBarFragmentClass.hookAfterMethod(
-                    "showClock",
-                    Boolean::class.java
-                ) {
+                //解决重叠
+                findMethod("com.android.systemui.statusbar.phone.MiuiCollapsedStatusBarFragment") {
+                    name == "showClock" && parameterTypes[0] == Boolean::class.java
+                }.hookAfter {
                     val MiuiPhoneStatusBarView =
                         XposedHelpers.getObjectField(it.thisObject, "mStatusBar") as ViewGroup
                     val res = MiuiPhoneStatusBarView.resources
@@ -436,21 +419,8 @@ object StatusBarLayout : HookRegister() {
                 }
             }
         }
-    }
 
-    private fun updateLayout(context: Context) {
-        //判断屏幕方向
-        val mConfiguration: Configuration = context.resources.configuration
-        if (mConfiguration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            mLeftLayout!!.setPadding(statusBarLeft, 0, 0, 0)
-            mRightLayout!!.setPadding(0, 0, statusBarRight, 0)
-            statusBar!!.setPadding(0, statusBarTop, 0, statusBarBottom)
-        } else {
-            //横屏状态
-            mLeftLayout!!.setPadding(175, 0, 0, 0)
-            mRightLayout!!.setPadding(0, 0, 175, 0)
-            statusBar!!.setPadding(0, statusBarTop, 0, statusBarBottom)
-        }
+
     }
 
 }

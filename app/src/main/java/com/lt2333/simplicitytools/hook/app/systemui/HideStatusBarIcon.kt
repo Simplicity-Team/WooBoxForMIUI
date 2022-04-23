@@ -1,26 +1,24 @@
 package com.lt2333.simplicitytools.hook.app.systemui
 
+import com.github.kyuubiran.ezxhelper.utils.findMethod
+import com.github.kyuubiran.ezxhelper.utils.hookBefore
 import com.lt2333.simplicitytools.util.hasEnable
-import com.lt2333.simplicitytools.util.hookBeforeMethod
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XC_MethodHook
 
-object HideStatusBarIcon: HookRegister() {
-
+object HideStatusBarIcon : HookRegister() {
     override fun init() {
-        "com.android.systemui.statusbar.phone.StatusBarIconControllerImpl".hookBeforeMethod(
-            getDefaultClassLoader(),
-            "setIconVisibility",
-            String::class.java,
-            Boolean::class.java
-        ) { hideIcon(it) }
+        findMethod("com.android.systemui.statusbar.phone.StatusBarIconControllerImpl") {
+            name == "setIconVisibility" && parameterCount == 2
+        }.hookBefore {
+            hideIcon(it)
+        }
 
-        "com.android.systemui.statusbar.phone.MiuiDripLeftStatusBarIconControllerImpl".hookBeforeMethod(
-            getDefaultClassLoader(),
-            "setIconVisibility",
-            String::class.java,
-            Boolean::class.java
-        ) { hideIcon(it) }
+        findMethod("com.android.systemui.statusbar.phone.MiuiDripLeftStatusBarIconControllerImpl") {
+            name == "setIconVisibility" && parameterCount == 2
+        }.hookBefore {
+            hideIcon(it)
+        }
     }
 
     private fun hideIcon(it: XC_MethodHook.MethodHookParam) {

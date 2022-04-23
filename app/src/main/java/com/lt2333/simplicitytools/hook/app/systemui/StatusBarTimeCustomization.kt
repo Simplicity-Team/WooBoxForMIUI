@@ -3,16 +3,14 @@ package com.lt2333.simplicitytools.hook.app.systemui
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Resources
-import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
-import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.lt2333.simplicitytools.util.*
+import com.github.kyuubiran.ezxhelper.utils.*
+import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import java.lang.reflect.Method
 import java.text.SimpleDateFormat
@@ -41,17 +39,14 @@ object StatusBarTimeCustomization : HookRegister() {
     override fun init() {
         if (isOpen) {
             var c: Context? = null
-            val miuiClockClass =
-                "com.android.systemui.statusbar.views.MiuiClock".findClass(getDefaultClassLoader())
-            miuiClockClass.hookAfterConstructor(
-                Context::class.java,
-                AttributeSet::class.java,
-                Integer.TYPE
-            ) {
+
+            findConstructor("com.android.systemui.statusbar.views.MiuiClock") {
+                paramCount == 3
+            }.hookAfter {
                 try {
                     c = it.args[0] as Context
                     val textV = it.thisObject as TextView
-                    if (textV.resources.getResourceEntryName(textV.id) != "clock") return@hookAfterConstructor
+                    if (textV.resources.getResourceEntryName(textV.id) != "clock") return@hookAfter
                     textV.isSingleLine = false
                     if (isDoubleLine) {
                         str = "\n"
@@ -79,10 +74,13 @@ object StatusBarTimeCustomization : HookRegister() {
                         }
                     }
                     Timer().scheduleAtFixedRate(T(), 1000 - System.currentTimeMillis() % 1000, 1000)
-                } catch (e: java.lang.Exception) {
+                } catch (e: Exception) {
                 }
             }
-            miuiClockClass.hookAfterMethod("updateTime") {
+
+            findMethod("com.android.systemui.statusbar.views.MiuiClock") {
+                name == "updateTime"
+            }.hookAfter {
                 try {
                     val textV = it.thisObject as TextView
                     if (textV.resources.getResourceEntryName(textV.id) == "clock") {
@@ -97,18 +95,13 @@ object StatusBarTimeCustomization : HookRegister() {
                 } catch (e: Exception) {
                 }
             }
+
             if (isCenterAlign) {
-                val collapsedStatusBarFragmentClass =
-                    "com.android.systemui.statusbar.phone.CollapsedStatusBarFragment".findClass(
-                        getDefaultClassLoader()
-                    )
-                collapsedStatusBarFragmentClass.hookAfterMethod(
-                    "onViewCreated",
-                    View::class.java,
-                    Bundle::class.java
-                ) {
-                    val MiuiPhoneStatusBarView: ViewGroup =
-                        it.thisObject.getObjectField("mStatusBar") as ViewGroup
+                findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
+                    name == "onViewCreated" && parameterCount == 2
+                }.hookAfter {
+                    val MiuiPhoneStatusBarView =
+                        it.thisObject.getObject("mStatusBar") as ViewGroup
                     val res: Resources = MiuiPhoneStatusBarView.resources
                     val clockId: Int = res.getIdentifier("clock", "id", "com.android.systemui")
                     val clock: TextView = MiuiPhoneStatusBarView.findViewById(clockId)

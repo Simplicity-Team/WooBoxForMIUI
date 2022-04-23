@@ -13,14 +13,15 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import cn.fkj233.ui.activity.dp2px
-import com.lt2333.simplicitytools.util.XSPUtils
-import com.lt2333.simplicitytools.util.findClass
-import com.lt2333.simplicitytools.util.hookAfterMethod
-import com.lt2333.simplicitytools.util.hookBeforeMethod
+import com.github.kyuubiran.ezxhelper.utils.findMethod
+import com.github.kyuubiran.ezxhelper.utils.hookAfter
+import com.github.kyuubiran.ezxhelper.utils.hookBefore
+import com.github.kyuubiran.ezxhelper.utils.loadClass
+import com.lt2333.simplicitytools.util.*
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import java.lang.reflect.Field
 
-object ShowBatteryTemperature: HookRegister() {
+object ShowBatteryTemperature : HookRegister() {
 
     private fun getBatteryTemperature(context: Context): Int {
         return context.registerReceiver(
@@ -29,17 +30,26 @@ object ShowBatteryTemperature: HookRegister() {
         )!!.getIntExtra("temperature", 0) / 10
     }
 
-    override fun init() {
-        if (!XSPUtils.getBoolean("battery_life_function", false)) return
-        val a = "com.miui.powercenter.a\$a".findClass(getDefaultClassLoader())
-        "com.miui.powercenter.a".hookBeforeMethod(getDefaultClassLoader(), "b", Context::class.java) {
+    override fun init() = hasEnable("battery_life_function") {
+        findMethod("com.miui.powercenter.a") {
+            name == "b" && parameterTypes[0] == Context::class.java
+        }.hookBefore {
             it.result = getBatteryTemperature(it.args[0] as Context).toString()
+
         }
-        a.hookAfterMethod("run") {
+
+        findMethod("com.miui.powercenter.a\$a") {
+            name == "run"
+        }.hookAfter {
             val context = AndroidAppHelper.currentApplication().applicationContext
-            val isDarkMode = context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
-            val currentTemperatureValue = context.resources.getIdentifier("current_temperature_value", "id", "com.miui.securitycenter")
-            val field = a.getDeclaredField("a") as Field
+            val isDarkMode =
+                context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
+            val currentTemperatureValue = context.resources.getIdentifier(
+                "current_temperature_value",
+                "id",
+                "com.miui.securitycenter"
+            )
+            val field = loadClass("com.miui.powercenter.a\$a").getDeclaredField("a") as Field
             field.isAccessible = true
             val view = field.get(it.thisObject) as View
             val textView = view.findViewById<TextView>(currentTemperatureValue)
@@ -52,18 +62,25 @@ object ShowBatteryTemperature: HookRegister() {
             textView.height = dp2px(context, 49.099983f)
             textView.textAlignment = View.TEXT_ALIGNMENT_VIEW_START
             val tempView = TextView(context)
-            tempView.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dp2px(context, 49.099983f))
-            (tempView.layoutParams as LinearLayout.LayoutParams).marginStart = dp2px(context, 3.599976f)
+            tempView.layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                dp2px(context, 49.099983f)
+            )
+            (tempView.layoutParams as LinearLayout.LayoutParams).marginStart =
+                dp2px(context, 3.599976f)
             tempView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 13.099977f)
             tempView.setTextColor(Color.parseColor(if (isDarkMode) "#e6e6e6" else "#333333"))
             tempView.setPadding(0, dp2px(context, 25f), 0, 0)
             tempView.text = "℃"
             tempView.typeface = Typeface.create(null, 500, false)
             tempView.textAlignment = View.TEXT_ALIGNMENT_VIEW_START
-            val tempeValueContainer = context.resources.getIdentifier("tempe_value_container", "id", "com.miui.securitycenter")
+            val tempeValueContainer = context.resources.getIdentifier(
+                "tempe_value_container",
+                "id",
+                "com.miui.securitycenter"
+            )
             val linearLayout = view.findViewById<LinearLayout>(tempeValueContainer)
             linearLayout.addView(tempView)
         }
     }
-
 }

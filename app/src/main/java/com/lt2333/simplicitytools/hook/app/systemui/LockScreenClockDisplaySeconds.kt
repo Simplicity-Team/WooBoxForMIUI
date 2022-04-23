@@ -4,11 +4,11 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Handler
 import android.provider.Settings
-import android.util.AttributeSet
 import android.util.Log
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.lt2333.simplicitytools.util.*
+import com.github.kyuubiran.ezxhelper.utils.*
+import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XC_MethodHook
 import java.lang.reflect.Method
@@ -19,67 +19,48 @@ object LockScreenClockDisplaySeconds : HookRegister() {
 
     private var nowTime: Date = Calendar.getInstance().time
 
-    override fun init() {
-        hasEnable("lock_screen_clock_display_seconds") {
-            "com.miui.clock.MiuiBaseClock".findClass(getDefaultClassLoader())
-                .hookAfterConstructor(
-                    Context::class.java,
-                    AttributeSet::class.java
-                ) {
-                    try {
-                        val viewGroup = it.thisObject as LinearLayout
+    override fun init() = hasEnable("lock_screen_clock_display_seconds") {
+        findConstructor("com.miui.clock.MiuiBaseClock") {
+            paramCount == 2
+        }.hookAfter {
+            try {
+                val viewGroup = it.thisObject as LinearLayout
+                val d: Method = viewGroup.javaClass.getDeclaredMethod("updateTime")
+                val r = Runnable {
+                    d.isAccessible = true
+                    d.invoke(viewGroup)
+                }
 
-                        val d: Method = viewGroup.javaClass.getDeclaredMethod("updateTime")
-                        val r = Runnable {
-                            d.isAccessible = true
-                            d.invoke(viewGroup)
-                        }
-
-                        class T : TimerTask() {
-                            override fun run() {
-                                Handler(viewGroup.context.mainLooper).post(r)
-                            }
-                        }
-                        Timer().scheduleAtFixedRate(
-                            T(),
-                            1000 - System.currentTimeMillis() % 1000,
-                            1000
-                        )
-                    } catch (e: java.lang.Exception) {
+                class T : TimerTask() {
+                    override fun run() {
+                        Handler(viewGroup.context.mainLooper).post(r)
                     }
                 }
-            "com.miui.clock.MiuiLeftTopClock".hookAfterMethod(
-                getDefaultClassLoader(),
-                "updateTime"
-            ) {
-                updateTime(it, false)
-            }
+                Timer().scheduleAtFixedRate(T(), 1000 - System.currentTimeMillis() % 1000, 1000)
+            } catch (e: Exception) {
 
-            "com.miui.clock.MiuiLeftTopLargeClock".hookAfterMethod(
-                getDefaultClassLoader(),
-                "updateTime"
-            ) {
-                updateTime(it, false)
-            }
-
-            "com.miui.clock.MiuiCenterHorizontalClock".hookAfterMethod(
-                getDefaultClassLoader(),
-                "updateTime"
-            ) {
-                updateTime(it, false)
-            }
-
-            "com.miui.clock.MiuiVerticalClock".hookAfterMethod(
-                getDefaultClassLoader(),
-                "updateTime"
-            ) {
-                updateTime(it, true)
             }
         }
+
+        findMethod("com.miui.clock.MiuiLeftTopClock") {
+            name == "updateTime"
+        }.hookAfter { updateTime(it, false) }
+
+        findMethod("com.miui.clock.MiuiCenterHorizontalClock") {
+            name == "updateTime"
+        }.hookAfter { updateTime(it, false) }
+
+        findMethod("com.miui.clock.MiuiLeftTopLargeClock") {
+            name == "updateTime"
+        }.hookAfter { updateTime(it, false) }
+
+        findMethod("com.miui.clock.MiuiVerticalClock") {
+            name == "updateTime"
+        }.hookAfter { updateTime(it, true) }
     }
 
     private fun updateTime(it: XC_MethodHook.MethodHookParam, isVertical: Boolean) {
-        val textV = it.thisObject.getObjectField("mTimeText") as TextView
+        val textV = it.thisObject.getObject("mTimeText") as TextView
         val c: Context = textV.context
 
         Log.d(

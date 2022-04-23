@@ -2,34 +2,41 @@ package com.lt2333.simplicitytools.hook.app.systemui
 
 import android.view.View
 import android.widget.LinearLayout
-import com.lt2333.simplicitytools.util.getObjectField
+import com.github.kyuubiran.ezxhelper.utils.findMethod
+import com.github.kyuubiran.ezxhelper.utils.getObject
+import com.github.kyuubiran.ezxhelper.utils.hookAfter
+import com.github.kyuubiran.ezxhelper.utils.hookBefore
 import com.lt2333.simplicitytools.util.hasEnable
-import com.lt2333.simplicitytools.util.hookAfterMethod
-import com.lt2333.simplicitytools.util.hookBeforeMethod
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
-object RemoveLockScreenCamera: HookRegister() {
+object RemoveLockScreenCamera : HookRegister() {
 
     override fun init() {
         //屏蔽右下角组件显示
-        "com.android.systemui.statusbar.phone.KeyguardBottomAreaView".hookAfterMethod(getDefaultClassLoader(), "onFinishInflate") {
+        findMethod("com.android.systemui.statusbar.phone.KeyguardBottomAreaView") {
+            name == "onFinishInflate"
+        }.hookAfter {
             hasEnable("remove_lock_screen_camera") {
-                (it.thisObject.getObjectField("mRightAffordanceViewLayout") as LinearLayout).visibility = View.GONE
+                (it.thisObject.getObject("mRightAffordanceViewLayout") as LinearLayout).visibility =
+                    View.GONE
             }
         }
 
         //屏蔽滑动撞墙动画
-        "com.android.keyguard.KeyguardMoveRightController".hookBeforeMethod(getDefaultClassLoader(), "onTouchMove", Float::class.java, Float::class.java) {
+        findMethod("com.android.keyguard.KeyguardMoveRightController") {
+            name == "onTouchMove" && parameterCount == 2
+        }.hookBefore {
             hasEnable("remove_lock_screen_camera") {
                 it.result = false
             }
         }
-        "com.android.keyguard.KeyguardMoveRightController".hookBeforeMethod(getDefaultClassLoader(), "reset") {
+        findMethod("com.android.keyguard.KeyguardMoveRightController") {
+            name == "reset"
+        }.hookBefore {
             hasEnable("remove_lock_screen_camera") {
                 it.result = null
             }
         }
     }
-
 }
 

@@ -1,29 +1,29 @@
 package com.lt2333.simplicitytools.hook.app.securitycenter
 
 import android.view.View
-import com.lt2333.simplicitytools.util.XSPUtils
-import com.lt2333.simplicitytools.util.findClass
-import com.lt2333.simplicitytools.util.hookBeforeMethod
+import com.github.kyuubiran.ezxhelper.utils.findMethod
+import com.github.kyuubiran.ezxhelper.utils.hookBefore
+import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object LockOneHundred : HookRegister() {
-
     override fun init() {
         //防止点击重新检测
-        val mainContentFrameClass = "com.miui.securityscan.ui.main.MainContentFrame".findClass(getDefaultClassLoader())
-        mainContentFrameClass.hookBeforeMethod("onClick", View::class.java) {
-            if (XSPUtils.getBoolean("lock_one_hundred", false)) {
+        findMethod("com.miui.securityscan.ui.main.MainContentFrame") {
+            name == "onClick" && parameterTypes[0] == View::class.java
+        }.hookBefore {
+            hasEnable("lock_one_hundred") {
                 it.result = null
             }
         }
 
         //锁定100分
-        val scoreManagerClass = "com.miui.securityscan.scanner.ScoreManager".findClass(getDefaultClassLoader())
-        scoreManagerClass.hookBeforeMethod("B") {
-            if (XSPUtils.getBoolean("lock_one_hundred", false)) {
+        findMethod("com.miui.securityscan.scanner.ScoreManager") {
+            name == "B"
+        }.hookBefore {
+            hasEnable("lock_one_hundred") {
                 it.result = 0
             }
         }
     }
-
 }

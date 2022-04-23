@@ -1,15 +1,14 @@
 package com.lt2333.simplicitytools.hook.app.systemui
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.init.InitFields
+import com.github.kyuubiran.ezxhelper.utils.findMethod
+import com.github.kyuubiran.ezxhelper.utils.getObject
+import com.github.kyuubiran.ezxhelper.utils.hookAfter
 import com.lt2333.simplicitytools.R
-import com.lt2333.simplicitytools.util.findClass
 import com.lt2333.simplicitytools.util.hasEnable
-import com.lt2333.simplicitytools.util.hookAfterMethod
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
-import de.robv.android.xposed.XposedHelpers
 import java.io.BufferedReader
 import java.io.FileReader
 import java.lang.reflect.Method
@@ -17,26 +16,19 @@ import kotlin.math.roundToInt
 
 object LockScreenCurrent : HookRegister() {
 
-    override fun init() {
-        hasEnable("lock_screen_charging_current") {
-            "com.android.keyguard.charge.ChargeUtils".findClass(getDefaultClassLoader())
-                .hookAfterMethod(
-                    "getChargingHintText",
-                    Context::class.java,
-                    Boolean::class.java,
-                    Int::class.java
-                ) {
-                    it.result = getCurrent() + "\n" + it.result
-                }
-            "com.android.systemui.statusbar.phone.KeyguardBottomAreaView".findClass(getDefaultClassLoader())
-                .hookAfterMethod(
-                    "onFinishInflate"
-                ) {
-                    (XposedHelpers.getObjectField(
-                        it.thisObject,
-                        "mIndicationText"
-                    ) as TextView).isSingleLine = false
-                }
+    override fun init() = hasEnable("lock_screen_charging_current") {
+        findMethod("com.android.keyguard.charge.ChargeUtils") {
+            name == "getChargingHintText" && parameterCount == 3
+        }.hookAfter {
+            it.result = getCurrent() + "\n" + it.result
+        }
+
+        findMethod("com.android.systemui.statusbar.phone.KeyguardBottomAreaView") {
+            name == "onFinishInflate"
+        }.hookAfter {
+            (it.thisObject.getObject(
+                "mIndicationText"
+            ) as TextView).isSingleLine = false
         }
     }
 

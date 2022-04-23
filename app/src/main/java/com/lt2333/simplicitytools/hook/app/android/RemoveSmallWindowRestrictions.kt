@@ -1,38 +1,45 @@
 package com.lt2333.simplicitytools.hook.app.android
 
 import android.content.Context
+import com.github.kyuubiran.ezxhelper.utils.findMethod
+import com.github.kyuubiran.ezxhelper.utils.hookAfter
+import com.github.kyuubiran.ezxhelper.utils.hookBefore
 import com.lt2333.simplicitytools.util.hasEnable
-import com.lt2333.simplicitytools.util.hookAfterMethod
-import com.lt2333.simplicitytools.util.hookBeforeMethod
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object RemoveSmallWindowRestrictions : HookRegister() {
-
     override fun init() {
         // 强制所有活动设为可以调整大小
-        "com.android.server.wm.Task".hookBeforeMethod(getDefaultClassLoader(), "isResizeable") {
+        findMethod("com.android.server.wm.Task") {
+            name == "isResizeable"
+        }.hookBefore {
             hasEnable("remove_small_window_restrictions") {
                 it.result = true
             }
         }
 
-        "android.util.MiuiMultiWindowAdapter".hookAfterMethod(getDefaultClassLoader(), "getFreeformBlackList") {
+        findMethod("android.util.MiuiMultiWindowAdapter") {
+            name == "getFreeformBlackList"
+        }.hookAfter {
             hasEnable("remove_small_window_restrictions") {
                 it.result = (it.result as MutableList<*>).apply { clear() }
             }
         }
 
-        "android.util.MiuiMultiWindowAdapter".hookAfterMethod(getDefaultClassLoader(), "getFreeformBlackListFromCloud", Context::class.java) {
+        findMethod("android.util.MiuiMultiWindowAdapter") {
+            name == "getFreeformBlackListFromCloud" && parameterTypes[0] == Context::class.java
+        }.hookAfter {
             hasEnable("remove_small_window_restrictions") {
                 it.result = (it.result as MutableList<*>).apply { clear() }
             }
         }
 
-        "android.util.MiuiMultiWindowUtils".hookAfterMethod(getDefaultClassLoader(), "supportFreeform") {
+        findMethod("android.util.MiuiMultiWindowUtils") {
+            name == "supportFreeform"
+        }.hookAfter {
             hasEnable("remove_small_window_restrictions") {
                 it.result = true
             }
         }
     }
-
 }

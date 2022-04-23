@@ -1,13 +1,15 @@
 package com.lt2333.simplicitytools.hook.app.systemui
 
+import com.github.kyuubiran.ezxhelper.utils.findMethod
+import com.github.kyuubiran.ezxhelper.utils.hookBefore
 import com.lt2333.simplicitytools.util.hasEnable
-import com.lt2333.simplicitytools.util.hookBeforeMethod
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
-object HideSimIcon: HookRegister() {
-
+object HideSimIcon : HookRegister() {
     override fun init() {
-        "com.android.systemui.statusbar.phone.StatusBarSignalPolicy".hookBeforeMethod(getDefaultClassLoader(), "hasCorrectSubs", MutableList::class.java) {
+        findMethod("com.android.systemui.statusbar.phone.StatusBarSignalPolicy") {
+            name == "hasCorrectSubs" && parameterTypes[0] == MutableList::class.java
+        }.hookBefore {
             val list = it.args[0] as MutableList<*>
             val size = list.size
             hasEnable("hide_sim_two_icon", extraCondition = { size == 2 }) {
@@ -18,5 +20,4 @@ object HideSimIcon: HookRegister() {
             }
         }
     }
-
 }
