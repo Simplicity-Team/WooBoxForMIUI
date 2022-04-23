@@ -10,7 +10,6 @@ import android.view.View
 import android.widget.Switch
 import android.widget.Toast
 import cn.fkj233.ui.activity.MIUIActivity
-import cn.fkj233.ui.activity.OwnSP
 import cn.fkj233.ui.activity.data.DefValue
 import cn.fkj233.ui.activity.view.SpinnerV
 import cn.fkj233.ui.activity.view.SwitchV
@@ -145,53 +144,29 @@ class SettingsActivity : MIUIActivity() {
                 TextWithSpinner(
                     TextV(resId = R.string.status_bar_layout_mode),
                     SpinnerV(
-                        statusBarLayoutMode[OwnSP.ownSP.getInt(
+                        statusBarLayoutMode[safeSP.getInt(
                             "status_bar_layout_mode",
                             0
                         )].toString()
                     ) {
                         add(statusBarLayoutMode[0].toString()) {
-                            OwnSP.ownSP.edit().run {
-                                putInt(
-                                    "status_bar_layout_mode",
-                                    0
-                                )
-                                apply()
-                            }
+                            safeSP.putAny("status_bar_layout_mode", 0)
                         }
                         add(statusBarLayoutMode[1].toString()) {
-                            OwnSP.ownSP.edit().run {
-                                putInt(
-                                    "status_bar_layout_mode",
-                                    1
-                                )
-                                apply()
-                            }
+                            safeSP.putAny("status_bar_layout_mode", 1)
                         }
                         add(statusBarLayoutMode[2].toString()) {
-                            OwnSP.ownSP.edit().run {
-                                putInt(
-                                    "status_bar_layout_mode",
-                                    2
-                                )
-                                apply()
-                            }
+                            safeSP.putAny("status_bar_layout_mode", 2)
                         }
                         add(statusBarLayoutMode[3].toString()) {
-                            OwnSP.ownSP.edit().run {
-                                putInt(
-                                    "status_bar_layout_mode",
-                                    3
-                                )
-                                apply()
-                            }
+                            safeSP.putAny("status_bar_layout_mode", 3)
                         }
                     }
                 )
                 val layoutCompatibilityModeBinding = GetDataBinding(
                     object : DefValue {
                         override fun getValue(): Any {
-                            return getSP().getBoolean("layout_compatibility_mode", false)
+                            return safeSP.getBoolean("layout_compatibility_mode", false)
                         }
                     }
                 ) { view, flags, data ->
@@ -236,7 +211,7 @@ class SettingsActivity : MIUIActivity() {
                 TitleText(resId = R.string.status_bar_clock_format)
                 val customClockBinding = GetDataBinding(object : DefValue {
                     override fun getValue(): Any {
-                        return getSP().getBoolean("custom_clock_switch", false)
+                        return safeSP.getBoolean("custom_clock_switch", false)
                     }
                 }) { view, flags, data ->
                     when (flags) {
@@ -327,7 +302,7 @@ class SettingsActivity : MIUIActivity() {
                 )
                 val customMobileTypeTextBinding = GetDataBinding(object : DefValue {
                     override fun getValue(): Any {
-                        return getSP().getBoolean("custom_mobile_type_text_switch", false)
+                        return safeSP.getBoolean("custom_mobile_type_text_switch", false)
                     }
                 }) { view, flags, data ->
                     when (flags) {
@@ -351,11 +326,9 @@ class SettingsActivity : MIUIActivity() {
                         MIUIDialog(activity) {
                             setTitle(R.string.custom_mobile_type_text)
                             setEditText(
-                                "${
-                                    OwnSP.ownSP.getString(
-                                        "custom_mobile_type_text", "5G"
-                                    )
-                                }",
+                                safeSP.getString(
+                                    "custom_mobile_type_text", "5G"
+                                ),
                                 ""
                             )
                             setLButton(textId = R.string.cancel) {
@@ -364,13 +337,7 @@ class SettingsActivity : MIUIActivity() {
                             setRButton(textId = R.string.Done) {
                                 if (getEditText().isNotEmpty()) {
                                     try {
-                                        OwnSP.ownSP.edit().run {
-                                            putString(
-                                                "custom_mobile_type_text",
-                                                getEditText()
-                                            )
-                                            apply()
-                                        }
+                                        safeSP.putAny("custom_mobile_type_text", getEditText())
                                         dismiss()
                                         return@setRButton
                                     } catch (_: Throwable) {
@@ -387,7 +354,7 @@ class SettingsActivity : MIUIActivity() {
                 )
                 val bigMobileTypeIconBinding = GetDataBinding(object : DefValue {
                     override fun getValue(): Any {
-                        return getSP().getBoolean("big_mobile_type_icon", false)
+                        return safeSP.getBoolean("big_mobile_type_icon", false)
                     }
                 }) { view, flags, data ->
                     when (flags) {
@@ -420,7 +387,7 @@ class SettingsActivity : MIUIActivity() {
                                 setEditText(
                                     "",
                                     "${activity.getString(R.string.def)}12.5, ${activity.getString(R.string.current)}${
-                                        OwnSP.ownSP.getFloat(
+                                        safeSP.getFloat(
                                             "big_mobile_type_icon_size",
                                             12.5f
                                         )
@@ -431,13 +398,10 @@ class SettingsActivity : MIUIActivity() {
                                 }
                                 setRButton(textId = R.string.Done) {
                                     if (getEditText() != "") {
-                                        OwnSP.ownSP.edit().run {
-                                            putFloat(
-                                                "big_mobile_type_icon_size",
-                                                getEditText().toFloat()
-                                            )
-                                            apply()
-                                        }
+                                        safeSP.putAny(
+                                            "big_mobile_type_icon_size",
+                                            getEditText().toFloat()
+                                        )
                                     }
                                     dismiss()
                                 }
@@ -454,7 +418,7 @@ class SettingsActivity : MIUIActivity() {
                             setEditText(
                                 "",
                                 "${activity.getString(R.string.def)}0, ${activity.getString(R.string.current)}${
-                                    OwnSP.ownSP.getInt(
+                                    safeSP.getInt(
                                         "big_mobile_type_icon_up_and_down_position",
                                         0
                                     )
@@ -468,13 +432,10 @@ class SettingsActivity : MIUIActivity() {
                                     try {
                                         val value = getEditText().toInt()
                                         if (value in (-15..15)) {
-                                            OwnSP.ownSP.edit().run {
-                                                putInt(
-                                                    "big_mobile_type_icon_up_and_down_position",
-                                                    value
-                                                )
-                                                apply()
-                                            }
+                                            safeSP.putAny(
+                                                "big_mobile_type_icon_up_and_down_position",
+                                                value
+                                            )
                                             dismiss()
                                             return@setRButton
                                         }
@@ -500,7 +461,7 @@ class SettingsActivity : MIUIActivity() {
                             setEditText(
                                 "",
                                 "${activity.getString(R.string.def)}0, ${activity.getString(R.string.current)}${
-                                    OwnSP.ownSP.getInt(
+                                    safeSP.getInt(
                                         "big_mobile_type_icon_left_and_right_margins",
                                         0
                                     )
@@ -514,13 +475,10 @@ class SettingsActivity : MIUIActivity() {
                                     try {
                                         val value = getEditText().toInt()
                                         if (value in (0..30)) {
-                                            OwnSP.ownSP.edit().run {
-                                                putInt(
-                                                    "big_mobile_type_icon_left_and_right_margins",
-                                                    value
-                                                )
-                                                apply()
-                                            }
+                                            safeSP.putAny(
+                                                "big_mobile_type_icon_left_and_right_margins",
+                                                value
+                                            )
                                             dismiss()
                                             return@setRButton
                                         }
@@ -564,7 +522,7 @@ class SettingsActivity : MIUIActivity() {
                                 setEditText(
                                     "",
                                     "${activity.getString(R.string.current)}${
-                                        OwnSP.ownSP.getFloat(
+                                        safeSP.getFloat(
                                             "battery_percentage_font_size",
                                             0f
                                         )
@@ -575,13 +533,10 @@ class SettingsActivity : MIUIActivity() {
                                 }
                                 setRButton(textId = R.string.Done) {
                                     if (getEditText() != "") {
-                                        OwnSP.ownSP.edit().run {
-                                            putFloat(
-                                                "battery_percentage_font_size",
-                                                getEditText().toFloat()
-                                            )
-                                            apply()
-                                        }
+                                        safeSP.putAny(
+                                            "battery_percentage_font_size",
+                                            getEditText().toFloat()
+                                        )
                                     }
                                     dismiss()
                                 }
@@ -617,7 +572,7 @@ class SettingsActivity : MIUIActivity() {
                 )
                 val statusBarDualRowNetworkSpeedBinding = GetDataBinding(object : DefValue {
                     override fun getValue(): Any {
-                        return getSP().getBoolean("status_bar_dual_row_network_speed", false)
+                        return safeSP.getBoolean("status_bar_dual_row_network_speed", false)
                     }
                 }) { view, flags, data ->
                     when (flags) {
@@ -641,28 +596,17 @@ class SettingsActivity : MIUIActivity() {
                 TextWithSpinner(
                     TextV(resId = R.string.status_bar_network_speed_dual_row_gravity),
                     SpinnerV(
-                        align[OwnSP.ownSP.getInt(
+                        align[safeSP.getInt(
                             "status_bar_network_speed_dual_row_gravity",
                             0
                         )].toString()
                     ) {
                         add(align[0].toString()) {
-                            OwnSP.ownSP.edit().run {
-                                putInt(
-                                    "status_bar_network_speed_dual_row_gravity",
-                                    0
-                                )
-                                apply()
-                            }
+                            safeSP.putAny("status_bar_network_speed_dual_row_gravity", 0)
                         }
                         add(align[1].toString()) {
-                            OwnSP.ownSP.edit().run {
-                                putInt(
-                                    "status_bar_network_speed_dual_row_gravity",
-                                    1
-                                )
-                                apply()
-                            }
+                            safeSP.putAny("status_bar_network_speed_dual_row_gravity", 1)
+
                         }
                     },
                     dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
@@ -670,39 +614,25 @@ class SettingsActivity : MIUIActivity() {
                 TextWithSpinner(
                     TextV(resId = R.string.status_bar_network_speed_dual_row_icon),
                     SpinnerV(
-                        "${
-                            OwnSP.ownSP.getString(
+                        safeSP.getString(
+                            "status_bar_network_speed_dual_row_icon",
+                            getString(R.string.none)
+                        )
+                    ) {
+                        add(getString(R.string.none)) {
+                            safeSP.putAny(
                                 "status_bar_network_speed_dual_row_icon",
                                 getString(R.string.none)
                             )
-                        }"
-                    ) {
-                        add(getString(R.string.none)) {
-                            OwnSP.ownSP.edit().run {
-                                putString(
-                                    "status_bar_network_speed_dual_row_icon",
-                                    getString(R.string.none)
-                                )
-                                apply()
-                            }
                         }
                         add("▲▼") {
-                            OwnSP.ownSP.edit().run {
-                                putString("status_bar_network_speed_dual_row_icon", "▲▼")
-                                apply()
-                            }
+                            safeSP.putAny("status_bar_network_speed_dual_row_icon", "▲▼")
                         }
                         add("△▽") {
-                            OwnSP.ownSP.edit().run {
-                                putString("status_bar_network_speed_dual_row_icon", "△▽")
-                                apply()
-                            }
+                            safeSP.putAny("status_bar_network_speed_dual_row_icon", "△▽")
                         }
                         add("↑↓") {
-                            OwnSP.ownSP.edit().run {
-                                putString("status_bar_network_speed_dual_row_icon", "↑↓")
-                                apply()
-                            }
+                            safeSP.putAny("status_bar_network_speed_dual_row_icon", "↑↓")
                         }
                     }
                 )
@@ -721,7 +651,7 @@ class SettingsActivity : MIUIActivity() {
                 TitleText(resId = R.string.notification_center)
                 val showWeatherMainSwitchBinding = GetDataBinding(object : DefValue {
                     override fun getValue(): Any {
-                        return getSP().getBoolean("notification_weather", false)
+                        return safeSP.getBoolean("notification_weather", false)
                     }
                 }) { view, flags, data ->
                     when (flags) {
@@ -756,7 +686,7 @@ class SettingsActivity : MIUIActivity() {
                 TitleText(resId = R.string.control_center)
                 val controlCenterWeatherBinding = GetDataBinding(object : DefValue {
                     override fun getValue(): Any {
-                        return getSP().getBoolean("control_center_weather", false)
+                        return safeSP.getBoolean("control_center_weather", false)
                     }
                 }) { view, flags, data ->
                     when (flags) {
@@ -828,7 +758,7 @@ class SettingsActivity : MIUIActivity() {
                 TitleText(resId = R.string.old_quick_settings_panel)
                 val oldQSCustomSwitchBinding = GetDataBinding(object : DefValue {
                     override fun getValue(): Any {
-                        return getSP().getBoolean("old_qs_custom_switch", false)
+                        return safeSP.getBoolean("old_qs_custom_switch", false)
                     }
                 }) { view, flags, data ->
                     when (flags) {
@@ -960,7 +890,7 @@ class SettingsActivity : MIUIActivity() {
                                 setEditText(
                                     "",
                                     "${activity.getString(R.string.def)}1.1, ${activity.getString(R.string.current)}${
-                                        OwnSP.ownSP.getFloat(
+                                        safeSP.getFloat(
                                             "max_wallpaper_scale",
                                             1.1f
                                         )
@@ -971,10 +901,10 @@ class SettingsActivity : MIUIActivity() {
                                 }
                                 setRButton(textId = R.string.Done) {
                                     if (getEditText() != "") {
-                                        OwnSP.ownSP.edit().run {
-                                            putFloat("max_wallpaper_scale", getEditText().toFloat())
-                                            apply()
-                                        }
+                                        safeSP.putAny(
+                                            "max_wallpaper_scale",
+                                            getEditText().toFloat()
+                                        )
                                     }
                                     dismiss()
                                 }
@@ -993,7 +923,7 @@ class SettingsActivity : MIUIActivity() {
                 val mediaVolumeStepsSwitchBinding = GetDataBinding(
                     object : DefValue {
                         override fun getValue(): Any {
-                            return getSP().getBoolean("media_volume_steps_switch", false)
+                            return safeSP.getBoolean("media_volume_steps_switch", false)
                         }
                     }
                 ) { view, flags, data ->
