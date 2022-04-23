@@ -82,12 +82,12 @@
     <string name="battery_optimization_summary">MIUI で非表示になったバッテリー最適化メニューをすばやく開く</string>
     <string name="remove_small_window_restrictions">小さなウィンドウを強制的に表示</string>
     <string name="app_coolapk_url">5つ星のレビューをお願いします。</string>
-    <string name="app_coolapk_url_summary">これにより、より多くの発見が可能になります</string>
+    <string name="app_coolapk_url_summary">多くの人に見つけてもらいやすくなります</string>
     <string name="qq_channel">公式QQチャンネルに参加する</string>
     <string name="tg_channel">公式telegramチャンネルに参加する</string>
     <string name="tg_channel_summary">チャンネルページにチャットグループを入力することができます</string>
     <string name="discussions">討論</string>
-    <string name="remove_small_window_restrictions_summary">システムのブラックリストと小さなウィンドウのソフトウェアの禁止を無視</string>
+    <string name="remove_small_window_restrictions_summary">小さなウィンドウへのシステムのブラックリストとソフトウェア制限を無視します</string>
     <string name="remove_the_left_side_of_the_lock_screen">ロック画面のサイドパネルを削除</string>
     <string name="remove_lock_screen_camera">ロック画面のカメラ機能を削除</string>
     <string name="only_official_default_themes_are_supported">公式のデフォルトテーマのみサポートされています</string>
