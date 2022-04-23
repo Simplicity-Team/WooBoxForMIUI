@@ -215,4 +215,9 @@
     <string name="rear_display">Индикация задней части (11Ultra)</string>
     <string name="lock_screen_clock_display_seconds">Часы отображают секунды</string>
     <string name="sound">Звук</string>
+    <string name="media_volume_steps_switch">Шаги громкости</string>
+    <string name="allow_untrusted_touches">Разрешить нежелательные прикосновения</string>
+    <string name="take_effect_after_reboot">Вступит в силу после перезагрузки</string>
+    <string name="media_volume_steps_summary">Включение может привести к ненормальной прокрутке строки громкости</string>
+    <string name="can_notification_slide_summary">Некоторые уведомления через Mi Push могут не поддерживаться.</string>
 </resources>

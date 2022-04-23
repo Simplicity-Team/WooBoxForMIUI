@@ -177,7 +177,7 @@
     <string name="left">Izquierda</string>
     <string name="right">Derecha</string>
     <string name="big_mobile_type_icon">Icono grande de red móvil</string>
-    <string name="can_notification_slide">Hacer que todas las notificaciones puedan deslizarse hacia una ventana pequeña</string>
+    <string name="can_notification_slide">Hacer que la mayoría de las notificaciones puedan abrirse en ventana flotante</string>
     <string name="battery_percentage_font_size">Tamaño de la fuente del porcentaje de batería</string>
     <string name="zero_do_no_change">0: sin cambios</string>
     <string name="big_mobile_type_icon_size">Tamaño del icono red móvil grande</string>
@@ -211,4 +211,9 @@
     <string name="rear_display">Pantalla trasera (11Ultra)</string>
     <string name="lock_screen_clock_display_seconds">Mostrar segundos en el reloj</string>
     <string name="sound">Sonido</string>
+    <string name="media_volume_steps_switch">Pasos de volumen multimedia</string>
+    <string name="allow_untrusted_touches">Permitir toques no confiables</string>
+    <string name="take_effect_after_reboot">Se activa después de reiniciar</string>
+    <string name="media_volume_steps_summary">Activar esta opción puede hacer que el desplazamiento de la barra de volumen se congele o que el volumen Bluetooth sea anormal</string>
+    <string name="can_notification_slide_summary">Es posible que algunas notificaciones a través de Mi Push no sean soportadas.</string>
 </resources>

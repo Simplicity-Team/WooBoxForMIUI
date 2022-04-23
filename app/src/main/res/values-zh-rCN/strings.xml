@@ -177,7 +177,7 @@
     <string name="left">左边</string>
     <string name="right">右边</string>
     <string name="big_mobile_type_icon">大移动类型图标</string>
-    <string name="can_notification_slide">强制允许全部通知可使用小窗</string>
+    <string name="can_notification_slide">允许大多数应用通知下拉展开小窗</string>
     <string name="battery_percentage_font_size">电池百分比字体大小</string>
     <string name="zero_do_no_change">0: 不更改</string>
     <string name="big_mobile_type_icon_size">大移动类型图标大小</string>
@@ -215,4 +215,5 @@
     <string name="allow_untrusted_touches">允许不受信任的触摸</string>
     <string name="take_effect_after_reboot">重新启动后生效</string>
     <string name="media_volume_steps_summary">打开可能会导致音量条的滚动卡顿或蓝牙音量异常。</string>
+    <string name="can_notification_slide_summary">一些通过Mi Push推送的通知可能不受支持</string>
 </resources>

@@ -172,7 +172,6 @@
     <string name="left">Trái</string>
     <string name="right">Phải</string>
     <string name="big_mobile_type_icon">Biểu tượng mạng dữ liệu lớn</string>
-    <string name="can_notification_slide">Làm cho tất cả thông báo có thể được trượt sang cửa sổ nhỏ</string>
     <string name="battery_percentage_font_size">Kích thước phông chữ phần trăm pin</string>
     <string name="zero_do_no_change">0: không thay đổi</string>
     <string name="big_mobile_type_icon_size">Kích thước biểu tượng mạng dữ liệu lớn</string>
