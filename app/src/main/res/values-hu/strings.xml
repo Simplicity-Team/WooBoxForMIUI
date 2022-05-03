@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="performance">Teljesítmény</string>
+    <string name="lock_max_fps">Az aktuális jkijelzőfrissítési sebesség felső határértékének rögzítése</string>
     <!--Status bar icons-->
 </resources>
