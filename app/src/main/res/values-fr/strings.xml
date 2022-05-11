@@ -172,4 +172,5 @@
     <string name="status_bar_network_speed_dual_row_gravity">Alignement double ligne</string>
     <string name="left">Gauche</string>
     <string name="right">Droite</string>
+    <string name="hide_nfc_icon">Masquer l\'icône NFC</string>
 </resources>

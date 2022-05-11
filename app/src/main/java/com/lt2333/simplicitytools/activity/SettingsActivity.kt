@@ -1103,6 +1103,11 @@ class SettingsActivity : MIUIActivity() {
                     TextV(resId = R.string.hide_bluetooth_icon),
                     SwitchV("hide_bluetooth_icon")
                 )
+
+                TextWithSwitch(
+                    TextV(resId = R.string.hide_nfc_icon),
+                    SwitchV("hide_nfc_icon")
+                )
                 TextWithSwitch(
                     TextV(resId = R.string.hide_bluetooth_battery_icon),
                     SwitchV("hide_bluetooth_battery_icon")

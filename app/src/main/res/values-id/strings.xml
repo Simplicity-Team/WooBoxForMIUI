@@ -163,4 +163,5 @@
     <string name="qs_custom_rows">Baris</string>
     <string name="qs_custom_columns">Kolom</string>
     <string name="qs_custom_rows_horizontal">Baris (Horizontal)</string>
+    <string name="hide_nfc_icon">Sembunyikan ikon NFC</string>
 </resources>

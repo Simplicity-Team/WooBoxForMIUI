@@ -181,4 +181,5 @@
     <string name="range">Phạm vi: </string>
     <string name="big_mobile_type_icon_left_and_right_margins">Căn lề biểu tượng mạng dữ liệu lớn</string>
     <string name="cast">Truyền</string>
+    <string name="hide_nfc_icon">Ẩn biểu tượng NFC</string>
 </resources>

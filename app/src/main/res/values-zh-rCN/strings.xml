@@ -21,6 +21,7 @@
     <string name="hide_airplane_icon">隐藏 飞行模式 图标</string>
     <string name="hide_wifi_icon">隐藏 WIFI 图标</string>
     <string name="hide_bluetooth_icon">隐藏 蓝牙 图标</string>
+    <string name="hide_nfc_icon">隐藏 NFC 图标</string>
     <string name="hide_volume_zen_icon">隐藏 声音、勿扰 图标</string>
     <string name="hide_alarm_icon">隐藏 闹钟 图标</string>
     <string name="hide_hotspot_icon">隐藏 WIFI热点 图标</string>

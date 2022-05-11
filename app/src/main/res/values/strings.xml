@@ -28,6 +28,7 @@
     <string name="hide_hotspot_icon">Hide Portable hotspot icon</string>
     <string name="hide_headset_icon">Hide Headset icon</string>
     <string name="hide_bluetooth_battery_icon">Hide Bluetooth battery icon</string>
+    <string name="hide_nfc_icon">Hide NFC icon</string>
     <string name="hide_big_hd_icon">Hide big HD icon</string>
     <string name="hide_small_hd_icon">Hide small HD icon</string>
     <string name="hide_hd_no_service_icon">Hide HD No Service icon</string>

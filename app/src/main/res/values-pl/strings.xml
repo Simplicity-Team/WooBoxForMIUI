@@ -213,4 +213,5 @@
     <string name="sound">Dźwięk</string>
     <string name="media_volume_steps_switch">Kroki głośności multimediów</string>
     <string name="can_notification_slide_summary">Niektóre powiadomienia Mi Push mogą nie być obsługiwane.</string>
+    <string name="hide_nfc_icon">Ukryj ikonę NFC</string>
 </resources>
