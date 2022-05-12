@@ -216,4 +216,5 @@
     <string name="take_effect_after_reboot">機能は再起動後に有効になります</string>
     <string name="media_volume_steps_summary">オンにすると、ボリュームバーのスクロールがフリーズしたり、Bluetoothの音量が異常になる場合があります</string>
     <string name="can_notification_slide_summary">一部のMi Pushによる通知では機能しない場合があります。</string>
+    <string name="hide_nfc_icon">NFC アイコンを隠す</string>
 </resources>

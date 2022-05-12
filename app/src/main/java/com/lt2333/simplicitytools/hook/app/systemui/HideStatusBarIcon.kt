@@ -76,6 +76,10 @@ object HideStatusBarIcon : HookRegister() {
             "no_sim" -> hasEnable("hide_no_sim_icon") {
                 it.args[1] = false
             }
+            //隐藏NFC图标
+            "nfc" -> hasEnable("hide_nfc_icon") {
+                it.args[1] = false
+            }
         }
     }
 }
