@@ -216,5 +216,4 @@
     <string name="take_effect_after_reboot">Intră în vigoare după repornire</string>
     <string name="media_volume_steps_summary">Activarea poate provoca înghețarea derulării barei de volum sau volumul Bluetooth să fie anormal</string>
     <string name="can_notification_slide_summary">Este posibil ca unele notificări prin Mi Push să nu fie acceptate.</string>
-    <string name="hide_nfc_icon">Ascunde pictograma NFC</string>
 </resources>
