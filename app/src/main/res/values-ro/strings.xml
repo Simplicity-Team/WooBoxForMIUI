@@ -26,6 +26,7 @@
     <string name="hide_hotspot_icon">Ascunde pictograma Hotspot mobil</string>
     <string name="hide_headset_icon">Ascunde pictograma căștilor</string>
     <string name="hide_bluetooth_battery_icon">Ascunde pictograma Baterie Bluetooth</string>
+    <string name="hide_nfc_icon">Ascunde pictograma NFC</string>
     <string name="hide_big_hd_icon">Ascunde pictograma HD mare</string>
     <string name="hide_small_hd_icon">Ascunde pictograma HD mic</string>
     <string name="hide_hd_no_service_icon">Ascunde pictograma Fără servicii HD</string>
