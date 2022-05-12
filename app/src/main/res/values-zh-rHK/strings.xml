@@ -156,5 +156,4 @@
     <string name="hide_zen_icon">隱藏 勿擾 圖標</string>
     <string name="hide_icon">隱藏圖標</string>
     <string name="double_tap_to_sleep">雙擊鎖定螢幕</string>
-    <string name="hide_nfc_icon">隱藏 NFC 圖標</string>
 </resources>
