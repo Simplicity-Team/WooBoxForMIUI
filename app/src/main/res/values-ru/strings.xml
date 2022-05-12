@@ -26,6 +26,7 @@
     <string name="hide_hotspot_icon">Скрыть точку доступа</string>
     <string name="hide_headset_icon">Скрыть гарнитуру</string>
     <string name="hide_bluetooth_battery_icon">Скрыть батарею блютуз устройства</string>
+    <string name="hide_nfc_icon">Скрыть иконку NFC</string>
     <string name="hide_big_hd_icon">Скрыть большую иконку HD</string>
     <string name="hide_small_hd_icon">Скрыть маленькую иконку HD</string>
     <string name="hide_hd_no_service_icon">Скрыть HD No Service</string>
