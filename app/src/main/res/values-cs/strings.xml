@@ -1,4 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="performance">Výkon</string>
+    <string name="lock_max_fps">Zamknout horní limit aktuální obnovovací frekvence</string>
+    <string name="ui">Rozhraní</string>
+    <string name="delete_on_post_notification">Odstranit zobrazení přes oznámení</string>
+    <string name="delete_on_post_notification_summary">Odstranit oznámení \"Tato aplikace se zobrazuje přes ostatní aplikace\"</string>
+    <string name="other">Další</string>
+    <string name="disable_flag_secure">Povolit snímek obrazovky</string>
+    <string name="disable_flag_secure_summary">Povolit snímek obrazovky v softwaru, který to neumožňuje\nPodpora přidávání rychlého rozbalovacího nastavení v ovládacím centru pro zabezpečení</string>
+    <string name="home">Domů</string>
+    <string name="home_time">Vždy zobrazovat hodiny na domovské obrazovce</string>
+    <string name="reboot_host">Restartovat celý rozsah</string>
+    <string name="reboot">Restartovat systém</string>
     <!--Status bar icons-->
+    <string name="status_bar_icon">Ikony ve stavové liště</string>
+    <string name="hide_no_sim_icon">Skrýt ikonu Žádná SIM</string>
+    <string name="hide_sim_one_icon">Skrýt ikonu 1 SIM karty</string>
+    <string name="hide_sim_two_icon">Skrýt ikonu 2 SIM karty</string>
+    <string name="hide_vpn_icon">Skrýt ikonu VPN</string>
+    <string name="hide_airplane_icon">Skrýt ikonu režimu letadlo</string>
+    <string name="hide_wifi_icon">Skrýt ikonu WIFI</string>
+    <string name="hide_bluetooth_icon">Skrýt ikonu Bluetooth</string>
+    <string name="hide_volume_zen_icon">Skrýt zvuk a ikonu režimu Nerušit</string>
+    <string name="hide_alarm_icon">Skrýt ikonu budíku</string>
+    <string name="hide_hotspot_icon">Skrýt ikonu přenosného hotspotu</string>
+    <string name="hide_headset_icon">Skrýt ikonu sluchátek</string>
+    <string name="hide_bluetooth_battery_icon">Skrýt ikonu baterie Bluetooth</string>
+    <string name="hide_nfc_icon">Skrýt ikonu NFC</string>
+    <string name="hide_big_hd_icon">Skrýt velkou HD ikonu</string>
+    <string name="hide_small_hd_icon">Skrýt malou ikonu HD</string>
+    <string name="hide_hd_no_service_icon">Skrýt ikonu HD bez služby</string>
+    <string name="about">Podrobnosti</string>
+    <string name="about_module">O modulu</string>
+    <string name="verison">Verze</string>
+    <string name="dev_coolapk">Autor Coolapk</string>
+    <string name="opensource">Open Source repozitář</string>
+    <string name="github_url">Vítejte více vývojářů, aby se podíleli na vývoji</string>
+    <string name="issues">Zpětná vazba/návrh</string>
+    <string name="issues_url">Kliknutím zobrazíte problémy GitHub</string>
+    <string name="xposeddescription">Nástroj pro přizpůsobení MIUI13(Android 12)</string>
+    <string name="statusbar">Stavová lišta</string>
+    <string name="status_bar_time_seconds">Zobrazit vteřiny</string>
+    <string name="status_bar_network_speed_refresh_speed">Obnovení rychlosti sítě v sekundách</string>
+    <string name="remove_the_maximum_number_of_notification_icons">Odstranit maximální počet ikon oznámení</string>
+    <string name="main_switch">Hlavní přepínač modulu</string>
 </resources>
