@@ -319,6 +319,10 @@ class SettingsActivity : MIUIActivity() {
                         dataBindingSend = customMobileTypeTextBinding.bindingSend
                     )
                 )
+                TextWithSwitch(
+                    TextV(resId = R.string.show_wifi_standard),
+                    SwitchV("show_wifi_standard")
+                )
                 TextSummaryArrow(
                     TextSummaryV(
                         textId = R.string.custom_mobile_type_text

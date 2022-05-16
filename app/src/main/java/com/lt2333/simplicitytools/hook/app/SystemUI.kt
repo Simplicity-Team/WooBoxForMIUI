@@ -43,6 +43,7 @@ object SystemUI: AppRegister() {
             CustomMobileTypeText, //自定义移动类型文本
             CanNotificationSlide, //允许下滑通知打开小窗
             LockScreenClockDisplaySeconds, // 锁屏时钟显示秒
+            ShowWifiStandard, // 显示 WIFI 角标
         )
     }
 }
