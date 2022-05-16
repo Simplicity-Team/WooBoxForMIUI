@@ -20,8 +20,7 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            setProguardFiles(listOf("proguard-rules.pro")
-            )
+            setProguardFiles(listOf("proguard-rules.pro"))
         }
     }
     compileOptions {
@@ -44,8 +43,7 @@ android {
     }
     applicationVariants.all {
         outputs.all {
-            (this as BaseVariantOutputImpl).outputFileName =
-                "WooBoxForMIUI-$versionName-$name.apk"
+            (this as BaseVariantOutputImpl).outputFileName = "WooBoxForMIUI-$versionName-$name.apk"
         }
     }
 }
@@ -53,7 +51,7 @@ android {
 dependencies {
     //API
     compileOnly("de.robv.android.xposed:api:82")
-    implementation("com.github.kyuubiran:EzXHelper:0.8.6")
+    implementation("com.github.kyuubiran:EzXHelper:0.9.2")
     //UI
     implementation(project(":blockmiui"))
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")
