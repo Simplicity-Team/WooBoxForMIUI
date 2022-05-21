@@ -17,7 +17,7 @@ import com.github.kyuubiran.ezxhelper.utils.findMethod
 import com.github.kyuubiran.ezxhelper.utils.getObjectAs
 import com.github.kyuubiran.ezxhelper.utils.hookAfter
 import com.github.kyuubiran.ezxhelper.utils.hookBefore
-import com.lt2333.simplicitytools.util.*
+import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object ShowBatteryTemperature : HookRegister() {
@@ -100,4 +100,5 @@ object ShowBatteryTemperature : HookRegister() {
             linearLayout.addView(tempView)
         }
     }
+
 }

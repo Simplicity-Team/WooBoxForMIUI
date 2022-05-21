@@ -18,4 +18,5 @@ object SystemPropertiesHook : HookRegister() {
             }
         }
     }
+
 }

@@ -6,6 +6,7 @@ import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object HideSimIcon : HookRegister() {
+
     override fun init() {
         findMethod("com.android.systemui.statusbar.phone.StatusBarSignalPolicy") {
             name == "hasCorrectSubs" && parameterTypes[0] == MutableList::class.java
@@ -20,4 +21,5 @@ object HideSimIcon : HookRegister() {
             }
         }
     }
+
 }

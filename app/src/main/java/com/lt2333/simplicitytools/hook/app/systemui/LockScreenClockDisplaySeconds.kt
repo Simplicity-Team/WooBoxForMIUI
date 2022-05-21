@@ -37,8 +37,7 @@ object LockScreenClockDisplaySeconds : HookRegister() {
                     }
                 }
                 Timer().scheduleAtFixedRate(T(), 1000 - System.currentTimeMillis() % 1000, 1000)
-            } catch (e: Exception) {
-
+            } catch (_: Exception) {
             }
         }
 
@@ -60,7 +59,7 @@ object LockScreenClockDisplaySeconds : HookRegister() {
     }
 
     private fun updateTime(it: XC_MethodHook.MethodHookParam, isVertical: Boolean) {
-        val textV = it.thisObject.getObject("mTimeText") as TextView
+        val textV = it.thisObject.getObjectAs<TextView>("mTimeText")
         val c: Context = textV.context
 
         Log.d(
@@ -82,12 +81,13 @@ object LockScreenClockDisplaySeconds : HookRegister() {
     @SuppressLint("SimpleDateFormat")
     private fun getTime(is24: Boolean, isVertical: Boolean): String {
         var timePattern = ""
-        if (isVertical) { //垂直
-            timePattern += if (is24) "HH\nmm\nss" else "hh\nmm\nss"
+        timePattern += if (isVertical) { //垂直
+            if (is24) "HH\nmm\nss" else "hh\nmm\nss"
         } else { //水平
-            timePattern += if (is24) "HH:mm:ss" else "h:mm:ss"
+            if (is24) "HH:mm:ss" else "h:mm:ss"
         }
         timePattern = SimpleDateFormat(timePattern).format(nowTime)
         return timePattern
     }
+
 }

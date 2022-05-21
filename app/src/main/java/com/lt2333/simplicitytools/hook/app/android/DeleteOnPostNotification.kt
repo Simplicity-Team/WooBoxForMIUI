@@ -15,4 +15,5 @@ object DeleteOnPostNotification : HookRegister() {
             }
         }
     }
+
 }

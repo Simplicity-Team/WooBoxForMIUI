@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.utils.findMethod
-import com.github.kyuubiran.ezxhelper.utils.getObject
+import com.github.kyuubiran.ezxhelper.utils.getObjectAs
 import com.github.kyuubiran.ezxhelper.utils.hookAfter
 import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.hasEnable
@@ -32,20 +32,21 @@ object HideMobileTypeIcon : HookRegister() {
     private fun hideMobileTypeIcon(it: XC_MethodHook.MethodHookParam) {
         hasEnable("hide_mobile_type_icon") {
             if (isBigType) {
-                (it.thisObject.getObject("mMobileType") as TextView).visibility =
+                (it.thisObject.getObjectAs<TextView>("mMobileType")).visibility =
                     View.GONE
-                (it.thisObject.getObject("mMobileTypeImage") as ImageView).visibility =
+                (it.thisObject.getObjectAs<ImageView>("mMobileTypeImage")).visibility =
                     View.GONE
-                (it.thisObject.getObject("mMobileTypeSingle") as TextView).visibility =
+                (it.thisObject.getObjectAs<TextView>("mMobileTypeSingle")).visibility =
                     View.GONE
             } else {
-                (it.thisObject.getObject("mMobileType") as TextView).visibility =
+                (it.thisObject.getObjectAs<TextView>("mMobileType")).visibility =
                     View.INVISIBLE
-                (it.thisObject.getObject("mMobileTypeImage") as ImageView).visibility =
+                (it.thisObject.getObjectAs<ImageView>("mMobileTypeImage")).visibility =
                     View.INVISIBLE
-                (it.thisObject.getObject("mMobileTypeSingle") as TextView).visibility =
+                (it.thisObject.getObjectAs<TextView>("mMobileTypeSingle")).visibility =
                     View.INVISIBLE
             }
         }
     }
+
 }

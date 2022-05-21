@@ -1,5 +1,6 @@
 package com.lt2333.simplicitytools.view
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.database.ContentObserver
 import android.net.Uri
@@ -9,6 +10,7 @@ import android.os.Message
 import android.text.TextUtils
 import android.widget.TextView
 
+@SuppressLint("ViewConstructor")
 class WeatherView(context: Context?, private val showCity: Boolean) : TextView(context) {
 
     private val mContext: Context

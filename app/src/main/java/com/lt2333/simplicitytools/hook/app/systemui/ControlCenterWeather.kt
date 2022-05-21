@@ -17,29 +17,21 @@ import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import com.lt2333.simplicitytools.view.WeatherView
 
 object ControlCenterWeather : HookRegister() {
+
     override fun init() = hasEnable("control_center_weather") {
         var mWeatherView: TextView? = null
         var mConstraintLayout: ConstraintLayout? = null
         val isDisplayCity = XSPUtils.getBoolean("control_center_weather_city", false)
         findMethod("com.android.systemui.controlcenter.phone.widget.QSControlCenterHeaderView") {
             name == "onFinishInflate"
-        }.hookAfter {
-            val viewGroup = it.thisObject as ViewGroup
+        }.hookAfter { param ->
+            val viewGroup = param.thisObject as ViewGroup
             val context = viewGroup.context
 
             // MIUI编译时间大于 2022-03-12 00:00:00 且为内测版
-            if (SystemProperties.get(context, "ro.build.date.utc")!!
-                    .toInt() >= 1647014400 &&
-
-                !SystemProperties.get(
-                    context,
-                    "ro.build.version.incremental"
-                )!!.endsWith("DEV") &&
-
-                !SystemProperties.get(
-                    context,
-                    "ro.build.version.incremental"
-                )!!.endsWith("XM")
+            if (SystemProperties[context, "ro.build.date.utc"]!!.toInt() >= 1647014400 && !SystemProperties[context, "ro.build.version.incremental"]!!.endsWith(
+                    "DEV"
+                ) && !SystemProperties[context, "ro.build.version.incremental"]!!.endsWith("XM")
             ) {
                 //获取原组件
                 val big_time_ID =
@@ -69,18 +61,15 @@ object ControlCenterWeather : HookRegister() {
 
                 (big_time.parent as ViewGroup).addView(mConstraintLayout, 0)
 
-
                 //从原布局中删除组件
                 (big_time.parent as ViewGroup).removeView(big_time)
                 (date_time.parent as ViewGroup).removeView(date_time)
-
 
                 //添加组件至新布局
                 mConstraintLayout!!.addView(big_time)
                 mConstraintLayout!!.addView(date_time)
 
                 //组件属性
-
                 val date_time_LP = ConstraintLayout.LayoutParams(
                     ConstraintLayout.LayoutParams.WRAP_CONTENT,
                     ConstraintLayout.LayoutParams.WRAP_CONTENT
@@ -190,18 +179,9 @@ object ControlCenterWeather : HookRegister() {
             val context = viewGroup.context
             val mOrientation = viewGroup.getObject("mOrientation") as Int
             // MIUI编译时间大于 2022-03-12 00:00:00 且为内测版
-            if (SystemProperties.get(context, "ro.build.date.utc")!!
-                    .toInt() >= 1647014400 &&
-
-                !SystemProperties.get(
-                    context,
-                    "ro.build.version.incremental"
-                )!!.endsWith("DEV") &&
-
-                !SystemProperties.get(
-                    context,
-                    "ro.build.version.incremental"
-                )!!.endsWith("XM")
+            if (SystemProperties[context, "ro.build.date.utc"]!!.toInt() >= 1647014400 && !SystemProperties[context, "ro.build.version.incremental"]!!.endsWith(
+                    "DEV"
+                ) && !SystemProperties[context, "ro.build.version.incremental"]!!.endsWith("XM")
             ) {
                 if (mOrientation == 1) {
                     mConstraintLayout!!.visibility = View.VISIBLE
@@ -217,4 +197,5 @@ object ControlCenterWeather : HookRegister() {
             }
         }
     }
+
 }

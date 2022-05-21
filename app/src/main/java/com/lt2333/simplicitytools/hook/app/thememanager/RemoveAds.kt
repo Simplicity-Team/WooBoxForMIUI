@@ -6,6 +6,7 @@ import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object RemoveAds : HookRegister() {
+
     override fun init() {
         findMethod("com.android.thememanager.basemodule.ad.model.AdInfoResponse") {
             name == "isAdValid" && parameterCount == 1
@@ -15,4 +16,5 @@ object RemoveAds : HookRegister() {
             }
         }
     }
+
 }

@@ -7,6 +7,7 @@ import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object CustomMobileTypeText : HookRegister() {
+
     override fun init() = hasEnable("custom_mobile_type_text_switch") {
         findMethod("com.android.systemui.statusbar.policy.MobileSignalController") {
             name == "getMobileTypeName" && parameterTypes[0] == Int::class.java
@@ -14,4 +15,5 @@ object CustomMobileTypeText : HookRegister() {
             it.result = XSPUtils.getString("custom_mobile_type_text", "5G")
         }
     }
+
 }

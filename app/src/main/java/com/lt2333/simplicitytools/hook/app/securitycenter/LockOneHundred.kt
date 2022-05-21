@@ -7,6 +7,7 @@ import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object LockOneHundred : HookRegister() {
+
     override fun init() {
         //防止点击重新检测
         findMethod("com.miui.securityscan.ui.main.MainContentFrame") {
@@ -26,4 +27,5 @@ object LockOneHundred : HookRegister() {
             }
         }
     }
+
 }

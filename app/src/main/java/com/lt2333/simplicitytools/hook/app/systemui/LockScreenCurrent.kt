@@ -93,7 +93,7 @@ object LockScreenCurrent : HookRegister() {
             val i: Int = bufferedReader.readLine().toInt(10)
             bufferedReader.close()
             return i
-        } catch (localException: java.lang.Exception) {
+        } catch (_: java.lang.Exception) {
         }
         return defaultValue
     }

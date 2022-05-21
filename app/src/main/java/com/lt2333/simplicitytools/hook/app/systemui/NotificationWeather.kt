@@ -10,7 +10,9 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import cn.fkj233.ui.activity.dp2px
 import com.github.kyuubiran.ezxhelper.utils.*
-import com.lt2333.simplicitytools.util.*
+import com.lt2333.simplicitytools.util.SystemProperties
+import com.lt2333.simplicitytools.util.XSPUtils
+import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import com.lt2333.simplicitytools.view.WeatherView
 
@@ -22,23 +24,14 @@ object NotificationWeather : HookRegister() {
         val isDisplayCity = XSPUtils.getBoolean("notification_weather_city", false)
         findMethod("com.android.systemui.qs.MiuiNotificationHeaderView") {
             name == "onFinishInflate"
-        }.hookAfter {
-            val viewGroup = it.thisObject as ViewGroup
+        }.hookAfter { param ->
+            val viewGroup = param.thisObject as ViewGroup
             val context = viewGroup.context
 
             // MIUI编译时间大于 2022-03-12 00:00:00 且为内测版
-            if (SystemProperties.get(context, "ro.build.date.utc")!!
-                    .toInt() >= 1647014400 &&
-
-                !SystemProperties.get(
-                    context,
-                    "ro.build.version.incremental"
-                )!!.endsWith("DEV") &&
-
-                !SystemProperties.get(
-                    context,
-                    "ro.build.version.incremental"
-                )!!.endsWith("XM")
+            if (SystemProperties[context, "ro.build.date.utc"]!!.toInt() >= 1647014400 && !SystemProperties[context, "ro.build.version.incremental"]!!.endsWith(
+                    "DEV"
+                ) && !SystemProperties[context, "ro.build.version.incremental"]!!.endsWith("XM")
             ) {
                 //获取原组件
                 val big_time_ID =
@@ -188,18 +181,9 @@ object NotificationWeather : HookRegister() {
             val context = viewGroup.context
             val mOrientation = viewGroup.getObject("mOrientation") as Int
             // MIUI编译时间大于 2022-03-12 00:00:00 且为内测版
-            if (SystemProperties.get(context, "ro.build.date.utc")!!
-                    .toInt() >= 1647014400 &&
-
-                !SystemProperties.get(
-                    context,
-                    "ro.build.version.incremental"
-                )!!.endsWith("DEV") &&
-
-                !SystemProperties.get(
-                    context,
-                    "ro.build.version.incremental"
-                )!!.endsWith("XM")
+            if (SystemProperties[context, "ro.build.date.utc"]!!.toInt() >= 1647014400 && !SystemProperties[context, "ro.build.version.incremental"]!!.endsWith(
+                    "DEV"
+                ) && !SystemProperties[context, "ro.build.version.incremental"]!!.endsWith("XM")
             ) {
                 if (mOrientation == 1) {
                     mConstraintLayout!!.visibility = View.VISIBLE

@@ -7,6 +7,7 @@ import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object RemoveOpenAppConfirmationPopup : HookRegister() {
+
     override fun init() {
         findMethod("android.widget.TextView") {
             name == "setText" && parameterTypes[0] == CharSequence::class.java
@@ -28,4 +29,5 @@ object RemoveOpenAppConfirmationPopup : HookRegister() {
             }
         }
     }
+
 }

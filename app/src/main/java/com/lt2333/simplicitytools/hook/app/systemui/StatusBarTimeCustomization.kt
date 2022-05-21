@@ -32,7 +32,7 @@ object StatusBarTimeCustomization : HookRegister() {
     private val isCenterAlign =
         XSPUtils.getBoolean("status_bar_time_double_line_center_align", false)
     private val getClockDoubleSize = XSPUtils.getInt("status_bar_clock_double_line_size", 0)
-    private var nowTime: Date? = null
+    private lateinit var nowTime: Date
     private var str = ""
 
     @SuppressLint("SetTextI18n")
@@ -74,7 +74,7 @@ object StatusBarTimeCustomization : HookRegister() {
                         }
                     }
                     Timer().scheduleAtFixedRate(T(), 1000 - System.currentTimeMillis() % 1000, 1000)
-                } catch (e: Exception) {
+                } catch (_: Exception) {
                 }
             }
 
@@ -92,7 +92,7 @@ object StatusBarTimeCustomization : HookRegister() {
                         nowTime = Calendar.getInstance().time
                         textV.text = getDate(c!!) + str + getTime(c!!, is24)
                     }
-                } catch (e: Exception) {
+                } catch (_: Exception) {
                 }
             }
 
@@ -100,11 +100,11 @@ object StatusBarTimeCustomization : HookRegister() {
                 findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
                     name == "onViewCreated" && parameterCount == 2
                 }.hookAfter {
-                    val MiuiPhoneStatusBarView =
+                    val miuiPhoneStatusBarView =
                         it.thisObject.getObject("mStatusBar") as ViewGroup
-                    val res: Resources = MiuiPhoneStatusBarView.resources
+                    val res: Resources = miuiPhoneStatusBarView.resources
                     val clockId: Int = res.getIdentifier("clock", "id", "com.android.systemui")
-                    val clock: TextView = MiuiPhoneStatusBarView.findViewById(clockId)
+                    val clock: TextView = miuiPhoneStatusBarView.findViewById(clockId)
                     clock.gravity = Gravity.CENTER
                 }
             }

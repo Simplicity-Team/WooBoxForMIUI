@@ -7,6 +7,7 @@ import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XC_MethodHook
 
 object HideStatusBarIcon : HookRegister() {
+
     override fun init() {
         findMethod("com.android.systemui.statusbar.phone.StatusBarIconControllerImpl") {
             name == "setIconVisibility" && parameterCount == 2
@@ -82,4 +83,5 @@ object HideStatusBarIcon : HookRegister() {
             }
         }
     }
+
 }

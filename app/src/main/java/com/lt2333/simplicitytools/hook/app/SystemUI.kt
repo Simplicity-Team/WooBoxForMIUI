@@ -2,16 +2,12 @@ package com.lt2333.simplicitytools.hook.app
 
 import com.lt2333.simplicitytools.hook.app.systemui.*
 import com.lt2333.simplicitytools.util.xposed.base.AppRegister
-import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 object SystemUI: AppRegister() {
     override val packageName: String = "com.android.systemui"
-    override val processName: List<String> = emptyList()
-    override val logTag: String = "WooBox"
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        XposedBridge.log("WooBox: 成功 Hook "+javaClass.simpleName)
         autoInitHooks(lpparam,
             HideStatusBarIcon, //隐藏状态栏图标
             HideBatteryIcon, //隐藏电池

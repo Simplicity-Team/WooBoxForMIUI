@@ -12,10 +12,10 @@ import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.utils.findMethod
 import com.github.kyuubiran.ezxhelper.utils.hookAfter
 import com.github.kyuubiran.ezxhelper.utils.hookReturnConstant
+import com.github.kyuubiran.ezxhelper.utils.putObject
 import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
-import de.robv.android.xposed.XposedHelpers
 
 
 object StatusBarBigMobileTypeIcon : HookRegister() {
@@ -29,8 +29,8 @@ object StatusBarBigMobileTypeIcon : HookRegister() {
     override fun init() = hasEnable("big_mobile_type_icon") {
         findMethod("com.android.systemui.statusbar.StatusBarMobileView") {
             name == "init"
-        }.hookAfter {
-            val statusBarMobileView = it.thisObject as ViewGroup
+        }.hookAfter { param ->
+            val statusBarMobileView = param.thisObject as ViewGroup
             val context: Context = statusBarMobileView.context
             val res: Resources = context.resources
 
@@ -69,15 +69,13 @@ object StatusBarBigMobileTypeIcon : HookRegister() {
             val newLinearLayoutLP = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.MATCH_PARENT
-            ).also {
-
-            }
+            )
             val newLinearlayout = LinearLayout(context).also {
                 it.layoutParams = newLinearLayoutLP
                 it.id = mobileContainerLeftId
                 it.setPadding(leftAndRightMargin, 0, leftAndRightMargin, 0)
             }
-            XposedHelpers.setObjectField(it.thisObject, "mMobileLeftContainer", newLinearlayout)
+            param.thisObject.putObject("mMobileLeftContainer", newLinearlayout)
             rightParentLayout.addView(
                 newLinearlayout,
                 mobileContainerRightIndex
@@ -121,4 +119,5 @@ object StatusBarBigMobileTypeIcon : HookRegister() {
             }.hookReturnConstant(null)
         }
     }
+
 }

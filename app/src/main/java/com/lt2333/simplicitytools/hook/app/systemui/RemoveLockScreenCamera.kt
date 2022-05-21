@@ -38,5 +38,6 @@ object RemoveLockScreenCamera : HookRegister() {
             }
         }
     }
+
 }
 
