@@ -319,7 +319,6 @@ class SettingsActivity : MIUIActivity() {
                         dataBindingSend = customMobileTypeTextBinding.bindingSend
                     )
                 )
-
                 TextSummaryArrow(
                     TextSummaryV(
                         textId = R.string.custom_mobile_type_text
