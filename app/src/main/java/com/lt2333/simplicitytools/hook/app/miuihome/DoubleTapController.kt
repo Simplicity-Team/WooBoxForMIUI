@@ -1,4 +1,4 @@
-package com.yuk.miuihome.module
+package com.lt2333.simplicitytools.hook.app.miuihome
 
 import android.content.Context
 import android.os.SystemClock
@@ -48,4 +48,5 @@ class DoubleTapController internal constructor(mContext: Context) {
             }
         }
     }
+
 }

@@ -15,4 +15,5 @@ object MaxWallpaperScale : HookRegister() {
             it.thisObject.putObject("mMaxWallpaperScale", value)
         }
     }
+
 }

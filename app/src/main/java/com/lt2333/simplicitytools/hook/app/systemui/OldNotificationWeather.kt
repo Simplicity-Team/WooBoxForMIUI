@@ -13,6 +13,7 @@ import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import com.lt2333.simplicitytools.view.WeatherView
 
 object OldNotificationWeather : HookRegister() {
+
     override fun init() = hasEnable("notification_weather") {
         var mWeatherView: TextView? = null
         val isDisplayCity = XSPUtils.getBoolean("notification_weather_city", false)
@@ -93,4 +94,5 @@ object OldNotificationWeather : HookRegister() {
             }
         }
     }
+
 }

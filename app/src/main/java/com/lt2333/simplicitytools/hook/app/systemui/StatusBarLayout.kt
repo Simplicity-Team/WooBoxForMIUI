@@ -12,13 +12,11 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import cn.fkj233.ui.activity.dp2px
 import com.github.kyuubiran.ezxhelper.utils.findMethod
-import com.github.kyuubiran.ezxhelper.utils.getObject
+import com.github.kyuubiran.ezxhelper.utils.getObjectAs
 import com.github.kyuubiran.ezxhelper.utils.hookAfter
 import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
-import de.robv.android.xposed.XposedHelpers
-
 
 object StatusBarLayout : HookRegister() {
 
@@ -30,7 +28,7 @@ object StatusBarLayout : HookRegister() {
     override fun init() {
         var mLeftLayout: LinearLayout? = null
         var mRightLayout: LinearLayout? = null
-        var mCenterLayout: LinearLayout? = null
+        var mCenterLayout: LinearLayout?
         var statusBar: ViewGroup? = null
 
         fun updateLayout(context: Context) {
@@ -55,11 +53,11 @@ object StatusBarLayout : HookRegister() {
             1 -> {
                 findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
                     name == "onViewCreated" && parameterCount == 2
-                }.hookAfter {
-                    val MiuiPhoneStatusBarView: ViewGroup =
-                        it.thisObject.getObject("mStatusBar") as ViewGroup
-                    val context: Context = MiuiPhoneStatusBarView.context
-                    val res: Resources = MiuiPhoneStatusBarView.resources
+                }.hookAfter { param ->
+                    val miuiPhoneStatusBarView =
+                        param.thisObject.getObjectAs<ViewGroup>("mStatusBar")
+                    val context: Context = miuiPhoneStatusBarView.context
+                    val res: Resources = miuiPhoneStatusBarView.resources
                     val statusBarId: Int =
                         res.getIdentifier("status_bar", "id", "com.android.systemui")
                     val statusBarContentsId: Int =
@@ -79,17 +77,17 @@ object StatusBarLayout : HookRegister() {
                             "id",
                             "com.android.systemui"
                         )
-                    statusBar = MiuiPhoneStatusBarView.findViewById(statusBarId)
+                    statusBar = miuiPhoneStatusBarView.findViewById(statusBarId)
                     val statusBarContents: ViewGroup =
-                        MiuiPhoneStatusBarView.findViewById(statusBarContentsId)
+                        miuiPhoneStatusBarView.findViewById(statusBarContentsId)
                     if (statusBar == null) return@hookAfter
-                    val clock: TextView = MiuiPhoneStatusBarView.findViewById(clockId)
+                    val clock: TextView = miuiPhoneStatusBarView.findViewById(clockId)
                     val phoneStatusBarLeftContainer: ViewGroup =
-                        MiuiPhoneStatusBarView.findViewById(phoneStatusBarLeftContainerId)
+                        miuiPhoneStatusBarView.findViewById(phoneStatusBarLeftContainerId)
                     val notificationIconAreaInner: ViewGroup =
-                        MiuiPhoneStatusBarView.findViewById(notificationIconAreaInnerId)
+                        miuiPhoneStatusBarView.findViewById(notificationIconAreaInnerId)
                     val systemIconArea: ViewGroup =
-                        MiuiPhoneStatusBarView.findViewById(systemIconAreaId)
+                        miuiPhoneStatusBarView.findViewById(systemIconAreaId)
 
                     (clock.parent as ViewGroup).removeView(clock)
                     (phoneStatusBarLeftContainer.parent as ViewGroup).removeView(
@@ -119,23 +117,23 @@ object StatusBarLayout : HookRegister() {
 
                     //增加一个左对齐布局
                     mLeftLayout = LinearLayout(context)
-                    val LeftLp: LinearLayout.LayoutParams =
+                    val leftLp: LinearLayout.LayoutParams =
                         LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f)
-                    mLeftLayout!!.layoutParams = LeftLp
+                    mLeftLayout!!.layoutParams = leftLp
                     mLeftLayout!!.gravity = Gravity.START or Gravity.CENTER_VERTICAL
 
                     //增加一个居中布局
                     mCenterLayout = LinearLayout(context)
-                    val CenterLp: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
+                    val centerLp: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.MATCH_PARENT
                     )
-                    mCenterLayout!!.layoutParams = CenterLp
+                    mCenterLayout!!.layoutParams = centerLp
                     mCenterLayout!!.gravity = Gravity.CENTER or Gravity.CENTER_VERTICAL
                     mRightLayout = LinearLayout(context)
-                    val RightLp: LinearLayout.LayoutParams =
+                    val rightLp: LinearLayout.LayoutParams =
                         LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f)
-                    mRightLayout!!.layoutParams = RightLp
+                    mRightLayout!!.layoutParams = rightLp
                     mRightLayout!!.gravity = Gravity.END or Gravity.CENTER_VERTICAL
                     mLeftLayout!!.addView(phoneStatusBarLeftContainer)
                     mLeftLayout!!.addView(mConstraintLayout)
@@ -179,11 +177,11 @@ object StatusBarLayout : HookRegister() {
             2 -> {
                 findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
                     name == "onViewCreated" && parameterCount == 2
-                }.hookAfter {
-                    val MiuiPhoneStatusBarView =
-                        it.thisObject.getObject("mStatusBar") as ViewGroup
-                    val context: Context = MiuiPhoneStatusBarView.context
-                    val res: Resources = MiuiPhoneStatusBarView.resources
+                }.hookAfter { param ->
+                    val miuiPhoneStatusBarView =
+                        param.thisObject.getObjectAs<ViewGroup>("mStatusBar")
+                    val context: Context = miuiPhoneStatusBarView.context
+                    val res: Resources = miuiPhoneStatusBarView.resources
 
                     //组件ID
                     val statusBarId: Int =
@@ -192,20 +190,20 @@ object StatusBarLayout : HookRegister() {
                     val batteryId: Int = res.getIdentifier("battery", "id", "com.android.systemui")
 
                     //查找组件
-                    statusBar = MiuiPhoneStatusBarView.findViewById(statusBarId)
+                    statusBar = miuiPhoneStatusBarView.findViewById(statusBarId)
                     if (statusBar == null) return@hookAfter
-                    val clock: TextView = MiuiPhoneStatusBarView.findViewById(clockId)
-                    val battery: ViewGroup = MiuiPhoneStatusBarView.findViewById(batteryId)
+                    val clock: TextView = miuiPhoneStatusBarView.findViewById(clockId)
+                    val battery: ViewGroup = miuiPhoneStatusBarView.findViewById(batteryId)
 
                     //新建布局
-                    val RightLp = LinearLayout.LayoutParams(
+                    val rightLp = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.MATCH_PARENT
                     ).also {
                         it.marginStart = dp2px(context, 5f)
                     }
                     mRightLayout = LinearLayout(context).also {
-                        it.layoutParams = RightLp
+                        it.layoutParams = rightLp
                     }
 
                     //添加布局与组件
@@ -218,11 +216,11 @@ object StatusBarLayout : HookRegister() {
             3 -> {
                 findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
                     name == "onViewCreated" && parameterCount == 2
-                }.hookAfter {
-                    val MiuiPhoneStatusBarView =
-                        it.thisObject.getObject("mStatusBar") as ViewGroup
-                    val context: Context = MiuiPhoneStatusBarView.context
-                    val res: Resources = MiuiPhoneStatusBarView.resources
+                }.hookAfter { param ->
+                    val miuiPhoneStatusBarView =
+                        param.thisObject.getObjectAs<ViewGroup>("mStatusBar")
+                    val context: Context = miuiPhoneStatusBarView.context
+                    val res: Resources = miuiPhoneStatusBarView.resources
                     val statusBarId: Int =
                         res.getIdentifier("status_bar", "id", "com.android.systemui")
                     val statusBarContentsId: Int =
@@ -260,32 +258,24 @@ object StatusBarLayout : HookRegister() {
                             "id",
                             "com.android.systemui"
                         )
-                    val notificationIconAreaInnerId: Int =
-                        res.getIdentifier(
-                            "notification_icon_area_inner",
-                            "id",
-                            "com.android.systemui"
-                        )
 
-                    statusBar = MiuiPhoneStatusBarView.findViewById(statusBarId)
+                    statusBar = miuiPhoneStatusBarView.findViewById(statusBarId)
                     val statusBarContents: ViewGroup =
-                        MiuiPhoneStatusBarView.findViewById(statusBarContentsId)
+                        miuiPhoneStatusBarView.findViewById(statusBarContentsId)
                     if (statusBar == null) return@hookAfter
-                    val clock: TextView = MiuiPhoneStatusBarView.findViewById(clockId)
+                    val clock: TextView = miuiPhoneStatusBarView.findViewById(clockId)
                     val phoneStatusBarLeftContainer: ViewGroup =
-                        MiuiPhoneStatusBarView.findViewById(phoneStatusBarLeftContainerId)
+                        miuiPhoneStatusBarView.findViewById(phoneStatusBarLeftContainerId)
                     val fullscreenNotificationIconArea: ViewGroup =
-                        MiuiPhoneStatusBarView.findViewById(fullscreenNotificationIconAreaId)
+                        miuiPhoneStatusBarView.findViewById(fullscreenNotificationIconAreaId)
                     val systemIconArea: ViewGroup =
-                        MiuiPhoneStatusBarView.findViewById(systemIconAreaId)
+                        miuiPhoneStatusBarView.findViewById(systemIconAreaId)
                     val statusIcons: ViewGroup =
-                        MiuiPhoneStatusBarView.findViewById(statusIconsId)
+                        miuiPhoneStatusBarView.findViewById(statusIconsId)
                     val systemIcons: ViewGroup =
-                        MiuiPhoneStatusBarView.findViewById(systemIconsId)
+                        miuiPhoneStatusBarView.findViewById(systemIconsId)
                     val battery: ViewGroup =
-                        MiuiPhoneStatusBarView.findViewById(batteryId)
-                    val notificationIconAreaInner: ViewGroup =
-                        MiuiPhoneStatusBarView.findViewById(notificationIconAreaInnerId)
+                        miuiPhoneStatusBarView.findViewById(batteryId)
 
                     (clock.parent as ViewGroup).removeView(clock)
                     (phoneStatusBarLeftContainer.parent as ViewGroup).removeView(
@@ -331,25 +321,25 @@ object StatusBarLayout : HookRegister() {
 
                     //增加一个左对齐布局
                     mLeftLayout = LinearLayout(context)
-                    val LeftLp: LinearLayout.LayoutParams =
+                    val leftLp: LinearLayout.LayoutParams =
                         LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f)
-                    mLeftLayout!!.layoutParams = LeftLp
+                    mLeftLayout!!.layoutParams = leftLp
                     mLeftLayout!!.gravity = Gravity.START or Gravity.CENTER_VERTICAL
 
                     //增加一个居中布局
                     mCenterLayout = LinearLayout(context)
-                    val CenterLp: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
+                    val centerLp: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.MATCH_PARENT
                     )
-                    mCenterLayout!!.layoutParams = CenterLp
+                    mCenterLayout!!.layoutParams = centerLp
                     mCenterLayout!!.gravity = Gravity.CENTER or Gravity.CENTER_VERTICAL
 
                     //增加一个右布局
                     mRightLayout = LinearLayout(context)
-                    val RightLp: LinearLayout.LayoutParams =
+                    val rightLp: LinearLayout.LayoutParams =
                         LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f)
-                    mRightLayout!!.layoutParams = RightLp
+                    mRightLayout!!.layoutParams = rightLp
                     mRightLayout!!.gravity = Gravity.END or Gravity.CENTER_VERTICAL
 
 
@@ -402,12 +392,11 @@ object StatusBarLayout : HookRegister() {
                 findMethod("com.android.systemui.statusbar.phone.MiuiCollapsedStatusBarFragment") {
                     name == "showClock" && parameterTypes[0] == Boolean::class.java
                 }.hookAfter {
-                    val MiuiPhoneStatusBarView =
-                        XposedHelpers.getObjectField(it.thisObject, "mStatusBar") as ViewGroup
-                    val res = MiuiPhoneStatusBarView.resources
+                    val miuiPhoneStatusBarView = it.thisObject.getObjectAs<ViewGroup>("mStatusBar")
+                    val res = miuiPhoneStatusBarView.resources
                     val status_bar_ID =
                         res.getIdentifier("status_bar", "id", "com.android.systemui")
-                    val status_bar = MiuiPhoneStatusBarView.findViewById<ViewGroup>(status_bar_ID)
+                    val status_bar = miuiPhoneStatusBarView.findViewById<ViewGroup>(status_bar_ID)
                     //非锁屏下整个状态栏布局
                     val keyguardMgr =
                         status_bar.context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
@@ -419,8 +408,6 @@ object StatusBarLayout : HookRegister() {
                 }
             }
         }
-
-
     }
 
 }

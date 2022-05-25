@@ -6,6 +6,7 @@ import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object RemoveTheLeftSideOfTheLockScreen : HookRegister() {
+
     override fun init() {
         findMethod("com.android.keyguard.negative.MiuiKeyguardMoveLeftViewContainer") {
             name == "inflateLeftView"
@@ -15,4 +16,5 @@ object RemoveTheLeftSideOfTheLockScreen : HookRegister() {
             }
         }
     }
+
 }

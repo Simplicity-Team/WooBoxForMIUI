@@ -12,4 +12,5 @@ object AllowUntrustedTouches : HookRegister() {
             name == "getBlockUntrustedTouchesMode" && parameterTypes[0] == Context::class.java
         }.hookReturnConstant(0)
     }
+
 }

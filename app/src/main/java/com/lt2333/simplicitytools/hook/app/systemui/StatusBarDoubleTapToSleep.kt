@@ -10,8 +10,10 @@ import com.github.kyuubiran.ezxhelper.utils.hookBefore
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import de.robv.android.xposed.XposedHelpers
+import kotlin.math.abs
 
 object StatusBarDoubleTapToSleep : HookRegister() {
+
     override fun init() = hasEnable("status_bar_double_tap_to_sleep") {
         findMethod("com.android.systemui.statusbar.phone.MiuiPhoneStatusBarView") {
             name == "onFinishInflate"
@@ -34,7 +36,7 @@ object StatusBarDoubleTapToSleep : HookRegister() {
                 currentTouchTime = System.currentTimeMillis()
                 currentTouchX = event.x
                 currentTouchY = event.y
-                if (currentTouchTime - lastTouchTime < 250L && Math.abs(currentTouchX - lastTouchX) < 100f && Math.abs(
+                if (currentTouchTime - lastTouchTime < 250L && abs(currentTouchX - lastTouchX) < 100f && abs(
                         currentTouchY - lastTouchY
                     ) < 100f
                 ) {
@@ -59,4 +61,5 @@ object StatusBarDoubleTapToSleep : HookRegister() {
             })
         }
     }
+
 }

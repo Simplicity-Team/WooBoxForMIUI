@@ -42,4 +42,5 @@ object RemoveSmallWindowRestrictions : HookRegister() {
             }
         }
     }
+
 }

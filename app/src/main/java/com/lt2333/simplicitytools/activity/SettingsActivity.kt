@@ -319,10 +319,6 @@ class SettingsActivity : MIUIActivity() {
                         dataBindingSend = customMobileTypeTextBinding.bindingSend
                     )
                 )
-                TextWithSwitch(
-                    TextV(resId = R.string.show_wifi_standard),
-                    SwitchV("show_wifi_standard")
-                )
                 TextSummaryArrow(
                     TextSummaryV(
                         textId = R.string.custom_mobile_type_text
@@ -366,6 +362,10 @@ class SettingsActivity : MIUIActivity() {
                         2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
                     }
                 }
+                TextWithSwitch(
+                    TextV(resId = R.string.show_wifi_standard),
+                    SwitchV("show_wifi_standard")
+                )
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.big_mobile_type_icon

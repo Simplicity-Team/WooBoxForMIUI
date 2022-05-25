@@ -9,9 +9,9 @@ import com.github.kyuubiran.ezxhelper.utils.putObject
 import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
-import de.robv.android.xposed.XposedHelpers
 
 object OldQSCustom : HookRegister() {
+
     override fun init() = hasEnable("old_qs_custom_switch") {
         val mRows = XSPUtils.getInt("qs_custom_rows", 3)
         val mRowsHorizontal = XSPUtils.getInt("qs_custom_rows_horizontal", 2)
@@ -39,11 +39,12 @@ object OldQSCustom : HookRegister() {
             val viewGroup = it.thisObject as ViewGroup
             val mConfiguration: Configuration = viewGroup.context.resources.configuration
             if (mConfiguration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                XposedHelpers.setObjectField(viewGroup, "mMaxAllowedRows", mRows)
+                viewGroup.putObject("mMaxAllowedRows", mRows)
             } else {
-                XposedHelpers.setObjectField(viewGroup, "mMaxAllowedRows", mRowsHorizontal)
+                viewGroup.putObject("mMaxAllowedRows", mRowsHorizontal)
             }
             viewGroup.requestLayout()
         }
     }
+
 }

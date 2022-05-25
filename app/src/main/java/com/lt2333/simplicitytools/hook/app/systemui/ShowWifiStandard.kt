@@ -1,11 +1,14 @@
 package com.lt2333.simplicitytools.hook.app.systemui
 
-import com.github.kyuubiran.ezxhelper.utils.*
+import com.github.kyuubiran.ezxhelper.utils.findMethod
+import com.github.kyuubiran.ezxhelper.utils.getObjectAs
+import com.github.kyuubiran.ezxhelper.utils.hookBefore
+import com.github.kyuubiran.ezxhelper.utils.putObject
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
-
 object ShowWifiStandard : HookRegister() {
+
     override fun init() {
         findMethod("com.android.systemui.statusbar.StatusBarWifiView") {
             name == "initViewState" && parameterCount == 1
@@ -33,4 +36,5 @@ object ShowWifiStandard : HookRegister() {
             }
         }
     }
+
 }

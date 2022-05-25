@@ -7,6 +7,7 @@ import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object HideNetworkSpeedSplitter : HookRegister() {
+
     override fun init() {
         findMethod("com.android.systemui.statusbar.views.NetworkSpeedSplitter") {
             name == "init"
@@ -17,4 +18,5 @@ object HideNetworkSpeedSplitter : HookRegister() {
             }
         }
     }
+
 }

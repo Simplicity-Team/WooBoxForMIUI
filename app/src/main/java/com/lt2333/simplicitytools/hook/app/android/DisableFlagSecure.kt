@@ -15,4 +15,5 @@ object DisableFlagSecure : HookRegister() {
             }
         }
     }
+
 }

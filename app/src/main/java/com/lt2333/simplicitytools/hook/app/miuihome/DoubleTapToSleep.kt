@@ -4,19 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.view.MotionEvent
 import com.github.kyuubiran.ezxhelper.utils.*
-import com.lt2333.simplicitytools.util.*
+import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
-import com.yuk.miuihome.module.DoubleTapController
 import de.robv.android.xposed.XposedHelpers
 
 object DoubleTapToSleep : HookRegister() {
+
     override fun init() = hasEnable("double_tap_to_sleep") {
         hookAllConstructorAfter("com.miui.home.launcher.Workspace") {
             var mDoubleTapControllerEx =
-                XposedHelpers.getAdditionalInstanceField(
-                    it.thisObject,
-                    "mDoubleTapControllerEx"
-                )
+                XposedHelpers.getAdditionalInstanceField(it.thisObject, "mDoubleTapControllerEx")
             if (mDoubleTapControllerEx != null) return@hookAllConstructorAfter
             mDoubleTapControllerEx = DoubleTapController((it.args[0] as Context))
             XposedHelpers.setAdditionalInstanceField(
@@ -25,7 +22,6 @@ object DoubleTapToSleep : HookRegister() {
                 mDoubleTapControllerEx
             )
         }
-
         findMethod("com.miui.home.launcher.Workspace") {
             name == "dispatchTouchEvent" && parameterTypes[0] == MotionEvent::class.java
         }.hookBefore {
@@ -47,4 +43,5 @@ object DoubleTapToSleep : HookRegister() {
             )
         }
     }
+
 }

@@ -8,6 +8,7 @@ import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object MaximumNumberOfNotificationIcons : HookRegister() {
+
     override fun init() {
         val icons = XSPUtils.getInt("maximum_number_of_notification_icons", 3)
         val dots = XSPUtils.getInt("maximum_number_of_notification_dots", 3)
@@ -26,4 +27,5 @@ object MaximumNumberOfNotificationIcons : HookRegister() {
             it.thisObject.invokeMethod("updateState")
         }
     }
+
 }

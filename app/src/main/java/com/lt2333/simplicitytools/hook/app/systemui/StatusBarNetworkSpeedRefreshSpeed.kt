@@ -6,6 +6,7 @@ import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object StatusBarNetworkSpeedRefreshSpeed : HookRegister() {
+
     override fun init() {
         findMethod("com.android.systemui.statusbar.policy.NetworkSpeedController") {
             name == "postUpdateNetworkSpeedDelay" && parameterTypes[0] == Long::class.java
@@ -15,4 +16,5 @@ object StatusBarNetworkSpeedRefreshSpeed : HookRegister() {
             }
         }
     }
+
 }

@@ -6,6 +6,7 @@ import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object SkipWaitingTime : HookRegister() {
+
     override fun init() {
         findMethod("android.widget.TextView") {
             name == "setText" && parameterCount == 4
@@ -26,4 +27,5 @@ object SkipWaitingTime : HookRegister() {
             }
         }
     }
+
 }

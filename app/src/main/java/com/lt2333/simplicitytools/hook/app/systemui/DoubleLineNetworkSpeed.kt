@@ -52,9 +52,9 @@ object DoubleLineNetworkSpeed : HookRegister() {
             mView.isSingleLine = false
             mView.setLineSpacing(0F, 0.8F)
             if (getDualAlign == 0) {
-                mView.gravity = Gravity.LEFT or Gravity.CENTER_VERTICAL
+                mView.gravity = Gravity.START or Gravity.CENTER_VERTICAL
             } else {
-                mView.gravity = Gravity.RIGHT or Gravity.CENTER_VERTICAL
+                mView.gravity = Gravity.END or Gravity.CENTER_VERTICAL
             }
         }
 
@@ -64,9 +64,7 @@ object DoubleLineNetworkSpeed : HookRegister() {
             if (getDualAlign == 0) {
                 it.result =
                     "$upIcon ${getTotalUpSpeed(it.args[0] as Context)}\n${downIcon} ${
-                        getTotalDownloadSpeed(
-                            it.args[0] as Context
-                        )
+                        getTotalDownloadSpeed(it.args[0] as Context)
                     }"
             } else {
                 it.result =
@@ -81,7 +79,7 @@ object DoubleLineNetworkSpeed : HookRegister() {
 
     //获取总的上行速度
     private fun getTotalUpSpeed(context: Context): String {
-        var totalUpSpeed: Float
+        val totalUpSpeed: Float
 
         val currentTotalTxBytes = TrafficStats.getTotalTxBytes()
         val nowTimeStampTotalUp = System.currentTimeMillis()
@@ -89,7 +87,7 @@ object DoubleLineNetworkSpeed : HookRegister() {
         //计算上传速度
         val bytes =
             (currentTotalTxBytes - mLastTotalUp) * 1000 / (nowTimeStampTotalUp - lastTimeStampTotalUp).toFloat()
-        var unit: String
+        val unit: String
 
         if (bytes >= 1048576) {
             totalUpSpeed =
@@ -126,7 +124,7 @@ object DoubleLineNetworkSpeed : HookRegister() {
 
     //获取总的下行速度
     private fun getTotalDownloadSpeed(context: Context): String {
-        var totalDownSpeed: Float
+        val totalDownSpeed: Float
         val currentTotalRxBytes = TrafficStats.getTotalRxBytes()
         val nowTimeStampTotalDown = System.currentTimeMillis()
 
@@ -134,7 +132,7 @@ object DoubleLineNetworkSpeed : HookRegister() {
         val bytes =
             (currentTotalRxBytes - mLastTotalDown) * 1000 / (nowTimeStampTotalDown - lastTimeStampTotalDown).toFloat()
 
-        var unit: String
+        val unit: String
 
         if (bytes >= 1048576) {
             totalDownSpeed =
