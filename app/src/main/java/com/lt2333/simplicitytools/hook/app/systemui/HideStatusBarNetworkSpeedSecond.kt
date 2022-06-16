@@ -23,5 +23,4 @@ object HideStatusBarNetworkSpeedSecond : HookRegister() {
             }
         }
     }
-
 }

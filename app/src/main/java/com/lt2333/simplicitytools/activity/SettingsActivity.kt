@@ -300,6 +300,10 @@ class SettingsActivity : MIUIActivity() {
                         onClickListener = { showFragment("hide_icon") }
                     )
                 )
+                TextWithSwitch(
+                    TextV(resId = R.string.show_wifi_standard),
+                    SwitchV("show_wifi_standard")
+                )
                 val customMobileTypeTextBinding = GetDataBinding(object : DefValue {
                     override fun getValue(): Any {
                         return safeSP.getBoolean("custom_mobile_type_text_switch", false)
@@ -362,10 +366,6 @@ class SettingsActivity : MIUIActivity() {
                         2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
                     }
                 }
-                TextWithSwitch(
-                    TextV(resId = R.string.show_wifi_standard),
-                    SwitchV("show_wifi_standard")
-                )
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.big_mobile_type_icon

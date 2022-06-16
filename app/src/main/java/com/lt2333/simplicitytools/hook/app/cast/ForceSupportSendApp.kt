@@ -7,14 +7,11 @@ import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object ForceSupportSendApp : HookRegister() {
 
-    override fun init() {
-        hasEnable("force_support_send_app") {
-            findMethod("com.xiaomi.mirror.synergy.MiuiSynergySdk") {
-                name == "isSupportSendApp"
-            }.hookAfter {
-                it.result = true
-            }
+    override fun init() = hasEnable("force_support_send_app") {
+        findMethod("com.xiaomi.mirror.synergy.MiuiSynergySdk") {
+            name == "isSupportSendApp"
+        }.hookAfter {
+            it.result = true
         }
     }
-
 }

@@ -12,8 +12,8 @@ android {
         applicationId = "com.lt2333.simplicitytools"
         minSdk = 31
         targetSdk = 32
-        versionCode = 66
-        versionName = "1.6.5"
+        versionCode = 67
+        versionName = "1.6.6"
     }
 
     buildTypes {
@@ -59,4 +59,5 @@ dependencies {
     val appCenterSdkVersion = "4.4.3"
     implementation("com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}")
     implementation("com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}")
+    implementation("androidx.core:core-splashscreen:1.0.0-rc01")
 }
