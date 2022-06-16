@@ -10,7 +10,7 @@ object UnlockUnlimitedCropping : HookRegister() {
     override fun init() {
         //截图无限裁切
         findMethod("com.miui.gallery.editor.photo.screen.crop.ScreenCropView\$b") {
-            name == "a"
+            name == "a" && parameterCount == 0 && returnType == Int::class.java
         }.hookBefore {
             hasEnable("unlock_unlimited_cropping") {
                 it.result = 0

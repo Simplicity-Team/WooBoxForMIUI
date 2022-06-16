@@ -6,12 +6,12 @@ plugins {
 }
 
 android {
-    compileSdk = 32
-    buildToolsVersion = "32.0.0"
+    compileSdk = 33
+    buildToolsVersion = "33.0.0"
     defaultConfig {
         applicationId = "com.lt2333.simplicitytools"
         minSdk = 31
-        targetSdk = 32
+        targetSdk = 33
         versionCode = 67
         versionName = "1.6.6"
     }
