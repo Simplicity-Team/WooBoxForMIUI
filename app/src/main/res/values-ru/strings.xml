@@ -26,6 +26,7 @@
     <string name="hide_hotspot_icon">Скрыть точку доступа</string>
     <string name="hide_headset_icon">Скрыть гарнитуру</string>
     <string name="hide_bluetooth_battery_icon">Скрыть батарею блютуз устройства</string>
+    <string name="hide_nfc_icon">Скрыть иконку NFC</string>
     <string name="hide_big_hd_icon">Скрыть большую иконку HD</string>
     <string name="hide_small_hd_icon">Скрыть маленькую иконку HD</string>
     <string name="hide_hd_no_service_icon">Скрыть HD No Service</string>
@@ -181,6 +182,7 @@
     <string name="left">Влево</string>
     <string name="right">Вправо</string>
     <string name="big_mobile_type_icon">Большая иконка типа сети</string>
+    <string name="show_wifi_standard">Показывать стандарт Wifi</string>
     <string name="can_notification_slide">Сделать так, чтобы все уведомления можно было сдвинуть в всплывающее окно</string>
     <string name="battery_percentage_font_size">Размер шрифта процентов заряда батареи</string>
     <string name="zero_do_no_change">0: не изменять</string>
@@ -220,5 +222,4 @@
     <string name="take_effect_after_reboot">Вступит в силу после перезагрузки</string>
     <string name="media_volume_steps_summary">Включение может привести к ненормальной прокрутке строки громкости</string>
     <string name="can_notification_slide_summary">Некоторые уведомления через Mi Push могут не поддерживаться.</string>
-    <string name="hide_nfc_icon">Скрыть NFC</string>
 </resources>

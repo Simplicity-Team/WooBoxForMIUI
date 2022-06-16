@@ -217,5 +217,4 @@
     <string name="take_effect_after_reboot">Yeniden başlattıktan sonra etkili ol</string>
     <string name="media_volume_steps_summary">Açmak, ses seviyesi çubuğunun kaymasının donmasına veya Bluetooth ses seviyesinin anormal olmasına neden olabilir.</string>
     <string name="can_notification_slide_summary">Mi Push aracılığıyla yapılan bazı bildirimler desteklenmeyebilir.</string>
-    <string name="hide_nfc_icon">NFC simgesini gizle</string>
 </resources>

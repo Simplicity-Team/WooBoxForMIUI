@@ -2,7 +2,7 @@
 <resources>
     <string name="performance">パフォーマンス</string>
     <string name="lock_max_fps">現在のリフレッシュレート上限をロック</string>
-    <string name="ui">インタフェース</string>
+    <string name="ui">インターフェース</string>
     <string name="delete_on_post_notification">「他のアプリの上に表示」通知を削除</string>
     <string name="delete_on_post_notification_summary">「このアプリは他のアプリの上に表示されています」通知を削除します</string>
     <string name="other">その他</string>
@@ -26,6 +26,7 @@
     <string name="hide_hotspot_icon">ポータブルホットスポットアイコンを隠す</string>
     <string name="hide_headset_icon">ヘッドセットアイコンを隠す</string>
     <string name="hide_bluetooth_battery_icon">Bluetooth機器のバッテリーアイコンを非表示</string>
+    <string name="hide_nfc_icon">NFC アイコンを隠す</string>
     <string name="hide_big_hd_icon">大きなHDアイコンを隠す</string>
     <string name="hide_small_hd_icon">小さいHDアイコンを隠す</string>
     <string name="hide_hd_no_service_icon">HD サービスなしアイコンを隠す</string>
@@ -84,7 +85,7 @@
     <string name="app_coolapk_url">5つ星のレビューをお願いします。</string>
     <string name="app_coolapk_url_summary">多くの人に見つけてもらいやすくなります</string>
     <string name="qq_channel">公式QQチャンネルに参加する</string>
-    <string name="tg_channel">公式telegramチャンネルに参加する</string>
+    <string name="tg_channel">公式 Telegram チャンネルに参加する</string>
     <string name="tg_channel_summary">チャンネルページにチャットグループを入力することができます</string>
     <string name="discussions">討論</string>
     <string name="remove_small_window_restrictions_summary">小さなウィンドウへのシステムのブラックリストとソフトウェア制限を無視します</string>
@@ -177,6 +178,7 @@
     <string name="left">左</string>
     <string name="right">右</string>
     <string name="big_mobile_type_icon">大きなモバイルタイプアイコン</string>
+    <string name="show_wifi_standard">Wi-Fi 規格を表示</string>
     <string name="can_notification_slide">ポップアップ通知を下スライドしてフローティングウィンドウにするやつをほとんどのアプリで有効にする</string>
     <string name="battery_percentage_font_size">バッテリー残量のフォントサイズ</string>
     <string name="zero_do_no_change">0：変更しない</string>
@@ -216,5 +218,4 @@
     <string name="take_effect_after_reboot">機能は再起動後に有効になります</string>
     <string name="media_volume_steps_summary">オンにすると、ボリュームバーのスクロールがフリーズしたり、Bluetoothの音量が異常になる場合があります</string>
     <string name="can_notification_slide_summary">一部のMi Pushによる通知では機能しない場合があります。</string>
-    <string name="hide_nfc_icon">NFC アイコンを隠す</string>
 </resources>

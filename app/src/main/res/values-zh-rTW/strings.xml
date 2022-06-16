@@ -26,6 +26,7 @@
     <string name="hide_hotspot_icon">隱藏 WIFI熱點 圖示</string>
     <string name="hide_headset_icon">隱藏 耳機 圖示</string>
     <string name="hide_bluetooth_battery_icon">隱藏 藍牙電量 圖示</string>
+    <string name="hide_nfc_icon">隱藏 NFC 圖示</string>
     <string name="hide_big_hd_icon">隱藏 大HD 圖示</string>
     <string name="hide_small_hd_icon">隱藏 小HD 圖示</string>
     <string name="hide_hd_no_service_icon">隱藏 HD無服務 圖示</string>
@@ -177,6 +178,7 @@
     <string name="left">置左</string>
     <string name="right">置右</string>
     <string name="big_mobile_type_icon">大行動網路圖示</string>
+    <string name="show_wifi_standard">顯示 Wifi 標準</string>
     <string name="can_notification_slide">強制允許全部通知可使用小窗</string>
     <string name="battery_percentage_font_size">電量百分比字體大小</string>
     <string name="zero_do_no_change">0：不修改</string>
@@ -216,5 +218,4 @@
     <string name="take_effect_after_reboot">重新開機後生效</string>
     <string name="media_volume_steps_summary">開啟後可能會導致音量條的滾動卡頓或藍牙音量異常</string>
     <string name="can_notification_slide_summary">可能無法支援一些使用小米推送(Mi Push)推播的通知</string>
-    <string name="hide_nfc_icon">隱藏 NFC 圖示</string>
 </resources>

@@ -26,6 +26,7 @@
     <string name="hide_hotspot_icon">Ukryj ikonę przenośnego hotspotu</string>
     <string name="hide_headset_icon">Ukryj ikonę słuchawek</string>
     <string name="hide_bluetooth_battery_icon">Ukryj ikonę poziomu baterii Bluetooth</string>
+    <string name="hide_nfc_icon">Ukryj ikonę NFC</string>
     <string name="hide_big_hd_icon">Ukryj dużą ikonę HD</string>
     <string name="hide_small_hd_icon">Ukryj małą ikonę HD</string>
     <string name="hide_hd_no_service_icon">Ukryj ikonę braku usługi HD</string>
@@ -212,6 +213,8 @@
     <string name="lock_screen_clock_display_seconds">Wyświetlanie sekund w zegarze</string>
     <string name="sound">Dźwięk</string>
     <string name="media_volume_steps_switch">Kroki głośności multimediów</string>
+    <string name="allow_untrusted_touches">Zezwalaj na niezaufane dotknięcia</string>
+    <string name="take_effect_after_reboot">Efekt po restarcie</string>
+    <string name="media_volume_steps_summary">Włączenie może spowodować, że przewijanie paska głośności zamraża lub głośność Bluetooth jest nieprawidłowa</string>
     <string name="can_notification_slide_summary">Niektóre powiadomienia Mi Push mogą nie być obsługiwane.</string>
-    <string name="hide_nfc_icon">Ukryj ikonę NFC</string>
 </resources>

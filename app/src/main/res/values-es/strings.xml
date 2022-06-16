@@ -26,6 +26,7 @@
     <string name="hide_hotspot_icon">Ocultar icono de punto de accesos inalámbrico</string>
     <string name="hide_headset_icon">Ocultar icono de audífonos</string>
     <string name="hide_bluetooth_battery_icon">Ocultar icono de batería de Bluetooth</string>
+    <string name="hide_nfc_icon">Ocultar icono de NFC</string>
     <string name="hide_big_hd_icon">Ocultar icono grande HD</string>
     <string name="hide_small_hd_icon">Ocultar icono pequeño HD</string>
     <string name="hide_hd_no_service_icon">Ocultar icono sin servicio HD</string>
@@ -177,6 +178,7 @@
     <string name="left">Izquierda</string>
     <string name="right">Derecha</string>
     <string name="big_mobile_type_icon">Icono grande de red móvil</string>
+    <string name="show_wifi_standard">Mostrar estándar de Wifi</string>
     <string name="can_notification_slide">Hacer que la mayoría de las notificaciones puedan abrirse en ventana flotante</string>
     <string name="battery_percentage_font_size">Tamaño de la fuente del porcentaje de batería</string>
     <string name="zero_do_no_change">0: sin cambios</string>
@@ -216,5 +218,4 @@
     <string name="take_effect_after_reboot">Se activa después de reiniciar</string>
     <string name="media_volume_steps_summary">Activar esta opción puede hacer que el desplazamiento de la barra de volumen se congele o que el volumen Bluetooth sea anormal</string>
     <string name="can_notification_slide_summary">Es posible que algunas notificaciones a través de Mi Push no sean soportadas.</string>
-    <string name="hide_nfc_icon">Ocultar icono NFC</string>
 </resources>

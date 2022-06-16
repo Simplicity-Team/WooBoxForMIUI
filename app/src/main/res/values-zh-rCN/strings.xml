@@ -21,12 +21,12 @@
     <string name="hide_airplane_icon">隐藏 飞行模式 图标</string>
     <string name="hide_wifi_icon">隐藏 WIFI 图标</string>
     <string name="hide_bluetooth_icon">隐藏 蓝牙 图标</string>
-    <string name="hide_nfc_icon">隐藏 NFC 图标</string>
     <string name="hide_volume_zen_icon">隐藏 声音、勿扰 图标</string>
     <string name="hide_alarm_icon">隐藏 闹钟 图标</string>
     <string name="hide_hotspot_icon">隐藏 WIFI热点 图标</string>
     <string name="hide_headset_icon">隐藏 耳机 图标</string>
     <string name="hide_bluetooth_battery_icon">隐藏 蓝牙电量 图标</string>
+    <string name="hide_nfc_icon">隐藏 NFC 图标</string>
     <string name="hide_big_hd_icon">隐藏 大HD 图标</string>
     <string name="hide_small_hd_icon">隐藏 小HD 图标</string>
     <string name="hide_hd_no_service_icon">隐藏 HD无服务 图标</string>
@@ -178,6 +178,7 @@
     <string name="left">左边</string>
     <string name="right">右边</string>
     <string name="big_mobile_type_icon">大移动类型图标</string>
+    <string name="show_wifi_standard">显示 WiFi 标准</string>
     <string name="can_notification_slide">允许大多数应用通知下拉展开小窗</string>
     <string name="battery_percentage_font_size">电池百分比字体大小</string>
     <string name="zero_do_no_change">0: 不更改</string>

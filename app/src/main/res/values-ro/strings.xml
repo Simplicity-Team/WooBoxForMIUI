@@ -26,6 +26,7 @@
     <string name="hide_hotspot_icon">Ascunde pictograma Hotspot mobil</string>
     <string name="hide_headset_icon">Ascunde pictograma căștilor</string>
     <string name="hide_bluetooth_battery_icon">Ascunde pictograma Baterie Bluetooth</string>
+    <string name="hide_nfc_icon">Ascunde pictograma NFC</string>
     <string name="hide_big_hd_icon">Ascunde pictograma HD mare</string>
     <string name="hide_small_hd_icon">Ascunde pictograma HD mic</string>
     <string name="hide_hd_no_service_icon">Ascunde pictograma Fără servicii HD</string>
@@ -177,6 +178,7 @@
     <string name="left">Stânga</string>
     <string name="right">Dreapta</string>
     <string name="big_mobile_type_icon">Pictogramă mare pentru tipul datelor mobile</string>
+    <string name="show_wifi_standard">Afișare Standard Wifi</string>
     <string name="can_notification_slide">Cele mai multe notificări pot fi glisate în fereastră mică</string>
     <string name="battery_percentage_font_size">Dimensiune font procentaj baterie</string>
     <string name="zero_do_no_change">0: nu se modifică</string>
@@ -216,5 +218,4 @@
     <string name="take_effect_after_reboot">Intră în vigoare după repornire</string>
     <string name="media_volume_steps_summary">Activarea poate provoca înghețarea derulării barei de volum sau volumul Bluetooth să fie anormal</string>
     <string name="can_notification_slide_summary">Este posibil ca unele notificări prin Mi Push să nu fie acceptate.</string>
-    <string name="hide_nfc_icon">Ascunde pictograma NFC</string>
 </resources>

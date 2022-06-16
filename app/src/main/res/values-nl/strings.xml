@@ -55,5 +55,4 @@
     <string name="scope_android_summary">Na het inschakelen van de module voor de eerste keer of de module is bijgewerkt, zal de functie hier van kracht worden na het herstarten van het systeem</string>
     <string name="scope_other_summary">Beveiligingsapp, Gallerij aanpasser, Batterij en prestatie, enz.</string>
     <string name="scope_powerkeeper">Batterij en prestatie</string>
-    <string name="hide_nfc_icon">Verberg NFC icoon</string>
 </resources>
