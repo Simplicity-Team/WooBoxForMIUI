@@ -169,7 +169,7 @@
     <string name="qs_custom_columns">Cột</string>
     <string name="qs_custom_rows_horizontal">Hàng (ngang)</string>
     <string name="status_bar_dual_row_network_speed">Tốc độ mạng hàng kép</string>
-    <string name="status_bar_dual_row_network_speed_summary">Đi và đến hiển thị tốc độ mạng</string>
+    <string name="status_bar_dual_row_network_speed_summary">Hiển thị tốc độ mạng tải lên và tải xuống</string>
     <string name="status_bar_network_speed">Tốc độ mạng trên thanh trạng thái</string>
     <string name="status_bar_network_speed_dual_row_size">Kích thước hàng kép (0: không thay đổi)</string>
     <string name="status_bar_network_speed_dual_row_icon">Biểu tượng hàng kép</string>
