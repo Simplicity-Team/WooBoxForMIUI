@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="performance">Hiệu năng</string>
-    <string name="lock_max_fps">Khoá giới hạn tốc độ làm mới hiện tại</string>
+    <string name="lock_max_fps">Khoá giới hạn trên của tốc độ làm mới hiện tại</string>
     <string name="ui">Giao diện</string>
     <string name="delete_on_post_notification">Xoá thông báo hiển thị trên ứng dụng khác</string>
     <string name="delete_on_post_notification_summary">Xoá thông báo \"Ứng dụng này đang hiển thị trên ứng dụng khác\"</string>
@@ -51,7 +51,7 @@
     <string name="skip_waiting_time">Bỏ qua 5/10 giây cảnh báo</string>
     <string name="unlock_unlimited_cropping">Bỏ qua danh sách đen hệ thống và phần mềm cấm cửa sổ nhỏ</string>
     <string name="hide_slave_wifi_icon">Ẩn biểu tượng WIFI thứ hai</string>
-    <string name="HideLauncherIcon">Ẩn biểu tượng ứng dụng này khỏi màn hình chính</string>
+    <string name="HideLauncherIcon">Ẩn biểu tượng Trình khởi chạy</string>
     <string name="hide_battery_percentage_icon">Ẩn (%) pin</string>
     <string name="hide_battery_icon">Ẩn biểu tượng pin</string>
     <string name="status_bar_clock_format">Định dạng đồng hồ trên thanh trạng thái</string>
@@ -59,28 +59,28 @@
     <string name="status_bar_time_month">Hiển thị tháng</string>
     <string name="status_bar_time_day">Hiện thị thứ</string>
     <string name="status_bar_time_week">Hiển thị ngày</string>
-    <string name="status_bar_time_hide_space">Không có khoảng cách</string>
+    <string name="status_bar_time_hide_space">Ẩn khoảng cách</string>
     <string name="allow_screenshots">Cho phép chụp màn hình</string>
     <string name="lock_max">Khoá giới hạn hiện tại</string>
     <string name="status_bar_time_double_hour">Hiển thị giờ con giáp - tiếng trung</string>
-    <string name="custom_clock_switch">Tuỳ Chỉnh công tắc Đồng hồ</string>
+    <string name="custom_clock_switch">Công Tắc Đồng Hồ Tuỳ Chỉnh</string>
     <string name="status_bar_time_period">Hiển thị SA/CH</string>
     <string name="status_bar_time_double_line">Hàng kép</string>
     <string name="status_bar_clock_size">Kích cỡ đồng hồ (0: không đổi)</string>
     <string name="status_bar_clock_double_line_size">Kích cỡ hàng kép (0: không đổi)</string>
     <string name="matters_needing_attention">Tính năng không hoạt động? </string>
     <string name="Done">OK</string>
-    <string name="about_module_summary">Xem thông tin liên quan tới module</string>
+    <string name="about_module_summary">Xem thông tin liên quan tới mô-đun</string>
     <string name="contributor_list">Danh sánh người đóng góp kho nguồn mở</string>
     <string name="developer">Nhà phát triển</string>
     <string name="thank_list">Danh sách cảm ơn</string>
     <string name="third_party_open_source_statement">Tuyên Bố Về Mã Nguồn Mở Của Bên Thứ Ba</string>
     <string name="corepacth">Gỡ bỏ các hạn chế</string>
-    <string name="corepacth_summary">Hỗ trợ hạ cấp/khác chữ ký/không ký cài đặt</string>
+    <string name="corepacth_summary">Hỗ trợ hạ cấp/chữ ký khác/cài đặt ứng dụng không chữ kí</string>
     <string name="prevent_recovery_of_battery_optimization_white_list">Ngăn chặn sự khôi phục của danh sách trắng tối ưu hoá pin</string>
     <string name="failed_after_restart">Nó sẽ được khôi phục sau khi khởi động lại hệ thống</string>
     <string name="battery_optimization">Tối ưu hóa pin</string>
-    <string name="battery_optimization_summary">Mở nhanh menu tối ưu hóa pin bị ẩn bởi MIUI</string>
+    <string name="battery_optimization_summary">Mở nhanh trình đơn tối ưu hóa pin bị ẩn bởi MIUI</string>
     <string name="remove_small_window_restrictions">Buộc tất cả ứng dụng đều mở cửa sổ nhỏ</string>
     <string name="app_coolapk_url">Tới và đánh giá chúng tôi 5 sao</string>
     <string name="app_coolapk_url_summary">Điều này có thể giúp chúng tôi dễ được biết tới hơn</string>
@@ -119,7 +119,7 @@
     <string name="lock_screen">Màn hình khoá</string>
     <string name="notification_center">Trung tâm thông báo</string>
     <string name="show_city">Hiện thành phố</string>
-    <string name="lock_max_fps_summary">Bỏ qua danh sách đen hệ thống và phần mềm cấm cửa sổ nhỏ</string>
+    <string name="lock_max_fps_summary">Hỗ trợ thêm công tắc chuyển đổi cài đặt nhanh trung tâm điều khiển thả xuống thời gian thực</string>
     <string name="control_center">Trung tâm Điều khiển</string>
     <string name="control_center_weather_summary">Phiên bản Mi Smart Hub hiện không được hỗ trợ</string>
     <string name="not_support">Có vẻ bạn đang dùng LSPosed bản cũ hoặc LSPosed chưa được kích hoạt, vui lòng cập nhật hoặc kích hoạt LSPosed rồi thử lại.</string>
@@ -156,8 +156,7 @@
     <string name="lock_screen_charging_current">Hiển thị thông tin hiện tại trong khi sạc</string>
     <string name="current_current">Hiện tại</string>
     <string name="remove_open_app_confirmation_popup">Xóa cửa sổ bật lên ứng dụng đang mở</string>
-    <string name="remove_open_app_confirmation_popup_summary">Loại bỏ \"Cho phép XXX mở XXX\" Cửa sổ bật lên bắt đầu chuỗi
- TIẾP TỤC</string>
+    <string name="remove_open_app_confirmation_popup_summary">Gỡ bỏ cửa sổ nổi \"Cho phép XXX mở XXX\"</string>
     <string name="hide_volume_icon">Ẩn biểu tượng Âm lượng</string>
     <string name="hide_zen_icon">Ẩn biểu tượng ZEN</string>
     <string name="hide_icon">Ẩn biểu tượng</string>
@@ -180,6 +179,7 @@
     <string name="right">Phải</string>
     <string name="big_mobile_type_icon">Biểu tượng mạng dữ liệu lớn</string>
     <string name="show_wifi_standard">Hiển thị tiêu chuẩn Wifi</string>
+    <string name="can_notification_slide">Làm cho hầu hết các thông báo có thể được trượt thành cửa sổ nhỏ</string>
     <string name="battery_percentage_font_size">Kích thước phông chữ phần trăm pin</string>
     <string name="zero_do_no_change">0: không thay đổi</string>
     <string name="big_mobile_type_icon_size">Kích thước biểu tượng mạng dữ liệu lớn</string>
@@ -189,4 +189,33 @@
     <string name="range">Phạm vi: </string>
     <string name="big_mobile_type_icon_left_and_right_margins">Căn lề biểu tượng mạng dữ liệu lớn</string>
     <string name="cast">Truyền</string>
+    <string name="force_support_send_app">Bắt buộc tất cả ứng dụng hỗ trợ mở trên thiết bị khác</string>
+    <string name="status_bar_time_double_line_center_align">Căn giữa hàng kép</string>
+    <string name="default1">Mặc định</string>
+    <string name="clock_center">Đồng hồ trung tâm</string>
+    <string name="clock_right">Đồng hồ bên phải</string>
+    <string name="status_bar_layout_mode">Chế độ bố cục thanh trạng thái</string>
+    <string name="clock_center_and_icon_left">Đồng hồ ở giữa và biểu tượng bên trái</string>
+    <string name="maximum_number_of_notification_icons">Số lượng biểu tượng thông báo tối đa</string>
+    <string name="maximum_number_of_notification_dots">Số lượng chấm thông báo tối đa</string>
+    <string name="custom_mobile_type_text">Tùy biến kiểu chữ loại di động</string>
+    <string name="custom_mobile_type_text_switch">Chuyển đổi kiểu chữ loại di động tùy chỉnh</string>
+    <string name="downgr">Chấp nhận hạ cấp</string>
+    <string name="downgr_summary">Chấp nhận hạ cấp ứng dụng.</string>
+    <string name="authcreak">Tắt xác minh thông báo</string>
+    <string name="authcreak_summary">Chấp nhận cài đặt ứng dụng sau khi chỉnh sửa file apk (bỏ qua lỗi thông báo không hợp lệ).</string>
+    <string name="digestCreak">Tắt so sánh chữ ký</string>
+    <string name="digestCreak_summary">Chấp nhận cài đặt lại ứng dụng với chữ kí xác thực khác.</string>
+    <string name="UsePreSig">Sử dụng chữ kí xác thực đã cài đặt</string>
+    <string name="UsePreSig_summary">Luôn luôn sử dụng chữ kí từ ứng dụng đã cài đặt trong khi cài đặt.\nĐiều này hết sức <b>nguy hiểm</b>.\nChỉ kích hoạt khi thực sự cần!</string>
+    <string name="enhancedMode">Chế độ nâng cao</string>
+    <string name="enhancedMode_summary">Vượt qua một số xác thực trong ứng dụng</string>
+    <string name="rear_display">Hiển thị màn hình lưng (11Ultra)</string>
+    <string name="lock_screen_clock_display_seconds">Hiển thị giây</string>
+    <string name="sound">Âm thanh</string>
+    <string name="media_volume_steps_switch">Các mức âm lượng</string>
+    <string name="allow_untrusted_touches">Cho phép chạm không đáng tin cậy</string>
+    <string name="take_effect_after_reboot">Có hiệu lực sau khi khởi động lại</string>
+    <string name="media_volume_steps_summary">Bật có thể khiến cuộn thanh âm lượng bị đơ hoặc âm lượng Bluetooth bất thường</string>
+    <string name="can_notification_slide_summary">Một số thông báo qua Mi Push có thể không được hỗ trợ.</string>
 </resources>
