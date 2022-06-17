@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="performance">Hiệu năng</string>
     <string name="lock_max_fps">Khoá giới hạn tốc độ làm mới hiện tại</string>
     <string name="ui">Giao diện</string>
     <string name="delete_on_post_notification">Xoá thông báo hiển thị trên ứng dụng khác</string>
@@ -25,6 +26,7 @@
     <string name="hide_hotspot_icon">Ẩn biểu tượng Điểm phát sóng di động</string>
     <string name="hide_headset_icon">Ẩn biểu tượng tai nghe</string>
     <string name="hide_bluetooth_battery_icon">Ẩn biểu tượng pin Bluetooth</string>
+    <string name="hide_nfc_icon">Ẩn biểu tượng ứng dụng</string>
     <string name="hide_big_hd_icon">Ẩn biểu tượng mạng HD lớn</string>
     <string name="hide_small_hd_icon">Ẩn biểu tượng mạng HD nhỏ</string>
     <string name="hide_hd_no_service_icon">Ẩn biểu tượng không có dịch vụ</string>
@@ -46,6 +48,7 @@
     <string name="hide_status_bar_network_speed_second">Ẩn đơn vị tốc độ mạng (/s)</string>
     <string name="menu">Menu</string>
     <string name="Tips">Mẹo</string>
+    <string name="skip_waiting_time">Bỏ qua 5/10 giây cảnh báo</string>
     <string name="unlock_unlimited_cropping">Bỏ qua danh sách đen hệ thống và phần mềm cấm cửa sổ nhỏ</string>
     <string name="hide_slave_wifi_icon">Ẩn biểu tượng WIFI thứ hai</string>
     <string name="HideLauncherIcon">Ẩn biểu tượng ứng dụng này khỏi màn hình chính</string>
@@ -152,6 +155,9 @@
     <string name="participate_in_translation_summary">Giúp chúng tôi dịch ứng dụng sang ngôn ngữ của bạn</string>
     <string name="lock_screen_charging_current">Hiển thị thông tin hiện tại trong khi sạc</string>
     <string name="current_current">Hiện tại</string>
+    <string name="remove_open_app_confirmation_popup">Xóa cửa sổ bật lên ứng dụng đang mở</string>
+    <string name="remove_open_app_confirmation_popup_summary">Loại bỏ \"Cho phép XXX mở XXX\" Cửa sổ bật lên bắt đầu chuỗi
+ TIẾP TỤC</string>
     <string name="hide_volume_icon">Ẩn biểu tượng Âm lượng</string>
     <string name="hide_zen_icon">Ẩn biểu tượng ZEN</string>
     <string name="hide_icon">Ẩn biểu tượng</string>
@@ -168,10 +174,12 @@
     <string name="status_bar_network_speed">Tốc độ mạng trên thanh trạng thái</string>
     <string name="status_bar_network_speed_dual_row_size">Kích thước hàng kép (0: không thay đổi)</string>
     <string name="status_bar_network_speed_dual_row_icon">Biểu tượng hàng kép</string>
+    <string name="none">Không</string>
     <string name="status_bar_network_speed_dual_row_gravity">Căn chỉnh hàng kép</string>
     <string name="left">Trái</string>
     <string name="right">Phải</string>
     <string name="big_mobile_type_icon">Biểu tượng mạng dữ liệu lớn</string>
+    <string name="show_wifi_standard">Hiển thị tiêu chuẩn Wifi</string>
     <string name="battery_percentage_font_size">Kích thước phông chữ phần trăm pin</string>
     <string name="zero_do_no_change">0: không thay đổi</string>
     <string name="big_mobile_type_icon_size">Kích thước biểu tượng mạng dữ liệu lớn</string>
