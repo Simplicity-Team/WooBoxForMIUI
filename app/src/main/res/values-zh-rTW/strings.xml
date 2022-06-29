@@ -218,4 +218,10 @@
     <string name="take_effect_after_reboot">重新開機後生效</string>
     <string name="media_volume_steps_summary">開啟後可能會導致音量條的滾動卡頓或藍牙音量異常</string>
     <string name="can_notification_slide_summary">可能無法支援一些使用小米推送(Mi Push)推播的通知</string>
+    <string name="screen_hole_location">螢幕挖孔位置</string>
+    <string name="custom_clock_mode">自訂時鐘模式</string>
+    <string name="custom_clock_format_geek">時鐘格式</string>
+    <string name="off">關閉</string>
+    <string name="center">置中</string>
+    <string name="left_or_right">左右</string>
 </resources>
