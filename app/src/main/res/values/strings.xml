@@ -222,4 +222,10 @@
     <string name="take_effect_after_reboot">Take effect after reboot</string>
     <string name="media_volume_steps_summary">Turning on may cause the scrolling of the volume bar to freeze or the Bluetooth volume to be abnormal</string>
     <string name="can_notification_slide_summary">Some notifications through Mi Push may not be supported.</string>
+    <string name="screen_hole_location">Screen hole location</string>
+    <string name="custom_clock_mode">Custom clock mode</string>
+    <string name="custom_clock_format_geek">Clock format</string>
+    <string name="off">Off</string>
+    <string name="center">Center</string>
+    <string name="left_or_right">Left or Right</string>
 </resources>

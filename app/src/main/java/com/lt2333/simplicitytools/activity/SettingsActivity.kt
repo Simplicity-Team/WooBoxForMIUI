@@ -93,7 +93,7 @@ class SettingsActivity : MIUIActivity() {
                         })
                 )
                 Line()
-                TitleText(resId = R.string.scope)
+                TitleText(textId = R.string.scope)
                 TextSummaryArrow(
                     TextSummaryV(
                         textId = R.string.scope_systemui,
@@ -116,7 +116,7 @@ class SettingsActivity : MIUIActivity() {
                     )
                 )
                 Line()
-                TitleText(resId = R.string.about)
+                TitleText(textId = R.string.about)
                 TextSummaryArrow(
                     TextSummaryV(
                         textId = R.string.about_module,
@@ -127,14 +127,14 @@ class SettingsActivity : MIUIActivity() {
 
             }
             register("scope_systemui", getString(R.string.scope_systemui), false) {
-                TitleText(resId = R.string.statusbar)
+                TitleText(textId = R.string.statusbar)
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.double_tap_to_sleep
                     ), SwitchV("status_bar_double_tap_to_sleep")
                 )
                 Line()
-                TitleText(resId = R.string.status_bar_layout)
+                TitleText(textId = R.string.status_bar_layout)
                 val statusBarLayoutMode: HashMap<Int, String> = hashMapOf<Int, String>().also {
                     it[0] = getString(R.string.default1)
                     it[1] = getString(R.string.clock_center)
@@ -142,7 +142,7 @@ class SettingsActivity : MIUIActivity() {
                     it[3] = getString(R.string.clock_center_and_icon_left)
                 }
                 TextWithSpinner(
-                    TextV(resId = R.string.status_bar_layout_mode),
+                    TextV(textId = R.string.status_bar_layout_mode),
                     SpinnerV(
                         statusBarLayoutMode[safeSP.getInt(
                             "status_bar_layout_mode",
@@ -163,10 +163,11 @@ class SettingsActivity : MIUIActivity() {
                         }
                     }
                 )
+
                 val layoutCompatibilityModeBinding = GetDataBinding(
                     object : DefValue {
                         override fun getValue(): Any {
-                            return safeSP.getBoolean("layout_compatibility_mode", false)
+                            return safeSP.getInt("screen_hole_location", 0)==2
                         }
                     }
                 ) { view, flags, data ->
@@ -175,18 +176,37 @@ class SettingsActivity : MIUIActivity() {
                         2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
                     }
                 }
-                TextSummaryWithSwitch(
-                    TextSummaryV(
-                        textId = R.string.layout_compatibility_mode,
-                        tipsId = R.string.layout_compatibility_mode_summary
-                    ),
-                    SwitchV(
-                        "layout_compatibility_mode",
-                        dataBindingSend = layoutCompatibilityModeBinding.bindingSend
-                    )
+
+                val screenHoleLocation: HashMap<Int, String> = hashMapOf<Int, String>().also {
+                    it[0] = getString(R.string.off)
+                    it[1] = getString(R.string.center)
+                    it[2] = getString(R.string.left_or_right)
+                }
+                TextSummaryWithSpinner(
+                    TextSummaryV(textId = R.string.layout_compatibility_mode, tipsId = R.string.screen_hole_location),
+                    SpinnerV(
+                        screenHoleLocation[safeSP.getInt(
+                            "screen_hole_location",
+                            0
+                        )].toString()
+                    ) {
+                        add(screenHoleLocation[0].toString()) {
+                            safeSP.putAny("screen_hole_location", 0)
+                            layoutCompatibilityModeBinding.binding.Send().send(false)
+                        }
+                        add(screenHoleLocation[1].toString()) {
+                            safeSP.putAny("screen_hole_location", 1)
+                            layoutCompatibilityModeBinding.binding.Send().send(false)
+                        }
+                        add(screenHoleLocation[2].toString()) {
+                            safeSP.putAny("screen_hole_location", 2)
+                            layoutCompatibilityModeBinding.binding.Send().send(true)
+                        }
+                    }
                 )
+
                 Text(
-                    resId = R.string.left_margin,
+                    textId = R.string.left_margin,
                     dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
                 )
                 SeekBarWithText(
@@ -197,7 +217,7 @@ class SettingsActivity : MIUIActivity() {
                     dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
                 )
                 Text(
-                    resId = R.string.right_margin,
+                    textId = R.string.right_margin,
                     dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
                 )
                 SeekBarWithText(
@@ -208,10 +228,12 @@ class SettingsActivity : MIUIActivity() {
                     dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
                 )
                 Line()
-                TitleText(resId = R.string.status_bar_clock_format)
-                val customClockBinding = GetDataBinding(object : DefValue {
+                TitleText(textId = R.string.status_bar_clock_format)
+
+
+                val customClockPresetBinding = GetDataBinding(object : DefValue {
                     override fun getValue(): Any {
-                        return safeSP.getBoolean("custom_clock_switch", false)
+                        return safeSP.getInt("custom_clock_mode", 0)==1
                     }
                 }) { view, flags, data ->
                     when (flags) {
@@ -219,81 +241,170 @@ class SettingsActivity : MIUIActivity() {
                         2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
                     }
                 }
-                TextWithSwitch(
-                    TextV(resId = R.string.custom_clock_switch, colorId = R.color.purple_700),
-                    SwitchV(
-                        "custom_clock_switch",
-                        dataBindingSend = customClockBinding.bindingSend
-                    )
+
+                val customClockGeekBinding = GetDataBinding(object : DefValue {
+                    override fun getValue(): Any {
+                        return safeSP.getInt("custom_clock_mode", 0)==2
+                    }
+                }) { view, flags, data ->
+                    when (flags) {
+                        1 -> (view as Switch).isEnabled = data as Boolean
+                        2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                    }
+                }
+
+                val customClockMode: HashMap<Int, String> = hashMapOf<Int, String>().also {
+                    it[0] = "Off"
+                    it[1] = "Preset"
+                    it[2] = "Geek"
+                }
+                TextWithSpinner(
+                    TextV(textId = R.string.custom_clock_mode),
+                    SpinnerV(
+                        customClockMode[safeSP.getInt(
+                            "custom_clock_mode",
+                            0
+                        )].toString()
+                    ) {
+                        add(customClockMode[0].toString()) {
+                            safeSP.putAny("custom_clock_mode", 0)
+                            customClockPresetBinding.binding.Send().send(false)
+                            customClockGeekBinding.binding.Send().send(false)
+                        }
+                        add(customClockMode[1].toString()) {
+                            safeSP.putAny("custom_clock_mode", 1)
+                            customClockPresetBinding.binding.Send().send(true)
+                            customClockGeekBinding.binding.Send().send(false)
+                        }
+                        add(customClockMode[2].toString()) {
+                            safeSP.putAny("custom_clock_mode", 2)
+                            customClockPresetBinding.binding.Send().send(false)
+                            customClockGeekBinding.binding.Send().send(true)
+                        }
+                    }
                 )
+
+                //预设模式起始
                 TextWithSwitch(
-                    TextV(resId = R.string.status_bar_time_year),
+                    TextV(textId = R.string.status_bar_time_year),
                     SwitchV("status_bar_time_year"),
-                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                    dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.status_bar_time_month),
+                    TextV(textId = R.string.status_bar_time_month),
                     SwitchV("status_bar_time_month"),
-                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                    dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.status_bar_time_day),
+                    TextV(textId = R.string.status_bar_time_day),
                     SwitchV("status_bar_time_day"),
-                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                    dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.status_bar_time_week),
+                    TextV(textId = R.string.status_bar_time_week),
                     SwitchV("status_bar_time_week"),
-                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                    dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.status_bar_time_double_hour),
+                    TextV(textId = R.string.status_bar_time_double_hour),
                     SwitchV("status_bar_time_double_hour"),
-                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                    dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.status_bar_time_period),
+                    TextV(textId = R.string.status_bar_time_period),
                     SwitchV("status_bar_time_period", true),
-                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                    dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.status_bar_time_seconds),
+                    TextV(textId = R.string.status_bar_time_seconds),
                     SwitchV("status_bar_time_seconds"),
-                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                    dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.status_bar_time_hide_space),
+                    TextV(textId = R.string.status_bar_time_hide_space),
                     SwitchV("status_bar_time_hide_space"),
-                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                    dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.status_bar_time_double_line),
+                    TextV(textId = R.string.status_bar_time_double_line),
                     SwitchV("status_bar_time_double_line"),
-                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                    dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.status_bar_time_double_line_center_align),
+                    TextV(textId = R.string.status_bar_time_double_line_center_align),
                     SwitchV("status_bar_time_double_line_center_align"),
-                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                    dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
                 )
                 Text(
-                    resId = R.string.status_bar_clock_size,
-                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                    textId = R.string.status_bar_clock_size,
+                    dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
                 )
                 SeekBarWithText(
                     "status_bar_clock_size", 0, 18, 0,
-                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                    dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
                 )
                 Text(
-                    resId = R.string.status_bar_clock_double_line_size,
-                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                    textId = R.string.status_bar_clock_double_line_size,
+                    dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
                 )
                 SeekBarWithText(
                     "status_bar_clock_double_line_size", 0, 9, 0,
-                    dataBindingRecv = customClockBinding.binding.getRecv(2)
+                    dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
                 )
+                //预设模式结束
+
+                //极客模式起始
+                TextSummaryArrow(
+                    TextSummaryV(
+                        textId = R.string.custom_clock_format_geek
+                    ) {
+                        MIUIDialog(activity) {
+                            setTitle(R.string.custom_clock_format_geek)
+                            setEditText(
+                                safeSP.getString(
+                                    "custom_clock_format_geek", "HH:mm:ss"
+                                ),
+                                ""
+                            )
+                            setLButton(textId = R.string.cancel) {
+                                dismiss()
+                            }
+                            setRButton(textId = R.string.Done) {
+                                if (getEditText().isNotEmpty()) {
+                                    try {
+                                        safeSP.putAny("custom_clock_format_geek", getEditText())
+                                        dismiss()
+                                        return@setRButton
+                                    } catch (_: Throwable) {
+                                    }
+                                }
+                                Toast.makeText(
+                                    activity,
+                                    R.string.input_error,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }.show()
+                    }, dataBindingRecv = customClockGeekBinding.binding.getRecv(2)
+                )
+                TextWithSwitch(
+                    TextV(textId = R.string.status_bar_time_double_line_center_align),
+                    SwitchV("status_bar_time_center_align_geek"),
+                    dataBindingRecv = customClockGeekBinding.binding.getRecv(2)
+                )
+                Text(
+                    textId = R.string.status_bar_clock_size,
+                    dataBindingRecv = customClockGeekBinding.binding.getRecv(2)
+                )
+                SeekBarWithText(
+                    "status_bar_clock_size_geek", 0, 18, 0,
+                    dataBindingRecv = customClockGeekBinding.binding.getRecv(2)
+                )
+                //极客模式结束
+
+
                 Line()
-                TitleText(resId = R.string.status_bar_icon)
+                TitleText(textId = R.string.status_bar_icon)
                 TextSummaryArrow(
                     TextSummaryV(
                         textId = R.string.hide_icon,
@@ -301,7 +412,7 @@ class SettingsActivity : MIUIActivity() {
                     )
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.show_wifi_standard),
+                    TextV(textId = R.string.show_wifi_standard),
                     SwitchV("show_wifi_standard")
                 )
                 val customMobileTypeTextBinding = GetDataBinding(object : DefValue {
@@ -499,7 +610,7 @@ class SettingsActivity : MIUIActivity() {
                     }, dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
                 )
                 Text(
-                    resId = R.string.maximum_number_of_notification_icons
+                    textId = R.string.maximum_number_of_notification_icons
                 )
                 SeekBarWithText(
                     "maximum_number_of_notification_icons",
@@ -508,7 +619,7 @@ class SettingsActivity : MIUIActivity() {
                     3
                 )
                 Text(
-                    resId = R.string.maximum_number_of_notification_dots
+                    textId = R.string.maximum_number_of_notification_dots
                 )
                 SeekBarWithText(
                     "maximum_number_of_notification_dots",
@@ -555,7 +666,7 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("hide_battery_percentage_icon")
                 )
                 Line()
-                TitleText(resId = R.string.status_bar_network_speed)
+                TitleText(textId = R.string.status_bar_network_speed)
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.status_bar_network_speed_refresh_speed,
@@ -571,7 +682,7 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("hide_status_bar_network_speed_second")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_network_speed_splitter),
+                    TextV(textId = R.string.hide_network_speed_splitter),
                     SwitchV("hide_network_speed_splitter")
                 )
                 val statusBarDualRowNetworkSpeedBinding = GetDataBinding(object : DefValue {
@@ -598,7 +709,7 @@ class SettingsActivity : MIUIActivity() {
                 align[0] = getString(R.string.left)
                 align[1] = getString(R.string.right)
                 TextWithSpinner(
-                    TextV(resId = R.string.status_bar_network_speed_dual_row_gravity),
+                    TextV(textId = R.string.status_bar_network_speed_dual_row_gravity),
                     SpinnerV(
                         align[safeSP.getInt(
                             "status_bar_network_speed_dual_row_gravity",
@@ -616,7 +727,7 @@ class SettingsActivity : MIUIActivity() {
                     dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
                 )
                 TextWithSpinner(
-                    TextV(resId = R.string.status_bar_network_speed_dual_row_icon),
+                    TextV(textId = R.string.status_bar_network_speed_dual_row_icon),
                     SpinnerV(
                         safeSP.getString(
                             "status_bar_network_speed_dual_row_icon",
@@ -641,7 +752,7 @@ class SettingsActivity : MIUIActivity() {
                     }
                 )
                 Text(
-                    resId = R.string.status_bar_network_speed_dual_row_size,
+                    textId = R.string.status_bar_network_speed_dual_row_size,
                     dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
                 )
                 SeekBarWithText(
@@ -652,7 +763,7 @@ class SettingsActivity : MIUIActivity() {
                     dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
                 )
                 Line()
-                TitleText(resId = R.string.notification_center)
+                TitleText(textId = R.string.notification_center)
                 val showWeatherMainSwitchBinding = GetDataBinding(object : DefValue {
                     override fun getValue(): Any {
                         return safeSP.getBoolean("notification_weather", false)
@@ -687,7 +798,7 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("can_notification_slide"),
                 )
                 Line()
-                TitleText(resId = R.string.control_center)
+                TitleText(textId = R.string.control_center)
                 val controlCenterWeatherBinding = GetDataBinding(object : DefValue {
                     override fun getValue(): Any {
                         return safeSP.getBoolean("control_center_weather", false)
@@ -717,7 +828,7 @@ class SettingsActivity : MIUIActivity() {
                     dataBindingRecv = controlCenterWeatherBinding.binding.getRecv(2)
                 )
                 Line()
-                TitleText(resId = R.string.lock_screen)
+                TitleText(textId = R.string.lock_screen)
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.lock_screen_clock_display_seconds,
@@ -759,7 +870,7 @@ class SettingsActivity : MIUIActivity() {
                     ), SwitchV("lock_screen_double_tap_to_sleep")
                 )
                 Line()
-                TitleText(resId = R.string.old_quick_settings_panel)
+                TitleText(textId = R.string.old_quick_settings_panel)
                 val oldQSCustomSwitchBinding = GetDataBinding(object : DefValue {
                     override fun getValue(): Any {
                         return safeSP.getBoolean("old_qs_custom_switch", false)
@@ -781,7 +892,7 @@ class SettingsActivity : MIUIActivity() {
                     )
                 )
                 Text(
-                    resId = R.string.qs_custom_rows,
+                    textId = R.string.qs_custom_rows,
                     dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
                 SeekBarWithText(
@@ -792,7 +903,7 @@ class SettingsActivity : MIUIActivity() {
                     dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
                 Text(
-                    resId = R.string.qs_custom_rows_horizontal,
+                    textId = R.string.qs_custom_rows_horizontal,
                     dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
                 SeekBarWithText(
@@ -803,7 +914,7 @@ class SettingsActivity : MIUIActivity() {
                     dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
                 Text(
-                    resId = R.string.qs_custom_columns,
+                    textId = R.string.qs_custom_columns,
                     dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
                 SeekBarWithText(
@@ -814,7 +925,7 @@ class SettingsActivity : MIUIActivity() {
                     dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
                 Text(
-                    resId = R.string.qs_custom_columns_unexpanded,
+                    textId = R.string.qs_custom_columns_unexpanded,
                     dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
                 )
                 SeekBarWithText(
@@ -826,7 +937,7 @@ class SettingsActivity : MIUIActivity() {
                 )
             }
             register("scope_android", getString(R.string.scope_android), false) {
-                TitleText(resId = R.string.corepacth)
+                TitleText(textId = R.string.corepacth)
 
                 TextSummaryWithSwitch(
                     TextSummaryV(
@@ -923,7 +1034,7 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("allow_untrusted_touches")
                 )
                 Line()
-                TitleText(resId = R.string.sound)
+                TitleText(textId = R.string.sound)
                 val mediaVolumeStepsSwitchBinding = GetDataBinding(
                     object : DefValue {
                         override fun getValue(): Any {
@@ -954,7 +1065,7 @@ class SettingsActivity : MIUIActivity() {
                 )
             }
             register("scope_other", getString(R.string.scope_other), false) {
-                TitleText(resId = R.string.scope_miuihome)
+                TitleText(textId = R.string.scope_miuihome)
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.home_time,
@@ -968,7 +1079,7 @@ class SettingsActivity : MIUIActivity() {
                     ), SwitchV("double_tap_to_sleep")
                 )
                 Line()
-                TitleText(resId = R.string.scope_powerkeeper)
+                TitleText(textId = R.string.scope_powerkeeper)
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.lock_max_fps,
@@ -1003,7 +1114,7 @@ class SettingsActivity : MIUIActivity() {
                         })
                 )
                 Line()
-                TitleText(resId = R.string.scope_securitycenter)
+                TitleText(textId = R.string.scope_securitycenter)
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.skip_waiting_time,
@@ -1038,7 +1149,7 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("battery_life_function")
                 )
                 Line()
-                TitleText(resId = R.string.scope_mediaeditor)
+                TitleText(textId = R.string.scope_mediaeditor)
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.unlock_unlimited_cropping,
@@ -1047,7 +1158,7 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("unlock_unlimited_cropping")
                 )
                 Line()
-                TitleText(resId = R.string.updater)
+                TitleText(textId = R.string.updater)
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.remove_ota_validate,
@@ -1056,7 +1167,7 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("remove_ota_validate")
                 )
                 Line()
-                TitleText(resId = R.string.settings)
+                TitleText(textId = R.string.settings)
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.show_notification_importance,
@@ -1065,7 +1176,7 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("show_notification_importance")
                 )
                 Line()
-                TitleText(resId = R.string.cast)
+                TitleText(textId = R.string.cast)
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.force_support_send_app,
@@ -1073,7 +1184,7 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("force_support_send_app")
                 )
                 Line()
-                TitleText(resId = R.string.rear_display)
+                TitleText(textId = R.string.rear_display)
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.show_weather_main_switch,
@@ -1081,7 +1192,7 @@ class SettingsActivity : MIUIActivity() {
                     SwitchV("rear_show_weather")
                 )
                 Line()
-                TitleText(resId = R.string.remove_ad)
+                TitleText(textId = R.string.remove_ad)
                 TextSummaryWithSwitch(
                     TextSummaryV(
                         textId = R.string.remove_thememanager_ads
@@ -1090,106 +1201,106 @@ class SettingsActivity : MIUIActivity() {
                 )
             }
             register("hide_icon", getString(R.string.hide_icon), false) {
-                TitleText(resId = R.string.status_bar_icon)
+                TitleText(textId = R.string.status_bar_icon)
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_battery_icon),
+                    TextV(textId = R.string.hide_battery_icon),
                     SwitchV("hide_battery_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_battery_charging_icon),
+                    TextV(textId = R.string.hide_battery_charging_icon),
                     SwitchV("hide_battery_charging_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_gps_icon),
+                    TextV(textId = R.string.hide_gps_icon),
                     SwitchV("hide_gps_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_bluetooth_icon),
+                    TextV(textId = R.string.hide_bluetooth_icon),
                     SwitchV("hide_bluetooth_icon")
                 )
 
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_nfc_icon),
+                    TextV(textId = R.string.hide_nfc_icon),
                     SwitchV("hide_nfc_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_bluetooth_battery_icon),
+                    TextV(textId = R.string.hide_bluetooth_battery_icon),
                     SwitchV("hide_bluetooth_battery_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_small_hd_icon),
+                    TextV(textId = R.string.hide_small_hd_icon),
                     SwitchV("hide_small_hd_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_big_hd_icon),
+                    TextV(textId = R.string.hide_big_hd_icon),
                     SwitchV("hide_big_hd_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_hd_no_service_icon),
+                    TextV(textId = R.string.hide_hd_no_service_icon),
                     SwitchV("hide_hd_no_service_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_no_sim_icon),
+                    TextV(textId = R.string.hide_no_sim_icon),
                     SwitchV("hide_no_sim_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_sim_one_icon),
+                    TextV(textId = R.string.hide_sim_one_icon),
                     SwitchV("hide_sim_one_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_sim_two_icon),
+                    TextV(textId = R.string.hide_sim_two_icon),
                     SwitchV("hide_sim_two_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_mobile_activity_icon),
+                    TextV(textId = R.string.hide_mobile_activity_icon),
                     SwitchV("hide_mobile_activity_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_mobile_type_icon),
+                    TextV(textId = R.string.hide_mobile_type_icon),
                     SwitchV("hide_mobile_type_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_wifi_icon),
+                    TextV(textId = R.string.hide_wifi_icon),
                     SwitchV("hide_wifi_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_wifi_activity_icon),
+                    TextV(textId = R.string.hide_wifi_activity_icon),
                     SwitchV("hide_wifi_activity_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_wifi_standard_icon),
+                    TextV(textId = R.string.hide_wifi_standard_icon),
                     SwitchV("hide_wifi_standard_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_slave_wifi_icon),
+                    TextV(textId = R.string.hide_slave_wifi_icon),
                     SwitchV("hide_slave_wifi_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_hotspot_icon),
+                    TextV(textId = R.string.hide_hotspot_icon),
                     SwitchV("hide_hotspot_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_vpn_icon),
+                    TextV(textId = R.string.hide_vpn_icon),
                     SwitchV("hide_vpn_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_airplane_icon),
+                    TextV(textId = R.string.hide_airplane_icon),
                     SwitchV("hide_airplane_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_alarm_icon),
+                    TextV(textId = R.string.hide_alarm_icon),
                     SwitchV("hide_alarm_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_headset_icon),
+                    TextV(textId = R.string.hide_headset_icon),
                     SwitchV("hide_headset_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_volume_icon),
+                    TextV(textId = R.string.hide_volume_icon),
                     SwitchV("hide_volume_icon")
                 )
                 TextWithSwitch(
-                    TextV(resId = R.string.hide_zen_icon),
+                    TextV(textId = R.string.hide_zen_icon),
                     SwitchV("hide_zen_icon")
                 )
             }
@@ -1198,7 +1309,7 @@ class SettingsActivity : MIUIActivity() {
                     authorHead = getDrawable(R.drawable.app_icon)!!,
                     authorName = getString(R.string.app_name),
                     authorTips = BuildConfig.VERSION_NAME + "(" + BuildConfig.BUILD_TYPE + ")",
-                    onClick = {
+                    onClickListener = {
                         try {
                             startActivity(
                                 Intent(
@@ -1221,7 +1332,7 @@ class SettingsActivity : MIUIActivity() {
                     authorHead = getDrawable(R.drawable.lt)!!,
                     authorName = "乌堆小透明",
                     authorTips = "LittleTurtle2333",
-                    onClick = {
+                    onClickListener = {
                         try {
                             startActivity(
                                 Intent(
