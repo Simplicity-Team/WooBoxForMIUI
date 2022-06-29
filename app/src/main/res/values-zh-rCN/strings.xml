@@ -224,4 +224,6 @@
     <string name="off">关闭</string>
     <string name="center">中间</string>
     <string name="left_or_right">左右</string>
+    <string name="preset">预设</string>
+    <string name="geek">极客</string>
 </resources>
