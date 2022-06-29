@@ -18,6 +18,9 @@ import java.util.*
 
 object StatusBarTimeCustomization : HookRegister() {
 
+    private val getMode = XSPUtils.getInt("custom_clock_mode", 0)
+    private val getClockSize = XSPUtils.getInt("status_bar_clock_size", 0)
+    private val getClockDoubleSize = XSPUtils.getInt("status_bar_clock_double_line_size", 0)
     private val isYear = XSPUtils.getBoolean("status_bar_time_year", false)
     private val isMonth = XSPUtils.getBoolean("status_bar_time_month", false)
     private val isDay = XSPUtils.getBoolean("status_bar_time_day", false)
@@ -27,85 +30,160 @@ object StatusBarTimeCustomization : HookRegister() {
     private val isSecond = XSPUtils.getBoolean("status_bar_time_seconds", false)
     private val isDoubleHour = XSPUtils.getBoolean("status_bar_time_double_hour", false)
     private val isPeriod = XSPUtils.getBoolean("status_bar_time_period", true)
-    private val getClockSize = XSPUtils.getInt("status_bar_clock_size", 0)
-    private val isOpen = XSPUtils.getBoolean("custom_clock_switch", false)
     private val isCenterAlign =
         XSPUtils.getBoolean("status_bar_time_double_line_center_align", false)
-    private val getClockDoubleSize = XSPUtils.getInt("status_bar_clock_double_line_size", 0)
+
+    //极客模式
+    private val getGeekClockSize = XSPUtils.getInt("status_bar_clock_size_geek", 0)
+    private val getGeekFormat = XSPUtils.getString("custom_clock_format_geek", "HH:mm:ss")
+    private val isGeekCenterAlign =
+        XSPUtils.getBoolean("status_bar_time_center_align_geek", false)
+
     private lateinit var nowTime: Date
     private var str = ""
 
     @SuppressLint("SetTextI18n")
     override fun init() {
-        if (isOpen) {
-            var c: Context? = null
+        when (getMode) {
+            //预设模式
+            1 -> {
+                var c: Context? = null
 
-            findConstructor("com.android.systemui.statusbar.views.MiuiClock") {
-                paramCount == 3
-            }.hookAfter {
-                try {
-                    c = it.args[0] as Context
-                    val textV = it.thisObject as TextView
-                    if (textV.resources.getResourceEntryName(textV.id) != "clock") return@hookAfter
-                    textV.isSingleLine = false
-                    if (isDoubleLine) {
-                        str = "\n"
-                        var clockDoubleLineSize = 7F
-                        if (getClockDoubleSize != 0) {
-                            clockDoubleLineSize = getClockDoubleSize.toFloat()
+                findConstructor("com.android.systemui.statusbar.views.MiuiClock") {
+                    paramCount == 3
+                }.hookAfter {
+                    try {
+                        c = it.args[0] as Context
+                        val textV = it.thisObject as TextView
+                        if (textV.resources.getResourceEntryName(textV.id) != "clock") return@hookAfter
+                        textV.isSingleLine = false
+                        if (isDoubleLine) {
+                            str = "\n"
+                            var clockDoubleLineSize = 7F
+                            if (getClockDoubleSize != 0) {
+                                clockDoubleLineSize = getClockDoubleSize.toFloat()
+                            }
+                            textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, clockDoubleLineSize)
+                            textV.setLineSpacing(0F, 0.8F)
+                        } else {
+                            if (getClockSize != 0) {
+                                val clockSize = getClockSize.toFloat()
+                                textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, clockSize)
+                            }
                         }
-                        textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, clockDoubleLineSize)
+                        val d: Method = textV.javaClass.getDeclaredMethod("updateTime")
+                        val r = Runnable {
+                            d.isAccessible = true
+                            d.invoke(textV)
+                        }
+
+                        class T : TimerTask() {
+                            override fun run() {
+                                Handler(textV.context.mainLooper).post(r)
+                            }
+                        }
+                        Timer().scheduleAtFixedRate(
+                            T(),
+                            1000 - System.currentTimeMillis() % 1000,
+                            1000
+                        )
+                    } catch (_: Exception) {
+                    }
+                }
+
+                findMethod("com.android.systemui.statusbar.views.MiuiClock") {
+                    name == "updateTime"
+                }.hookAfter {
+                    try {
+                        val textV = it.thisObject as TextView
+                        if (textV.resources.getResourceEntryName(textV.id) == "clock") {
+                            val t = Settings.System.getString(
+                                c!!.contentResolver,
+                                Settings.System.TIME_12_24
+                            )
+                            val is24 = t == "24"
+                            nowTime = Calendar.getInstance().time
+                            textV.text = getDate(c!!) + str + getTime(c!!, is24)
+                        }
+                    } catch (_: Exception) {
+                    }
+                }
+
+                if (isCenterAlign) {
+                    findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
+                        name == "onViewCreated" && parameterCount == 2
+                    }.hookAfter {
+                        val miuiPhoneStatusBarView =
+                            it.thisObject.getObject("mStatusBar") as ViewGroup
+                        val res: Resources = miuiPhoneStatusBarView.resources
+                        val clockId: Int = res.getIdentifier("clock", "id", "com.android.systemui")
+                        val clock: TextView = miuiPhoneStatusBarView.findViewById(clockId)
+                        clock.gravity = Gravity.CENTER
+                    }
+                }
+            }
+            //极客模式
+            2 -> {
+                var c: Context? = null
+
+                findConstructor("com.android.systemui.statusbar.views.MiuiClock") {
+                    paramCount == 3
+                }.hookAfter {
+                    try {
+                        c = it.args[0] as Context
+                        val textV = it.thisObject as TextView
+                        if (textV.resources.getResourceEntryName(textV.id) != "clock") return@hookAfter
+                        textV.isSingleLine = false
                         textV.setLineSpacing(0F, 0.8F)
-                    } else {
-                        if (getClockSize != 0) {
-                            val clockSize = getClockSize.toFloat()
+                        if (getGeekClockSize != 0) {
+                            val clockSize = getGeekClockSize.toFloat()
                             textV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, clockSize)
                         }
-                    }
-                    val d: Method = textV.javaClass.getDeclaredMethod("updateTime")
-                    val r = Runnable {
-                        d.isAccessible = true
-                        d.invoke(textV)
-                    }
 
-                    class T : TimerTask() {
-                        override fun run() {
-                            Handler(textV.context.mainLooper).post(r)
+                        val d: Method = textV.javaClass.getDeclaredMethod("updateTime")
+                        val r = Runnable {
+                            d.isAccessible = true
+                            d.invoke(textV)
                         }
-                    }
-                    Timer().scheduleAtFixedRate(T(), 1000 - System.currentTimeMillis() % 1000, 1000)
-                } catch (_: Exception) {
-                }
-            }
 
-            findMethod("com.android.systemui.statusbar.views.MiuiClock") {
-                name == "updateTime"
-            }.hookAfter {
-                try {
-                    val textV = it.thisObject as TextView
-                    if (textV.resources.getResourceEntryName(textV.id) == "clock") {
-                        val t = Settings.System.getString(
-                            c!!.contentResolver,
-                            Settings.System.TIME_12_24
+                        class T : TimerTask() {
+                            override fun run() {
+                                Handler(textV.context.mainLooper).post(r)
+                            }
+                        }
+                        Timer().scheduleAtFixedRate(
+                            T(),
+                            1000 - System.currentTimeMillis() % 1000,
+                            1000
                         )
-                        val is24 = t == "24"
-                        nowTime = Calendar.getInstance().time
-                        textV.text = getDate(c!!) + str + getTime(c!!, is24)
+                    } catch (_: Exception) {
                     }
-                } catch (_: Exception) {
                 }
-            }
 
-            if (isCenterAlign) {
-                findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
-                    name == "onViewCreated" && parameterCount == 2
+                findMethod("com.android.systemui.statusbar.views.MiuiClock") {
+                    name == "updateTime"
                 }.hookAfter {
-                    val miuiPhoneStatusBarView =
-                        it.thisObject.getObject("mStatusBar") as ViewGroup
-                    val res: Resources = miuiPhoneStatusBarView.resources
-                    val clockId: Int = res.getIdentifier("clock", "id", "com.android.systemui")
-                    val clock: TextView = miuiPhoneStatusBarView.findViewById(clockId)
-                    clock.gravity = Gravity.CENTER
+                    try {
+                        val textV = it.thisObject as TextView
+                        if (textV.resources.getResourceEntryName(textV.id) == "clock") {
+                            nowTime = Calendar.getInstance().time
+                            textV.text = SimpleDateFormat(getGeekFormat).format(nowTime)
+                        }
+                    } catch (_: Exception) {
+                    }
+                }
+
+                if (isGeekCenterAlign) {
+                    findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
+                        name == "onViewCreated" && parameterCount == 2
+                    }.hookAfter {
+                        val miuiPhoneStatusBarView =
+                            it.thisObject.getObject("mStatusBar") as ViewGroup
+                        val res: Resources = miuiPhoneStatusBarView.resources
+                        val clockId: Int = res.getIdentifier("clock", "id", "com.android.systemui")
+                        val clock: TextView = miuiPhoneStatusBarView.findViewById(clockId)
+                        clock.gravity = Gravity.CENTER
+                    }
                 }
             }
         }
