@@ -254,9 +254,9 @@ class SettingsActivity : MIUIActivity() {
                 }
 
                 val customClockMode: HashMap<Int, String> = hashMapOf<Int, String>().also {
-                    it[0] = "Off"
-                    it[1] = "Preset"
-                    it[2] = "Geek"
+                    it[0] = getString(R.string.off)
+                    it[1] = getString(R.string.preset)
+                    it[2] = getString(R.string.geek)
                 }
                 TextWithSpinner(
                     TextV(textId = R.string.custom_clock_mode),

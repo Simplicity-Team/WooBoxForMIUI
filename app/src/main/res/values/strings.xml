@@ -228,4 +228,6 @@
     <string name="off">Off</string>
     <string name="center">Center</string>
     <string name="left_or_right">Left or Right</string>
+    <string name="preset">Preset</string>
+    <string name="geek">Geek</string>
 </resources>
