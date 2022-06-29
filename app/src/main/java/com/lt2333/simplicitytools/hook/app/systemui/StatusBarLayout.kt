@@ -11,14 +11,15 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import cn.fkj233.ui.activity.dp2px
-import com.github.kyuubiran.ezxhelper.utils.findMethod
-import com.github.kyuubiran.ezxhelper.utils.getObjectAs
-import com.github.kyuubiran.ezxhelper.utils.hookAfter
+import com.github.kyuubiran.ezxhelper.utils.*
 import com.lt2333.simplicitytools.util.XSPUtils
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
 object StatusBarLayout : HookRegister() {
+
+    private val getMode = XSPUtils.getInt("status_bar_layout_mode", 0)
+    private val getHoleLocation = XSPUtils.getInt("screen_hole_location", 0)
 
     private var statusBarLeft = 0
     private var statusBarTop = 0
@@ -46,7 +47,16 @@ object StatusBarLayout : HookRegister() {
             }
         }
 
-        when (XSPUtils.getInt("status_bar_layout_mode", 0)) {
+        //判断是否开启居中挖孔兼容模式
+        if (getHoleLocation == 1) {
+            findMethod("com.android.systemui.ScreenDecorations\$DisplayCutoutView") {
+                name == "boundsFromDirection" && parameterCount == 3 && isStatic
+            }.hookBefore {
+                it.args[1] = 0
+            }
+        }
+
+        when (getMode) {
             //默认
             0 -> return
             //时钟居中
@@ -150,7 +160,7 @@ object StatusBarLayout : HookRegister() {
                     statusBarBottom = statusBar!!.paddingBottom
 
 
-                    if (XSPUtils.getBoolean("layout_compatibility_mode", false)) {
+                    if (getHoleLocation == 2) {
                         val customLeftMargin = XSPUtils.getInt("status_bar_left_margin", 0)
                         if (customLeftMargin != 0) {
                             statusBarLeft = customLeftMargin
@@ -365,7 +375,7 @@ object StatusBarLayout : HookRegister() {
                     statusBarBottom = statusBar!!.paddingBottom
 
 
-                    if (XSPUtils.getBoolean("layout_compatibility_mode", false)) {
+                    if (getHoleLocation == 2) {
                         val customLeftMargin = XSPUtils.getInt("status_bar_left_margin", 0)
                         if (customLeftMargin != 0) {
                             statusBarLeft = customLeftMargin
@@ -382,7 +392,7 @@ object StatusBarLayout : HookRegister() {
                 findMethod("com.android.systemui.statusbar.phone.PhoneStatusBarView") {
                     name == "updateLayoutForCutout"
                 }.hookAfter {
-                    if (XSPUtils.getBoolean("layout_compatibility_mode", false)) {
+                    if (getHoleLocation == 2) {
                         val context = (it.thisObject as ViewGroup).context
                         updateLayout(context)
                     }
@@ -409,5 +419,4 @@ object StatusBarLayout : HookRegister() {
             }
         }
     }
-
 }
