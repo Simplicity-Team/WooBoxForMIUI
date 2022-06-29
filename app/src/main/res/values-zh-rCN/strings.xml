@@ -218,4 +218,10 @@
     <string name="take_effect_after_reboot">重新启动后生效</string>
     <string name="media_volume_steps_summary">打开可能会导致音量条的滚动卡顿或蓝牙音量异常。</string>
     <string name="can_notification_slide_summary">一些通过Mi Push推送的通知可能不受支持</string>
+    <string name="screen_hole_location">屏幕挖孔位置</string>
+    <string name="custom_clock_mode">自定义时钟模式</string>
+    <string name="custom_clock_format_geek">时钟格式</string>
+    <string name="off">关闭</string>
+    <string name="center">中间</string>
+    <string name="left_or_right">左右</string>
 </resources>
