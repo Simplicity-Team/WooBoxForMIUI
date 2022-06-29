@@ -23,6 +23,7 @@ object SystemUI: AppRegister() {
             RemoveTheLeftSideOfTheLockScreen, //移除锁屏负一屏功能
             RemoveLockScreenCamera, //移除锁屏相机功能
             NotificationWeather, //通知面板天气
+            NewNotificationWeather, // 新控制中心天气
             OldNotificationWeather,
             ControlCenterWeather, //控制中心天气
             //StatusBarCurrent, //TODO：状态栏电流
