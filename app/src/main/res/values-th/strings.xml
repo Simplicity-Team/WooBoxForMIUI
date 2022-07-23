@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="performance">ประสิทธิภาพ</string>
+    <string name="lock_max_fps">ล็อคค่า FPS สูงสุด</string>
+    <string name="ui">การแสดงผล</string>
+    <string name="delete_on_post_notification">ลบการแสดงผล บนแถบการแจ้งเตือน</string>
     <!--Status bar icons-->
 </resources>
