@@ -5,7 +5,7 @@ import android.service.quicksettings.TileService
 
 class LockMaxFpsTile : TileService() {
 
-    val key = "lock_max_fps"
+    private val key = "lock_max_fps"
 
     override fun onClick() {
         super.onClick()

@@ -33,13 +33,13 @@ object ControlCenterWeather : HookRegister() {
                 !SystemProperties[context, "ro.build.version.incremental"]!!.endsWith("XM")
             ) {
                 //获取原组件
-                val big_time_ID =
+                val bigTimeId =
                     context.resources.getIdentifier("big_time", "id", context.packageName)
-                val big_time: TextView = viewGroup.findViewById(big_time_ID)
+                val big_time: TextView = viewGroup.findViewById(bigTimeId)
 
-                val date_time_ID =
+                val dateTimeId =
                     context.resources.getIdentifier("date_time", "id", context.packageName)
-                val date_time: TextView = viewGroup.findViewById(date_time_ID)
+                val dateTime: TextView = viewGroup.findViewById(dateTimeId)
 
                 //创建新布局
                 val mConstraintLayoutLp = LinearLayout.LayoutParams(
@@ -62,18 +62,18 @@ object ControlCenterWeather : HookRegister() {
 
                 //从原布局中删除组件
                 (big_time.parent as ViewGroup).removeView(big_time)
-                (date_time.parent as ViewGroup).removeView(date_time)
+                (dateTime.parent as ViewGroup).removeView(dateTime)
 
                 //添加组件至新布局
                 mConstraintLayout!!.addView(big_time)
-                mConstraintLayout!!.addView(date_time)
+                mConstraintLayout!!.addView(dateTime)
 
                 //组件属性
-                val date_time_LP = ConstraintLayout.LayoutParams(
+                val dateTimeLp = ConstraintLayout.LayoutParams(
                     ConstraintLayout.LayoutParams.WRAP_CONTENT,
                     ConstraintLayout.LayoutParams.WRAP_CONTENT
                 ).also {
-                    it.startToEnd = big_time_ID
+                    it.startToEnd = bigTimeId
                     it.bottomToBottom = 0
                     it.marginStart = context.resources.getDimensionPixelSize(
                         context.resources.getIdentifier(
@@ -84,7 +84,7 @@ object ControlCenterWeather : HookRegister() {
                     )
                     it.bottomMargin = dp2px(context, 5f)
                 }
-                date_time.layoutParams = date_time_LP
+                dateTime.layoutParams = dateTimeLp
 
 
                 //创建天气组件
@@ -100,12 +100,12 @@ object ControlCenterWeather : HookRegister() {
                 }
                 mConstraintLayout!!.addView(mWeatherView)
 
-                val mWeatherView_LP = ConstraintLayout.LayoutParams(
+                val mweatherviewLp = ConstraintLayout.LayoutParams(
                     ConstraintLayout.LayoutParams.WRAP_CONTENT,
                     ConstraintLayout.LayoutParams.WRAP_CONTENT
                 ).also {
-                    it.startToEnd = big_time_ID
-                    it.bottomToTop = date_time_ID
+                    it.startToEnd = bigTimeId
+                    it.bottomToTop = dateTimeId
                     it.marginStart = context.resources.getDimensionPixelSize(
                         context.resources.getIdentifier(
                             "notification_panel_time_date_space",
@@ -115,7 +115,7 @@ object ControlCenterWeather : HookRegister() {
                     )
                 }
 
-                (mWeatherView as WeatherView).layoutParams = mWeatherView_LP
+                (mWeatherView as WeatherView).layoutParams = mweatherviewLp
 
             } else {
                 val layoutParam =

@@ -16,6 +16,10 @@
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="miui.cn.fkj233.xposed.statusbarlyric.SettingsFragment"/>
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="de.robv.android.xposed.category.MODULE_SETTINGS" />
             </intent-filter>
         </activity>

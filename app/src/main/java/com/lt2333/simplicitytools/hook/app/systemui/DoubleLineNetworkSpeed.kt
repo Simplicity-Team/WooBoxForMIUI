@@ -35,10 +35,8 @@ object DoubleLineNetworkSpeed : HookRegister() {
         val none = InitFields.moduleRes.getString(R.string.none)
 
         if (XSPUtils.getString("status_bar_network_speed_dual_row_icon", none) != none) {
-            upIcon = XSPUtils.getString("status_bar_network_speed_dual_row_icon", none)
-                ?.firstOrNull().toString()
-            downIcon = XSPUtils.getString("status_bar_network_speed_dual_row_icon", none)
-                ?.lastOrNull().toString()
+            upIcon = XSPUtils.getString("status_bar_network_speed_dual_row_icon", none)?.firstOrNull().toString()
+            downIcon = XSPUtils.getString("status_bar_network_speed_dual_row_icon", none)?.lastOrNull().toString()
         }
 
         findConstructor("com.android.systemui.statusbar.views.NetworkSpeedView") {
@@ -62,17 +60,13 @@ object DoubleLineNetworkSpeed : HookRegister() {
             name == "formatSpeed" && parameterCount == 2
         }.hookBefore {
             if (getDualAlign == 0) {
-                it.result =
-                    "$upIcon ${getTotalUpSpeed(it.args[0] as Context)}\n${downIcon} ${
-                        getTotalDownloadSpeed(it.args[0] as Context)
-                    }"
+                it.result = "$upIcon ${getTotalUpSpeed(it.args[0] as Context)}\n${downIcon} ${
+                    getTotalDownloadSpeed(it.args[0] as Context)
+                }"
             } else {
-                it.result =
-                    "${getTotalUpSpeed(it.args[0] as Context)} ${upIcon}\n${
-                        getTotalDownloadSpeed(
-                            it.args[0] as Context
-                        )
-                    } $downIcon"
+                it.result = "${getTotalUpSpeed(it.args[0] as Context)} ${upIcon}\n${
+                    getTotalDownloadSpeed(it.args[0] as Context)
+                } $downIcon"
             }
         }
     }
@@ -85,30 +79,15 @@ object DoubleLineNetworkSpeed : HookRegister() {
         val nowTimeStampTotalUp = System.currentTimeMillis()
 
         //计算上传速度
-        val bytes =
-            (currentTotalTxBytes - mLastTotalUp) * 1000 / (nowTimeStampTotalUp - lastTimeStampTotalUp).toFloat()
+        val bytes = (currentTotalTxBytes - mLastTotalUp) * 1000 / (nowTimeStampTotalUp - lastTimeStampTotalUp).toFloat()
         val unit: String
 
         if (bytes >= 1048576) {
-            totalUpSpeed =
-                DecimalFormat("0.0").format(bytes / 1048576).toFloat()
-            unit = context.resources.getString(
-                context.resources.getIdentifier(
-                    "megabyte_per_second",
-                    "string",
-                    context.packageName
-                )
-            )
+            totalUpSpeed = DecimalFormat("0.0").format(bytes / 1048576).toFloat()
+            unit = context.resources.getString(context.resources.getIdentifier("megabyte_per_second", "string", context.packageName))
         } else {
-            totalUpSpeed =
-                DecimalFormat("0.0").format(bytes / 1024).toFloat()
-            unit = context.resources.getString(
-                context.resources.getIdentifier(
-                    "kilobyte_per_second",
-                    "string",
-                    context.packageName
-                )
-            )
+            totalUpSpeed = DecimalFormat("0.0").format(bytes / 1024).toFloat()
+            unit = context.resources.getString(context.resources.getIdentifier("kilobyte_per_second", "string", context.packageName))
         }
 
         //保存当前的流量总和和上次的时间戳
@@ -116,9 +95,9 @@ object DoubleLineNetworkSpeed : HookRegister() {
         lastTimeStampTotalUp = nowTimeStampTotalUp
 
         return if (totalUpSpeed >= 100) {
-            "" + totalUpSpeed.toInt() + unit
+            "${totalUpSpeed.toInt()}$unit"
         } else {
-            "" + totalUpSpeed + unit
+            "${totalUpSpeed}$unit"
         }
     }
 
@@ -129,40 +108,25 @@ object DoubleLineNetworkSpeed : HookRegister() {
         val nowTimeStampTotalDown = System.currentTimeMillis()
 
         //计算下行速度
-        val bytes =
-            (currentTotalRxBytes - mLastTotalDown) * 1000 / (nowTimeStampTotalDown - lastTimeStampTotalDown).toFloat()
+        val bytes = (currentTotalRxBytes - mLastTotalDown) * 1000 / (nowTimeStampTotalDown - lastTimeStampTotalDown).toFloat()
 
         val unit: String
 
         if (bytes >= 1048576) {
-            totalDownSpeed =
-                DecimalFormat("0.0").format(bytes / 1048576).toFloat()
-            unit = context.resources.getString(
-                context.resources.getIdentifier(
-                    "megabyte_per_second",
-                    "string",
-                    context.packageName
-                )
-            )
+            totalDownSpeed = DecimalFormat("0.0").format(bytes / 1048576).toFloat()
+            unit = context.resources.getString(context.resources.getIdentifier("megabyte_per_second", "string", context.packageName))
         } else {
-            totalDownSpeed =
-                DecimalFormat("0.0").format(bytes / 1024).toFloat()
-            unit = context.resources.getString(
-                context.resources.getIdentifier(
-                    "kilobyte_per_second",
-                    "string",
-                    context.packageName
-                )
-            )
+            totalDownSpeed = DecimalFormat("0.0").format(bytes / 1024).toFloat()
+            unit = context.resources.getString(context.resources.getIdentifier("kilobyte_per_second", "string", context.packageName))
         }
         //保存当前的流量总和和上次的时间戳
         mLastTotalDown = currentTotalRxBytes
         lastTimeStampTotalDown = nowTimeStampTotalDown
 
         return if (totalDownSpeed >= 100) {
-            "" + totalDownSpeed.toInt() + unit
+            "${totalDownSpeed.toInt()}$unit"
         } else {
-            "" + totalDownSpeed + unit
+            "${totalDownSpeed}$unit"
         }
 
     }

@@ -4,7 +4,7 @@ import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 
 class AllowScreenshots : TileService() {
-    val key = "disable_flag_secure"
+    private val key = "disable_flag_secure"
 
     override fun onClick() {
         super.onClick()

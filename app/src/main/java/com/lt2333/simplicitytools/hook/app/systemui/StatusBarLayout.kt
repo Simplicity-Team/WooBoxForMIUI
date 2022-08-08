@@ -118,12 +118,12 @@ object StatusBarLayout : HookRegister() {
 
                     mConstraintLayout.addView(notificationIconAreaInner)
 
-                    val fullscreen_notification_icon_area_lp = LinearLayout.LayoutParams(
+                    val fullscreenNotificationIconAreaLp = LinearLayout.LayoutParams(
                         ConstraintLayout.LayoutParams.MATCH_PARENT,
                         ConstraintLayout.LayoutParams.MATCH_PARENT
                     )
 
-                    notificationIconAreaInner.layoutParams = fullscreen_notification_icon_area_lp
+                    notificationIconAreaInner.layoutParams = fullscreenNotificationIconAreaLp
 
                     //增加一个左对齐布局
                     mLeftLayout = LinearLayout(context)
@@ -404,16 +404,16 @@ object StatusBarLayout : HookRegister() {
                 }.hookAfter {
                     val miuiPhoneStatusBarView = it.thisObject.getObjectAs<ViewGroup>("mStatusBar")
                     val res = miuiPhoneStatusBarView.resources
-                    val status_bar_ID =
+                    val statusBarId =
                         res.getIdentifier("status_bar", "id", "com.android.systemui")
-                    val status_bar = miuiPhoneStatusBarView.findViewById<ViewGroup>(status_bar_ID)
+                    val statusBar1 = miuiPhoneStatusBarView.findViewById<ViewGroup>(statusBarId)
                     //非锁屏下整个状态栏布局
                     val keyguardMgr =
-                        status_bar.context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+                        statusBar1.context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
                     if (keyguardMgr.isKeyguardLocked) {
-                        status_bar!!.visibility = View.GONE
+                        statusBar1!!.visibility = View.GONE
                     } else {
-                        status_bar!!.visibility = View.VISIBLE
+                        statusBar1!!.visibility = View.VISIBLE
                     }
                 }
             }

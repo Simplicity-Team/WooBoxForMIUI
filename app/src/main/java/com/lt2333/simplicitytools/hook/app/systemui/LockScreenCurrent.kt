@@ -1,6 +1,9 @@
 package com.lt2333.simplicitytools.hook.app.systemui
 
-import android.annotation.SuppressLint
+
+import android.app.AndroidAppHelper
+import android.content.Context
+import android.os.BatteryManager
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.init.InitFields
 import com.github.kyuubiran.ezxhelper.utils.findMethod
@@ -11,8 +14,7 @@ import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 import java.io.BufferedReader
 import java.io.FileReader
-import java.lang.reflect.Method
-import kotlin.math.roundToInt
+import kotlin.math.abs
 
 object LockScreenCurrent : HookRegister() {
 
@@ -20,43 +22,22 @@ object LockScreenCurrent : HookRegister() {
         findMethod("com.android.keyguard.charge.ChargeUtils") {
             name == "getChargingHintText" && parameterCount == 3
         }.hookAfter {
-            it.result = getCurrent() + "\n" + it.result
+            it.result = "${getCurrent()}\n${it.result}"
         }
 
         findMethod("com.android.systemui.statusbar.phone.KeyguardBottomAreaView") {
             name == "onFinishInflate"
         }.hookAfter {
-            (it.thisObject.getObject(
-                "mIndicationText"
-            ) as TextView).isSingleLine = false
+            (it.thisObject.getObject("mIndicationText") as TextView).isSingleLine = false
         }
     }
 
-    /**
-     * 原始代码来自 CSDN
-     * https://blog.csdn.net/zhangyongfeiyong/article/details/53641809
-     */
-    @SuppressLint("PrivateApi")
+
+
     private fun getCurrent(): String {
-        var result = ""
-        try {
-            val systemProperties = Class.forName("android.os.SystemProperties")
-            val get = systemProperties.getDeclaredMethod("get", String::class.java) as Method
-            val platName = get.invoke(null, "ro.hardware") as String
-            if (platName.startsWith("mt") || platName.startsWith("MT")) {
-                val filePath =
-                    "/sys/class/power_supply/battery/device/FG_Battery_CurrentConsumption"
-                val current = (-getMeanCurrentVal(filePath, 5, 0) / 1000.0f).roundToInt()
-                result = "${InitFields.moduleRes.getString(R.string.current_current)} ${current}mA"
-            } else if (platName.startsWith("qcom")) {
-                val filePath = "/sys/class/power_supply/battery/current_now"
-                val current = (-getMeanCurrentVal(filePath, 5, 0) / 1000.0f).roundToInt()
-                result = "${InitFields.moduleRes.getString(R.string.current_current)} ${current}mA"
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return result
+        val batteryManager = AndroidAppHelper.currentApplication().getSystemService(Context.BATTERY_SERVICE) as BatteryManager
+        val current = abs(batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW) / 1000)
+        return "${InitFields.moduleRes.getString(R.string.current_current)} ${current}mA"
     }
 
     /**

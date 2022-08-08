@@ -62,14 +62,8 @@ object LockScreenClockDisplaySeconds : HookRegister() {
         val textV = it.thisObject.getObjectAs<TextView>("mTimeText")
         val c: Context = textV.context
 
-        Log.d(
-            "lock_screen_clock_display_seconds",
-            "updateTime: " + it.thisObject.javaClass.simpleName
-        )
-        val is24 = Settings.System.getString(
-            c.contentResolver,
-            Settings.System.TIME_12_24
-        ) == "24"
+        Log.d("lock_screen_clock_display_seconds", "updateTime: ${it.thisObject.javaClass.simpleName}")
+        val is24 = Settings.System.getString(c.contentResolver, Settings.System.TIME_12_24) == "24"
 
         nowTime = Calendar.getInstance().time
 

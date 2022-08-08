@@ -14,7 +14,7 @@ import android.widget.TextView
 class WeatherView(context: Context?, private val showCity: Boolean) : TextView(context) {
 
     private val mContext: Context
-    private val WEATHER_URI = Uri.parse("content://weather/weather")
+    private val weatherUri = Uri.parse("content://weather/weather")
     private val mHandler: Handler
     private val mWeatherObserver: ContentObserver?
     private val mWeatherRunnable: WeatherRunnable
@@ -30,7 +30,7 @@ class WeatherView(context: Context?, private val showCity: Boolean) : TextView(c
         mWeatherObserver = WeatherContentObserver(mHandler)
         mContext = context!!
         mWeatherRunnable = WeatherRunnable()
-        context.contentResolver.registerContentObserver(WEATHER_URI, true, mWeatherObserver)
+        context.contentResolver.registerContentObserver(weatherUri, true, mWeatherObserver)
         updateWeatherInfo()
     }
 
@@ -44,19 +44,13 @@ class WeatherView(context: Context?, private val showCity: Boolean) : TextView(c
         override fun run() {
             var str = ""
             try {
-                val query = mContext.contentResolver.query(WEATHER_URI, null, null, null, null)
+                val query = mContext.contentResolver.query(weatherUri, null, null, null, null)
                 if (query != null) {
                     if (query.moveToFirst()) {
-                        if (showCity) {
-                            str =
-                                query.getString(query.getColumnIndexOrThrow("city_name")) + " " + query.getString(
-                                    query.getColumnIndexOrThrow("description")
-                                ) + " " + query.getString(query.getColumnIndexOrThrow("temperature"))
+                        str = if (showCity) {
+                            query.getString(query.getColumnIndexOrThrow("city_name")) + " " + query.getString(query.getColumnIndexOrThrow("description")) + " " + query.getString(query.getColumnIndexOrThrow("temperature"))
                         } else {
-                            str =
-                                query.getString(
-                                    query.getColumnIndexOrThrow("description")
-                                ) + " " + query.getString(query.getColumnIndexOrThrow("temperature"))
+                            query.getString(query.getColumnIndexOrThrow("description")) + " " + query.getString(query.getColumnIndexOrThrow("temperature"))
                         }
                     }
                     query.close()
