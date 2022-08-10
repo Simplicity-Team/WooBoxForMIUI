@@ -20,6 +20,7 @@ import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.zip.ZipEntry;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
@@ -133,7 +134,7 @@ public class CorePatch extends XposedHelper implements IXposedHookLoadPackage, I
                         if(prefs.getBoolean("UsePreSig", false)) {
                             PackageManager PM = AndroidAppHelper.currentApplication().getPackageManager();
                             if(PM == null){
-                                XposedBridge.log("E: " + BuildConfig.APPLICATION_ID + " Cannot get the Package Manager... Are you using MiUI?");
+                                XposedBridge.log("E: ${}" + BuildConfig.APPLICATION_ID + " Cannot get the Package Manager... Are you using MiUI?");
                             }else {
                                 PackageInfo pI = PM.getPackageArchiveInfo((String) methodHookParam.args[0], 0);
                                 PackageInfo InstpI = PM.getPackageInfo(pI.packageName, PackageManager.GET_SIGNATURES);
@@ -147,11 +148,7 @@ public class CorePatch extends XposedHelper implements IXposedHookLoadPackage, I
                                 lastSigs = (Signature[]) XposedHelpers.callStaticMethod(ASV, "convertToSignatures", (Object) lastCerts);
                             }
                         }
-                        if (lastSigs != null) {
-                            signingDetailsArgs[0] = lastSigs;
-                        } else {
-                            signingDetailsArgs[0] = new Signature[]{new Signature(SIGNATURE)};
-                        }
+                        signingDetailsArgs[0] = Objects.requireNonNullElseGet(lastSigs, () -> new Signature[]{new Signature(SIGNATURE)});
                         Object newInstance = findConstructorExact.newInstance(signingDetailsArgs);
 
                         //修复 java.lang.ClassCastException: Cannot cast android.content.pm.PackageParser$SigningDetails to android.util.apk.ApkSignatureVerifier$SigningDetailsWithDigests
@@ -159,7 +156,7 @@ public class CorePatch extends XposedHelper implements IXposedHookLoadPackage, I
                         if (signingDetailsWithDigests != null) {
                             Constructor<?> signingDetailsWithDigestsConstructorExact = XposedHelpers.findConstructorExact(signingDetailsWithDigests, signingDetails, Map.class);
                             signingDetailsWithDigestsConstructorExact.setAccessible(true);
-                            newInstance = signingDetailsWithDigestsConstructorExact.newInstance(new Object[]{newInstance, null});
+                            newInstance = signingDetailsWithDigestsConstructorExact.newInstance(newInstance, null);
                         }
 
                         Throwable cause = throwable.getCause();
@@ -211,7 +208,7 @@ public class CorePatch extends XposedHelper implements IXposedHookLoadPackage, I
             Class<?> pPClass = findClass("com.android.server.pm.parsing.pkg.ParsedPackage", loadPackageParam.classLoader);
             XposedHelpers.findAndHookMethod(pmClass, "doesSignatureMatchForPermissions", String.class, pPClass, int.class, new XC_MethodHook() {
                 @Override
-                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                protected void afterHookedMethod(MethodHookParam param) {
                     //If we decide to crack this then at least make sure they are same apks, avoid another one that tries to impersonate.
                     if (param.getResult().equals(false)) {
                         String pPname = (String) XposedHelpers.callMethod(param.args[1], "getPackageName");

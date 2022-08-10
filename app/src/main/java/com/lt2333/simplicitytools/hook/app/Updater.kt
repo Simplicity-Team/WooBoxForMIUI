@@ -15,7 +15,7 @@ object Updater : AppRegister() {
         hasEnable("remove_ota_validate") {
             Array(26) { "com.android.updater.common.utils.${'a' + it}" }
                 .mapNotNull { loadClassOrNull(it) }
-                .firstOrNull() { it.declaredFields.size >= 9 && it.declaredMethods.size > 60 }
+                .firstOrNull { it.declaredFields.size >= 9 && it.declaredMethods.size > 60 }
                 ?.findMethod { name == "T" && returnType == Boolean::class.java }
                 ?.hookReturnConstant(false)
         }
