@@ -230,4 +230,6 @@
     <string name="left_or_right">Left or Right</string>
     <string name="preset">Preset</string>
     <string name="geek">Geek</string>
+    <string name="do_not_clear_app">Prevent killing background apps</string>
+    <string name="do_not_clear_app_summary">May cause increased power consumption, please use with tombstone or MILLET</string>
 </resources>
