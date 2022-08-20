@@ -228,4 +228,6 @@
     <string name="geek">极客</string>
     <string name="do_not_clear_app">阻止杀后台应用</string>
     <string name="do_not_clear_app_summary">可能造成耗电增加，请配合墓碑或 MILLET 食用</string>
+    <string name="make_millet_more_aggressive_summary">允许 Millet 在后台应用有通知、有服务运行、有进程运行的情况下冻结应用。\n不希望被冻结的应用可将省电策略设置为无限制\n启用前请先卸载墓碑和NoANR相关模块。</string>
+    <string name="make_millet_more_aggressive">使 Millet 更加激进</string>
 </resources>

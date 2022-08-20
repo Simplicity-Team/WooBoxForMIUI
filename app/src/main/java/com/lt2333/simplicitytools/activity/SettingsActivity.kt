@@ -506,6 +506,7 @@ class SettingsActivity : MIUIActivity() {
                 TextSummaryWithSwitch(TextSummaryV(textId = R.string.lock_max_fps, tipsId = R.string.lock_max_fps_summary), SwitchV("lock_max_fps"))
                 TextSummaryWithSwitch(TextSummaryV(textId = R.string.prevent_recovery_of_battery_optimization_white_list, tipsId = R.string.failed_after_restart), SwitchV("prevent_recovery_of_battery_optimization_white_list"))
                 TextSummaryWithSwitch(TextSummaryV(textId = R.string.do_not_clear_app, tipsId = R.string.do_not_clear_app_summary), SwitchV("do_not_clear_app"))
+                TextSummaryWithSwitch(TextSummaryV(textId = R.string.make_millet_more_aggressive, tipsId = R.string.make_millet_more_aggressive_summary), SwitchV("make_millet_more_aggressive"))
                 TextSummaryArrow(TextSummaryV(textId = R.string.battery_optimization, tipsId = R.string.battery_optimization_summary, onClickListener = {
                     try {
                         val intent = Intent()
