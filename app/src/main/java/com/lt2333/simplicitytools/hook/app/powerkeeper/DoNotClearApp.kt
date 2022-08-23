@@ -30,5 +30,45 @@ object DoNotClearApp : HookRegister() {
                 it.result = null
             }
         }
+
+        findMethod("com.miui.powerkeeper.powerchecker.PowerCheckerController") {
+            name == "clearApp"
+        }.hookBefore {
+            hasEnable("do_not_clear_app") {
+                it.result = null
+            }
+        }
+
+        findMethod("com.miui.powerkeeper.powerchecker.PowerCheckerController") {
+            name == "autoKillApp"
+        }.hookBefore {
+            hasEnable("do_not_clear_app") {
+                it.result = null
+            }
+        }
+
+        findMethod("com.miui.powerkeeper.statemachine.SleepModeController\$SleepProcessHelper") {
+            name == "killAppsInSleep"
+        }.hookBefore {
+            hasEnable("do_not_clear_app") {
+                it.result = null
+            }
+        }
+
+        findMethod("com.miui.powerkeeper.statemachine.DynamicTurboPowerHandler") {
+            name == "clearApp"
+        }.hookBefore {
+            hasEnable("do_not_clear_app") {
+                it.result = null
+            }
+        }
+
+        findMethod("miui.process.ProcessManager") {
+            name == "kill"
+        }.hookBefore {
+            hasEnable("do_not_clear_app") {
+                it.result = false
+            }
+        }
     }
 }
