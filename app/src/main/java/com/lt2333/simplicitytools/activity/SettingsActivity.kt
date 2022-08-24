@@ -506,7 +506,14 @@ class SettingsActivity : MIUIActivity() {
                 TextSummaryWithSwitch(TextSummaryV(textId = R.string.lock_max_fps, tipsId = R.string.lock_max_fps_summary), SwitchV("lock_max_fps"))
                 TextSummaryWithSwitch(TextSummaryV(textId = R.string.prevent_recovery_of_battery_optimization_white_list, tipsId = R.string.failed_after_restart), SwitchV("prevent_recovery_of_battery_optimization_white_list"))
                 TextSummaryWithSwitch(TextSummaryV(textId = R.string.do_not_clear_app, tipsId = R.string.do_not_clear_app_summary), SwitchV("do_not_clear_app"))
-                TextSummaryWithSwitch(TextSummaryV(textId = R.string.make_millet_more_aggressive, tipsId = R.string.make_millet_more_aggressive_summary), SwitchV("make_millet_more_aggressive"))
+                val makeMilletMoreAggressiveSwitchBinding = GetDataBinding({ safeSP.getBoolean("make_millet_more_aggressive", false) }) { view, flags, data ->
+                    when (flags) {
+                        1 -> (view as Switch).isEnabled = data as Boolean
+                        2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                    }
+                }
+                TextSummaryWithSwitch(TextSummaryV(textId = R.string.make_millet_more_aggressive, tipsId = R.string.make_millet_more_aggressive_summary), SwitchV("make_millet_more_aggressive", dataBindingSend = makeMilletMoreAggressiveSwitchBinding.bindingSend))
+                TextSummaryWithSwitch(TextSummaryV(textId = R.string.make_millet_ignore_active, tipsId = R.string.make_millet_ignore_active_summary), SwitchV("make_millet_ignore_active"), dataBindingRecv = makeMilletMoreAggressiveSwitchBinding.binding.getRecv(2))
                 TextSummaryArrow(TextSummaryV(textId = R.string.battery_optimization, tipsId = R.string.battery_optimization_summary, onClickListener = {
                     try {
                         val intent = Intent()

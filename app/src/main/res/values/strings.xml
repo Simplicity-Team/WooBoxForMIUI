@@ -234,4 +234,6 @@
     <string name="do_not_clear_app_summary">May cause increased power consumption, please use with tombstone or \"Make Millet more aggressive\"</string>
     <string name="make_millet_more_aggressive">Make Millet more aggressive</string>
     <string name="make_millet_more_aggressive_summary">Allows Millet to freeze apps while background apps have notifications, services running, and processes running.\nApps that don\'t want to be frozen can set Battery saver to No restriction\nPlease uninstall tombstone and NoANR related modules before enabling.</string>
+    <string name="make_millet_ignore_active">Allow Millet to freeze active apps</string>
+    <string name="make_millet_ignore_active_summary">Very aggressive and may affect application running</string>
 </resources>

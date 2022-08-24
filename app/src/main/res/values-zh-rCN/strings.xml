@@ -230,4 +230,6 @@
     <string name="do_not_clear_app_summary">可能造成耗电增加，请配合墓碑或“使 Millet 更加激进”食用</string>
     <string name="make_millet_more_aggressive_summary">允许 Millet 在后台应用有通知、有服务运行、有进程运行的情况下冻结应用。\n不希望被冻结的应用可将省电策略设置为无限制\n启用前请先卸载墓碑和 NoANR 相关模块。</string>
     <string name="make_millet_more_aggressive">使 Millet 更加激进</string>
+    <string name="make_millet_ignore_active">允许 Millet 冻结活跃的应用</string>
+    <string name="make_millet_ignore_active_summary">非常激进，可能会影响应用运行</string>
 </resources>
