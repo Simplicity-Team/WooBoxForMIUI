@@ -49,5 +49,12 @@ object MakeMilletMoreAggressive : HookRegister() {
                 it.result = false
             }
         }
+        findMethod("com.miui.powerkeeper.millet.MilletConfig") {
+            name == "getEnable"
+        }.hookBefore {
+            hasEnable("make_millet_more_aggressive") {
+                it.result = true
+            }
+        }
     }
 }
