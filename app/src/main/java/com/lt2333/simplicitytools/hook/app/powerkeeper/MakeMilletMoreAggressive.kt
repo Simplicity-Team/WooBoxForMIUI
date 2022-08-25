@@ -67,8 +67,10 @@ object MakeMilletMoreAggressive : HookRegister() {
         findMethod("com.miui.powerkeeper.controller.FrozenAppController\$AppStateFrozenControl") {
             name == "isAllowFrozenNow"
         }.hookBefore {
-            hasEnable("make_millet_ignore_active") {
-                it.result = true
+            hasEnable("make_millet_more_aggressive") {
+                hasEnable("make_millet_ignore_active") {
+                    it.result = true
+                }
             }
         }
     }
