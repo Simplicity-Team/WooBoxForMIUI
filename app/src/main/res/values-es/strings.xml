@@ -29,6 +29,7 @@
     <string name="hide_nfc_icon">Ocultar icono de NFC</string>
     <string name="hide_big_hd_icon">Ocultar icono grande HD</string>
     <string name="hide_small_hd_icon">Ocultar icono pequeño HD</string>
+    <string name="hide_new_hd_icon">Ocultar icono new HD</string>
     <string name="hide_hd_no_service_icon">Ocultar icono sin servicio HD</string>
     <string name="about">Acerca de</string>
     <string name="about_module">Acerca del Módulo</string>

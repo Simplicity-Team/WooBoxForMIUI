@@ -27,6 +27,7 @@
     <string name="hide_bluetooth_battery_icon">隱藏 藍牙電量 圖標</string>
     <string name="hide_big_hd_icon">隱藏 大HD 圖標</string>
     <string name="hide_small_hd_icon">隱藏 小HD 圖標</string>
+    <string name="hide_new_hd_icon">隱藏 新 圖標</string>
     <string name="hide_hd_no_service_icon">隱藏 HD無服務 圖標</string>
     <string name="about">關於</string>
     <string name="about_module">關於模塊</string>
