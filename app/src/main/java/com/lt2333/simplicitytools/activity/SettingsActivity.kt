@@ -30,7 +30,7 @@ class SettingsActivity : MIUIActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         if (!checkLSPosed()) isLoad = false
         super.onCreate(savedInstanceState)
-        if (isLoad && BuildConfig.BUILD_TYPE != "debug") {
+        if (isLoad && !BuildConfig.DEBUG) {
             AppCenter.start(application, "ae2037d3-9914-4e0c-b02b-f9b2bb2574e5", Analytics::class.java, Crashes::class.java)
         }
     }
@@ -556,6 +556,7 @@ class SettingsActivity : MIUIActivity() {
                 TextWithSwitch(TextV(textId = R.string.hide_bluetooth_battery_icon), SwitchV("hide_bluetooth_battery_icon"))
                 TextWithSwitch(TextV(textId = R.string.hide_small_hd_icon), SwitchV("hide_small_hd_icon"))
                 TextWithSwitch(TextV(textId = R.string.hide_big_hd_icon), SwitchV("hide_big_hd_icon"))
+                TextWithSwitch(TextV(textId = R.string.hide_new_hd_icon), SwitchV("hide_new_hd_icon"))
                 TextWithSwitch(TextV(textId = R.string.hide_hd_no_service_icon), SwitchV("hide_hd_no_service_icon"))
                 TextWithSwitch(TextV(textId = R.string.hide_no_sim_icon), SwitchV("hide_no_sim_icon"))
                 TextWithSwitch(TextV(textId = R.string.hide_sim_one_icon), SwitchV("hide_sim_one_icon"))
