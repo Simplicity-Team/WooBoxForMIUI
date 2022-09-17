@@ -162,6 +162,8 @@
     <string name="hide_zen_icon">隐藏 勿扰 图标</string>
     <string name="hide_icon">隐藏图标</string>
     <string name="double_tap_to_sleep">双击锁定屏幕</string>
+    <string name="no_need_to_enter_password_when_power_on">开机免输密码</string>
+    <string name="no_need_to_enter_password_when_power_on_summary">手机没启用加密才会生效</string>
     <string name="home_double_tap_to_sleep_summary">双击空白位置锁屏</string>
     <string name="old_quick_settings_panel">旧版快速设置面板</string>
     <string name="old_qs_custom_switch">自定义行列数</string>

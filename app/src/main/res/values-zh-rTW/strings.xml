@@ -162,6 +162,8 @@
     <string name="hide_zen_icon">隱藏 勿擾 圖示</string>
     <string name="hide_icon">隱藏圖示</string>
     <string name="double_tap_to_sleep">雙擊鎖定螢幕</string>
+    <string name="no_need_to_enter_password_when_power_on">開機免輸密碼</string>
+    <string name="no_need_to_enter_password_when_power_on_summary">手機沒加啟用密才會生效</string>
     <string name="home_double_tap_to_sleep_summary">雙擊空白位置鎖定螢幕</string>
     <string name="old_quick_settings_panel">舊快速設定面板</string>
     <string name="old_qs_custom_switch">自定義行與列</string>

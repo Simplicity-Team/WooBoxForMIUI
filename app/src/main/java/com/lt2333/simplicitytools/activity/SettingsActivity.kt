@@ -438,6 +438,7 @@ class SettingsActivity : MIUIActivity() {
                 TextSummaryWithSwitch(TextSummaryV(textId = R.string.enable_wave_charge_animation), SwitchV("enable_wave_charge_animation"))
                 TextSummaryWithSwitch(TextSummaryV(textId = R.string.lock_screen_charging_current, tipsId = R.string.only_official_default_themes_are_supported), SwitchV("lock_screen_charging_current"))
                 TextSummaryWithSwitch(TextSummaryV(textId = R.string.double_tap_to_sleep, tipsId = R.string.home_double_tap_to_sleep_summary), SwitchV("lock_screen_double_tap_to_sleep"))
+                TextSummaryWithSwitch(TextSummaryV(textId = R.string.no_need_to_enter_password_when_power_on, tipsId = R.string.no_need_to_enter_password_when_power_on_summary), SwitchV("no_need_to_enter_password_when_power_on"))
                 Line()
                 TitleText(textId = R.string.old_quick_settings_panel)
                 val oldQSCustomSwitchBinding = GetDataBinding({ safeSP.getBoolean("old_qs_custom_switch", false) }) { view, flags, data ->

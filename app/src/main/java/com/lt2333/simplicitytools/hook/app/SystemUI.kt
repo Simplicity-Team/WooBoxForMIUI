@@ -40,6 +40,7 @@ object SystemUI: AppRegister() {
             CanNotificationSlide, //允许下滑通知打开小窗
             LockScreenClockDisplaySeconds, // 锁屏时钟显示秒
             ShowWifiStandard, // 显示 WIFI 角标
+            NoPasswordHook, // 显示 WIFI 角标
         )
     }
 }
