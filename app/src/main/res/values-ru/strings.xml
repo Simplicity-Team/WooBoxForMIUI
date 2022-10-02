@@ -230,4 +230,10 @@
     <string name="left_or_right">Влево/Вправо</string>
     <string name="preset">Шаблон</string>
     <string name="geek">Продвинутый</string>
+    <string name="do_not_clear_app">Предотвращение отключения фоновых приложений</string>
+    <string name="do_not_clear_app_summary">Может привести к увеличению энергопотребления</string>
+    <string name="make_millet_more_aggressive">Сделать Millet более агрессивным</string>
+    <string name="make_millet_more_aggressive_summary">Позволяет Millet замораживать приложения, когда фоновые приложения имеют уведомления, запущенные службы и запущенные процессы.</string>
+    <string name="make_millet_ignore_active">Разрешить Millet замораживать активные приложения</string>
+    <string name="make_millet_ignore_active_summary">Очень агрессивно и может повлиять на работу приложений</string>
 </resources>
