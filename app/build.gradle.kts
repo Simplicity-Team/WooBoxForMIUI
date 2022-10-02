@@ -13,7 +13,7 @@ android {
         minSdk = 31
         targetSdk = 33
         versionCode = 68
-        versionName = "1.6.7"
+        versionName = "1.6.8"
         buildConfigField("String", "BUILD_TIME", "\"${System.currentTimeMillis()}\"")
     }
 
