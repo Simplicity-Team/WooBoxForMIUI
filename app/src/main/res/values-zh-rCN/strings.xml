@@ -29,7 +29,7 @@
     <string name="hide_nfc_icon">隐藏 NFC 图标</string>
     <string name="hide_big_hd_icon">隐藏 大HD 图标</string>
     <string name="hide_small_hd_icon">隐藏 小HD 图标</string>
-    <string name="hide_new_hd_icon">隐藏 大HD 图标</string>
+    <string name="hide_new_hd_icon">隐藏 新HD 图标</string>
     <string name="hide_hd_no_service_icon">隐藏 HD无服务 图标</string>
     <string name="about">关于</string>
     <string name="about_module">关于模块</string>
