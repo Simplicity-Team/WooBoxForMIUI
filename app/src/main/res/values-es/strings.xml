@@ -29,7 +29,6 @@
     <string name="hide_nfc_icon">Ocultar icono de NFC</string>
     <string name="hide_big_hd_icon">Ocultar icono grande HD</string>
     <string name="hide_small_hd_icon">Ocultar icono pequeño HD</string>
-    <string name="hide_new_hd_icon">Ocultar icono new HD</string>
     <string name="hide_hd_no_service_icon">Ocultar icono sin servicio HD</string>
     <string name="about">Acerca de</string>
     <string name="about_module">Acerca del Módulo</string>
@@ -219,4 +218,10 @@
     <string name="take_effect_after_reboot">Se activa después de reiniciar</string>
     <string name="media_volume_steps_summary">Activar esta opción puede hacer que el desplazamiento de la barra de volumen se congele o que el volumen Bluetooth sea anormal</string>
     <string name="can_notification_slide_summary">Es posible que algunas notificaciones a través de Mi Push no sean soportadas.</string>
+    <string name="screen_hole_location">Ubicación del agujero de pantalla</string>
+    <string name="custom_clock_mode">Modo de reloj personalizado</string>
+    <string name="custom_clock_format_geek">Formato de reloj</string>
+    <string name="off">Apagado</string>
+    <string name="center">Centro</string>
+    <string name="left_or_right">Izquierda o Derecha</string>
 </resources>
