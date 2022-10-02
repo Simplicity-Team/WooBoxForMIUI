@@ -31,6 +31,7 @@
     <string name="hide_nfc_icon">Hide NFC icon</string>
     <string name="hide_big_hd_icon">Hide big HD icon</string>
     <string name="hide_small_hd_icon">Hide small HD icon</string>
+    <string name="hide_new_hd_icon">Hide new HD icon</string>
     <string name="hide_hd_no_service_icon">Hide HD No Service icon</string>
 
     <string name="about">About</string>
@@ -165,6 +166,8 @@
     <string name="hide_zen_icon">Hide ZEN icon</string>
     <string name="hide_icon">Hide Icon</string>
     <string name="double_tap_to_sleep">Double tap to sleep</string>
+    <string name="no_need_to_enter_password_when_power_on">No need to enter password when power on</string>
+    <string name="no_need_to_enter_password_when_power_on_summary">The phone is not encrypted to take effect</string>
     <string name="home_double_tap_to_sleep_summary">Double-tap the blank space to sleep</string>
     <string name="old_quick_settings_panel">Old quick settings panel</string>
     <string name="old_qs_custom_switch">Custom rows and columns</string>

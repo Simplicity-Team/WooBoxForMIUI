@@ -27,6 +27,7 @@
     <string name="hide_bluetooth_battery_icon">隱藏 藍牙電量 圖標</string>
     <string name="hide_big_hd_icon">隱藏 大HD 圖標</string>
     <string name="hide_small_hd_icon">隱藏 小HD 圖標</string>
+    <string name="hide_new_hd_icon">隱藏 新HD 圖標</string>
     <string name="hide_hd_no_service_icon">隱藏 HD無服務 圖標</string>
     <string name="about">關於</string>
     <string name="about_module">關於模塊</string>
@@ -156,4 +157,7 @@
     <string name="hide_zen_icon">隱藏 勿擾 圖標</string>
     <string name="hide_icon">隱藏圖標</string>
     <string name="double_tap_to_sleep">雙擊鎖定螢幕</string>
+
+    <string name="no_need_to_enter_password_when_power_on">開機免輸密碼</string>
+    <string name="no_need_to_enter_password_when_power_on_summary">手機沒啟用加密才會生效</string>
 </resources>

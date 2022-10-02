@@ -30,7 +30,7 @@ class SettingsActivity : MIUIActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         if (!checkLSPosed()) isLoad = false
         super.onCreate(savedInstanceState)
-        if (isLoad && BuildConfig.BUILD_TYPE != "debug") {
+        if (isLoad && !BuildConfig.DEBUG) {
             AppCenter.start(application, "ae2037d3-9914-4e0c-b02b-f9b2bb2574e5", Analytics::class.java, Crashes::class.java)
         }
     }
@@ -438,6 +438,7 @@ class SettingsActivity : MIUIActivity() {
                 TextSummaryWithSwitch(TextSummaryV(textId = R.string.enable_wave_charge_animation), SwitchV("enable_wave_charge_animation"))
                 TextSummaryWithSwitch(TextSummaryV(textId = R.string.lock_screen_charging_current, tipsId = R.string.only_official_default_themes_are_supported), SwitchV("lock_screen_charging_current"))
                 TextSummaryWithSwitch(TextSummaryV(textId = R.string.double_tap_to_sleep, tipsId = R.string.home_double_tap_to_sleep_summary), SwitchV("lock_screen_double_tap_to_sleep"))
+                TextSummaryWithSwitch(TextSummaryV(textId = R.string.no_need_to_enter_password_when_power_on, tipsId = R.string.no_need_to_enter_password_when_power_on_summary), SwitchV("no_need_to_enter_password_when_power_on"))
                 Line()
                 TitleText(textId = R.string.old_quick_settings_panel)
                 val oldQSCustomSwitchBinding = GetDataBinding({ safeSP.getBoolean("old_qs_custom_switch", false) }) { view, flags, data ->
@@ -565,6 +566,7 @@ class SettingsActivity : MIUIActivity() {
                 TextWithSwitch(TextV(textId = R.string.hide_bluetooth_battery_icon), SwitchV("hide_bluetooth_battery_icon"))
                 TextWithSwitch(TextV(textId = R.string.hide_small_hd_icon), SwitchV("hide_small_hd_icon"))
                 TextWithSwitch(TextV(textId = R.string.hide_big_hd_icon), SwitchV("hide_big_hd_icon"))
+                TextWithSwitch(TextV(textId = R.string.hide_new_hd_icon), SwitchV("hide_new_hd_icon"))
                 TextWithSwitch(TextV(textId = R.string.hide_hd_no_service_icon), SwitchV("hide_hd_no_service_icon"))
                 TextWithSwitch(TextV(textId = R.string.hide_no_sim_icon), SwitchV("hide_no_sim_icon"))
                 TextWithSwitch(TextV(textId = R.string.hide_sim_one_icon), SwitchV("hide_sim_one_icon"))
