@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="other">غير ذلك</string>
+    <string name="disable_flag_secure">السماح بلقطة الشاشة</string>
+    <string name="home">الصفحة الرئيسية</string>
+    <string name="home_time">عرض ساعة الشاشة الرئيسية دائماً</string>
+    <string name="reboot">إعادة تشغيل النظام</string>
     <!--Status bar icons-->
+    <string name="status_bar_icon">أيقونات شريط الحالة</string>
+    <string name="hide_no_sim_icon">إخفاء أيقونة No SIM</string>
+    <string name="hide_sim_one_icon">إخفاء أيقونة SIM Card 1</string>
+    <string name="hide_sim_two_icon">إخفاء أيقونة SIM Card 2</string>
+    <string name="hide_vpn_icon">إخفاء أيقونة VPN</string>
 </resources>
