@@ -1,15 +1,12 @@
-/**
- * 代码来自 https://github.com/LSPosed/CorePatch
- * GPL-2.0 License
- **/
-
 package com.lt2333.simplicitytools.hook.app.android.corepatch;
+
 
 import android.app.AndroidAppHelper;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.util.Log;
 
 import com.lt2333.simplicitytools.BuildConfig;
 
@@ -20,7 +17,6 @@ import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.zip.ZipEntry;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
@@ -32,11 +28,16 @@ import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
-public class CorePatch extends XposedHelper implements IXposedHookLoadPackage, IXposedHookZygoteInit {
+public class CorePatchForR extends XposedHelper implements IXposedHookLoadPackage, IXposedHookZygoteInit {
     XSharedPreferences prefs = new XSharedPreferences(BuildConfig.APPLICATION_ID, "config");
 
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam loadPackageParam) throws IllegalAccessException, InvocationTargetException, InstantiationException {
+
+        Log.d(CorePatchMainHook.TAG, "downgrade" + prefs.getBoolean("downgrade->", true));
+        Log.d(CorePatchMainHook.TAG, "authcreak" + prefs.getBoolean("authcreak->", true));
+        Log.d(CorePatchMainHook.TAG, "digestCreak" + prefs.getBoolean("digestCreak->", true));
+        Log.d(CorePatchMainHook.TAG, "UsePreSig" + prefs.getBoolean("UsePreSig->", false));
 
         // 允许降级
         findAndHookMethod("com.android.server.pm.PackageManagerService", loadPackageParam.classLoader,
@@ -113,7 +114,7 @@ public class CorePatch extends XposedHelper implements IXposedHookLoadPackage, I
             public void afterHookedMethod(MethodHookParam param) throws Throwable {
                 super.afterHookedMethod(param);
                 if (prefs.getBoolean("digestCreak", true)) {
-                    if(!prefs.getBoolean("UsePreSig", false)) {
+                    if (!prefs.getBoolean("UsePreSig", false)) {
                         final Object block = constructor.newInstance(param.args[0]);
                         Object[] infos = (Object[]) XposedHelpers.callMethod(block, "getSignerInfos");
                         Object info = infos[0];
@@ -131,24 +132,28 @@ public class CorePatch extends XposedHelper implements IXposedHookLoadPackage, I
                     Throwable throwable = methodHookParam.getThrowable();
                     if (throwable != null) {
                         Signature[] lastSigs = null;
-                        if(prefs.getBoolean("UsePreSig", false)) {
+                        if (prefs.getBoolean("UsePreSig", false)) {
                             PackageManager PM = AndroidAppHelper.currentApplication().getPackageManager();
-                            if(PM == null){
-                                XposedBridge.log("E: ${}" + BuildConfig.APPLICATION_ID + " Cannot get the Package Manager... Are you using MiUI?");
-                            }else {
+                            if (PM == null) {
+                                XposedBridge.log("E: " + BuildConfig.APPLICATION_ID + " Cannot get the Package Manager... Are you using MiUI?");
+                            } else {
                                 PackageInfo pI = PM.getPackageArchiveInfo((String) methodHookParam.args[0], 0);
                                 PackageInfo InstpI = PM.getPackageInfo(pI.packageName, PackageManager.GET_SIGNATURES);
                                 lastSigs = InstpI.signatures;
                             }
-                        }else {
-                            if(prefs.getBoolean("digestCreak", true)) {
+                        } else {
+                            if (prefs.getBoolean("digestCreak", true)) {
                                 final Object origJarFile = constructorExact.newInstance(methodHookParam.args[0], true, false);
                                 final ZipEntry manifestEntry = (ZipEntry) XposedHelpers.callMethod(origJarFile, "findEntry", "AndroidManifest.xml");
                                 final Certificate[][] lastCerts = (Certificate[][]) XposedHelpers.callStaticMethod(ASV, "loadCertificates", origJarFile, manifestEntry);
                                 lastSigs = (Signature[]) XposedHelpers.callStaticMethod(ASV, "convertToSignatures", (Object) lastCerts);
                             }
                         }
-                        signingDetailsArgs[0] = Objects.requireNonNullElseGet(lastSigs, () -> new Signature[]{new Signature(SIGNATURE)});
+                        if (lastSigs != null) {
+                            signingDetailsArgs[0] = lastSigs;
+                        } else {
+                            signingDetailsArgs[0] = new Signature[]{new Signature(SIGNATURE)};
+                        }
                         Object newInstance = findConstructorExact.newInstance(signingDetailsArgs);
 
                         //修复 java.lang.ClassCastException: Cannot cast android.content.pm.PackageParser$SigningDetails to android.util.apk.ApkSignatureVerifier$SigningDetailsWithDigests
@@ -156,7 +161,7 @@ public class CorePatch extends XposedHelper implements IXposedHookLoadPackage, I
                         if (signingDetailsWithDigests != null) {
                             Constructor<?> signingDetailsWithDigestsConstructorExact = XposedHelpers.findConstructorExact(signingDetailsWithDigests, signingDetails, Map.class);
                             signingDetailsWithDigestsConstructorExact.setAccessible(true);
-                            newInstance = signingDetailsWithDigestsConstructorExact.newInstance(newInstance, null);
+                            newInstance = signingDetailsWithDigestsConstructorExact.newInstance(new Object[]{newInstance, null});
                         }
 
                         Throwable cause = throwable.getCause();
@@ -203,22 +208,6 @@ public class CorePatch extends XposedHelper implements IXposedHookLoadPackage, I
                 }
             }
         });
-        if (prefs.getBoolean("digestCreak", true) && prefs.getBoolean("UsePreSig", false)) {
-            Class<?> pmClass = findClass("com.android.server.pm.PackageManagerService", loadPackageParam.classLoader);
-            Class<?> pPClass = findClass("com.android.server.pm.parsing.pkg.ParsedPackage", loadPackageParam.classLoader);
-            XposedHelpers.findAndHookMethod(pmClass, "doesSignatureMatchForPermissions", String.class, pPClass, int.class, new XC_MethodHook() {
-                @Override
-                protected void afterHookedMethod(MethodHookParam param) {
-                    //If we decide to crack this then at least make sure they are same apks, avoid another one that tries to impersonate.
-                    if (param.getResult().equals(false)) {
-                        String pPname = (String) XposedHelpers.callMethod(param.args[1], "getPackageName");
-                        if (pPname.contentEquals((String) param.args[0])) {
-                            param.setResult(true);
-                        }
-                    }
-                }
-            });
-        }
     }
 
     @Override

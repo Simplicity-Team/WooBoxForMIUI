@@ -2,7 +2,7 @@ package com.lt2333.simplicitytools.hook
 
 import com.lt2333.simplicitytools.BuildConfig
 import com.lt2333.simplicitytools.hook.app.*
-import com.lt2333.simplicitytools.hook.app.android.corepatch.CorePatch
+import com.lt2333.simplicitytools.hook.app.android.corepatch.CorePatchMainHook
 import com.lt2333.simplicitytools.util.xposed.EasyXposedInit
 import com.lt2333.simplicitytools.util.xposed.base.AppRegister
 import de.robv.android.xposed.IXposedHookZygoteInit
@@ -35,7 +35,7 @@ class XposedEntry : EasyXposedInit() {
 
     override fun initZygote(startupParam: IXposedHookZygoteInit.StartupParam?) {
         super.initZygote(startupParam)
-        CorePatch().initZygote(startupParam)
+        CorePatchMainHook().initZygote(startupParam)
     }
 
 }

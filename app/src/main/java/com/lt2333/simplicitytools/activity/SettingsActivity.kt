@@ -586,7 +586,7 @@ class SettingsActivity : MIUIActivity() {
                 TextWithSwitch(TextV(textId = R.string.hide_zen_icon), SwitchV("hide_zen_icon"))
             }
             register("about_module", getString(R.string.about_module), true) {
-                Author(authorHead = getDrawable(R.drawable.app_icon)!!, authorName = getString(R.string.app_name), authorTips = "${SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(BuildConfig.BUILD_TIME.toLong())}  ${BuildConfig.VERSION_NAME}(${BuildConfig.BUILD_TYPE})", onClickListener = {
+                Author(authorHead = getDrawable(R.drawable.app_icon)!!, authorName = getString(R.string.app_name), authorTips = "${SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(BuildConfig.BUILD_TIME.toLong())}\n${BuildConfig.VERSION_NAME}(${BuildConfig.BUILD_TYPE})", onClickListener = {
                     try {
                         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("coolmarket://apk/com.lt2333.simplicitytools")))
                         Toast.makeText(activity, "恳求一个五星好评，Thanks♪(･ω･)ﾉ", Toast.LENGTH_LONG).show()
