@@ -224,4 +224,10 @@
     <string name="off">Apagado</string>
     <string name="center">Centro</string>
     <string name="left_or_right">Izquierda o Derecha</string>
+    <string name="do_not_clear_app">Evita cerrar apps en segundo plano</string>
+    <string name="do_not_clear_app_summary">Puede incrementar el consumo de batería, recomendado con \"Hacer el Millet más agresivo\", NO recomendado para usar con tombstones</string>
+    <string name="make_millet_more_aggressive">Hacer el Millet más agresivo</string>
+    <string name="make_millet_more_aggressive_summary">Permitr a Millet congelar apps mientras las apps en segundo plano tengan notificaciones, servicios y procesos ejecutándose.\nApps que no se deseen congelar se pueden configurar como Sin restricciones en Ahorro de batería.\nPor favor desinstala módulos relacionados con tombstone y NoANR antes de activar esta opción.</string>
+    <string name="make_millet_ignore_active">Permitir a Millet congelar apps activas</string>
+    <string name="make_millet_ignore_active_summary">Muy agresivo y puede afectar el comportamiento de la aplicación</string>
 </resources>
