@@ -29,6 +29,7 @@
     <string name="hide_nfc_icon">Скрыть иконку NFC</string>
     <string name="hide_big_hd_icon">Скрыть большую иконку HD</string>
     <string name="hide_small_hd_icon">Скрыть маленькую иконку HD</string>
+    <string name="hide_new_hd_icon">Скрыть большую иконку HD</string>
     <string name="hide_hd_no_service_icon">Скрыть HD No Service</string>
     <string name="about">Информация</string>
     <string name="about_module">О модуле</string>
