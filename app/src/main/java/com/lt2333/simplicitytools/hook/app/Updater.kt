@@ -7,7 +7,9 @@ import com.github.kyuubiran.ezxhelper.utils.hookBefore
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.AppRegister
 import de.robv.android.xposed.callbacks.XC_LoadPackage
-@@ -13,11 +12,15 @@ object Updater : AppRegister() {
+object Updater : AppRegister() {
+    override val packageName: String = "com.android.updater"
+
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
 
         hasEnable("remove_ota_validate") {
