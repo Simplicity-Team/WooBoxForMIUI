@@ -13,6 +13,8 @@ import com.lt2333.simplicitytools.BuildConfig;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Member;
+import java.lang.reflect.Method;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.List;
@@ -102,7 +104,7 @@ public class CorePatchForR extends XposedHelper implements IXposedHookLoadPackag
         Class<?> sJarClass = XposedHelpers.findClass("android.util.jar.StrictJarFile", loadPackageParam.classLoader);
         Constructor<?> constructorExact = XposedHelpers.findConstructorExact(sJarClass, String.class, boolean.class, boolean.class);
         constructorExact.setAccessible(true);
-        Class<?> signingDetails = XposedHelpers.findClass("android.content.pm.PackageParser.SigningDetails", loadPackageParam.classLoader);
+        Class<?> signingDetails = getSigningDetails(loadPackageParam.classLoader);
         Constructor<?> findConstructorExact = XposedHelpers.findConstructorExact(signingDetails, Signature[].class, Integer.TYPE);
         findConstructorExact.setAccessible(true);
         Class<?> packageParserException = XposedHelpers.findClass("android.content.pm.PackageParser.PackageParserException", loadPackageParam.classLoader);
@@ -110,6 +112,7 @@ public class CorePatchForR extends XposedHelper implements IXposedHookLoadPackag
         error.setAccessible(true);
         Object[] signingDetailsArgs = new Object[2];
         signingDetailsArgs[1] = 1;
+        Class<?> parseResult = XposedHelpers.findClassIfExists("android.content.pm.parsing.result.ParseResult", loadPackageParam.classLoader);
         hookAllMethods("android.util.jar.StrictJarVerifier", loadPackageParam.classLoader, "verifyBytes", new XC_MethodHook() {
             public void afterHookedMethod(MethodHookParam param) throws Throwable {
                 super.afterHookedMethod(param);
@@ -127,27 +130,49 @@ public class CorePatchForR extends XposedHelper implements IXposedHookLoadPackag
         });
         hookAllMethods("android.util.apk.ApkSignatureVerifier", loadPackageParam.classLoader, "verifyV1Signature", new XC_MethodHook() {
             public void afterHookedMethod(MethodHookParam methodHookParam) throws Throwable {
-                super.afterHookedMethod(methodHookParam);
                 if (prefs.getBoolean("authcreak", true)) {
                     Throwable throwable = methodHookParam.getThrowable();
-                    if (throwable != null) {
+                    Integer parseErr = null;
+                    if (parseResult != null && ((Method) methodHookParam.method).getReturnType() == parseResult) {
+                        Object result = methodHookParam.getResult();
+                        if ((boolean) XposedHelpers.callMethod(result, "isError")) {
+                            parseErr = (int) XposedHelpers.callMethod(result, "getErrorCode");
+                        }
+                    }
+                    if (throwable != null || parseErr != null) {
                         Signature[] lastSigs = null;
-                        if (prefs.getBoolean("UsePreSig", false)) {
-                            PackageManager PM = AndroidAppHelper.currentApplication().getPackageManager();
-                            if (PM == null) {
-                                XposedBridge.log("E: " + BuildConfig.APPLICATION_ID + " Cannot get the Package Manager... Are you using MiUI?");
-                            } else {
-                                PackageInfo pI = PM.getPackageArchiveInfo((String) methodHookParam.args[0], 0);
-                                PackageInfo InstpI = PM.getPackageInfo(pI.packageName, PackageManager.GET_SIGNATURES);
-                                lastSigs = InstpI.signatures;
+                        try {
+                            if (prefs.getBoolean("UsePreSig", false)) {
+                                PackageManager PM = AndroidAppHelper.currentApplication().getPackageManager();
+                                if (PM == null) {
+                                    XposedBridge.log("E: " + BuildConfig.APPLICATION_ID + " Cannot get the Package Manager... Are you using MiUI?");
+                                } else {
+                                    PackageInfo pI;
+                                    if (parseErr != null) {
+                                        pI = PM.getPackageArchiveInfo((String) methodHookParam.args[1], 0);
+                                    } else {
+                                        pI = PM.getPackageArchiveInfo((String) methodHookParam.args[0], 0);
+                                    }
+                                    PackageInfo InstpI = PM.getPackageInfo(pI.packageName, PackageManager.GET_SIGNATURES);
+                                    lastSigs = InstpI.signatures;
+                                }
                             }
-                        } else {
-                            if (prefs.getBoolean("digestCreak", true)) {
-                                final Object origJarFile = constructorExact.newInstance(methodHookParam.args[0], true, false);
+                        } catch (Throwable ignored) {
+
+                        }
+                        try {
+                            if (lastSigs == null && prefs.getBoolean("digestCreak", true)) {
+                                final Object origJarFile = constructorExact.newInstance(methodHookParam.args[parseErr == null ? 0 : 1], true, false);
                                 final ZipEntry manifestEntry = (ZipEntry) XposedHelpers.callMethod(origJarFile, "findEntry", "AndroidManifest.xml");
-                                final Certificate[][] lastCerts = (Certificate[][]) XposedHelpers.callStaticMethod(ASV, "loadCertificates", origJarFile, manifestEntry);
+                                final Certificate[][] lastCerts;
+                                if (parseErr != null) {
+                                    lastCerts = (Certificate[][]) XposedHelpers.callMethod(XposedHelpers.callStaticMethod(ASV, "loadCertificates", methodHookParam.args[0], origJarFile, manifestEntry), "getResult");
+                                } else {
+                                    lastCerts = (Certificate[][]) XposedHelpers.callStaticMethod(ASV, "loadCertificates", origJarFile, manifestEntry);
+                                }
                                 lastSigs = (Signature[]) XposedHelpers.callStaticMethod(ASV, "convertToSignatures", (Object) lastCerts);
                             }
+                        } catch (Throwable ignored) {
                         }
                         if (lastSigs != null) {
                             signingDetailsArgs[0] = lastSigs;
@@ -163,17 +188,23 @@ public class CorePatchForR extends XposedHelper implements IXposedHookLoadPackag
                             signingDetailsWithDigestsConstructorExact.setAccessible(true);
                             newInstance = signingDetailsWithDigestsConstructorExact.newInstance(new Object[]{newInstance, null});
                         }
-
-                        Throwable cause = throwable.getCause();
-                        if (throwable.getClass() == packageParserException) {
-                            if (error.getInt(throwable) == -103) {
-                                methodHookParam.setResult(newInstance);
+                        if (throwable != null) {
+                            Throwable cause = throwable.getCause();
+                            if (throwable.getClass() == packageParserException) {
+                                if (error.getInt(throwable) == -103) {
+                                    methodHookParam.setResult(newInstance);
+                                }
+                            }
+                            if (cause != null && cause.getClass() == packageParserException) {
+                                if (error.getInt(cause) == -103) {
+                                    methodHookParam.setResult(newInstance);
+                                }
                             }
                         }
-                        if (cause != null && cause.getClass() == packageParserException) {
-                            if (error.getInt(cause) == -103) {
-                                methodHookParam.setResult(newInstance);
-                            }
+                        if (parseErr != null && parseErr == -103) {
+                            Object input = methodHookParam.args[0];
+                            XposedHelpers.callMethod(input, "reset");
+                            methodHookParam.setResult(XposedHelpers.callMethod(input, "success", newInstance));
                         }
                     }
                 }
@@ -208,6 +239,23 @@ public class CorePatchForR extends XposedHelper implements IXposedHookLoadPackag
                 }
             }
         });
+
+        var utilClass = findClass("com.android.server.pm.PackageManagerServiceUtils", loadPackageParam.classLoader);
+        if (utilClass != null) {
+            for (var m : utilClass.getDeclaredMethods()) {
+                if ("verifySignatures".equals(m.getName())) {
+                    try {
+                        XposedBridge.class.getDeclaredMethod("deoptimizeMethod", Member.class).invoke(null, m);
+                    } catch (Throwable e) {
+                        Log.e("CorePatch", "deoptimizing failed", e);
+                    }
+                }
+            }
+        }
+    }
+
+    Class<?> getSigningDetails(ClassLoader classLoader) {
+        return XposedHelpers.findClass("android.content.pm.PackageParser.SigningDetails", classLoader);
     }
 
     @Override
