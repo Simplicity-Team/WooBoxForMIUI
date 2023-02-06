@@ -2,6 +2,7 @@ package com.lt2333.simplicitytools.hook.app.mediaeditor
 
 import com.github.kyuubiran.ezxhelper.utils.findMethod
 import com.github.kyuubiran.ezxhelper.utils.hookBefore
+import com.github.kyuubiran.ezxhelper.utils.loadClassOrNull
 import com.lt2333.simplicitytools.util.hasEnable
 import com.lt2333.simplicitytools.util.xposed.base.HookRegister
 
