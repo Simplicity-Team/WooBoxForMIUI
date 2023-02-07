@@ -11,13 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.SettingsActivity"
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="miui.cn.fkj233.xposed.statusbarlyric.SettingsFragment"/>
-                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="de.robv.android.xposed.category.MODULE_SETTINGS" />
@@ -29,7 +27,7 @@
             android:name=".launcher"
             android:enabled="true"
             android:exported="true"
-            android:targetActivity=".activity.SettingsActivity">
+            android:targetActivity=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -50,7 +48,7 @@
             android:resource="@array/xposed_scope" />
 
         <service
-            android:name=".tile.LockMaxFpsTile"
+            android:name=".tiles.LockMaxFpsTile"
             android:exported="true"
             android:icon="@drawable/ic_fps"
             android:label="@string/lock_max"
@@ -61,7 +59,7 @@
         </service>
 
         <service
-            android:name=".tile.AllowScreenshots"
+            android:name=".tiles.AllowScreenshots"
             android:exported="true"
             android:icon="@drawable/ic_baseline_fullscreen_24"
             android:label="@string/allow_screenshots"
