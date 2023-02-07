@@ -13,12 +13,6 @@
 
 ---
 
-### Description
-
-Only MIUI13 (Android12) is supported. The rest of the versions not be valid.  
-
----
-
 ### Screenshot
 ![Screenshot](https://raw.githubusercontent.com/LittleTurtle2333/SimplicityTools/main/doc/en.jpg)  
 
