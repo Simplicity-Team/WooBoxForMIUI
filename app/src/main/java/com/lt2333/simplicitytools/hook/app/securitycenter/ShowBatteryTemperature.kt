@@ -34,7 +34,7 @@ object ShowBatteryTemperature : HookRegister() {
             findMethod("com.miui.powercenter.a") {
                 name == "b" && parameterTypes[0] == Context::class.java
             }
-        } catch (e : Exception) {
+        } catch (e: Exception) {
             findMethod("com.miui.powercenter.BatteryFragment") {
                 name == "b" && parameterTypes[0] == Context::class.java
             }
@@ -46,58 +46,53 @@ object ShowBatteryTemperature : HookRegister() {
             findMethod("com.miui.powercenter.a\$a") {
                 name == "run"
             }
-        } catch (e : Exception) {
+        } catch (e: Exception) {
             findMethod("com.miui.powercenter.BatteryFragment\$a") {
                 name == "run"
             }
         }.hookAfter {
             val context = AndroidAppHelper.currentApplication().applicationContext
-            val isDarkMode =
-                context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
-            val currentTemperatureValue = context.resources.getIdentifier(
-                "current_temperature_value",
-                "id",
-                "com.miui.securitycenter"
-            )
-
+            val isDarkMode = context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
+            val currentTemperatureState = context.resources.getIdentifier("current_temperature_state", "id", "com.miui.securitycenter")
             val view = it.thisObject.getObjectAs<View>("a")
 
-            val textView = view.findViewById<TextView>(currentTemperatureValue)
+            val textView = view.findViewById<TextView>(currentTemperatureState)
             textView.apply {
-                (layoutParams as LinearLayout.LayoutParams).marginStart = dp2px(context, 25f)
                 (layoutParams as LinearLayout.LayoutParams).topMargin = 0
-                setTextSize(TypedValue.COMPLEX_UNIT_DIP, 36.399998f)
-                setPadding(0, 0, 0, 0)
+                setTextSize(TypedValue.COMPLEX_UNIT_DIP, 36.4f)
+                setPadding(0, dp2px(context, 4f), 0, 0)
                 gravity = Gravity.NO_GRAVITY
-                typeface = Typeface.defaultFromStyle(Typeface.NORMAL)
-                height = dp2px(context, 49.099983f)
+                typeface = Typeface.create(null, 700, false)
+                height = dp2px(context, 49f)
                 textAlignment = View.TEXT_ALIGNMENT_VIEW_START
             }
 
-            val tempView = TextView(context)
-            tempView.apply {
-                layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    dp2px(context, 49.099983f)
-                )
-                (layoutParams as LinearLayout.LayoutParams).marginStart =
-                    dp2px(context, 3.599976f)
-                setTextSize(TypedValue.COMPLEX_UNIT_DIP, 13.099977f)
+            val temperatureContainer = context.resources.getIdentifier("temperature_container", "id", "com.miui.securitycenter")
+            val linearL = view.findViewById<LinearLayout>(temperatureContainer).getChildAt(1) as LinearLayout
+            linearL.orientation = LinearLayout.VERTICAL
+            val l1 = linearL.getChildAt(0)
+            val l2 = linearL.getChildAt(1)
+            val linearLayout = LinearLayout(context)
+            val linearLayout1 = LinearLayout(context).apply { orientation = LinearLayout.HORIZONTAL }
+            val tempView = TextView(context).apply {
+                layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+                (layoutParams as LinearLayout.LayoutParams).marginStart = dp2px(context, 3.599976f)
+                setTextSize(TypedValue.COMPLEX_UNIT_DIP, 13.1f)
                 setTextColor(Color.parseColor(if (isDarkMode) "#e6e6e6" else "#333333"))
-                setPadding(0, dp2px(context, 25f), 0, 0)
+                setPadding(0, dp2px(context, 26f), 0, 0)
                 text = "℃"
-                typeface = Typeface.create(null, 500, false)
+                gravity = Gravity.NO_GRAVITY
+                typeface = Typeface.create(null, 700, false)
                 textAlignment = View.TEXT_ALIGNMENT_VIEW_START
             }
+            linearL.removeAllViews()
 
-            val tempeValueContainer = context.resources.getIdentifier(
-                "tempe_value_container",
-                "id",
-                "com.miui.securitycenter"
-            )
+            linearLayout.addView(l1)
+            linearLayout1.addView(l2)
+            linearLayout1.addView(tempView)
 
-            val linearLayout = view.findViewById<LinearLayout>(tempeValueContainer)
-            linearLayout.addView(tempView)
+            linearL.addView(linearLayout)
+            linearL.addView(linearLayout1)
         }
     }
 

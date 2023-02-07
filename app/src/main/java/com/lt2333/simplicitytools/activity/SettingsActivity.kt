@@ -924,8 +924,8 @@ class SettingsActivity : MIUIActivity() {
                                 setTitle(R.string.max_wallpaper_scale)
                                 setEditText(
                                     "",
-                                    "${activity.getString(R.string.def)}1.1, ${activity.getString(R.string.current)}${
-                                        safeSP.getFloat("max_wallpaper_scale", 1.1f)
+                                    "${activity.getString(R.string.def)}1.2, ${activity.getString(R.string.current)}${
+                                        safeSP.getFloat("max_wallpaper_scale", 1.2f)
                                     }"
                                 )
                                 setLButton(textId = R.string.cancel) {

@@ -7,7 +7,6 @@ plugins {
 
 android {
     compileSdk = 33
-    buildToolsVersion = "33.0.0"
     defaultConfig {
         applicationId = "com.lt2333.simplicitytools"
         minSdk = 31
@@ -52,7 +51,7 @@ android {
 dependencies {
     //API
     compileOnly("de.robv.android.xposed:api:82")
-    implementation("com.github.kyuubiran:EzXHelper:0.9.2")
+    implementation("com.github.kyuubiran:EzXHelper:1.0.3")
     //UI
     implementation(project(":blockmiui"))
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")
