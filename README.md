@@ -8,14 +8,12 @@
    <a href="https://github.com/LittleTurtle2333/SimplicityTools/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/LittleTurtle2333/SimplicityTools"></a>
    <a href="https://github.com/LittleTurtle2333/SimplicityTools/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/LittleTurtle2333/SimplicityTools"></a>
    <a href="https://github.com/LittleTurtle2333/SimplicityTools/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/LittleTurtle2333/SimplicityTools"></a>
-   <p>一个基于 MIUI13（Android12）适配的系统拓展Xposed模块</p>
+   <p>一个基于 MIUI13+（Android12+）适配的系统拓展Xposed模块</p>
 </div>
 
 ---
 
 ### 模块说明
-
-仅支持MIUI13（Android12），其余版本无法使用。  
   
 开发者：[酷安@乌堆小透明](http://www.coolapk.com/u/883441)  
 
