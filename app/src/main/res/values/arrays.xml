@@ -13,5 +13,6 @@
         <item>com.miui.screenshot</item>
         <item>com.milink.service</item>
         <item>com.xiaomi.misubscreenui</item>
+        <item>com.miui.packageinstaller</item>
     </string-array>
 </resources>

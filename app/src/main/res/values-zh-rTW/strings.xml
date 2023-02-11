@@ -224,4 +224,6 @@
     <string name="off">關閉</string>
     <string name="center">置中</string>
     <string name="left_or_right">左右</string>
+    <string name="pkg_installer">應用包管理組件</string>
+    <string name="pkg_installer_summary">禁用頻繁安裝應用檢查</string>
 </resources>

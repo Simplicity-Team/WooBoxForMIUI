@@ -25,6 +25,7 @@ class MainHook : EasyXposedInit() {
         ScreenShot, // 截屏
         Cast, //投屏
         RearDisplay, //背屏
+        PackageInstaller, // 应用包管理组件
     )
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?) {
