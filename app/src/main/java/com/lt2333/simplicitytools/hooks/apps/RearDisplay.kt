@@ -1,7 +1,7 @@
 package com.lt2333.simplicitytools.hooks.apps
 
 import android.os.Build
-import com.lt2333.simplicitytools.hooks.rules.s.reardisplay.RearDisplayWeatherForS
+import com.lt2333.simplicitytools.hooks.rules.all.reardisplay.RearDisplayWeatherForAll
 import com.lt2333.simplicitytools.utils.xposed.base.AppRegister
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
@@ -12,12 +12,12 @@ object RearDisplay: AppRegister() {
         when (Build.VERSION.SDK_INT) {
             Build.VERSION_CODES.TIRAMISU -> {
                 autoInitHooks(lpparam,
-                    RearDisplayWeatherForS, //背屏显示天气
+                    RearDisplayWeatherForAll, //背屏显示天气
                 )
             }
             Build.VERSION_CODES.S -> {
                 autoInitHooks(lpparam,
-                    RearDisplayWeatherForS, //背屏显示天气
+                    RearDisplayWeatherForAll, //背屏显示天气
                 )
             }
         }

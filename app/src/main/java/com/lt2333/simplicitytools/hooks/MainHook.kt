@@ -2,7 +2,7 @@ package com.lt2333.simplicitytools.hooks
 
 import com.lt2333.simplicitytools.BuildConfig
 import com.lt2333.simplicitytools.hooks.apps.*
-import com.lt2333.simplicitytools.hooks.rules.all.CorePatchMainHook
+import com.lt2333.simplicitytools.hooks.rules.all.corepatch.CorePatchMainHook
 import com.lt2333.simplicitytools.utils.xposed.EasyXposedInit
 import com.lt2333.simplicitytools.utils.xposed.base.AppRegister
 import de.robv.android.xposed.IXposedHookZygoteInit

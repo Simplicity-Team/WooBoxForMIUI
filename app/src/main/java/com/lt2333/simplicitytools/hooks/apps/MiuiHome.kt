@@ -1,8 +1,8 @@
 package com.lt2333.simplicitytools.hooks.apps
 
 import android.os.Build
-import com.lt2333.simplicitytools.hooks.rules.s.miuihome.AlwaysDisplayTimeForS
-import com.lt2333.simplicitytools.hooks.rules.s.miuihome.DoubleTapToSleepForS
+import com.lt2333.simplicitytools.hooks.rules.all.miuihome.AlwaysDisplayTimeForAll
+import com.lt2333.simplicitytools.hooks.rules.all.miuihome.DoubleTapToSleepForAll
 import com.lt2333.simplicitytools.utils.xposed.base.AppRegister
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
@@ -14,15 +14,15 @@ object MiuiHome : AppRegister() {
             Build.VERSION_CODES.TIRAMISU -> {
                 autoInitHooks(
                     lpparam,
-                    AlwaysDisplayTimeForS, //时钟显示时钟
-                    DoubleTapToSleepForS, //双击锁屏
+                    AlwaysDisplayTimeForAll, //时钟显示时钟
+                    DoubleTapToSleepForAll, //双击锁屏
                 )
             }
             Build.VERSION_CODES.S -> {
                 autoInitHooks(
                     lpparam,
-                    AlwaysDisplayTimeForS, //时钟显示时钟
-                    DoubleTapToSleepForS, //双击锁屏
+                    AlwaysDisplayTimeForAll, //时钟显示时钟
+                    DoubleTapToSleepForAll, //双击锁屏
                 )
             }
         }

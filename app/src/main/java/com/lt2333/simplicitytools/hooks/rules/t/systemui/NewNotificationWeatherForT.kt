@@ -1,4 +1,4 @@
-package com.lt2333.simplicitytools.hooks.rules.s.systemui
+package com.lt2333.simplicitytools.hooks.rules.t.systemui
 
 import android.annotation.SuppressLint
 import android.content.pm.ApplicationInfo
@@ -11,7 +11,8 @@ import com.lt2333.simplicitytools.views.WeatherData
 
 
 @SuppressLint("StaticFieldLeak")
-object NewNotificationWeatherForS : HookRegister() {
+object NewNotificationWeatherForT : HookRegister() {
+    // TODO: Android13控制中心天气不可用 
     lateinit var weather: WeatherData
     var clockId: Int = -2
 
