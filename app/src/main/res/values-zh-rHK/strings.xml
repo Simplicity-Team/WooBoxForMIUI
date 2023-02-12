@@ -156,4 +156,6 @@
     <string name="hide_zen_icon">隱藏 勿擾 圖標</string>
     <string name="hide_icon">隱藏圖標</string>
     <string name="double_tap_to_sleep">雙擊鎖定螢幕</string>
+    <string name="pkg_installer">應用包管理組件</string>
+    <string name="pkg_installer_summary">禁用頻繁安裝應用檢查</string>
 </resources>

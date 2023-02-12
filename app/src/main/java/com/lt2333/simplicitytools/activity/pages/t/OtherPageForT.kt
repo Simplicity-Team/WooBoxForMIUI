@@ -172,6 +172,12 @@ class OtherPageForT : BasePage() {
             TextSummaryV(textId = R.string.remove_thememanager_ads),
             SwitchV("remove_thememanager_ads")
         )
+        Line()
+        TitleText(textId = R.string.pkg_installer)
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.pkg_installer_summary),
+            SwitchV("pkg_installer_count_checking")
+        )
     }
 
 }
