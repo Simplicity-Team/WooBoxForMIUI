@@ -248,7 +248,7 @@ class SystemUIPageForT : BasePage() {
         TextSummaryArrow(TextSummaryV(textId = R.string.custom_clock_format_geek) {
             MIUIDialog(activity) {
                 setTitle(R.string.custom_clock_format_geek)
-                setEditText(MIUIActivity.safeSP.getString("custom_clock_format_geek", "HH:mm:ss"), "")
+                setEditText(MIUIActivity.safeSP.getString("custom_clock_format_geek", "HH:mm:ss"), "", isSingleLine = false)
                 setLButton(textId = R.string.cancel) {
                     dismiss()
                 }
