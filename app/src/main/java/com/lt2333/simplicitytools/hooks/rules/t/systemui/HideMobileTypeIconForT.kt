@@ -32,14 +32,14 @@ object HideMobileTypeIconForT : HookRegister() {
     private fun hideMobileTypeIcon(it: XC_MethodHook.MethodHookParam) {
         hasEnable("hide_mobile_type_icon") {
             if (isBigType) {
-                (it.thisObject.getObjectAs<TextView>("mMobileType")).visibility =
+                (it.thisObject.getObjectAs<ImageView>("mMobileType")).visibility =
                     View.GONE
                 (it.thisObject.getObjectAs<ImageView>("mMobileTypeImage")).visibility =
                     View.GONE
                 (it.thisObject.getObjectAs<TextView>("mMobileTypeSingle")).visibility =
                     View.GONE
             } else {
-                (it.thisObject.getObjectAs<TextView>("mMobileType")).visibility =
+                (it.thisObject.getObjectAs<ImageView>("mMobileType")).visibility =
                     View.INVISIBLE
                 (it.thisObject.getObjectAs<ImageView>("mMobileTypeImage")).visibility =
                     View.INVISIBLE
