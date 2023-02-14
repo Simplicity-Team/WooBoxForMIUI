@@ -18,7 +18,7 @@ class MainPageForS : BasePage() {
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.main_switch,
-                colorId = R.color.purple_700
+                colorId = R.color.blue
             ), SwitchV("main_switch", true)
         )
         TextSummaryWithSwitch(

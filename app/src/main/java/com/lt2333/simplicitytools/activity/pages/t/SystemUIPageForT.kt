@@ -599,7 +599,7 @@ class SystemUIPageForT : BasePage() {
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.show_weather_main_switch,
-                colorId = R.color.purple_700
+                colorId = R.color.blue
             ),
             SwitchV(
                 "notification_weather",
@@ -636,7 +636,7 @@ class SystemUIPageForT : BasePage() {
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.show_weather_main_switch,
-                colorId = R.color.purple_700,
+                colorId = R.color.blue,
                 tipsId = R.string.control_center_weather_summary
             ),
             SwitchV(
@@ -703,7 +703,7 @@ class SystemUIPageForT : BasePage() {
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.old_qs_custom_switch,
-                colorId = R.color.purple_700
+                colorId = R.color.blue
             ),
             SwitchV(
                 "old_qs_custom_switch",
