@@ -34,7 +34,8 @@ Xposed Repo：[Click here to download the latest release](https://github.com/Xpo
 ##### GNU General Public License v3.0
 [qqlittleice/MiuiHome](https://github.com/qqlittleice/MiuiHome)  
 [yujincheng08/BiliRoaming](https://github.com/yujincheng08/BiliRoaming)  
-[Mikanoshi/CustoMIUIzer](https://code.highspec.ru/Mikanoshi/CustoMIUIzer)
+[Mikanoshi/CustoMIUIzer](https://code.highspec.ru/Mikanoshi/CustoMIUIzer)  
+[MonwF/customiuizer](https://github.com/MonwF/customiuizer)
 ##### GNU General Public License v2.0
 [LSPosed/CorePatch](https://github.com/LSPosed/CorePatch)  
 ##### GNU Lesser General Public License v2.1
