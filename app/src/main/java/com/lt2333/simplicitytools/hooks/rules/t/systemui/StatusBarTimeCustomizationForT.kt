@@ -110,16 +110,12 @@ object StatusBarTimeCustomizationForT : HookRegister() {
                 }
 
                 if (isCenterAlign) {
-                    // TODO: Android13时间居中对齐不可用
-                    findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
-                        name == "onViewCreated" && parameterCount == 2
+                    findConstructor("com.android.systemui.statusbar.views.MiuiClock") {
+                        paramCount == 3
                     }.hookAfter {
-                        val miuiPhoneStatusBarView =
-                            it.thisObject.getObject("mStatusBar") as ViewGroup
-                        val res: Resources = miuiPhoneStatusBarView.resources
-                        val clockId: Int = res.getIdentifier("clock", "id", "com.android.systemui")
-                        val clock: TextView = miuiPhoneStatusBarView.findViewById(clockId)
-                        clock.gravity = Gravity.CENTER
+                        c = it.args[0] as Context
+                        val textV = it.thisObject as TextView
+                        textV.gravity = Gravity.CENTER
                     }
                 }
             }
@@ -175,15 +171,12 @@ object StatusBarTimeCustomizationForT : HookRegister() {
                 }
 
                 if (isGeekCenterAlign) {
-                    findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
-                        name == "onViewCreated" && parameterCount == 2
+                    findConstructor("com.android.systemui.statusbar.views.MiuiClock") {
+                        paramCount == 3
                     }.hookAfter {
-                        val miuiPhoneStatusBarView =
-                            it.thisObject.getObject("mStatusBar") as ViewGroup
-                        val res: Resources = miuiPhoneStatusBarView.resources
-                        val clockId: Int = res.getIdentifier("clock", "id", "com.android.systemui")
-                        val clock: TextView = miuiPhoneStatusBarView.findViewById(clockId)
-                        clock.gravity = Gravity.CENTER
+                        c = it.args[0] as Context
+                        val textV = it.thisObject as TextView
+                        textV.gravity = Gravity.CENTER
                     }
                 }
             }
