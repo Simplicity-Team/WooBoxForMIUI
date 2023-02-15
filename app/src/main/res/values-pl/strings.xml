@@ -219,7 +219,7 @@
     <string name="take_effect_after_reboot">Efekt po restarcie</string>
     <string name="media_volume_steps_summary">Włączenie może spowodować, że przewijanie paska głośności zamraża lub głośność Bluetooth jest nieprawidłowa</string>
     <string name="can_notification_slide_summary">Niektóre powiadomienia Mi Push mogą nie być obsługiwane.</string>
-    <string name="screen_hole_location">Lokalizacja otworu ekranu</string>
+    <string name="screen_hole_location">Pozycja otworu ekranu</string>
     <string name="custom_clock_mode">Niestandardowy format zegara</string>
     <string name="custom_clock_format_geek">Format zegara</string>
     <string name="off">Wył</string>
@@ -228,6 +228,13 @@
     <string name="preset">Szablon</string>
     <string name="geek">Maniak</string>
     <string name="do_not_clear_app">Zapobiegaj zabijaniu aplikacji w tle</string>
+    <string name="do_not_clear_app_summary">Może powodować zwiększone zużycie energii i jest zalecane do stosowania z opcją \"Spraw, by Millet był bardziej agresywny\", a nie z modułami takimi jak Tombstone</string>
+    <string name="make_millet_more_aggressive">Spraw, by Millet był bardziej agresywny</string>
+    <string name="make_millet_more_aggressive_summary">Zezwala Milletowi na zamrożenie aplikacji, gdy aplikacje w tle mają powiadomienia, uruchomione usługi i procesy.\nAplikacje, które nie chcą być zamrożone, mogą ustawić opcję oszczędzania baterii na \"Bez ograniczeń\"\nProsimy o odinstalowanie modułów związanych z Tombstone i NoAMR przed włączeniem.</string>
+    <string name="make_millet_ignore_active">Zezwól Milletowi na zamrożenie aktywnych aplikacji</string>
+    <string name="make_millet_ignore_active_summary">Bardzo agresywny, może wpływać na działanie aplikacji</string>
     <string name="pkg_installer">Instalator pakietów</string>
     <string name="pkg_installer_summary">Wyłącz sprawdzanie licznika instalacji aplikacji</string>
+    <string name="big_mobile_type_only_show_network_card">Duża ikona typu sieci tylko dla aktywnej karty SIM</string>
+    <string name="big_mobile_type_location">Pozycja dużej ikony typu sieci</string>
 </resources>
