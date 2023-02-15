@@ -69,7 +69,6 @@
     <string name="status_bar_clock_size">Dimensiune ceas (0: nu se modifică)</string>
     <string name="status_bar_clock_double_line_size">Dimensiune rând dublu (0: nu se modifică)</string>
     <string name="matters_needing_attention">Aplicația nu funcționează? </string>
-    <string name="Done">OK</string>
     <string name="about_module_summary">Vizualizează informații legate de modul</string>
     <string name="contributor_list">Lista de contribuitori a depozitului sursă deschisă</string>
     <string name="developer">Dezvoltator</string>
