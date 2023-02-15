@@ -190,7 +190,7 @@
     <string name="range">Phạm vi: </string>
     <string name="big_mobile_type_icon_left_and_right_margins">Căn lề biểu tượng mạng dữ liệu lớn</string>
     <string name="cast">Truyền</string>
-    <string name="force_support_send_app">Bắt buộc tất cả ứng dụng hỗ trợ mở trên thiết bị khác</string>
+    <string name="force_support_send_app">Ép tất cả ứng dụng hỗ trợ mở trên thiết bị khác</string>
     <string name="status_bar_time_double_line_center_align">Căn giữa hàng kép</string>
     <string name="default1">Mặc định</string>
     <string name="clock_center">Đồng hồ trung tâm</string>
@@ -235,4 +235,6 @@
     <string name="make_millet_ignore_active_summary">Rất tích cực và có thể ảnh hưởng đến ứng dụng đang chạy</string>
     <string name="pkg_installer">Trình cài đặt gói</string>
     <string name="pkg_installer_summary">Tắt kiểm tra số lần cài đặt ứng dụng</string>
+    <string name="big_mobile_type_only_show_network_card">Mạng dữ liệu lớn chỉ hiển thị thẻ mạng</string>
+    <string name="big_mobile_type_location">Vị trí mạng dữ liệu lớn</string>
 </resources>
