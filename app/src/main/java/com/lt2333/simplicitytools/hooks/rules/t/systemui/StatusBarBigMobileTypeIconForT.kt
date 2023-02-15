@@ -3,13 +3,12 @@ package com.lt2333.simplicitytools.hooks.rules.t.systemui
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.Typeface
-import android.util.TypedValue
-import android.view.Gravity
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
-import com.github.kyuubiran.ezxhelper.utils.*
+import com.github.kyuubiran.ezxhelper.utils.findMethod
+import com.github.kyuubiran.ezxhelper.utils.hookAfter
+import com.github.kyuubiran.ezxhelper.utils.hookBefore
+import com.github.kyuubiran.ezxhelper.utils.putObject
 import com.lt2333.simplicitytools.utils.XSPUtils
 import com.lt2333.simplicitytools.utils.hasEnable
 import com.lt2333.simplicitytools.utils.xposed.base.HookRegister
@@ -18,18 +17,19 @@ import com.lt2333.simplicitytools.utils.xposed.base.HookRegister
 object StatusBarBigMobileTypeIconForT : HookRegister() {
 
     private val upAndDownPosition = XSPUtils.getInt("big_mobile_type_icon_up_and_down_position", 0)
-    private val leftAndRightMargin =
-        XSPUtils.getInt("big_mobile_type_icon_left_and_right_margins", 0)
+    private val leftAndRightMargin = XSPUtils.getInt("big_mobile_type_icon_left_and_right_margins", 0)
     private val isBold = XSPUtils.getBoolean("big_mobile_type_icon_bold", true)
     private val size = XSPUtils.getFloat("big_mobile_type_icon_size", 12.5f)
+    private val isOnlyShowNetwork = XSPUtils.getBoolean("big_mobile_type_only_show_network_card", false)
 
     override fun init() = hasEnable("big_mobile_type_icon") {
         //使网络类型单独显示
-        findMethod("com.android.systemui.statusbar.StatusBarMobileView"){
+        findMethod("com.android.systemui.statusbar.StatusBarMobileView") {
             name == "applyMobileState"
         }.hookBefore {
             val mobileIconState = it.args[0]
-            mobileIconState.putObject("showMobileDataTypeSingle",true)
+            mobileIconState.putObject("showMobileDataTypeSingle", true)
+            if (!isOnlyShowNetwork) mobileIconState.putObject("dataConnected", true)
         }
 
         findMethod("com.android.systemui.statusbar.StatusBarMobileView") {
@@ -63,11 +63,13 @@ object StatusBarBigMobileTypeIconForT : HookRegister() {
 
             //更改样式
             mobileTypeSingle.textSize = size
-            if (isBold){
+            if (isBold) {
                 mobileTypeSingle.typeface = Typeface.DEFAULT_BOLD
             }
-            mobileTypeSingle.setPadding(leftAndRightMargin, upAndDownPosition,
-                leftAndRightMargin,0)
+            mobileTypeSingle.setPadding(
+                leftAndRightMargin, upAndDownPosition,
+                leftAndRightMargin, 0
+            )
         }
     }
 
