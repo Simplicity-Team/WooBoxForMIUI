@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lock_max_fps">Verrouiller le taux de rafraîchissement actuel</string>
-    <string name="ui">Interface</string>
     <string name="delete_on_post_notification">Supprimer l\'affichage sur la notification</string>
     <string name="delete_on_post_notification_summary">Supprimer la notification \"Cette application s\'affiche au-dessus des autres applications\"</string>
     <string name="other">Autre</string>
@@ -30,7 +29,6 @@
     <string name="hide_hd_no_service_icon">Masquer l\'icône HD Non Service</string>
     <string name="about">À propos</string>
     <string name="about_module">À propos du Module</string>
-    <string name="verison">Version</string>
     <string name="dev_coolapk">Développeur en Coolapk</string>
     <string name="opensource">Référentiel Open Source</string>
     <string name="github_url">Bienvenue à d\'autres développeurs pour participer au développement</string>
@@ -44,7 +42,6 @@
     <string name="main_switch">Interrupteur Généra</string>
     <string name="hide_gps_icon">Masquer l\'icône GPS</string>
     <string name="hide_status_bar_network_speed_second">Masquer les unités de vitesse réseau (/s)</string>
-    <string name="menu">Menu</string>
     <string name="Tips">Conseils</string>
     <string name="unlock_unlimited_cropping">Supprimer la restriction lors du recadrage des photos/captures d\'écran</string>
     <string name="hide_slave_wifi_icon">Masquer l\'icône secondaire WIFI</string>
@@ -84,7 +81,6 @@
     <string name="qq_channel">Joignez la chaîne officielle en QQ</string>
     <string name="tg_channel">Joignez la chaîne officielle en Télégramme</string>
     <string name="tg_channel_summary">Vous pouvez entrer dans le groupe de discussion sur la page de la chaîne</string>
-    <string name="discussions">Discussions</string>
     <string name="remove_small_window_restrictions_summary">Ignorer la liste noire du système et l\'interdiction du logiciel des petites fenêtres</string>
     <string name="remove_the_left_side_of_the_lock_screen">Supprimer le panneau latéral de l\'écran de verrouillage</string>
     <string name="remove_lock_screen_camera">Supprimer le caméra de l\'écran de verrouillage</string>
@@ -92,7 +88,6 @@
     <string name="lock_one_hundred">Définir 100 points dans la Centre Security</string>
     <string name="scope">Aapplication activée</string>
     <string name="scope_android">Cadre du Système</string>
-    <string name="scope_systemui">SystemUI</string>
     <string name="scope_miuihome">Homepage</string>
     <string name="scope_other">Autres</string>
     <string name="status_bar_network_speed_refresh_speed_summary">Changer la fréquence d\'actualisation du composant de vitesse réseau de la barre d\'état à 1s</string>
