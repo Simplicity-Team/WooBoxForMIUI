@@ -46,7 +46,6 @@
     <string name="main_switch">Hlavní přepínač modulu</string>
     <string name="hide_gps_icon">Skrýt ikonu GPS</string>
     <string name="hide_status_bar_network_speed_second">Skrýt jednotky rychlosti sítě (/s)</string>
-    <string name="menu">Menu</string>
     <string name="Tips">Tipy</string>
     <string name="skip_waiting_time">Přeskočit upozornění na 5/10 vteřin</string>
     <string name="unlock_unlimited_cropping">Odstranit omezení oříznutí obrázků/snímků obrazovky</string>
@@ -69,7 +68,6 @@
     <string name="status_bar_clock_size">Velikost hodin (0: neměnit)</string>
     <string name="status_bar_clock_double_line_size">Velikost dvojitého řádku (0: neměnit)</string>
     <string name="matters_needing_attention">Funkce nefunguje? </string>
-    <string name="Done">OK</string>
     <string name="about_module_summary">Zobrazit informace o modulu</string>
     <string name="contributor_list">Seznam přispěvatelů Open source repozitáře</string>
     <string name="developer">Vývojář</string>
@@ -95,7 +93,6 @@
     <string name="lock_one_hundred">Nastavit 100 bodů v bezpečnostní aplikaci</string>
     <string name="scope">Rozsah</string>
     <string name="scope_android">Systémový framework</string>
-    <string name="scope_systemui">SystemUI</string>
     <string name="scope_miuihome">Domovská obrazovka</string>
     <string name="scope_other">Ostatní</string>
     <string name="status_bar_network_speed_refresh_speed_summary">Změnit frekvenci obnovení složky rychlosti sítě ve stavové liště na 1 s</string>
@@ -138,8 +135,6 @@
     <string name="layout_compatibility_mode_summary">Umožnit zobrazení levého a pravého otvoru</string>
     <string name="remove_macro_blacklist">Odstranit makro-černou listinu</string>
     <string name="hide_network_speed_splitter">Skrýt rozdělovač rychlosti sítě</string>
-    <string name="updater">Updater</string>
-    <string name="remove_ota_validate">*Remove OTA validate [LAB]</string>
     <string name="remove_ota_validate_summary">- Podpořte pouze použití VAB série, prosím neotevírejte jiné série.\n- Nemusí být potřeba interní testovací kvalifikace, aby bylo možné nainstalovat celý interní testovací balíček.\n- Ti, kdo mají interní testovací oprávnění, nebudou moci přijímat aktualizace interních testů a mohou být použity k blokování aktualizací systému.\n- Po aktualizaci křížových verzí je doporučeno vymazat data.\n- Neoficiální ROM použití není podporováno.</string>
     <string name="settings">Nastavení</string>
     <string name="show_notification_importance">Zobrazit důležitost oznámení</string>
@@ -188,7 +183,6 @@
     <string name="input_error">Chyba vstupu</string>
     <string name="range">Rozsah: </string>
     <string name="big_mobile_type_icon_left_and_right_margins">Velká ikona mobilního typu doleva a doprava</string>
-    <string name="cast">Cast</string>
     <string name="force_support_send_app">Vynutit otevření všech aplikací na jiném zařízení</string>
     <string name="status_bar_time_double_line_center_align">Zarovnání uprostřed dvojité řádky</string>
     <string name="default1">Výchozí</string>
