@@ -235,4 +235,6 @@
     <string name="make_millet_ignore_active_summary">Muy agresivo y puede afectar el comportamiento de la aplicación</string>
     <string name="pkg_installer">Instalador de Paquetes</string>
     <string name="pkg_installer_summary">Desactivar la comprobación del conteo de la instalación</string>
+    <string name="big_mobile_type_only_show_network_card">Tipo de móvil grande solo muestra tarjeta de red</string>
+    <string name="big_mobile_type_location">Ubicación del tipo de red móvil grande</string>
 </resources>
