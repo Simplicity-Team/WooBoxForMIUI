@@ -235,4 +235,7 @@
     <string name="make_millet_ignore_active_summary">非常激进，可能会影响应用运行</string>
     <string name="pkg_installer">应用包管理组件</string>
     <string name="pkg_installer_summary">禁用频繁安装应用检查</string>
+    <string name="big_mobile_type_only_show_network_card">大移动类型图标仅显示上网卡</string>
+    <string name="big_mobile_type_location">大移动类型图标位置</string>
+
 </resources>

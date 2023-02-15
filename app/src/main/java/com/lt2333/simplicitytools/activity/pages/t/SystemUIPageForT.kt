@@ -12,10 +12,9 @@ import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
 import com.lt2333.simplicitytools.R
-import java.util.HashMap
 
 
-@BMPage("scope_systemui","System UI", hideMenu = false)
+@BMPage("scope_systemui", "System UI", hideMenu = false)
 class SystemUIPageForT : BasePage() {
 
     override fun onCreate() {
@@ -151,7 +150,12 @@ class SystemUIPageForT : BasePage() {
         }
         TextWithSpinner(
             TextV(textId = R.string.custom_clock_mode),
-            SpinnerV(customClockMode[MIUIActivity.safeSP.getInt("custom_clock_mode", 0)].toString()) {
+            SpinnerV(
+                customClockMode[MIUIActivity.safeSP.getInt(
+                    "custom_clock_mode",
+                    0
+                )].toString()
+            ) {
                 add(customClockMode[0].toString()) {
                     MIUIActivity.safeSP.putAny("custom_clock_mode", 0)
                     customClockPresetBinding.binding.Send().send(false)
@@ -248,7 +252,11 @@ class SystemUIPageForT : BasePage() {
         TextSummaryArrow(TextSummaryV(textId = R.string.custom_clock_format_geek) {
             MIUIDialog(activity) {
                 setTitle(R.string.custom_clock_format_geek)
-                setEditText(MIUIActivity.safeSP.getString("custom_clock_format_geek", "HH:mm:ss"), "", isSingleLine = false)
+                setEditText(
+                    MIUIActivity.safeSP.getString("custom_clock_format_geek", "HH:mm:ss"),
+                    "",
+                    isSingleLine = false
+                )
                 setLButton(textId = R.string.cancel) {
                     dismiss()
                 }
@@ -352,6 +360,32 @@ class SystemUIPageForT : BasePage() {
                 "big_mobile_type_icon",
                 dataBindingSend = bigMobileTypeIconBinding.bindingSend
             )
+        )
+        val bigMobileTypeLocation: HashMap<Int, String> = hashMapOf<Int, String>().also {
+            it[0] = getString(R.string.left)
+            it[1] = getString(R.string.right)
+        }
+        TextWithSpinner(
+            TextV(textId = R.string.big_mobile_type_location),
+            SpinnerV(
+                bigMobileTypeLocation[MIUIActivity.safeSP.getInt(
+                    "big_mobile_type_location",
+                    1
+                )].toString()
+            ) {
+                add(bigMobileTypeLocation[0].toString()) {
+                    MIUIActivity.safeSP.putAny("big_mobile_type_location", 0)
+                }
+                add(bigMobileTypeLocation[1].toString()) {
+                    MIUIActivity.safeSP.putAny("big_mobile_type_location", 1)
+                }
+            },
+            dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.big_mobile_type_only_show_network_card),
+            SwitchV("big_mobile_type_only_show_network_card", false),
+            dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
         )
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.big_mobile_type_icon_bold),

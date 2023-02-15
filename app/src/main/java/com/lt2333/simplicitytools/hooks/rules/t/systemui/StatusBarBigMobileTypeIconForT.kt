@@ -16,6 +16,7 @@ import com.lt2333.simplicitytools.utils.xposed.base.HookRegister
 
 object StatusBarBigMobileTypeIconForT : HookRegister() {
 
+    private val getLocation = XSPUtils.getInt("big_mobile_type_location", 1)
     private val upAndDownPosition = XSPUtils.getInt("big_mobile_type_icon_up_and_down_position", 0)
     private val leftAndRightMargin = XSPUtils.getInt("big_mobile_type_icon_left_and_right_margins", 0)
     private val isBold = XSPUtils.getBoolean("big_mobile_type_icon_bold", true)
@@ -56,10 +57,12 @@ object StatusBarBigMobileTypeIconForT : HookRegister() {
             val mobileTypeSingle = statusBarMobileView.findViewById<TextView>(mobileTypeSingleId)
 
             //更改顺序
-            mobileGroup.removeView(mobileTypeSingle)
-            mobileGroup.addView(mobileTypeSingle)
-            mobileGroup.removeView(mobileContainerLeft)
-            mobileGroup.addView(mobileContainerLeft)
+            if (getLocation == 1) {
+                mobileGroup.removeView(mobileTypeSingle)
+                mobileGroup.addView(mobileTypeSingle)
+                mobileGroup.removeView(mobileContainerLeft)
+                mobileGroup.addView(mobileContainerLeft)
+            }
 
             //更改样式
             mobileTypeSingle.textSize = size

@@ -239,4 +239,6 @@
     <string name="make_millet_ignore_active_summary">Very aggressive and may affect application running</string>
     <string name="pkg_installer">Package Installer</string>
     <string name="pkg_installer_summary">Disable the app installation\'s count checking</string>
+    <string name="big_mobile_type_only_show_network_card">Big mobile type only show network card</string>
+    <string name="big_mobile_type_location">Big mobile type location</string>
 </resources>
