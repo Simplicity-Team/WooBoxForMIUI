@@ -69,7 +69,6 @@
     <string name="status_bar_clock_size">Tamaño del reloj (0: no cambiar)</string>
     <string name="status_bar_clock_double_line_size">Tamaño de la fila dual (0: no cambiar)</string>
     <string name="matters_needing_attention">¿Alguna característica no funciona? </string>
-    <string name="Done">OK</string>
     <string name="about_module_summary">Ver información relacionada con el módulo</string>
     <string name="contributor_list">Lista de colaboradores del repositorio de código abierto</string>
     <string name="developer">Desarrollador</string>
