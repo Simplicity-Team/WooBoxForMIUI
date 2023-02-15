@@ -239,4 +239,6 @@
     <string name="make_millet_ignore_active_summary">Очень агрессивно и может повлиять на работу приложений</string>
     <string name="pkg_installer">Установщик пакетов</string>
     <string name="pkg_installer_summary">Отключить проверку количества установок</string>
+    <string name="big_mobile_type_only_show_network_card">Большая иконка типа сети только для активной сим</string>
+    <string name="big_mobile_type_location">Положение большой иконки типа сети</string>
 </resources>
