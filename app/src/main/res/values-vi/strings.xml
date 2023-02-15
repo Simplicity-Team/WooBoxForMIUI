@@ -46,7 +46,6 @@
     <string name="main_switch">Công tắc module</string>
     <string name="hide_gps_icon">Ẩn biểu tượng GPS</string>
     <string name="hide_status_bar_network_speed_second">Ẩn đơn vị tốc độ mạng (/s)</string>
-    <string name="menu">Menu</string>
     <string name="Tips">Mẹo</string>
     <string name="skip_waiting_time">Bỏ qua 5/10 giây cảnh báo</string>
     <string name="unlock_unlimited_cropping">Bỏ qua danh sách đen hệ thống và phần mềm cấm cửa sổ nhỏ</string>
@@ -69,7 +68,6 @@
     <string name="status_bar_clock_size">Kích cỡ đồng hồ (0: không đổi)</string>
     <string name="status_bar_clock_double_line_size">Kích cỡ hàng kép (0: không đổi)</string>
     <string name="matters_needing_attention">Tính năng không hoạt động? </string>
-    <string name="Done">OK</string>
     <string name="about_module_summary">Xem thông tin liên quan tới mô-đun</string>
     <string name="contributor_list">Danh sánh người đóng góp kho nguồn mở</string>
     <string name="developer">Nhà phát triển</string>
