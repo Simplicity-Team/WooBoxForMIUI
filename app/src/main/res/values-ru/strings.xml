@@ -29,6 +29,7 @@
     <string name="hide_nfc_icon">Скрыть иконку NFC</string>
     <string name="hide_big_hd_icon">Скрыть большую иконку HD</string>
     <string name="hide_small_hd_icon">Скрыть маленькую иконку HD</string>
+    <string name="hide_new_hd_icon">Скрыть новую иконку HD</string>
     <string name="hide_hd_no_service_icon">Скрыть HD No Service</string>
     <string name="about">Информация</string>
     <string name="about_module">О модуле</string>
@@ -69,6 +70,7 @@
     <string name="status_bar_clock_size">Размер часов (0: не изменять)</string>
     <string name="status_bar_clock_double_line_size">Размер часов в 2 строки (0: не изменять)</string>
     <string name="matters_needing_attention">Функция не работает?</string>
+    <string name="Done">ОК</string>
     <string name="about_module_summary">Просмотр информации</string>
     <string name="contributor_list">Список участников</string>
     <string name="developer">Разработчик</string>
@@ -93,6 +95,8 @@
     <string name="only_official_default_themes_are_supported">Поддерживаются только официальные темы</string>
     <string name="lock_one_hundred">Оптимизация безопасности</string>
     <string name="scope">Основное</string>
+    <string name="scope_android">Системный фреймворк</string>
+    <string name="scope_systemui">SystemUI</string>
     <string name="scope_miuihome">Начальный экран</string>
     <string name="scope_other">Другое</string>
     <string name="status_bar_network_speed_refresh_speed_summary">Изменяет частоту обновления скорости сети в строке состояния на 1 с</string>
@@ -233,4 +237,6 @@
     <string name="make_millet_more_aggressive_summary">Позволяет Millet замораживать приложения, когда фоновые приложения имеют уведомления, запущенные службы и запущенные процессы.</string>
     <string name="make_millet_ignore_active">Разрешить Millet замораживать активные приложения</string>
     <string name="make_millet_ignore_active_summary">Очень агрессивно и может повлиять на работу приложений</string>
+    <string name="pkg_installer">Установщик пакетов</string>
+    <string name="pkg_installer_summary">Отключить проверку количества установок</string>
 </resources>
