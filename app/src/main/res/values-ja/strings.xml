@@ -69,7 +69,6 @@
     <string name="status_bar_clock_size">時計のサイズ (0: 変更しない)</string>
     <string name="status_bar_clock_double_line_size">デュアル行サイズ (0: 変更しない)</string>
     <string name="matters_needing_attention">機能が動作していませんか？ </string>
-    <string name="Done">OK</string>
     <string name="about_module_summary">モジュール関連情報を表示</string>
     <string name="contributor_list">オープンソースリポジトリの貢献者一覧</string>
     <string name="developer">開発者</string>
