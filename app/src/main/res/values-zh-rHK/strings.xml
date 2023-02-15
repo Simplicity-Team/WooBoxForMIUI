@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="performance">性能</string>
     <string name="lock_max_fps">鎖定當前刷新率上限</string>
     <string name="ui">界面</string>
     <string name="delete_on_post_notification">移除上層顯示通知</string>
@@ -25,8 +26,10 @@
     <string name="hide_hotspot_icon">隱藏 WIFI熱點 圖標</string>
     <string name="hide_headset_icon">隱藏 耳機 圖標</string>
     <string name="hide_bluetooth_battery_icon">隱藏 藍牙電量 圖標</string>
+    <string name="hide_nfc_icon">隱藏 NFC 圖標</string>
     <string name="hide_big_hd_icon">隱藏 大HD 圖標</string>
     <string name="hide_small_hd_icon">隱藏 小HD 圖標</string>
+    <string name="hide_new_hd_icon">隱藏 新HD 圖標</string>
     <string name="hide_hd_no_service_icon">隱藏 HD無服務 圖標</string>
     <string name="about">關於</string>
     <string name="about_module">關於模塊</string>
@@ -46,6 +49,7 @@
     <string name="hide_status_bar_network_speed_second">隱藏網速（/s）單位</string>
     <string name="menu">菜單</string>
     <string name="Tips">提示</string>
+    <string name="skip_waiting_time">跳過 5/10 秒警告時間</string>
     <string name="unlock_unlimited_cropping">移除裁剪圖片/螢幕截圖的限制</string>
     <string name="hide_slave_wifi_icon">隱藏 WIFI輔助 圖標</string>
     <string name="HideLauncherIcon">隱藏桌面圖標</string>
@@ -152,10 +156,24 @@
     <string name="participate_in_translation_summary">幫助我們將這個APP翻譯成您的語言</string>
     <string name="lock_screen_charging_current">充電時顯示當前電流</string>
     <string name="current_current">當前電流</string>
+    <string name="remove_open_app_confirmation_popup">移除打開應用彈窗</string>
+    <string name="remove_open_app_confirmation_popup_summary">移除 \"XXX 想要打開 XXX\" 的彈窗 。</string>
     <string name="hide_volume_icon">隱藏 音量 圖標</string>
     <string name="hide_zen_icon">隱藏 勿擾 圖標</string>
     <string name="hide_icon">隱藏圖標</string>
     <string name="double_tap_to_sleep">雙擊鎖定螢幕</string>
+    <string name="home_double_tap_to_sleep_summary">雙擊空白處鎖定螢幕</string>
+    <string name="old_quick_settings_panel">舊版快速設定面板</string>
+    <string name="old_qs_custom_switch">自定義行列數</string>
+    <string name="qs_custom_columns_unexpanded">列 （未展開）</string>
+    <string name="qs_custom_rows">行</string>
+    <string name="qs_custom_columns">列</string>
+    <string name="qs_custom_rows_horizontal">列 （橫屏）</string>
+    <string name="status_bar_dual_row_network_speed">雙排網路速度</string>
+    <string name="status_bar_dual_row_network_speed_summary">上下行網路速度顯示</string>
+    <string name="status_bar_network_speed">狀態列網路速度</string>
+    <string name="status_bar_network_speed_dual_row_size">雙排大小（0：不更改）</string>
+    <string name="status_bar_network_speed_dual_row_icon">雙排圖標</string>
     <string name="pkg_installer">應用包管理組件</string>
     <string name="pkg_installer_summary">禁用頻繁安裝應用檢查</string>
 </resources>

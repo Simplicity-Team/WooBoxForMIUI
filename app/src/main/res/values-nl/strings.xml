@@ -2,7 +2,6 @@
 <resources>
     <string name="performance">Prestatie</string>
     <string name="lock_max_fps">Vergrendel het huidige ververspercentage van het bovenlimiet</string>
-    <string name="ui">Interface</string>
     <string name="delete_on_post_notification">Verwijder weergave over notificatie</string>
     <string name="delete_on_post_notification_summary">Verwijder \"Deze app geeft weer over andere apps\" notificatie</string>
     <string name="other">Andere</string>
@@ -33,7 +32,6 @@
     <string name="about_module">Over Module</string>
     <string name="verison">Versie</string>
     <string name="dev_coolapk">Auteur Coolapk</string>
-    <string name="opensource">Open Source Repository</string>
     <string name="github_url">Welkom meer ontwikkelaars om deel te nemen in de ontwikkeling</string>
     <string name="issues">Feedback/Voorstel</string>
     <string name="issues_url">Klik om GitHub Problemen te bekijken</string>
@@ -45,7 +43,6 @@
     <string name="main_switch">Module hoofdschakelaar</string>
     <string name="hide_gps_icon">Verberg GPS icoon</string>
     <string name="hide_status_bar_network_speed_second">Verberg netwerksnelheid (/s) eenheden</string>
-    <string name="menu">Menu</string>
     <string name="Tips">Hint</string>
     <string name="skip_waiting_time">Sla 5/10 seconden van waarschuwingstijd over</string>
     <string name="unlock_unlimited_cropping">Verwijder restrictie op bijsnijden van afbeeldingen/schermafbeelingen</string>

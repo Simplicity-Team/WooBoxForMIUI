@@ -68,7 +68,6 @@
     <string name="status_bar_clock_size">Óraméret (0: nem változtatható)</string>
     <string name="status_bar_clock_double_line_size">Kettős sorméret (0: nem változtatható)</string>
     <string name="matters_needing_attention">A funkció nem működik? </string>
-    <string name="Done">OK</string>
     <string name="about_module_summary">Modulhoz kapcsolódó információk megtekintése</string>
     <string name="contributor_list">Nyílt forráskódú adattár közreműködőinek listája</string>
     <string name="developer">Fejlesztő</string>
