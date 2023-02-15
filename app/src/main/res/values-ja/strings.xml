@@ -19,7 +19,7 @@
     <string name="hide_sim_two_icon">SIMカード2のアイコンを隠す</string>
     <string name="hide_vpn_icon">VPN アイコンを隠す</string>
     <string name="hide_airplane_icon">機内モードのアイコンを隠す</string>
-    <string name="hide_wifi_icon">Wi-Fiアイコンを隠す</string>
+    <string name="hide_wifi_icon">Wi-Fi アイコンを隠す</string>
     <string name="hide_bluetooth_icon">Bluetooth アイコンを隠す</string>
     <string name="hide_volume_zen_icon">サウンドとマナーモードのアイコンを隠す</string>
     <string name="hide_alarm_icon">アラームアイコンを隠す</string>
@@ -27,18 +27,19 @@
     <string name="hide_headset_icon">ヘッドセットアイコンを隠す</string>
     <string name="hide_bluetooth_battery_icon">Bluetooth機器のバッテリーアイコンを非表示</string>
     <string name="hide_nfc_icon">NFC アイコンを隠す</string>
-    <string name="hide_big_hd_icon">大きなHDアイコンを隠す</string>
-    <string name="hide_small_hd_icon">小さいHDアイコンを隠す</string>
+    <string name="hide_big_hd_icon">大きな HD アイコンを隠す</string>
+    <string name="hide_small_hd_icon">小さな HD アイコンを隠す</string>
+    <string name="hide_new_hd_icon">新しい HD 通話アイコンを隠す</string>
     <string name="hide_hd_no_service_icon">HD サービスなしアイコンを隠す</string>
     <string name="about">概要</string>
     <string name="about_module">モジュールについて</string>
     <string name="verison">バージョン</string>
-    <string name="dev_coolapk">開発者のCoolapk</string>
+    <string name="dev_coolapk">開発者の Coolapk</string>
     <string name="opensource">オープンソースリポジトリ</string>
     <string name="github_url">開発に参加できる開発者を歓迎します</string>
     <string name="issues">ご意見・ご提案</string>
     <string name="issues_url">クリックして GitHub Issues を表示する</string>
-    <string name="xposeddescription">MIUI13(Android 12)のカスタマイズツール</string>
+    <string name="xposeddescription">MIUI13 (Android 12) のカスタマイズツール</string>
     <string name="statusbar">ステータスバー</string>
     <string name="status_bar_time_seconds">秒を表示する</string>
     <string name="status_bar_network_speed_refresh_speed">ネットワーク速度を秒単位で更新</string>
@@ -69,6 +70,7 @@
     <string name="status_bar_clock_size">時計のサイズ (0: 変更しない)</string>
     <string name="status_bar_clock_double_line_size">デュアル行サイズ (0: 変更しない)</string>
     <string name="matters_needing_attention">機能が動作していませんか？ </string>
+    <string name="Done">OK</string>
     <string name="about_module_summary">モジュール関連情報を表示</string>
     <string name="contributor_list">オープンソースリポジトリの貢献者一覧</string>
     <string name="developer">開発者</string>
@@ -225,4 +227,12 @@
     <string name="left_or_right">左または右</string>
     <string name="preset">プリセット</string>
     <string name="geek">オタク</string>
+    <string name="do_not_clear_app">バックグラウンドアプリの終了を防止</string>
+    <string name="do_not_clear_app_summary">消費電力が増える可能性があります。「よりアグレッシブにする」と併用することをおすすめします。Tombstone との併用はおすすめしません。</string>
+    <string name="make_millet_more_aggressive">よりアグレッシブにする</string>
+    <string name="make_millet_more_aggressive_summary">バックグラウンドアプリに通知、実行中のサービスやプロセスがあっても停止させることを許可します。\n停止させたくないアプリはバッテリーセーバーを制限なしに設定してください。\n有効にする前に Tombstone と NoANR 関連モジュールをアンインストールしてください。</string>
+    <string name="make_millet_ignore_active">アクティブなアプリの停止を許可</string>
+    <string name="make_millet_ignore_active_summary">非常にアグレッシブで、アプリの実行に影響する可能性があります</string>
+    <string name="pkg_installer">パッケージインストーラー</string>
+    <string name="pkg_installer_summary">アプリインストール時のカウントチェックを無効にします</string>
 </resources>
