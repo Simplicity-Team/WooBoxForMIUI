@@ -241,4 +241,5 @@
     <string name="pkg_installer_summary">Disable the app installation\'s count checking</string>
     <string name="big_mobile_type_only_show_network_card">Big mobile type only show network card</string>
     <string name="big_mobile_type_location">Big mobile type location</string>
+    <string name="click_to_view_use_cases">Click to view use cases</string>
 </resources>
