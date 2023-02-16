@@ -130,7 +130,7 @@
     <string name="are_you_sure_reboot_scope">Bạn có muốn khởi động lại tất cả ứng dụng liên quan?</string>
     <string name="hide_battery_charging_icon">Ẩn biểu tượng sạc</string>
     <string name="hide_wifi_standard_icon">Ẩn biểu tượng WIFI tiêu chuẩn</string>
-    <string name="status_bar_time_center">Thời gian hiện thị ở chính giữa thanh trạng thái</string>
+    <string name="status_bar_time_center">Thời gian hiển thị ở chính giữa thanh trạng thái</string>
     <string name="status_bar_layout_summary">Nhiều bố cục thanh trạng thái khác đang được phát triển</string>
     <string name="status_bar_layout">Bố cục thanh trạng thái</string>
     <string name="layout_compatibility_mode">Chế độ tương thích</string>
@@ -141,12 +141,12 @@
     <string name="hide_network_speed_splitter">Ẩn bộ chia tốc độ mạng</string>
     <string name="updater">Trình cập nhật</string>
     <string name="remove_ota_validate">*Gỡ xác thực OTA [LAB]</string>
-    <string name="remove_ota_validate_summary">- Chỉ hỗ trợ sử dụng sê-ri VAB, vui lòng không mở sê-ri khác. \n- Không cần đủ điều kiện thử nghiệm nội bộ để sử dụng gói thử nghiệm nội bộ đầy đủ. \n- Những người có quyền thử nghiệm nội bộ sẽ không thể nhận được bản cập nhật thử nghiệm nội bộ và có thể được sử dụng để chặn cập nhật hệ thống. \n- Sau khi nâng cấp loại phiên bản chéo, bạn nên xóa dữ liệu. \n- Không hỗ trợ sử dụng ROM không chính thức.</string>
+    <string name="remove_ota_validate_summary">- Chỉ hỗ trợ sử dụng sê-ri VAB, vui lòng không mở sê-ri khác.\n- Không cần đủ điều kiện thử nghiệm nội bộ để sử dụng gói thử nghiệm nội bộ đầy đủ.\n- Những người có quyền thử nghiệm nội bộ sẽ không thể nhận được bản cập nhật thử nghiệm nội bộ và có thể được sử dụng để chặn cập nhật hệ thống.\n- Sau khi nâng cấp loại phiên bản chéo, bạn nên xóa dữ liệu.\n- Không hỗ trợ sử dụng ROM không chính thức.</string>
     <string name="settings">Cài đặt</string>
     <string name="show_notification_importance">Hiện thông báo quan trọng</string>
     <string name="show_notification_importance_summary">Hiển thị cài đặt mức độ quan trọng của thông báo bị ẩn trong MIUI 12 và các phiên bản mới hơn</string>
     <string name="remove_ad">Gỡ quảng cáo</string>
-    <string name="remove_thememanager_ads">Gỡ bỏ quảng cáo cho Trình quản lí chủ đề</string>
+    <string name="remove_thememanager_ads">Gỡ bỏ quảng cáo cho trình quản lí chủ đề</string>
     <string name="battery_life_function">Trang pin hiển thị nhiệt độ hiện tại</string>
     <string name="enable_wave_charge_animation">Bật hoạt ảnh dạng sóng khi sạc</string>
     <string name="max_wallpaper_scale">Tỉ lệ hình nền tối đa</string>
@@ -158,7 +158,7 @@
     <string name="current_current">Hiện tại</string>
     <string name="remove_open_app_confirmation_popup">Xóa cửa sổ bật lên ứng dụng đang mở</string>
     <string name="remove_open_app_confirmation_popup_summary">Gỡ bỏ cửa sổ nổi \"Cho phép XXX mở XXX\"</string>
-    <string name="hide_volume_icon">Ẩn biểu tượng Âm lượng</string>
+    <string name="hide_volume_icon">Ẩn biểu tượng âm lượng</string>
     <string name="hide_zen_icon">Ẩn biểu tượng ZEN</string>
     <string name="hide_icon">Ẩn biểu tượng</string>
     <string name="double_tap_to_sleep">Chạm hai lần để tắt màn hình</string>
@@ -190,7 +190,7 @@
     <string name="range">Phạm vi: </string>
     <string name="big_mobile_type_icon_left_and_right_margins">Căn lề biểu tượng mạng dữ liệu lớn</string>
     <string name="cast">Truyền</string>
-    <string name="force_support_send_app">Bắt buộc tất cả ứng dụng hỗ trợ mở trên thiết bị khác</string>
+    <string name="force_support_send_app">Ép tất cả ứng dụng hỗ trợ mở trên thiết bị khác</string>
     <string name="status_bar_time_double_line_center_align">Căn giữa hàng kép</string>
     <string name="default1">Mặc định</string>
     <string name="clock_center">Đồng hồ trung tâm</string>
@@ -235,4 +235,6 @@
     <string name="make_millet_ignore_active_summary">Rất tích cực và có thể ảnh hưởng đến ứng dụng đang chạy</string>
     <string name="pkg_installer">Trình cài đặt gói</string>
     <string name="pkg_installer_summary">Tắt kiểm tra số lần cài đặt ứng dụng</string>
+    <string name="big_mobile_type_only_show_network_card">Mạng dữ liệu lớn chỉ hiển thị thẻ mạng</string>
+    <string name="big_mobile_type_location">Vị trí mạng dữ liệu lớn</string>
 </resources>

@@ -29,6 +29,7 @@
     <string name="hide_nfc_icon">Ocultar icono de NFC</string>
     <string name="hide_big_hd_icon">Ocultar icono grande HD</string>
     <string name="hide_small_hd_icon">Ocultar icono pequeño HD</string>
+    <string name="hide_new_hd_icon">Ocultar nuevo icono HD</string>
     <string name="hide_hd_no_service_icon">Ocultar icono sin servicio HD</string>
     <string name="about">Acerca de</string>
     <string name="about_module">Acerca del Módulo</string>
@@ -69,6 +70,7 @@
     <string name="status_bar_clock_size">Tamaño del reloj (0: no cambiar)</string>
     <string name="status_bar_clock_double_line_size">Tamaño de la fila dual (0: no cambiar)</string>
     <string name="matters_needing_attention">¿Alguna característica no funciona? </string>
+    <string name="Done">Ok</string>
     <string name="about_module_summary">Ver información relacionada con el módulo</string>
     <string name="contributor_list">Lista de colaboradores del repositorio de código abierto</string>
     <string name="developer">Desarrollador</string>
@@ -223,4 +225,19 @@
     <string name="off">Apagado</string>
     <string name="center">Centro</string>
     <string name="left_or_right">Izquierda o Derecha</string>
+    <string name="preset">Preajuste</string>
+    <string name="geek">Geek</string>
+    <string name="do_not_clear_app">Evitar cerrar apps en segundo plano</string>
+    <string name="do_not_clear_app_summary">Puede incrementar el consumo de batería, recomendado con \"Hacer el Millet más agresivo\", NO recomendado para usar con tombstones</string>
+    <string name="make_millet_more_aggressive">Hacer el Millet más agresivo</string>
+    <string name="make_millet_more_aggressive_summary">Permitr a Millet congelar apps mientras las apps en segundo plano tengan notificaciones, servicios y procesos ejecutándose.\nApps que no se deseen congelar se pueden configurar como Sin restricciones en Ahorro de batería.\nPor favor desinstala módulos relacionados con tombstone y NoANR antes de activar esta opción.</string>
+    <string name="make_millet_ignore_active">Permitir a Millet congelar apps activas</string>
+    <string name="make_millet_ignore_active_summary">Muy agresivo y puede afectar el comportamiento de la aplicación</string>
+    <string name="pkg_installer">Instalador de Paquetes</string>
+    <string name="pkg_installer_summary">Desactivar la comprobación del conteo de la instalación</string>
+    <string name="big_mobile_type_only_show_network_card">Tipo de móvil grande solo muestra tarjeta de red</string>
+    <string name="big_mobile_type_location">Ubicación del tipo de red móvil grande</string>
+    <string name="miuihome_recentview_remove_card_animation">Modificar la animación de marcado de tarjetas</string>
+    <string name="miuihome_recentview_remove_card_animation_summary">Modificar el efecto de animación al remover ventana de tareas recientes</string>
+    <string name="miuihome_recentwiew_wallpaper_darkening">Deshabilitar atenuación de fondo de pantalla</string>
 </resources>
