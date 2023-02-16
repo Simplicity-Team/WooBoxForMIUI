@@ -5,18 +5,21 @@ import com.lt2333.simplicitytools.hooks.rules.all.reardisplay.RearDisplayWeather
 import com.lt2333.simplicitytools.utils.xposed.base.AppRegister
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-object RearDisplay: AppRegister() {
+object RearDisplay : AppRegister() {
     override val packageName: String = "com.xiaomi.misubscreenui"
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         when (Build.VERSION.SDK_INT) {
             Build.VERSION_CODES.TIRAMISU -> {
-                autoInitHooks(lpparam,
+                autoInitHooks(
+                    lpparam,
                     RearDisplayWeatherForAll, //背屏显示天气
                 )
             }
+
             Build.VERSION_CODES.S -> {
-                autoInitHooks(lpparam,
+                autoInitHooks(
+                    lpparam,
                     RearDisplayWeatherForAll, //背屏显示天气
                 )
             }

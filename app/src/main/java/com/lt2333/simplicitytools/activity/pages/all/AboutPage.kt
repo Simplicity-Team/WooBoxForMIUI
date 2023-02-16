@@ -66,7 +66,7 @@ class AboutPage : BasePage() {
             })
         Line()
         TitleText(text = getString(R.string.thank_list))
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.contributor_list,
                 onClickListener = {
@@ -80,7 +80,7 @@ class AboutPage : BasePage() {
                     }
                 })
         )
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.third_party_open_source_statement,
                 onClickListener = {
@@ -96,7 +96,7 @@ class AboutPage : BasePage() {
         )
         Line()
         TitleText(text = getString(R.string.discussions))
-        TextSummaryArrow(TextSummaryV(textId = R.string.qq_channel, onClickListener = {
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.qq_channel, onClickListener = {
             try {
                 val uri =
                     Uri.parse("https://qun.qq.com/qqweb/qunpro/share?_wv=3&_wwv=128&inviteCode=29Mu64&from=246610&biz=ka")
@@ -106,7 +106,7 @@ class AboutPage : BasePage() {
                 Toast.makeText(activity, "访问失败", Toast.LENGTH_SHORT).show()
             }
         }))
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.tg_channel,
                 tipsId = R.string.tg_channel_summary,
@@ -127,7 +127,7 @@ class AboutPage : BasePage() {
                     }
                 })
         )
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.issues,
                 tipsId = R.string.issues_url,
@@ -144,7 +144,7 @@ class AboutPage : BasePage() {
         )
         Line()
         TitleText(getString(R.string.other))
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.app_coolapk_url,
                 tipsId = R.string.app_coolapk_url_summary,
@@ -166,7 +166,7 @@ class AboutPage : BasePage() {
                     }
                 })
         )
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.opensource,
                 tipsId = R.string.github_url,
@@ -181,7 +181,7 @@ class AboutPage : BasePage() {
                     }
                 })
         )
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.participate_in_translation,
                 tipsId = R.string.participate_in_translation_summary,

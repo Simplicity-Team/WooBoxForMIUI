@@ -2,12 +2,10 @@ package com.lt2333.simplicitytools.hooks.rules.t.systemui
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.Resources
 import android.os.Handler
 import android.provider.Settings
 import android.util.TypedValue
 import android.view.Gravity
-import android.view.ViewGroup
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.utils.*
 import com.lt2333.simplicitytools.utils.XSPUtils
@@ -15,6 +13,7 @@ import com.lt2333.simplicitytools.utils.xposed.base.HookRegister
 import java.lang.reflect.Method
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 object StatusBarTimeCustomizationForT : HookRegister() {
 
@@ -30,14 +29,12 @@ object StatusBarTimeCustomizationForT : HookRegister() {
     private val isSecond = XSPUtils.getBoolean("status_bar_time_seconds", false)
     private val isDoubleHour = XSPUtils.getBoolean("status_bar_time_double_hour", false)
     private val isPeriod = XSPUtils.getBoolean("status_bar_time_period", true)
-    private val isCenterAlign =
-        XSPUtils.getBoolean("status_bar_time_double_line_center_align", false)
+    private val isCenterAlign = XSPUtils.getBoolean("status_bar_time_double_line_center_align", false)
 
     //极客模式
     private val getGeekClockSize = XSPUtils.getInt("status_bar_clock_size_geek", 0)
     private val getGeekFormat = XSPUtils.getString("custom_clock_format_geek", "HH:mm:ss")
-    private val isGeekCenterAlign =
-        XSPUtils.getBoolean("status_bar_time_center_align_geek", false)
+    private val isGeekCenterAlign = XSPUtils.getBoolean("status_bar_time_center_align_geek", false)
 
     private lateinit var nowTime: Date
     private var str = ""
@@ -83,9 +80,7 @@ object StatusBarTimeCustomizationForT : HookRegister() {
                             }
                         }
                         Timer().scheduleAtFixedRate(
-                            T(),
-                            1000 - System.currentTimeMillis() % 1000,
-                            1000
+                            T(), 1000 - System.currentTimeMillis() % 1000, 1000
                         )
                     } catch (_: Exception) {
                     }
@@ -98,8 +93,7 @@ object StatusBarTimeCustomizationForT : HookRegister() {
                         val textV = it.thisObject as TextView
                         if (textV.resources.getResourceEntryName(textV.id) == "clock") {
                             val t = Settings.System.getString(
-                                c!!.contentResolver,
-                                Settings.System.TIME_12_24
+                                c!!.contentResolver, Settings.System.TIME_12_24
                             )
                             val is24 = t == "24"
                             nowTime = Calendar.getInstance().time
@@ -149,9 +143,7 @@ object StatusBarTimeCustomizationForT : HookRegister() {
                             }
                         }
                         Timer().scheduleAtFixedRate(
-                            T(),
-                            1000 - System.currentTimeMillis() % 1000,
-                            1000
+                            T(), 1000 - System.currentTimeMillis() % 1000, 1000
                         )
                     } catch (_: Exception) {
                     }
@@ -159,12 +151,20 @@ object StatusBarTimeCustomizationForT : HookRegister() {
 
                 findMethod("com.android.systemui.statusbar.views.MiuiClock") {
                     name == "updateTime"
-                }.hookAfter {
+                }.hookBefore {
                     try {
                         val textV = it.thisObject as TextView
                         if (textV.resources.getResourceEntryName(textV.id) == "clock") {
-                            nowTime = Calendar.getInstance().time
-                            textV.text = SimpleDateFormat(getGeekFormat).format(nowTime)
+                            val mMiuiStatusBarClockController = textV.getObject("mMiuiStatusBarClockController")
+                            val mCalendar = mMiuiStatusBarClockController.invokeMethodAuto("getCalendar")
+                            mCalendar?.invokeMethodAuto(
+                                "setTimeInMillis", System.currentTimeMillis()
+                            )
+                            val textSb = StringBuilder()
+                            val formatSb = StringBuilder(getGeekFormat.toString())
+                            mCalendar?.invokeMethodAuto("format", c, textSb, formatSb)
+                            textV.text = textSb.toString()
+                            it.result = null
                         }
                     } catch (_: Exception) {
                     }

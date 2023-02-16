@@ -1,5 +1,7 @@
 package com.lt2333.simplicitytools.activity.pages.t
 
+import android.content.Intent
+import android.net.Uri
 import android.view.View
 import android.widget.Switch
 import android.widget.Toast
@@ -11,18 +13,16 @@ import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
+import cn.fkj233.ui.dialog.NewDialog
 import com.lt2333.simplicitytools.R
-import java.util.HashMap
 
 
-@BMPage("scope_systemui","System UI", hideMenu = false)
-class SystemUIPageForT : BasePage() {
+@BMPage("scope_systemui", "System UI", hideMenu = false) class SystemUIPageForT : BasePage() {
 
     override fun onCreate() {
         TitleText(textId = R.string.statusbar)
         TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.double_tap_to_sleep),
-            SwitchV("status_bar_double_tap_to_sleep")
+            TextSummaryV(textId = R.string.double_tap_to_sleep), SwitchV("status_bar_double_tap_to_sleep")
         )
         Line()
         TitleText(textId = R.string.status_bar_layout)
@@ -32,32 +32,28 @@ class SystemUIPageForT : BasePage() {
             it[2] = getString(R.string.clock_right)
             it[3] = getString(R.string.clock_center_and_icon_left)
         }
-        TextWithSpinner(
-            TextV(textId = R.string.status_bar_layout_mode),
-            SpinnerV(
-                statusBarLayoutMode[MIUIActivity.safeSP.getInt(
-                    "status_bar_layout_mode",
-                    0
-                )].toString()
-            ) {
-                add(statusBarLayoutMode[0].toString()) {
-                    MIUIActivity.safeSP.putAny("status_bar_layout_mode", 0)
-                }
-                add(statusBarLayoutMode[1].toString()) {
-                    MIUIActivity.safeSP.putAny("status_bar_layout_mode", 1)
-                }
-                add(statusBarLayoutMode[2].toString()) {
-                    MIUIActivity.safeSP.putAny("status_bar_layout_mode", 2)
-                }
-                add(statusBarLayoutMode[3].toString()) {
-                    MIUIActivity.safeSP.putAny("status_bar_layout_mode", 3)
-                }
-            })
+        TextWithSpinner(TextV(textId = R.string.status_bar_layout_mode), SpinnerV(
+            statusBarLayoutMode[MIUIActivity.safeSP.getInt(
+                "status_bar_layout_mode", 0
+            )].toString()
+        ) {
+            add(statusBarLayoutMode[0].toString()) {
+                MIUIActivity.safeSP.putAny("status_bar_layout_mode", 0)
+            }
+            add(statusBarLayoutMode[1].toString()) {
+                MIUIActivity.safeSP.putAny("status_bar_layout_mode", 1)
+            }
+            add(statusBarLayoutMode[2].toString()) {
+                MIUIActivity.safeSP.putAny("status_bar_layout_mode", 2)
+            }
+            add(statusBarLayoutMode[3].toString()) {
+                MIUIActivity.safeSP.putAny("status_bar_layout_mode", 3)
+            }
+        })
 
         val layoutCompatibilityModeBinding = GetDataBinding({
             MIUIActivity.safeSP.getInt(
-                "screen_hole_location",
-                0
+                "screen_hole_location", 0
             ) == 2
         }) { view, flags, data ->
             when (flags) {
@@ -71,52 +67,38 @@ class SystemUIPageForT : BasePage() {
             it[1] = getString(R.string.center)
             it[2] = getString(R.string.left_or_right)
         }
-        TextSummaryWithSpinner(
-            TextSummaryV(
-                textId = R.string.layout_compatibility_mode,
-                tipsId = R.string.screen_hole_location
-            ),
-            SpinnerV(
-                screenHoleLocation[MIUIActivity.safeSP.getInt(
-                    "screen_hole_location",
-                    0
-                )].toString()
-            ) {
-                add(screenHoleLocation[0].toString()) {
-                    MIUIActivity.safeSP.putAny("screen_hole_location", 0)
-                    layoutCompatibilityModeBinding.binding.Send().send(false)
-                }
-                add(screenHoleLocation[1].toString()) {
-                    MIUIActivity.safeSP.putAny("screen_hole_location", 1)
-                    layoutCompatibilityModeBinding.binding.Send().send(false)
-                }
-                add(screenHoleLocation[2].toString()) {
-                    MIUIActivity.safeSP.putAny("screen_hole_location", 2)
-                    layoutCompatibilityModeBinding.binding.Send().send(true)
-                }
-            })
+        TextSummaryWithSpinner(TextSummaryV(
+            textId = R.string.layout_compatibility_mode, tipsId = R.string.screen_hole_location
+        ), SpinnerV(
+            screenHoleLocation[MIUIActivity.safeSP.getInt(
+                "screen_hole_location", 0
+            )].toString()
+        ) {
+            add(screenHoleLocation[0].toString()) {
+                MIUIActivity.safeSP.putAny("screen_hole_location", 0)
+                layoutCompatibilityModeBinding.binding.Send().send(false)
+            }
+            add(screenHoleLocation[1].toString()) {
+                MIUIActivity.safeSP.putAny("screen_hole_location", 1)
+                layoutCompatibilityModeBinding.binding.Send().send(false)
+            }
+            add(screenHoleLocation[2].toString()) {
+                MIUIActivity.safeSP.putAny("screen_hole_location", 2)
+                layoutCompatibilityModeBinding.binding.Send().send(true)
+            }
+        })
 
         Text(
-            textId = R.string.left_margin,
-            dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
+            textId = R.string.left_margin, dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
         )
         SeekBarWithText(
-            "status_bar_left_margin",
-            0,
-            300,
-            0,
-            dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
+            "status_bar_left_margin", 0, 300, 0, dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
         )
         Text(
-            textId = R.string.right_margin,
-            dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
+            textId = R.string.right_margin, dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
         )
         SeekBarWithText(
-            "status_bar_right_margin",
-            0,
-            300,
-            0,
-            dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
+            "status_bar_right_margin", 0, 300, 0, dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
         )
         Line()
         TitleText(textId = R.string.status_bar_clock_format)
@@ -124,8 +106,7 @@ class SystemUIPageForT : BasePage() {
 
         val customClockPresetBinding = GetDataBinding({
             MIUIActivity.safeSP.getInt(
-                "custom_clock_mode",
-                0
+                "custom_clock_mode", 0
             ) == 1
         }) { view, flags, data ->
             when (flags) {
@@ -134,40 +115,41 @@ class SystemUIPageForT : BasePage() {
             }
         }
 
-        val customClockGeekBinding =
-            GetDataBinding({ MIUIActivity.safeSP.getInt("custom_clock_mode", 0) == 2 }
+        val customClockGeekBinding = GetDataBinding({ MIUIActivity.safeSP.getInt("custom_clock_mode", 0) == 2 }
 
-            ) { view, flags, data ->
-                when (flags) {
-                    1 -> (view as Switch).isEnabled = data as Boolean
-                    2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
-                }
+        ) { view, flags, data ->
+            when (flags) {
+                1 -> (view as Switch).isEnabled = data as Boolean
+                2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
             }
+        }
 
         val customClockMode: HashMap<Int, String> = hashMapOf<Int, String>().also {
             it[0] = getString(R.string.off)
             it[1] = getString(R.string.preset)
             it[2] = getString(R.string.geek)
         }
-        TextWithSpinner(
-            TextV(textId = R.string.custom_clock_mode),
-            SpinnerV(customClockMode[MIUIActivity.safeSP.getInt("custom_clock_mode", 0)].toString()) {
-                add(customClockMode[0].toString()) {
-                    MIUIActivity.safeSP.putAny("custom_clock_mode", 0)
-                    customClockPresetBinding.binding.Send().send(false)
-                    customClockGeekBinding.binding.Send().send(false)
-                }
-                add(customClockMode[1].toString()) {
-                    MIUIActivity.safeSP.putAny("custom_clock_mode", 1)
-                    customClockPresetBinding.binding.Send().send(true)
-                    customClockGeekBinding.binding.Send().send(false)
-                }
-                add(customClockMode[2].toString()) {
-                    MIUIActivity.safeSP.putAny("custom_clock_mode", 2)
-                    customClockPresetBinding.binding.Send().send(false)
-                    customClockGeekBinding.binding.Send().send(true)
-                }
-            })
+        TextWithSpinner(TextV(textId = R.string.custom_clock_mode), SpinnerV(
+            customClockMode[MIUIActivity.safeSP.getInt(
+                "custom_clock_mode", 0
+            )].toString()
+        ) {
+            add(customClockMode[0].toString()) {
+                MIUIActivity.safeSP.putAny("custom_clock_mode", 0)
+                customClockPresetBinding.binding.Send().send(false)
+                customClockGeekBinding.binding.Send().send(false)
+            }
+            add(customClockMode[1].toString()) {
+                MIUIActivity.safeSP.putAny("custom_clock_mode", 1)
+                customClockPresetBinding.binding.Send().send(true)
+                customClockGeekBinding.binding.Send().send(false)
+            }
+            add(customClockMode[2].toString()) {
+                MIUIActivity.safeSP.putAny("custom_clock_mode", 2)
+                customClockPresetBinding.binding.Send().send(false)
+                customClockGeekBinding.binding.Send().send(true)
+            }
+        })
 
         //预设模式起始
         TextWithSwitch(
@@ -221,48 +203,53 @@ class SystemUIPageForT : BasePage() {
             dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
         )
         Text(
-            textId = R.string.status_bar_clock_size,
-            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+            textId = R.string.status_bar_clock_size, dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
         )
         SeekBarWithText(
-            "status_bar_clock_size",
-            0,
-            18,
-            0,
-            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+            "status_bar_clock_size", 0, 18, 0, dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
         )
         Text(
             textId = R.string.status_bar_clock_double_line_size,
             dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
         )
         SeekBarWithText(
-            "status_bar_clock_double_line_size",
-            0,
-            9,
-            0,
-            dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
+            "status_bar_clock_double_line_size", 0, 9, 0, dataBindingRecv = customClockPresetBinding.binding.getRecv(2)
         )
         //预设模式结束
 
         //极客模式起始
-        TextSummaryArrow(TextSummaryV(textId = R.string.custom_clock_format_geek) {
-            MIUIDialog(activity) {
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.custom_clock_format_geek) {
+            NewDialog(activity) {
                 setTitle(R.string.custom_clock_format_geek)
-                setEditText(MIUIActivity.safeSP.getString("custom_clock_format_geek", "HH:mm:ss"), "", isSingleLine = false)
-                setLButton(textId = R.string.cancel) {
-                    dismiss()
+                setEditText(
+                    MIUIActivity.safeSP.getString("custom_clock_format_geek", "HH:mm:ss"), "", isSingleLine = false
+                )
+                Button(getString(R.string.click_to_view_use_cases)) {
+                    val locale = context.resources.configuration.locale
+                    val language = locale.language
+                    if (language.endsWith("zh")) {
+                        val uri = Uri.parse("https://zhuti.designer.xiaomi.com/docs/grammar/#%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F")
+                        val intent = Intent(Intent.ACTION_VIEW, uri)
+                        activity.startActivity(intent)
+                    } else {
+                        val uri = Uri.parse("https://docs.google.com/spreadsheets/d/1ghkT2iFbxB3bT4TKCiKAfmEdGt6kTVKFU3dm4Nz1or8/edit?usp=sharing")
+                        val intent = Intent(Intent.ACTION_VIEW, uri)
+                        activity.startActivity(intent)
+                    }
                 }
-                setRButton(textId = R.string.Done) {
+                Button(getString(R.string.Done)) {
                     if (getEditText().isNotEmpty()) {
                         try {
                             MIUIActivity.safeSP.putAny("custom_clock_format_geek", getEditText())
                             dismiss()
-                            return@setRButton
+                            return@Button
                         } catch (_: Throwable) {
                         }
                     }
-                    Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT).show()
+                }
+                Button(getString(R.string.cancel), cancelStyle = true) {
+                    dismiss()
                 }
             }.show()
         }, dataBindingRecv = customClockGeekBinding.binding.getRecv(2))
@@ -272,34 +259,25 @@ class SystemUIPageForT : BasePage() {
             dataBindingRecv = customClockGeekBinding.binding.getRecv(2)
         )
         Text(
-            textId = R.string.status_bar_clock_size,
-            dataBindingRecv = customClockGeekBinding.binding.getRecv(2)
+            textId = R.string.status_bar_clock_size, dataBindingRecv = customClockGeekBinding.binding.getRecv(2)
         )
         SeekBarWithText(
-            "status_bar_clock_size_geek",
-            0,
-            18,
-            0,
-            dataBindingRecv = customClockGeekBinding.binding.getRecv(2)
+            "status_bar_clock_size_geek", 0, 18, 0, dataBindingRecv = customClockGeekBinding.binding.getRecv(2)
         )
         //极客模式结束
 
 
         Line()
         TitleText(textId = R.string.status_bar_icon)
-        TextSummaryArrow(
-            TextSummaryV(
-                textId = R.string.hide_icon,
-                onClickListener = { showFragment("hide_icon") })
+        TextSummaryWithArrow(
+            TextSummaryV(textId = R.string.hide_icon, onClickListener = { showFragment("hide_icon") })
         )
         TextWithSwitch(
-            TextV(textId = R.string.show_wifi_standard),
-            SwitchV("show_wifi_standard")
+            TextV(textId = R.string.show_wifi_standard), SwitchV("show_wifi_standard")
         )
         val customMobileTypeTextBinding = GetDataBinding({
             MIUIActivity.safeSP.getBoolean(
-                "custom_mobile_type_text_switch",
-                false
+                "custom_mobile_type_text_switch", false
             )
         }) { view, flags, data ->
             when (flags) {
@@ -308,13 +286,11 @@ class SystemUIPageForT : BasePage() {
             }
         }
         TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.custom_mobile_type_text_switch),
-            SwitchV(
-                "custom_mobile_type_text_switch",
-                dataBindingSend = customMobileTypeTextBinding.bindingSend
+            TextSummaryV(textId = R.string.custom_mobile_type_text_switch), SwitchV(
+                "custom_mobile_type_text_switch", dataBindingSend = customMobileTypeTextBinding.bindingSend
             )
         )
-        TextSummaryArrow(TextSummaryV(textId = R.string.custom_mobile_type_text) {
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.custom_mobile_type_text) {
             MIUIDialog(activity) {
                 setTitle(R.string.custom_mobile_type_text)
                 setEditText(MIUIActivity.safeSP.getString("custom_mobile_type_text", "5G"), "")
@@ -330,15 +306,13 @@ class SystemUIPageForT : BasePage() {
                         } catch (_: Throwable) {
                         }
                     }
-                    Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT).show()
                 }
             }.show()
         }, dataBindingRecv = customMobileTypeTextBinding.binding.getRecv(2))
         val bigMobileTypeIconBinding = GetDataBinding({
             MIUIActivity.safeSP.getBoolean(
-                "big_mobile_type_icon",
-                false
+                "big_mobile_type_icon", false
             )
         }) { view, flags, data ->
             when (flags) {
@@ -347,51 +321,67 @@ class SystemUIPageForT : BasePage() {
             }
         }
         TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.big_mobile_type_icon),
-            SwitchV(
-                "big_mobile_type_icon",
-                dataBindingSend = bigMobileTypeIconBinding.bindingSend
+            TextSummaryV(textId = R.string.big_mobile_type_icon), SwitchV(
+                "big_mobile_type_icon", dataBindingSend = bigMobileTypeIconBinding.bindingSend
             )
+        )
+        val bigMobileTypeLocation: HashMap<Int, String> = hashMapOf<Int, String>().also {
+            it[0] = getString(R.string.left)
+            it[1] = getString(R.string.right)
+        }
+        TextWithSpinner(
+            TextV(textId = R.string.big_mobile_type_location), SpinnerV(
+                bigMobileTypeLocation[MIUIActivity.safeSP.getInt(
+                    "big_mobile_type_location", 1
+                )].toString()
+            ) {
+                add(bigMobileTypeLocation[0].toString()) {
+                    MIUIActivity.safeSP.putAny("big_mobile_type_location", 0)
+                }
+                add(bigMobileTypeLocation[1].toString()) {
+                    MIUIActivity.safeSP.putAny("big_mobile_type_location", 1)
+                }
+            }, dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.big_mobile_type_only_show_network_card),
+            SwitchV("big_mobile_type_only_show_network_card", false),
+            dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
         )
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.big_mobile_type_icon_bold),
             SwitchV("big_mobile_type_icon_bold", true),
             dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
         )
-        TextSummaryArrow(
-            TextSummaryV(
-                textId = R.string.big_mobile_type_icon_size,
-                onClickListener = {
-                    MIUIDialog(activity) {
-                        setTitle(R.string.big_mobile_type_icon_size)
-                        setEditText(
-                            "",
-                            "${activity.getString(R.string.def)}12.5, ${activity.getString(R.string.current)}${
-                                MIUIActivity.safeSP.getFloat("big_mobile_type_icon_size", 12.5f)
-                            }"
-                        )
-                        setLButton(textId = R.string.cancel) {
-                            dismiss()
+        TextSummaryWithArrow(
+            TextSummaryV(textId = R.string.big_mobile_type_icon_size, onClickListener = {
+                MIUIDialog(activity) {
+                    setTitle(R.string.big_mobile_type_icon_size)
+                    setEditText(
+                        "", "${activity.getString(R.string.def)}12.5, ${activity.getString(R.string.current)}${
+                            MIUIActivity.safeSP.getFloat("big_mobile_type_icon_size", 12.5f)
+                        }"
+                    )
+                    setLButton(textId = R.string.cancel) {
+                        dismiss()
+                    }
+                    setRButton(textId = R.string.Done) {
+                        if (getEditText() != "") {
+                            MIUIActivity.safeSP.putAny(
+                                "big_mobile_type_icon_size", getEditText().toFloat()
+                            )
                         }
-                        setRButton(textId = R.string.Done) {
-                            if (getEditText() != "") {
-                                MIUIActivity.safeSP.putAny(
-                                    "big_mobile_type_icon_size",
-                                    getEditText().toFloat()
-                                )
-                            }
-                            dismiss()
-                        }
-                    }.show()
-                }), dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
+                        dismiss()
+                    }
+                }.show()
+            }), dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
         )
-        TextSummaryArrow(TextSummaryV(textId = R.string.big_mobile_type_icon_up_and_down_position) {
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.big_mobile_type_icon_up_and_down_position) {
             MIUIDialog(activity) {
                 setTitle(R.string.big_mobile_type_icon_up_and_down_position)
                 setMessage("${activity.getString(R.string.range)} -15~15")
                 setEditText(
-                    "",
-                    "${activity.getString(R.string.def)}0, ${activity.getString(R.string.current)}${
+                    "", "${activity.getString(R.string.def)}0, ${activity.getString(R.string.current)}${
                         MIUIActivity.safeSP.getInt("big_mobile_type_icon_up_and_down_position", 0)
                     }"
                 )
@@ -404,8 +394,7 @@ class SystemUIPageForT : BasePage() {
                             val value = getEditText().toInt()
                             if (value in (-15..15)) {
                                 MIUIActivity.safeSP.putAny(
-                                    "big_mobile_type_icon_up_and_down_position",
-                                    value
+                                    "big_mobile_type_icon_up_and_down_position", value
                                 )
                                 dismiss()
                                 return@setRButton
@@ -413,18 +402,16 @@ class SystemUIPageForT : BasePage() {
                         } catch (_: Throwable) {
                         }
                     }
-                    Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT).show()
                 }
             }.show()
         }, dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2))
-        TextSummaryArrow(TextSummaryV(textId = R.string.big_mobile_type_icon_left_and_right_margins) {
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.big_mobile_type_icon_left_and_right_margins) {
             MIUIDialog(activity) {
                 setTitle(R.string.big_mobile_type_icon_left_and_right_margins)
                 setMessage("${activity.getString(R.string.range)} 0~30")
                 setEditText(
-                    "",
-                    "${activity.getString(R.string.def)}0, ${activity.getString(R.string.current)}${
+                    "", "${activity.getString(R.string.def)}0, ${activity.getString(R.string.current)}${
                         MIUIActivity.safeSP.getInt("big_mobile_type_icon_left_and_right_margins", 0)
                     }"
                 )
@@ -437,8 +424,7 @@ class SystemUIPageForT : BasePage() {
                             val value = getEditText().toInt()
                             if (value in (0..30)) {
                                 MIUIActivity.safeSP.putAny(
-                                    "big_mobile_type_icon_left_and_right_margins",
-                                    value
+                                    "big_mobile_type_icon_left_and_right_margins", value
                                 )
                                 dismiss()
                                 return@setRButton
@@ -446,8 +432,7 @@ class SystemUIPageForT : BasePage() {
                         } catch (_: Throwable) {
                         }
                     }
-                    Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT).show()
                 }
             }.show()
         }, dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2))
@@ -455,37 +440,33 @@ class SystemUIPageForT : BasePage() {
         SeekBarWithText("maximum_number_of_notification_icons", 1, 30, 3)
         Text(textId = R.string.maximum_number_of_notification_dots)
         SeekBarWithText("maximum_number_of_notification_dots", 0, 4, 3)
-        TextSummaryArrow(
-            TextSummaryV(
-                textId = R.string.battery_percentage_font_size,
-                onClickListener = {
-                    MIUIDialog(activity) {
-                        setTitle(R.string.battery_percentage_font_size)
-                        setMessage(R.string.zero_do_no_change)
-                        setEditText(
-                            "", "${activity.getString(R.string.current)}${
-                                MIUIActivity.safeSP.getFloat("battery_percentage_font_size", 0f)
-                            }"
-                        )
-                        setLButton(textId = R.string.cancel) {
-                            dismiss()
+        TextSummaryWithArrow(
+            TextSummaryV(textId = R.string.battery_percentage_font_size, onClickListener = {
+                MIUIDialog(activity) {
+                    setTitle(R.string.battery_percentage_font_size)
+                    setMessage(R.string.zero_do_no_change)
+                    setEditText(
+                        "", "${activity.getString(R.string.current)}${
+                            MIUIActivity.safeSP.getFloat("battery_percentage_font_size", 0f)
+                        }"
+                    )
+                    setLButton(textId = R.string.cancel) {
+                        dismiss()
+                    }
+                    setRButton(textId = R.string.Done) {
+                        if (getEditText() != "") {
+                            MIUIActivity.safeSP.putAny(
+                                "battery_percentage_font_size", getEditText().toFloat()
+                            )
                         }
-                        setRButton(textId = R.string.Done) {
-                            if (getEditText() != "") {
-                                MIUIActivity.safeSP.putAny(
-                                    "battery_percentage_font_size",
-                                    getEditText().toFloat()
-                                )
-                            }
-                            dismiss()
-                        }
-                    }.show()
-                })
+                        dismiss()
+                    }
+                }.show()
+            })
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.hide_battery_percentage_icon,
-                tipsId = R.string.hide_battery_percentage_icon_summary
+                textId = R.string.hide_battery_percentage_icon, tipsId = R.string.hide_battery_percentage_icon_summary
             ), SwitchV("hide_battery_percentage_icon")
         )
         Line()
@@ -503,13 +484,11 @@ class SystemUIPageForT : BasePage() {
             ), SwitchV("hide_status_bar_network_speed_second")
         )
         TextWithSwitch(
-            TextV(textId = R.string.hide_network_speed_splitter),
-            SwitchV("hide_network_speed_splitter")
+            TextV(textId = R.string.hide_network_speed_splitter), SwitchV("hide_network_speed_splitter")
         )
         val statusBarDualRowNetworkSpeedBinding = GetDataBinding({
             MIUIActivity.safeSP.getBoolean(
-                "status_bar_dual_row_network_speed",
-                false
+                "status_bar_dual_row_network_speed", false
             )
         }) { view, flags, data ->
             when (flags) {
@@ -521,21 +500,17 @@ class SystemUIPageForT : BasePage() {
             TextSummaryV(
                 textId = R.string.status_bar_dual_row_network_speed,
                 tipsId = R.string.status_bar_dual_row_network_speed_summary
-            ),
-            SwitchV(
-                "status_bar_dual_row_network_speed",
-                dataBindingSend = statusBarDualRowNetworkSpeedBinding.bindingSend
+            ), SwitchV(
+                "status_bar_dual_row_network_speed", dataBindingSend = statusBarDualRowNetworkSpeedBinding.bindingSend
             )
         )
         val align: HashMap<Int, String> = hashMapOf()
         align[0] = getString(R.string.left)
         align[1] = getString(R.string.right)
         TextWithSpinner(
-            TextV(textId = R.string.status_bar_network_speed_dual_row_gravity),
-            SpinnerV(
+            TextV(textId = R.string.status_bar_network_speed_dual_row_gravity), SpinnerV(
                 align[MIUIActivity.safeSP.getInt(
-                    "status_bar_network_speed_dual_row_gravity",
-                    0
+                    "status_bar_network_speed_dual_row_gravity", 0
                 )].toString()
             ) {
                 add(align[0].toString()) {
@@ -545,33 +520,28 @@ class SystemUIPageForT : BasePage() {
                     MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_gravity", 1)
 
                 }
-            },
-            dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
+            }, dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
         )
-        TextWithSpinner(
-            TextV(textId = R.string.status_bar_network_speed_dual_row_icon),
-            SpinnerV(
-                MIUIActivity.safeSP.getString(
-                    "status_bar_network_speed_dual_row_icon",
-                    getString(R.string.none)
+        TextWithSpinner(TextV(textId = R.string.status_bar_network_speed_dual_row_icon), SpinnerV(
+            MIUIActivity.safeSP.getString(
+                "status_bar_network_speed_dual_row_icon", getString(R.string.none)
+            )
+        ) {
+            add(getString(R.string.none)) {
+                MIUIActivity.safeSP.putAny(
+                    "status_bar_network_speed_dual_row_icon", getString(R.string.none)
                 )
-            ) {
-                add(getString(R.string.none)) {
-                    MIUIActivity.safeSP.putAny(
-                        "status_bar_network_speed_dual_row_icon",
-                        getString(R.string.none)
-                    )
-                }
-                add("▲▼") {
-                    MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_icon", "▲▼")
-                }
-                add("△▽") {
-                    MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_icon", "△▽")
-                }
-                add("↑↓") {
-                    MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_icon", "↑↓")
-                }
-            })
+            }
+            add("▲▼") {
+                MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_icon", "▲▼")
+            }
+            add("△▽") {
+                MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_icon", "△▽")
+            }
+            add("↑↓") {
+                MIUIActivity.safeSP.putAny("status_bar_network_speed_dual_row_icon", "↑↓")
+            }
+        })
         Text(
             textId = R.string.status_bar_network_speed_dual_row_size,
             dataBindingRecv = statusBarDualRowNetworkSpeedBinding.binding.getRecv(2)
@@ -587,8 +557,7 @@ class SystemUIPageForT : BasePage() {
         TitleText(textId = R.string.notification_center)
         val showWeatherMainSwitchBinding = GetDataBinding({
             MIUIActivity.safeSP.getBoolean(
-                "notification_weather",
-                false
+                "notification_weather", false
             )
         }) { view, flags, data ->
             when (flags) {
@@ -598,20 +567,15 @@ class SystemUIPageForT : BasePage() {
         }
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.show_weather_main_switch,
-                colorId = R.color.blue
-            ),
-            SwitchV(
-                "notification_weather",
-                dataBindingSend = showWeatherMainSwitchBinding.bindingSend
+                textId = R.string.show_weather_main_switch, colorId = R.color.blue
+            ), SwitchV(
+                "notification_weather", dataBindingSend = showWeatherMainSwitchBinding.bindingSend
             )
         )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.show_city,
-            ),
-            SwitchV("notification_weather_city"),
-            dataBindingRecv = showWeatherMainSwitchBinding.binding.getRecv(2)
+            ), SwitchV("notification_weather_city"), dataBindingRecv = showWeatherMainSwitchBinding.binding.getRecv(2)
         )
         TextSummaryWithSwitch(
             TextSummaryV(
@@ -624,8 +588,7 @@ class SystemUIPageForT : BasePage() {
         TitleText(textId = R.string.control_center)
         val controlCenterWeatherBinding = GetDataBinding({
             MIUIActivity.safeSP.getBoolean(
-                "control_center_weather",
-                false
+                "control_center_weather", false
             )
         }) { view, flags, data ->
             when (flags) {
@@ -638,18 +601,14 @@ class SystemUIPageForT : BasePage() {
                 textId = R.string.show_weather_main_switch,
                 colorId = R.color.blue,
                 tipsId = R.string.control_center_weather_summary
-            ),
-            SwitchV(
-                "control_center_weather",
-                dataBindingSend = controlCenterWeatherBinding.bindingSend
+            ), SwitchV(
+                "control_center_weather", dataBindingSend = controlCenterWeatherBinding.bindingSend
             )
         )
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.show_city,
-            ),
-            SwitchV("control_center_weather_city"),
-            dataBindingRecv = controlCenterWeatherBinding.binding.getRecv(2)
+            ), SwitchV("control_center_weather_city"), dataBindingRecv = controlCenterWeatherBinding.binding.getRecv(2)
         )
         Line()
         TitleText(textId = R.string.lock_screen)
@@ -672,8 +631,7 @@ class SystemUIPageForT : BasePage() {
             ), SwitchV("remove_lock_screen_camera")
         )
         TextSummaryWithSwitch(
-            TextSummaryV(textId = R.string.enable_wave_charge_animation),
-            SwitchV("enable_wave_charge_animation")
+            TextSummaryV(textId = R.string.enable_wave_charge_animation), SwitchV("enable_wave_charge_animation")
         )
         TextSummaryWithSwitch(
             TextSummaryV(
@@ -683,16 +641,14 @@ class SystemUIPageForT : BasePage() {
         )
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.double_tap_to_sleep,
-                tipsId = R.string.home_double_tap_to_sleep_summary
+                textId = R.string.double_tap_to_sleep, tipsId = R.string.home_double_tap_to_sleep_summary
             ), SwitchV("lock_screen_double_tap_to_sleep")
         )
         Line()
         TitleText(textId = R.string.old_quick_settings_panel)
         val oldQSCustomSwitchBinding = GetDataBinding({
             MIUIActivity.safeSP.getBoolean(
-                "old_qs_custom_switch",
-                false
+                "old_qs_custom_switch", false
             )
         }) { view, flags, data ->
             when (flags) {
@@ -702,57 +658,35 @@ class SystemUIPageForT : BasePage() {
         }
         TextSummaryWithSwitch(
             TextSummaryV(
-                textId = R.string.old_qs_custom_switch,
-                colorId = R.color.blue
-            ),
-            SwitchV(
-                "old_qs_custom_switch",
-                dataBindingSend = oldQSCustomSwitchBinding.bindingSend
+                textId = R.string.old_qs_custom_switch, colorId = R.color.blue
+            ), SwitchV(
+                "old_qs_custom_switch", dataBindingSend = oldQSCustomSwitchBinding.bindingSend
             )
         )
         Text(
-            textId = R.string.qs_custom_rows,
-            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+            textId = R.string.qs_custom_rows, dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
         )
         SeekBarWithText(
-            "qs_custom_rows",
-            1,
-            6,
-            3,
-            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+            "qs_custom_rows", 1, 6, 3, dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
         )
         Text(
-            textId = R.string.qs_custom_rows_horizontal,
-            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+            textId = R.string.qs_custom_rows_horizontal, dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
         )
         SeekBarWithText(
-            "qs_custom_rows_horizontal",
-            1,
-            3,
-            2,
-            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+            "qs_custom_rows_horizontal", 1, 3, 2, dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
         )
         Text(
-            textId = R.string.qs_custom_columns,
-            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+            textId = R.string.qs_custom_columns, dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
         )
         SeekBarWithText(
-            "qs_custom_columns",
-            1,
-            7,
-            4,
-            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+            "qs_custom_columns", 1, 7, 4, dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
         )
         Text(
             textId = R.string.qs_custom_columns_unexpanded,
             dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
         )
         SeekBarWithText(
-            "qs_custom_columns_unexpanded",
-            1,
-            7,
-            5,
-            dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
+            "qs_custom_columns_unexpanded", 1, 7, 5, dataBindingRecv = oldQSCustomSwitchBinding.binding.getRecv(2)
         )
     }
 
