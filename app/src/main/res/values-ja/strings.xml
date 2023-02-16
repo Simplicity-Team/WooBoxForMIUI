@@ -235,4 +235,6 @@
     <string name="make_millet_ignore_active_summary">非常にアグレッシブで、アプリの実行に影響する可能性があります</string>
     <string name="pkg_installer">パッケージインストーラー</string>
     <string name="pkg_installer_summary">アプリインストール時のカウントチェックを無効にします</string>
+    <string name="big_mobile_type_only_show_network_card">ネットワークカードのみを表示する大きなモバイルタイプ</string>
+    <string name="big_mobile_type_location">大きなモバイルタイプの位置</string>
 </resources>
