@@ -237,4 +237,14 @@
     <string name="pkg_installer_summary">禁用頻繁安裝應用檢查</string>
     <string name="big_mobile_type_only_show_network_card">大行動網路僅會顯示網路卡</string>
     <string name="big_mobile_type_location">大行動網路位置</string>
+    <string name="miuihome_recentview_remove_card_animation">修改卡片動畫</string>
+    <string name="miuihome_recentview_remove_card_animation_summary">修改在最近任務介面移除卡片的動畫效果</string>
+    <string name="miuihome_recentwiew_wallpaper_darkening">停用桌布壓暗</string>
+    <string name="miuihome_recentwiew_wallpaper_darkening_summary">這將會停用進出最近任務介面時的桌布壓暗效果</string>
+    <string name="miuihome_scroll_icon_name">捲動顯示應用程式名稱</string>
+    <string name="miuihome_scroll_icon_name_summary">過長的應用程式名稱將會捲動，而不會在多列顯示</string>
+    <string name="miuihome_shortcut_add_small_window">捷徑選單新增小窗</string>
+    <string name="miuihome_shortcut_add_small_window_summary">長按桌面圖示以快速開啟小窗應用程式</string>
+    <string name="miuihome_shortcut_add_small_window_title">小窗應用程式</string>
+    <string name="click_to_view_use_cases">按一下以檢視用例</string>
 </resources>
