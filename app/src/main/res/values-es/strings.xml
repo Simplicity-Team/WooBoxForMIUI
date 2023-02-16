@@ -237,4 +237,7 @@
     <string name="pkg_installer_summary">Desactivar la comprobación del conteo de la instalación</string>
     <string name="big_mobile_type_only_show_network_card">Tipo de móvil grande solo muestra tarjeta de red</string>
     <string name="big_mobile_type_location">Ubicación del tipo de red móvil grande</string>
+    <string name="miuihome_recentview_remove_card_animation">Modificar la animación de marcado de tarjetas</string>
+    <string name="miuihome_recentview_remove_card_animation_summary">Modificar el efecto de animación al remover ventana de tareas recientes</string>
+    <string name="miuihome_recentwiew_wallpaper_darkening">Deshabilitar atenuación de fondo de pantalla</string>
 </resources>
