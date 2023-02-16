@@ -29,6 +29,7 @@
     <string name="hide_nfc_icon">隱藏 NFC 圖示</string>
     <string name="hide_big_hd_icon">隱藏 大HD 圖示</string>
     <string name="hide_small_hd_icon">隱藏 小HD 圖示</string>
+    <string name="hide_new_hd_icon">隱藏 新HD 圖示</string>
     <string name="hide_hd_no_service_icon">隱藏 HD無服務 圖示</string>
     <string name="about">關於</string>
     <string name="about_module">關於模組</string>
@@ -224,6 +225,16 @@
     <string name="off">關閉</string>
     <string name="center">置中</string>
     <string name="left_or_right">左右</string>
+    <string name="preset">預設</string>
+    <string name="geek">極客</string>
+    <string name="do_not_clear_app">防止終止背景應用程式</string>
+    <string name="do_not_clear_app_summary">可能會增加耗電，建議配合「使 Millet 更加積極」使用，不建議配合墓碑、A1 記憶體管理等會強制應用程式進入快取的模組使用</string>
+    <string name="make_millet_more_aggressive">使 Millet 更加積極</string>
+    <string name="make_millet_more_aggressive_summary">允許 Millet 在背景應用程式有通知、有服務執行、有處理程序執行的狀況下凍結應用程式。\n不希望被凍結的應用程式可將省電策略設為無限制\n啟用前請先解除安裝墓碑和 NoANR 相關模組。</string>
+    <string name="make_millet_ignore_active">允許 Millet 凍結使用中的應用程式</string>
+    <string name="make_millet_ignore_active_summary">非常積極，可能會影響應用程式執行</string>
     <string name="pkg_installer">應用包管理組件</string>
     <string name="pkg_installer_summary">禁用頻繁安裝應用檢查</string>
+    <string name="big_mobile_type_only_show_network_card">大行動網路僅會顯示網路卡</string>
+    <string name="big_mobile_type_location">大行動網路位置</string>
 </resources>
