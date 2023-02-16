@@ -47,6 +47,7 @@
     <string name="main_switch">Główny przełącznik modułu</string>
     <string name="hide_gps_icon">Ukryj ikonę GPS</string>
     <string name="hide_status_bar_network_speed_second">Ukryj jednostki prędkości sieci (/s)</string>
+    <string name="menu">Menu</string>
     <string name="Tips">Porady</string>
     <string name="skip_waiting_time">Pomiń 5/10-sekundowe zakładki z ostrzeżeniem</string>
     <string name="unlock_unlimited_cropping">Usuń ograniczenie przycinania zdjęć/zrzutów ekranu</string>
@@ -69,6 +70,7 @@
     <string name="status_bar_clock_size">Rozmiar zegara (0: brak zmian)</string>
     <string name="status_bar_clock_double_line_size">Rozmiar wiersza (0: brak zmian)</string>
     <string name="matters_needing_attention">Funkcja nie działa? </string>
+    <string name="Done">OK</string>
     <string name="about_module_summary">Wyświetl informacje dotyczące modułu</string>
     <string name="contributor_list">Lista współtwórców repozytorium</string>
     <string name="developer">Deweloper</string>
