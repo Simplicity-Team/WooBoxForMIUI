@@ -11,8 +11,8 @@ android {
         applicationId = "com.lt2333.simplicitytools"
         minSdk = 31
         targetSdk = 33
-        versionCode = 71
-        versionName = "1.7.1"
+        versionCode = 72
+        versionName = "1.7.2"
         buildConfigField("String", "BUILD_TIME", "\"${System.currentTimeMillis()}\"")
     }
 
