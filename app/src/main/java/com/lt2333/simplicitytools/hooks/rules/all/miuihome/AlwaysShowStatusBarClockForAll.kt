@@ -5,8 +5,7 @@ import com.github.kyuubiran.ezxhelper.utils.hookBefore
 import com.lt2333.simplicitytools.utils.hasEnable
 import com.lt2333.simplicitytools.utils.xposed.base.HookRegister
 
-object AlwaysDisplayTimeForAll : HookRegister() {
-
+object AlwaysShowStatusBarClockForAll : HookRegister() {
     override fun init() {
         try {
             findMethod("com.miui.home.launcher.Workspace") {

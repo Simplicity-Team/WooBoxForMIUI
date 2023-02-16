@@ -1,12 +1,13 @@
 package com.lt2333.simplicitytools.hooks.apps
 
 import com.github.kyuubiran.ezxhelper.utils.findMethod
+import com.github.kyuubiran.ezxhelper.utils.hookBefore
 import com.github.kyuubiran.ezxhelper.utils.hookReturnConstant
 import com.github.kyuubiran.ezxhelper.utils.loadClassOrNull
-import com.github.kyuubiran.ezxhelper.utils.hookBefore
 import com.lt2333.simplicitytools.utils.hasEnable
 import com.lt2333.simplicitytools.utils.xposed.base.AppRegister
 import de.robv.android.xposed.callbacks.XC_LoadPackage
+
 object Updater : AppRegister() {
     override val packageName: String = "com.android.updater"
 

@@ -7,7 +7,7 @@ import com.lt2333.simplicitytools.utils.xposed.base.AppRegister
 import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-object PackageInstaller: AppRegister() {
+object PackageInstaller : AppRegister() {
 
     override val packageName: String = "com.miui.packageinstaller"
 

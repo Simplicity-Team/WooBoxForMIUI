@@ -239,4 +239,14 @@
     <string name="big_mobile_type_location">大移动类型图标位置</string>
     <string name="click_to_view_use_cases">点击查看用例</string>
 
+    <string name="miuihome_scroll_icon_name">滚动显示应用名称</string>
+    <string name="miuihome_scroll_icon_name_summary">过长的应用名称将滚动进行显示，不再进行换行</string>
+    <string name="miuihome_recentwiew_wallpaper_darkening">禁用壁纸压暗效果</string>
+    <string name="miuihome_recentwiew_wallpaper_darkening_summary">这将禁用进出最近任务时壁纸从压暗逐渐变亮的效果</string>
+    <string name="miuihome_recentview_remove_card_animation">修改划卡动画</string>
+    <string name="miuihome_recentview_remove_card_animation_summary">修改最近任务移除卡片的动画效果</string>
+    <string name="miuihome_shortcut_add_small_window">快捷菜单添加小窗</string>
+    <string name="miuihome_shortcut_add_small_window_summary">桌面图标长按快捷菜单位置添加快速打开小窗</string>
+    <string name="miuihome_shortcut_add_small_window_title">小窗</string>
+
 </resources>

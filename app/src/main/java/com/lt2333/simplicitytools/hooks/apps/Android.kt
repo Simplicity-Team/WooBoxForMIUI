@@ -5,7 +5,9 @@ import com.lt2333.simplicitytools.hooks.rules.all.android.AllowUntrustedTouchesF
 import com.lt2333.simplicitytools.hooks.rules.all.android.DeleteOnPostNotificationForAll
 import com.lt2333.simplicitytools.hooks.rules.all.android.DisableFlagSecureForAll
 import com.lt2333.simplicitytools.hooks.rules.all.corepatch.CorePatchMainHook
-import com.lt2333.simplicitytools.hooks.rules.s.android.*
+import com.lt2333.simplicitytools.hooks.rules.s.android.MaxWallpaperScaleForS
+import com.lt2333.simplicitytools.hooks.rules.s.android.RemoveSmallWindowRestrictionsForS
+import com.lt2333.simplicitytools.hooks.rules.s.android.SystemPropertiesHookForS
 import com.lt2333.simplicitytools.hooks.rules.t.android.MaxWallpaperScaleForT
 import com.lt2333.simplicitytools.hooks.rules.t.android.SystemPropertiesHookForT
 import com.lt2333.simplicitytools.utils.xposed.base.AppRegister
@@ -29,6 +31,7 @@ object Android : AppRegister() {
                     AllowUntrustedTouchesForAll, //允许不受信任的触摸
                 )
             }
+
             Build.VERSION_CODES.S -> {
                 autoInitHooks(
                     lpparam,
