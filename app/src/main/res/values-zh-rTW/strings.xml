@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="performance">性能</string>
+    <string name="performance">效能</string>
     <string name="lock_max_fps">鎖定螢幕更新率上限</string>
     <string name="ui">介面</string>
     <string name="delete_on_post_notification">移除上層顯示通知</string>
