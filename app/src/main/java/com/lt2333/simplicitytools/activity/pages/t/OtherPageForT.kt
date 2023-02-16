@@ -97,7 +97,7 @@ class OtherPageForT : BasePage() {
             SwitchV("make_millet_ignore_active"),
             dataBindingRecv = makeMilletMoreAggressiveSwitchBinding.binding.getRecv(2)
         )
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.battery_optimization,
                 tipsId = R.string.battery_optimization_summary,

@@ -241,7 +241,6 @@
     <string name="pkg_installer_summary">Disable the app installation\'s count checking</string>
     <string name="big_mobile_type_only_show_network_card">Big mobile type only show network card</string>
     <string name="big_mobile_type_location">Big mobile type location</string>
-
     <string name="miuihome_recentview_remove_card_animation">Modify the card marking animation</string>
     <string name="miuihome_recentview_remove_card_animation_summary">Modify the animation effect of the recent task removal card</string>
     <string name="miuihome_recentwiew_wallpaper_darkening">Disable wallpaper dimming</string>
@@ -251,5 +250,5 @@
     <string name="miuihome_shortcut_add_small_window">Shortcut Menu Add Window</string>
     <string name="miuihome_shortcut_add_small_window_summary">Press and hold the desktop icon to add a quick open window</string>
     <string name="miuihome_shortcut_add_small_window_title">Small window</string>
-
+    <string name="click_to_view_use_cases">Click to view use cases</string>
 </resources>

@@ -245,7 +245,7 @@ class SystemUIPageForS : BasePage() {
         //预设模式结束
 
         //极客模式起始
-        TextSummaryArrow(TextSummaryV(textId = R.string.custom_clock_format_geek) {
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.custom_clock_format_geek) {
             MIUIDialog(activity) {
                 setTitle(R.string.custom_clock_format_geek)
                 setEditText(MIUIActivity.safeSP.getString("custom_clock_format_geek", "HH:mm:ss"), "", isSingleLine = false)
@@ -287,7 +287,7 @@ class SystemUIPageForS : BasePage() {
 
         Line()
         TitleText(textId = R.string.status_bar_icon)
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.hide_icon,
                 onClickListener = { showFragment("hide_icon") })
@@ -314,7 +314,7 @@ class SystemUIPageForS : BasePage() {
                 dataBindingSend = customMobileTypeTextBinding.bindingSend
             )
         )
-        TextSummaryArrow(TextSummaryV(textId = R.string.custom_mobile_type_text) {
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.custom_mobile_type_text) {
             MIUIDialog(activity) {
                 setTitle(R.string.custom_mobile_type_text)
                 setEditText(MIUIActivity.safeSP.getString("custom_mobile_type_text", "5G"), "")
@@ -358,7 +358,7 @@ class SystemUIPageForS : BasePage() {
             SwitchV("big_mobile_type_icon_bold", true),
             dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
         )
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.big_mobile_type_icon_size,
                 onClickListener = {
@@ -385,7 +385,7 @@ class SystemUIPageForS : BasePage() {
                     }.show()
                 }), dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2)
         )
-        TextSummaryArrow(TextSummaryV(textId = R.string.big_mobile_type_icon_up_and_down_position) {
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.big_mobile_type_icon_up_and_down_position) {
             MIUIDialog(activity) {
                 setTitle(R.string.big_mobile_type_icon_up_and_down_position)
                 setMessage("${activity.getString(R.string.range)} -15~15")
@@ -418,7 +418,7 @@ class SystemUIPageForS : BasePage() {
                 }
             }.show()
         }, dataBindingRecv = bigMobileTypeIconBinding.binding.getRecv(2))
-        TextSummaryArrow(TextSummaryV(textId = R.string.big_mobile_type_icon_left_and_right_margins) {
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.big_mobile_type_icon_left_and_right_margins) {
             MIUIDialog(activity) {
                 setTitle(R.string.big_mobile_type_icon_left_and_right_margins)
                 setMessage("${activity.getString(R.string.range)} 0~30")
@@ -455,7 +455,7 @@ class SystemUIPageForS : BasePage() {
         SeekBarWithText("maximum_number_of_notification_icons", 1, 30, 3)
         Text(textId = R.string.maximum_number_of_notification_dots)
         SeekBarWithText("maximum_number_of_notification_dots", 0, 4, 3)
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.battery_percentage_font_size,
                 onClickListener = {

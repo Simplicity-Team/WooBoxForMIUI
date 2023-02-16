@@ -237,6 +237,7 @@
     <string name="pkg_installer_summary">禁用频繁安装应用检查</string>
     <string name="big_mobile_type_only_show_network_card">大移动类型图标仅显示上网卡</string>
     <string name="big_mobile_type_location">大移动类型图标位置</string>
+    <string name="click_to_view_use_cases">点击查看用例</string>
 
     <string name="miuihome_scroll_icon_name">滚动显示应用名称</string>
     <string name="miuihome_scroll_icon_name_summary">过长的应用名称将滚动进行显示，不再进行换行</string>

@@ -13,7 +13,7 @@ import java.util.*
 class MenuPage : BasePage() {
 
     override fun onCreate() {
-        TextSummaryArrow(TextSummaryV(textId = R.string.reboot, onClickListener = {
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.reboot, onClickListener = {
             MIUIDialog(activity) {
                 setTitle(R.string.Tips)
                 setMessage(R.string.are_you_sure_reboot)
@@ -28,7 +28,7 @@ class MenuPage : BasePage() {
             }.show()
         }))
 
-        TextSummaryArrow(TextSummaryV(textId = R.string.reboot_host, onClickListener = {
+        TextSummaryWithArrow(TextSummaryV(textId = R.string.reboot_host, onClickListener = {
             MIUIDialog(activity) {
                 setTitle(R.string.Tips)
                 setMessage(R.string.are_you_sure_reboot_scope)
