@@ -2,7 +2,6 @@ package com.lt2333.simplicitytools.activity.pages.s
 
 import android.content.ComponentName
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.view.View
 import android.widget.Switch
 import android.widget.Toast
@@ -11,12 +10,10 @@ import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
-import cn.fkj233.ui.dialog.MIUIDialog
-import com.lt2333.simplicitytools.BuildConfig
 import com.lt2333.simplicitytools.R
 
 
-@BMPage("scope_other","Other", hideMenu = false)
+@BMPage("scope_other", "Other", hideMenu = false)
 class OtherPageForS : BasePage() {
 
     override fun onCreate() {
@@ -32,6 +29,24 @@ class OtherPageForS : BasePage() {
                 textId = R.string.double_tap_to_sleep,
                 tipsId = R.string.home_double_tap_to_sleep_summary
             ), SwitchV("double_tap_to_sleep")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.miuihome_recentwiew_wallpaper_darkening, tipsId = R.string.miuihome_recentwiew_wallpaper_darkening_summary
+            ), SwitchV("miuihome_recentwiew_wallpaper_darkening", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.miuihome_recentview_remove_card_animation, tipsId = R.string.miuihome_recentview_remove_card_animation_summary
+            ), SwitchV("miuihome_recentview_remove_card_animation", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.miuihome_shortcut_add_small_window, tipsId = R.string.miuihome_shortcut_add_small_window_summary),
+            SwitchV("miuihome_shortcut_add_small_window", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.miuihome_scroll_icon_name, tipsId = R.string.miuihome_scroll_icon_name_summary),
+            SwitchV("miuihome_scroll_icon_name", false)
         )
         Line()
         TitleText(textId = R.string.scope_powerkeeper)

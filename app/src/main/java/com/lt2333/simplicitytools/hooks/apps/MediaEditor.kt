@@ -17,6 +17,7 @@ object MediaEditor : AppRegister() {
                     UnlockUnlimitedCroppingForT, //解锁裁切最小值
                 )
             }
+
             Build.VERSION_CODES.S -> {
                 autoInitHooks(
                     lpparam,

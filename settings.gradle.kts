@@ -7,5 +7,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "WooBoxForMIUI"
-include(":app")
-include(":blockmiui")
+include(":app", ":blockmiui")
