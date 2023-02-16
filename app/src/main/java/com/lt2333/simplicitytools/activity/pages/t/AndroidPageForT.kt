@@ -66,7 +66,7 @@ class AndroidPageForT : BasePage() {
                 tipsId = R.string.remove_small_window_restrictions_summary
             ), SwitchV("remove_small_window_restrictions")
         )
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.max_wallpaper_scale,
                 onClickListener = {

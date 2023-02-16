@@ -35,7 +35,7 @@ class MainPageForS : BasePage() {
                 )
             })
         )
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.matters_needing_attention,
                 colorId = R.color.red,
@@ -51,19 +51,19 @@ class MainPageForS : BasePage() {
         )
         Line()
         TitleText(textId = R.string.scope)
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.scope_systemui,
                 tipsId = R.string.scope_systemui_summary,
                 onClickListener = { showFragment("scope_systemui") })
         )
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.scope_android,
                 tipsId = R.string.scope_android_summary,
                 onClickListener = { showFragment("scope_android") })
         )
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.scope_other,
                 tipsId = R.string.scope_other_summary,
@@ -71,7 +71,7 @@ class MainPageForS : BasePage() {
         )
         Line()
         TitleText(textId = R.string.about)
-        TextSummaryArrow(
+        TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.about_module,
                 tips = getString(R.string.about_module_summary),
