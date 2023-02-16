@@ -249,4 +249,6 @@
     <string name="miuihome_scroll_icon_name_summary">Длинное имя приложения будет прокручено и отображено в одну строку</string>
     <string name="miuihome_shortcut_add_small_window">Меню добавления окна</string>
     <string name="miuihome_shortcut_add_small_window_summary">Нажмите и удерживайте иконку рабочего стола, чтобы добавить быстрое открытое окно</string>
+    <string name="miuihome_shortcut_add_small_window_title">Маленькое окно</string>
+    <string name="click_to_view_use_cases">Нажмите, чтобы просмотреть варианты использования</string>
 </resources>
