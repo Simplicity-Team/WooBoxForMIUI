@@ -52,7 +52,7 @@ object StatusBarLayoutForT : HookRegister() {
 
         //判断是否开启居中挖孔兼容模式
         if (getHoleLocation == 1) {
-            findMethod("com.android.systemui.ScreenDecorations\$DisplayCutoutView") {
+            findMethod("com.android.systemui.ScreenDecorations") {
                 name == "boundsFromDirection" && parameterCount == 3 && isStatic
             }.hookBefore {
                 it.args[1] = 0
