@@ -136,6 +136,7 @@
     <string name="layout_compatibility_mode">Modo de compatibilidad</string>
     <string name="left_margin">Margen izquierdo (0: Auto)</string>
     <string name="right_margin">Margen derecho (0: Auto)</string>
+    <string name="layout_compatibility_mode_summary">Forzar el diseño a pantalla completa (compatible con cualquier forma de pantalla)</string>
     <string name="remove_macro_blacklist">Remueve la lista negra de game macro</string>
     <string name="hide_network_speed_splitter">Remover el divisor de la velocidad de red</string>
     <string name="updater">Actualizador</string>
