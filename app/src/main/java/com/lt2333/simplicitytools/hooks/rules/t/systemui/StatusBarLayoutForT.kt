@@ -65,7 +65,7 @@ object StatusBarLayoutForT : HookRegister() {
             0 -> return
             //时钟居中
             1 -> {
-                findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
+                findMethod("com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragment") {
                     name == "onViewCreated" && parameterCount == 2
                 }.hookAfter { param ->
                     val miuiPhoneStatusBarView =
@@ -189,7 +189,7 @@ object StatusBarLayoutForT : HookRegister() {
             }
             //时钟居右
             2 -> {
-                findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
+                findMethod("com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragment") {
                     name == "onViewCreated" && parameterCount == 2
                 }.hookAfter { param ->
                     val miuiPhoneStatusBarView =
@@ -228,7 +228,7 @@ object StatusBarLayoutForT : HookRegister() {
             }
             //时钟居中+图标居左
             3 -> {
-                findMethod("com.android.systemui.statusbar.phone.CollapsedStatusBarFragment") {
+                findMethod("com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragment") {
                     name == "onViewCreated" && parameterCount == 2
                 }.hookAfter { param ->
                     val miuiPhoneStatusBarView =
