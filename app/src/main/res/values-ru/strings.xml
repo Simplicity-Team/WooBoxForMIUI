@@ -241,4 +241,14 @@
     <string name="pkg_installer_summary">Отключить проверку количества установок</string>
     <string name="big_mobile_type_only_show_network_card">Большая иконка типа сети только для активной сим</string>
     <string name="big_mobile_type_location">Положение большой иконки типа сети</string>
+    <string name="miuihome_recentview_remove_card_animation">Изменение анимации обозначения карты</string>
+    <string name="miuihome_recentview_remove_card_animation_summary">Изменить эффект анимации последней карты удаления задачи</string>
+    <string name="miuihome_recentwiew_wallpaper_darkening">Отключить затемнение обоев</string>
+    <string name="miuihome_recentwiew_wallpaper_darkening_summary">Отключит эффект видимости обоев от затемнения при запуске и выходе из недавней задачи</string>
+    <string name="miuihome_scroll_icon_name">Бегущая строка имени приложений</string>
+    <string name="miuihome_scroll_icon_name_summary">Длинное имя приложения будет прокручено и отображено в одну строку</string>
+    <string name="miuihome_shortcut_add_small_window">Меню добавления окна</string>
+    <string name="miuihome_shortcut_add_small_window_summary">Нажмите и удерживайте иконку рабочего стола, чтобы добавить быстрое открытое окно</string>
+    <string name="miuihome_shortcut_add_small_window_title">Маленькое окно</string>
+    <string name="click_to_view_use_cases">Нажмите, чтобы просмотреть варианты использования</string>
 </resources>

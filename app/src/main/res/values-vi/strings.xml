@@ -237,4 +237,14 @@
     <string name="pkg_installer_summary">Tắt kiểm tra số lần cài đặt ứng dụng</string>
     <string name="big_mobile_type_only_show_network_card">Mạng dữ liệu lớn chỉ hiển thị thẻ mạng</string>
     <string name="big_mobile_type_location">Vị trí mạng dữ liệu lớn</string>
+    <string name="miuihome_recentview_remove_card_animation">Sửa đổi hoạt ảnh đánh dấu thẻ</string>
+    <string name="miuihome_recentview_remove_card_animation_summary">Sửa đổi hiệu ứng hoạt ảnh của thẻ loại bỏ nhiệm vụ gần đây</string>
+    <string name="miuihome_recentwiew_wallpaper_darkening">Tắt làm mờ hình nền</string>
+    <string name="miuihome_recentwiew_wallpaper_darkening_summary">Điều này sẽ vô hiệu hóa hiệu ứng mà hình nền sẽ sáng lên rồi mờ khi vào và ra khỏi tác vụ gần đây</string>
+    <string name="miuihome_scroll_icon_name">Cuộn tên ứng dụng</string>
+    <string name="miuihome_scroll_icon_name_summary">Tên ứng dụng quá dài sẽ bị cuộn và hiển thị mà không có dòng mới nào</string>
+    <string name="miuihome_shortcut_add_small_window">Menu phím tắt thêm cửa sổ</string>
+    <string name="miuihome_shortcut_add_small_window_summary">Nhấn và giữ biểu tượng màn hình chính để thêm cửa sổ mở nhanh</string>
+    <string name="miuihome_shortcut_add_small_window_title">Cửa sổ nhỏ</string>
+    <string name="click_to_view_use_cases">Nhấp để xem các trường hợp sử dụng</string>
 </resources>
