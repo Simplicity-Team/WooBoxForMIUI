@@ -133,7 +133,6 @@
     <string name="layout_compatibility_mode">Kompatibilitási mód</string>
     <string name="left_margin">Bal margó (0: Automatikus)</string>
     <string name="right_margin">Jobb margó (0: Automatikus)</string>
-    <string name="layout_compatibility_mode_summary">A bal és jobb oldali lyuk képernyő normálisan jeleníthető meg</string>
     <string name="remove_macro_blacklist">Játék makró feketelista eltávolítása</string>
     <string name="hide_network_speed_splitter">Hálózati sebességosztó elrejtése</string>
     <string name="updater">Frissítés</string>

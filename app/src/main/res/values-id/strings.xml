@@ -126,7 +126,6 @@
     <string name="layout_compatibility_mode">Mode kompatibel</string>
     <string name="left_margin">Batas kiri (0: Otomatis)</string>
     <string name="right_margin">Batas kanan (0: Otomatis)</string>
-    <string name="layout_compatibility_mode_summary">Buat layar lubang kiri dan kanan dapat ditampilkan secara normal</string>
     <string name="remove_macro_blacklist">Hapus pengecualian makro game</string>
     <string name="hide_network_speed_splitter">Sembunyikan pembagi kecepatan jaringan</string>
     <string name="updater">Pembaruan</string>

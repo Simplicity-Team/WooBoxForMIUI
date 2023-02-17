@@ -136,7 +136,6 @@
     <string name="layout_compatibility_mode">兼容模式</string>
     <string name="left_margin">左邊距 (0: 自動)</string>
     <string name="right_margin">右邊距 (0: 自動)</string>
-    <string name="layout_compatibility_mode_summary">使左右挖孔螢幕能正常顯示</string>
     <string name="remove_macro_blacklist">去除遊戲自動連招黑名單</string>
     <string name="hide_network_speed_splitter">隱藏網速分隔符</string>
     <string name="updater">系統更新</string>

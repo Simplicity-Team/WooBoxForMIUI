@@ -127,7 +127,6 @@
     <string name="layout_compatibility_mode">Mode Compatibilité</string>
     <string name="left_margin">Marge gauche (0: Auto)</string>
     <string name="right_margin">Marge droite (0: Auto)</string>
-    <string name="layout_compatibility_mode_summary">L\'écran de trou peut s\'afficher normalement</string>
     <string name="remove_macro_blacklist">Supprimer la liste noire des macros du jeu</string>
     <string name="hide_network_speed_splitter">Masquer le écart de vitesse du réseau</string>
     <string name="updater">Mise à jour</string>

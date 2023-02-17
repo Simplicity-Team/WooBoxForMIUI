@@ -140,7 +140,7 @@
     <string name="layout_compatibility_mode">Compatibility mode</string>
     <string name="left_margin">Left margin (0: Auto)</string>
     <string name="right_margin">Right margin (0: Auto)</string>
-    <string name="layout_compatibility_mode_summary">Make the left and right hole screen can be displayed normally</string>
+    <string name="layout_compatibility_mode_summary">Force full screen layout (supports all special-shaped screens)</string>
     <string name="remove_macro_blacklist">Remove game macro blacklist</string>
     <string name="hide_network_speed_splitter">Hide network speed splitter</string>
     <string name="updater">Updater</string>

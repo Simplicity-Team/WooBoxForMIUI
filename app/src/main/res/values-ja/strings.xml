@@ -136,7 +136,6 @@
     <string name="layout_compatibility_mode">互換モード</string>
     <string name="left_margin">左マージン（0：自動）</string>
     <string name="right_margin">右マージン（0：自動）</string>
-    <string name="layout_compatibility_mode_summary">左右の穴の画面を正常に表示できるようにする</string>
     <string name="remove_macro_blacklist">ゲームのマクロブラックリストを削除</string>
     <string name="hide_network_speed_splitter">ネットワーク速度分割器を非表示</string>
     <string name="updater">更新</string>

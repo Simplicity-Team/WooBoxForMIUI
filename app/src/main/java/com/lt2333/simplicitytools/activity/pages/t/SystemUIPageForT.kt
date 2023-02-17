@@ -51,10 +51,10 @@ import com.lt2333.simplicitytools.R
             }
         })
 
-        val layoutCompatibilityModeBinding = GetDataBinding({
-            MIUIActivity.safeSP.getInt(
-                "screen_hole_location", 0
-            ) == 2
+        val layoutCompatibilityBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean(
+                "layout_compatibility_mode", false
+            )
         }) { view, flags, data ->
             when (flags) {
                 1 -> (view as Switch).isEnabled = data as Boolean
@@ -62,43 +62,23 @@ import com.lt2333.simplicitytools.R
             }
         }
 
-        val screenHoleLocation: HashMap<Int, String> = hashMapOf<Int, String>().also {
-            it[0] = getString(R.string.off)
-            it[1] = getString(R.string.center)
-            it[2] = getString(R.string.left_or_right)
-        }
-        TextSummaryWithSpinner(TextSummaryV(
-            textId = R.string.layout_compatibility_mode, tipsId = R.string.screen_hole_location
-        ), SpinnerV(
-            screenHoleLocation[MIUIActivity.safeSP.getInt(
-                "screen_hole_location", 0
-            )].toString()
-        ) {
-            add(screenHoleLocation[0].toString()) {
-                MIUIActivity.safeSP.putAny("screen_hole_location", 0)
-                layoutCompatibilityModeBinding.binding.Send().send(false)
-            }
-            add(screenHoleLocation[1].toString()) {
-                MIUIActivity.safeSP.putAny("screen_hole_location", 1)
-                layoutCompatibilityModeBinding.binding.Send().send(false)
-            }
-            add(screenHoleLocation[2].toString()) {
-                MIUIActivity.safeSP.putAny("screen_hole_location", 2)
-                layoutCompatibilityModeBinding.binding.Send().send(true)
-            }
-        })
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.layout_compatibility_mode, tipsId = R.string.layout_compatibility_mode_summary
+            ), SwitchV("layout_compatibility_mode", dataBindingSend = layoutCompatibilityBinding.bindingSend)
+        )
 
         Text(
-            textId = R.string.left_margin, dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
+            textId = R.string.left_margin, dataBindingRecv = layoutCompatibilityBinding.binding.getRecv(2)
         )
         SeekBarWithText(
-            "status_bar_left_margin", 0, 300, 0, dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
+            "status_bar_left_margin", 0, 300, 0, dataBindingRecv = layoutCompatibilityBinding.binding.getRecv(2)
         )
         Text(
-            textId = R.string.right_margin, dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
+            textId = R.string.right_margin, dataBindingRecv = layoutCompatibilityBinding.binding.getRecv(2)
         )
         SeekBarWithText(
-            "status_bar_right_margin", 0, 300, 0, dataBindingRecv = layoutCompatibilityModeBinding.binding.getRecv(2)
+            "status_bar_right_margin", 0, 300, 0, dataBindingRecv = layoutCompatibilityBinding.binding.getRecv(2)
         )
         Line()
         TitleText(textId = R.string.status_bar_clock_format)

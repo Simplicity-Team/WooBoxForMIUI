@@ -134,7 +134,6 @@
     <string name="layout_compatibility_mode">Mod compatibilitate</string>
     <string name="left_margin">Marginea din stânga (0: Auto)</string>
     <string name="right_margin">Marginea din dreapta (0: auto)</string>
-    <string name="layout_compatibility_mode_summary">Aliniere pictograme</string>
     <string name="remove_macro_blacklist">Elimină lista neagră a macrocomenzilor jocurilor</string>
     <string name="hide_network_speed_splitter">Ascunde separatorul vitezei rețelei</string>
     <string name="updater">Actualizator</string>

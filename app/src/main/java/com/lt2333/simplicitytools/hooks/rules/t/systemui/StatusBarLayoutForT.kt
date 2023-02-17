@@ -19,7 +19,8 @@ import com.lt2333.simplicitytools.utils.xposed.base.HookRegister
 object StatusBarLayoutForT : HookRegister() {
 
     private val getMode = XSPUtils.getInt("status_bar_layout_mode", 0)
-    private val getHoleLocation = XSPUtils.getInt("screen_hole_location", 0)
+    private val isCompatibilityMode = XSPUtils.getBoolean("layout_compatibility_mode", false)
+
 
     private var statusBarLeft = 0
     private var statusBarTop = 0
@@ -51,7 +52,7 @@ object StatusBarLayoutForT : HookRegister() {
         }
 
         //判断是否开启居中挖孔兼容模式
-        if (getHoleLocation == 1) {
+        if (isCompatibilityMode) {
             findMethod("com.android.systemui.ScreenDecorations") {
                 name == "boundsFromDirection" && parameterCount == 3 && isStatic
             }.hookBefore {
@@ -163,7 +164,7 @@ object StatusBarLayoutForT : HookRegister() {
                     statusBarBottom = statusBar!!.paddingBottom
 
 
-                    if (getHoleLocation == 2) {
+                    if (isCompatibilityMode) {
                         val customLeftMargin = XSPUtils.getInt("status_bar_left_margin", 0)
                         if (customLeftMargin != 0) {
                             statusBarLeft = customLeftMargin
@@ -378,7 +379,7 @@ object StatusBarLayoutForT : HookRegister() {
                     statusBarBottom = statusBar!!.paddingBottom
 
 
-                    if (getHoleLocation == 2) {
+                    if (isCompatibilityMode) {
                         val customLeftMargin = XSPUtils.getInt("status_bar_left_margin", 0)
                         if (customLeftMargin != 0) {
                             statusBarLeft = customLeftMargin
@@ -395,7 +396,7 @@ object StatusBarLayoutForT : HookRegister() {
                 findMethod("com.android.systemui.statusbar.phone.PhoneStatusBarView") {
                     name == "updateLayoutForCutout"
                 }.hookAfter {
-                    if (getHoleLocation == 2) {
+                    if (isCompatibilityMode) {
                         val context = (it.thisObject as ViewGroup).context
                         updateLayout(context)
                     }
