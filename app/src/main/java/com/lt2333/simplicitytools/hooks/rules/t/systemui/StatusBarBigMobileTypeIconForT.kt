@@ -64,10 +64,8 @@ object StatusBarBigMobileTypeIconForT : HookRegister() {
             mobileTypeSingle.setPadding(
                 leftAndRightMargin, upAndDownPosition, leftAndRightMargin, 0
             )
-            //显示非上网卡的大图标
-            if (!mobileIconState.getObjectAs<Boolean>("dataConnected") && !mobileIconState.getObjectAs<Boolean>("wifiAvailable")) {
-                mobileTypeSingle.visibility = View.VISIBLE
-            }
+
+            it.thisObject.invokeMethodAuto("updateState",mobileIconState)
         }
         //显示非上网卡的大图标
         if (!isOnlyShowNetwork) {
