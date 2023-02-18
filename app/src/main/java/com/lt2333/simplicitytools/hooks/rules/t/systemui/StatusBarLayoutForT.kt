@@ -43,6 +43,9 @@ object StatusBarLayoutForT : HookRegister() {
                 mLeftLayout!!.setPadding(statusBarLeft, 0, 0, 0)
                 mRightLayout!!.setPadding(0, 0, statusBarRight, 0)
                 statusBar!!.setPadding(0, statusBarTop, 0, statusBarBottom)
+            }else{
+                mLeftLayout!!.setPadding(0, 0, 0, 0)
+                mRightLayout!!.setPadding(0, 0, 0, 0)
             }
         }
 
