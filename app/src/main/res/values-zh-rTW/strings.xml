@@ -39,7 +39,6 @@
     <string name="github_url">歡迎更多開發人員共同參與開發</string>
     <string name="issues">回饋/提議</string>
     <string name="issues_url">按一下以檢視 GitHub 問題</string>
-    <string name="xposeddescription">基於 MIUI13(Android 12) 適配的自訂工具</string>
     <string name="statusbar">狀態列</string>
     <string name="status_bar_time_seconds">顯示秒數</string>
     <string name="status_bar_network_speed_refresh_speed">每秒更新即時網路速度</string>
