@@ -136,6 +136,7 @@
     <string name="layout_compatibility_mode">Chế độ tương thích</string>
     <string name="left_margin">Lề trái (0: Tự động)</string>
     <string name="right_margin">Lề phải (0: Tự động)</string>
+    <string name="layout_compatibility_mode_summary">Bắt buộc bố cục toàn màn hình (hỗ trợ tất cả các màn hình có hình dạng đặc biệt)</string>
     <string name="remove_macro_blacklist">Xóa danh sách đen macro trò chơi</string>
     <string name="hide_network_speed_splitter">Ẩn bộ chia tốc độ mạng</string>
     <string name="updater">Trình cập nhật</string>
