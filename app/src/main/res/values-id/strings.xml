@@ -35,7 +35,6 @@
     <string name="github_url">Selamat datang lebih banyak developer untuk berpartisipasi dalam pengembangan</string>
     <string name="issues">Umpan Balik/Usulan</string>
     <string name="issues_url">Klik untuk melihat Masalah GitHub</string>
-    <string name="xposeddescription">Alat perubahan untuk MIUI13 (Android 12)</string>
     <string name="status_bar_time_seconds">Tampilkan detik</string>
     <string name="status_bar_network_speed_refresh_speed">Perubahan kecepatan jaringan dalam detik</string>
     <string name="remove_the_maximum_number_of_notification_icons">Hapus jumlah maksimum ikon notifikasi</string>
