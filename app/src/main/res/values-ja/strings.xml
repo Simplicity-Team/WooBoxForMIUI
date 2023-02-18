@@ -39,7 +39,6 @@
     <string name="github_url">開発に参加できる開発者を歓迎します</string>
     <string name="issues">ご意見・ご提案</string>
     <string name="issues_url">クリックして GitHub Issues を表示する</string>
-    <string name="xposeddescription">MIUI13 (Android 12) のカスタマイズツール</string>
     <string name="statusbar">ステータスバー</string>
     <string name="status_bar_time_seconds">秒を表示する</string>
     <string name="status_bar_network_speed_refresh_speed">ネットワーク速度を秒単位で更新</string>
