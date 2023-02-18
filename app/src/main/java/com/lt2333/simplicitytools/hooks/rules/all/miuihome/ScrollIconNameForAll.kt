@@ -1,8 +1,10 @@
 package com.lt2333.simplicitytools.hooks.rules.all.miuihome
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.text.TextUtils
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.utils.Log
 import com.github.kyuubiran.ezxhelper.utils.args
@@ -10,54 +12,57 @@ import com.github.kyuubiran.ezxhelper.utils.findMethod
 import com.github.kyuubiran.ezxhelper.utils.getObject
 import com.github.kyuubiran.ezxhelper.utils.hookAfter
 import com.github.kyuubiran.ezxhelper.utils.invokeMethod
-import com.lt2333.simplicitytools.utils.hasEnable
+import com.lt2333.simplicitytools.utils.*
 import com.lt2333.simplicitytools.utils.xposed.base.HookRegister
 
 object ScrollIconNameForAll : HookRegister() {
     @SuppressLint("DiscouragedApi")
     override fun init() = hasEnable("miuihome_scroll_icon_name") {
+        val launcherClass = "com.miui.home.launcher.Launcher".findClass()
+        val shortcutInfoClass = "com.miui.home.launcher.ShortcutInfo".findClass()
+
         try {
-            findMethod("com.miui.home.launcher.ItemIcon") {
-                name == "onFinishInflate"
-            }.hookAfter {
-                val mTitle = it.thisObject.getObject("mTitle") as TextView
+            "com.miui.home.launcher.ItemIcon".hookAfterMethod(
+                "onFinishInflate"
+            ) {
+                val mTitle = it.thisObject.getObjectField("mTitle") as TextView
                 mTitleScrolling(mTitle)
             }
-            findMethod("com.miui.home.launcher.maml.MaMlWidgetView") {
-                name == "onFinishInflate"
-            }.hookAfter {
-                val mTitle = it.thisObject.getObject("mTitle") as TextView
+            "com.miui.home.launcher.maml.MaMlWidgetView".hookAfterMethod(
+                "onFinishInflate"
+            ) {
+                val mTitle = it.thisObject.getObjectField("mTitleTextView") as TextView
                 mTitleScrolling(mTitle)
             }
-            findMethod("com.miui.home.launcher.LauncherMtzGadgetView") {
-                name == "onFinishInflate"
-            }.hookAfter {
-                val mTitle = it.thisObject.getObject("mTitle") as TextView
+            "com.miui.home.launcher.LauncherMtzGadgetView".hookAfterMethod(
+                "onFinishInflate"
+            ) {
+                val mTitle = it.thisObject.getObjectField("mTitleTextView") as TextView
                 mTitleScrolling(mTitle)
             }
-            findMethod("com.miui.home.launcher.LauncherWidgetView") {
-                name == "onFinishInflate"
-            }.hookAfter {
-                val mTitle = it.thisObject.getObject("mTitle") as TextView
+            "com.miui.home.launcher.LauncherWidgetView".hookAfterMethod(
+                "onFinishInflate"
+            ) {
+                val mTitle = it.thisObject.getObjectField("mTitleTextView") as TextView
                 mTitleScrolling(mTitle)
             }
-            findMethod("com.miui.home.launcher.ShortcutIcon") {
-                name == "fromXml" && parameterCount == 4
-            }.hookAfter {
-                val buddyIconView = it.args[3].invokeMethod("getBuddyIconView", args(it.args[2])) as View
-                val mTitle = buddyIconView.getObject("mTitle") as TextView
+            "com.miui.home.launcher.ShortcutIcon".hookAfterMethod(
+                "fromXml", Int::class.javaPrimitiveType, launcherClass, ViewGroup::class.java, shortcutInfoClass
+            ) {
+                val buddyIconView = it.args[3].callMethod("getBuddyIconView", it.args[2]) as View
+                val mTitle = buddyIconView.getObjectField("mTitle") as TextView
                 mTitleScrolling(mTitle)
             }
-            findMethod("com.miui.home.launcher.ShortcutIcon") {
-                name == "createShortcutIcon" && parameterCount == 3
-            }.hookAfter {
+            "com.miui.home.launcher.ShortcutIcon".hookAfterMethod(
+                "createShortcutIcon", Int::class.javaPrimitiveType, launcherClass, ViewGroup::class.java
+            ) {
                 val buddyIcon = it.result as View
-                val mTitle = buddyIcon.getObject("mTitle") as TextView
+                val mTitle = buddyIcon.getObjectField("mTitle") as TextView
                 mTitleScrolling(mTitle)
             }
-            findMethod("com.miui.home.launcher.common.Utilities") {
-                name == "adaptTitleStyleToWallpaper" && parameterCount == 4
-            }.hookAfter {
+            "com.miui.home.launcher.common.Utilities".hookAfterMethod(
+                "adaptTitleStyleToWallpaper", Context::class.java, TextView::class.java, Int::class.javaPrimitiveType, Int::class.javaPrimitiveType
+            ) {
                 val mTitle = it.args[1] as TextView
                 if (mTitle.id == mTitle.resources.getIdentifier("icon_title", "id", "com.miui.home")) {
                     mTitleScrolling(mTitle)

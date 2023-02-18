@@ -35,8 +35,7 @@ class OtherPageForT : BasePage() {
                 textId = R.string.miuihome_recentwiew_wallpaper_darkening, tipsId = R.string.miuihome_recentwiew_wallpaper_darkening_summary
             ), SwitchV("miuihome_recentwiew_wallpaper_darkening", false)
         )
-        //TODO：未开发完成
-        /*TextSummaryWithSwitch(
+        TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.miuihome_recentview_remove_card_animation, tipsId = R.string.miuihome_recentview_remove_card_animation_summary
             ), SwitchV("miuihome_recentview_remove_card_animation", false)
@@ -44,7 +43,7 @@ class OtherPageForT : BasePage() {
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.miuihome_shortcut_add_small_window, tipsId = R.string.miuihome_shortcut_add_small_window_summary),
             SwitchV("miuihome_shortcut_add_small_window", false)
-        )*/
+        )
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.miuihome_scroll_icon_name, tipsId = R.string.miuihome_scroll_icon_name_summary),
             SwitchV("miuihome_scroll_icon_name", false)
