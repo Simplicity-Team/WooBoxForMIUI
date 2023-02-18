@@ -38,7 +38,6 @@
     <string name="github_url">Sunt bineveniți mai mulți dezvoltatori să participe la dezvoltare</string>
     <string name="issues">Feedback/Propunere</string>
     <string name="issues_url">Clic pentru a vizualiza problemele pe GitHub</string>
-    <string name="xposeddescription">Instrument de personalizare pentru MIUI13 (Android 12)</string>
     <string name="statusbar">Bară de stare</string>
     <string name="status_bar_time_seconds">Afișare secunde</string>
     <string name="status_bar_network_speed_refresh_speed">Reîmprospătare viteză rețea în secunde</string>
