@@ -39,7 +39,6 @@
     <string name="github_url">Приглашаем больше разработчиков принять участие в разработке</string>
     <string name="issues">Обратная связь</string>
     <string name="issues_url">Нажмите, чтобы просмотреть обсуждение на GitHub</string>
-    <string name="xposeddescription">Инструмент настройки для MIUI13 (Android 12)</string>
     <string name="statusbar">Строка состояния</string>
     <string name="status_bar_time_seconds">Секунды</string>
     <string name="status_bar_network_speed_refresh_speed">Обновление скорости сети в секундах</string>
