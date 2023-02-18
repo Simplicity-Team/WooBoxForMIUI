@@ -39,7 +39,6 @@
     <string name="github_url">Zachęcam do rozwijania projektu innych deweloperów</string>
     <string name="issues">Opinie/propozycje</string>
     <string name="issues_url">Kliknij, aby wyświetlić zgłoszenia na GitHubie</string>
-    <string name="xposeddescription">Narzędzie do dostosowywania MIUI 13 (Android 12)</string>
     <string name="statusbar">Pasek statusu</string>
     <string name="status_bar_time_seconds">Wyświetlaj sekundy</string>
     <string name="status_bar_network_speed_refresh_speed">Odświeżenie prędkości sieci w sekundach</string>
