@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="performance">效能</string>
-    <string name="lock_max_fps">鎖定螢幕更新率上限</string>
+    <string name="lock_max_fps">鎖定目前重新整理速率上限</string>
     <string name="ui">介面</string>
     <string name="delete_on_post_notification">移除上層顯示通知</string>
-    <string name="delete_on_post_notification_summary">移除 \"此應用正顯示在螢幕上其他應用的上層\" 通知</string>
+    <string name="delete_on_post_notification_summary">移除「此應用程式正顯示在螢幕上其他應用程式的上層」通知</string>
     <string name="other">其他</string>
-    <string name="disable_flag_secure">允許截圖</string>
-    <string name="disable_flag_secure_summary">開啟後允許在不允許截圖的軟體中截圖\n支援添加下拉控制中心快速開關，保障安全</string>
+    <string name="disable_flag_secure">允許螢幕截圖</string>
+    <string name="disable_flag_secure_summary">開啟後允許在不允許截圖的軟體中截圖\n支援新增下拉控制中心快速開關，保障安全</string>
     <string name="home">桌面</string>
     <string name="home_time">始終顯示桌面時鐘</string>
     <string name="reboot_host">重啟全部作用域</string>
     <string name="reboot">重啟系統</string>
     <!--Status bar icons-->
-    <string name="status_bar_icon">狀態欄圖示</string>
-    <string name="hide_no_sim_icon">隱藏 無SIM卡 圖示</string>
-    <string name="hide_sim_one_icon">隱藏 SIM卡一 圖示</string>
-    <string name="hide_sim_two_icon">隱藏 SIM卡二 圖示</string>
-    <string name="hide_vpn_icon">隱藏 VPN 圖示</string>
-    <string name="hide_airplane_icon">隱藏 飛行模式 圖示</string>
-    <string name="hide_wifi_icon">隱藏 WIFI 圖示</string>
-    <string name="hide_bluetooth_icon">隱藏 藍牙 圖示</string>
-    <string name="hide_volume_zen_icon">隱藏 聲音、勿擾 圖示</string>
+    <string name="status_bar_icon">狀態列圖示</string>
+    <string name="hide_no_sim_icon">隱藏「無 SIM 卡」圖示</string>
+    <string name="hide_sim_one_icon">隱藏「SIM 卡 1」圖示</string>
+    <string name="hide_sim_two_icon">隱藏「SIM 卡 2」圖示</string>
+    <string name="hide_vpn_icon">隱藏「VPN」圖示</string>
+    <string name="hide_airplane_icon">隱藏「飛航模式」圖示</string>
+    <string name="hide_wifi_icon">隱藏「WIFI」圖示</string>
+    <string name="hide_bluetooth_icon">隱藏「藍牙」圖示</string>
+    <string name="hide_volume_zen_icon">隱藏「聲音、勿擾」圖示</string>
     <string name="hide_alarm_icon">隱藏 鬧鐘 圖示</string>
     <string name="hide_hotspot_icon">隱藏 WIFI熱點 圖示</string>
     <string name="hide_headset_icon">隱藏 耳機 圖示</string>
