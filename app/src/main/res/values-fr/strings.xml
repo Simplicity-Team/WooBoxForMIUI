@@ -34,7 +34,6 @@
     <string name="github_url">Bienvenue à d\'autres développeurs pour participer au développement</string>
     <string name="issues">Feed-back/Proposition</string>
     <string name="issues_url">Cliquez pour voir GitHub</string>
-    <string name="xposeddescription">Outil de personnalisation pour MIUI13(Android 12)</string>
     <string name="statusbar">Barre d\'État</string>
     <string name="status_bar_time_seconds">Affichage des secondes</string>
     <string name="status_bar_network_speed_refresh_speed">Rafraichissement de la vitesse du réseau en secondes</string>
