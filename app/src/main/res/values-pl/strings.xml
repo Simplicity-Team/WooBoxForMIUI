@@ -239,4 +239,12 @@
     <string name="big_mobile_type_location">Pozycja dużej ikony typu sieci</string>
     <string name="miuihome_recentview_remove_card_animation">Zmodyfikuj animację oznaczania kart</string>
     <string name="miuihome_recentview_remove_card_animation_summary">Zmodyfikuj efekt animacji karty usunięcia ostatniego zadania</string>
+    <string name="miuihome_recentwiew_wallpaper_darkening">Wyłącz przyciemnianie tapety</string>
+    <string name="miuihome_recentwiew_wallpaper_darkening_summary">Spowoduje to wyłączenie efektu polegającego na tym, że tapeta stopniowo rozjaśnia się od przyciemnienia podczas wchodzenia i wychodzenia z ostatnich zadań</string>
+    <string name="miuihome_scroll_icon_name">Przewiń nazwę aplikacji</string>
+    <string name="miuihome_scroll_icon_name_summary">Zbyt długa nazwa aplikacji zostanie przewinięta i wyświetlona bez nowego wiersza</string>
+    <string name="miuihome_shortcut_add_small_window">Dodaj widżet \"Menu skrótów\"</string>
+    <string name="miuihome_shortcut_add_small_window_summary">Naciśnij i przytrzymaj ikonę na ekranie głównym, aby dodać okno szybkiego otwierania</string>
+    <string name="miuihome_shortcut_add_small_window_title">Małe okno</string>
+    <string name="click_to_view_use_cases">Kliknij, aby wyświetlić przypadki użycia</string>
 </resources>
