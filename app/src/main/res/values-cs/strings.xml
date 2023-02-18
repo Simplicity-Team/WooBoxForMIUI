@@ -38,7 +38,6 @@
     <string name="github_url">Vítejte více vývojářů, aby se podíleli na vývoji</string>
     <string name="issues">Zpětná vazba/návrh</string>
     <string name="issues_url">Kliknutím zobrazíte problémy GitHub</string>
-    <string name="xposeddescription">Nástroj pro přizpůsobení MIUI13(Android 12)</string>
     <string name="statusbar">Stavová lišta</string>
     <string name="status_bar_time_seconds">Zobrazit vteřiny</string>
     <string name="status_bar_network_speed_refresh_speed">Obnovení rychlosti sítě v sekundách</string>
