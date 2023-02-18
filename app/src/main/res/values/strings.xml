@@ -43,7 +43,7 @@
     <string name="github_url">Welcome more developers to participate in the development</string>
     <string name="issues">Feedback/Proposal</string>
     <string name="issues_url">Click to view GitHub Issues</string>
-    <string name="xposeddescription">Customization tool for MIUI13(Android 12)</string>
+    <string name="xposeddescription">Customization tool for MIUI13+(Android 12+)</string>
     <string name="statusbar">Status bar</string>
     <string name="status_bar_time_seconds">Display seconds</string>
     <string name="status_bar_network_speed_refresh_speed">Network speed refresh in seconds</string>
