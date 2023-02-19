@@ -28,24 +28,31 @@ object StatusBarLayoutForT : HookRegister() {
     private var statusBarBottom = 0
 
     override fun init() {
-
-        // TODO: Android13状态栏布局不可用
-
         var mLeftLayout: LinearLayout? = null
         var mRightLayout: LinearLayout? = null
         var mCenterLayout: LinearLayout?
         var statusBar: ViewGroup? = null
 
-        fun updateLayout(context: Context) {
-            //判断屏幕方向
-            val mConfiguration: Configuration = context.resources.configuration
-            if (mConfiguration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                mLeftLayout!!.setPadding(statusBarLeft, 0, 0, 0)
-                mRightLayout!!.setPadding(0, 0, statusBarRight, 0)
-                statusBar!!.setPadding(0, statusBarTop, 0, statusBarBottom)
-            }else{
-                mLeftLayout!!.setPadding(0, 0, 0, 0)
-                mRightLayout!!.setPadding(0, 0, 0, 0)
+        //判断屏幕状态更新布局 mode: 1正常布局 2居中布局
+        fun updateLayout(context: Context,mode: Int) {
+            when(mode){
+                1->{
+                    val mConfiguration: Configuration = context.resources.configuration
+                    if (mConfiguration.orientation == Configuration.ORIENTATION_PORTRAIT) { //横屏
+                        statusBar!!.setPadding(statusBarLeft, statusBarTop, statusBarRight, statusBarBottom)
+                    }
+                }
+                2->{
+                    val mConfiguration: Configuration = context.resources.configuration
+                    if (mConfiguration.orientation == Configuration.ORIENTATION_PORTRAIT) { //横屏
+                        mLeftLayout!!.setPadding(statusBarLeft, 0, 0, 0)
+                        mRightLayout!!.setPadding(0, 0, statusBarRight, 0)
+                        statusBar!!.setPadding(0, statusBarTop, 0, statusBarBottom)
+                    }else{ //竖屏
+                        mLeftLayout!!.setPadding(0, 0, 0, 0)
+                        mRightLayout!!.setPadding(0, 0, 0, 0)
+                    }
+                }
             }
         }
 
@@ -58,9 +65,52 @@ object StatusBarLayoutForT : HookRegister() {
             }
         }
 
+        //修改对应布局
         when (getMode) {
             //默认
-            0 -> return
+            0 -> {
+
+                findMethod("com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragment") {
+                    name == "onViewCreated" && parameterCount == 2
+                }.hookAfter { param ->
+                    val miuiPhoneStatusBarView = param.thisObject.getObjectAs<ViewGroup>("mStatusBar")
+                    val context: Context = miuiPhoneStatusBarView.context
+                    val res: Resources = miuiPhoneStatusBarView.resources
+                    val statusBarId: Int = res.getIdentifier("status_bar", "id", "com.android.systemui")
+                    statusBar = miuiPhoneStatusBarView.findViewById(statusBarId)
+                    if (statusBar == null) return@hookAfter
+
+                    statusBarLeft = statusBar!!.paddingLeft
+                    statusBarTop = statusBar!!.paddingTop
+                    statusBarRight = statusBar!!.paddingRight
+                    statusBarBottom = statusBar!!.paddingBottom
+
+
+                    if (isCompatibilityMode) {
+                        val customLeftMargin = XSPUtils.getInt("status_bar_left_margin", 0)
+                        if (customLeftMargin != 0) {
+                            statusBarLeft = customLeftMargin
+                        }
+
+                        val customRightMargin = XSPUtils.getInt("status_bar_right_margin", 0)
+                        if (customRightMargin != 0) {
+                            statusBarRight = customRightMargin
+                        }
+                        updateLayout(context,1)
+                    }
+                }
+
+
+                //兼容模式
+                findMethod("com.android.systemui.statusbar.phone.PhoneStatusBarView") {
+                    name == "updateLayoutForCutout"
+                }.hookAfter {
+                    if (isCompatibilityMode) {
+                        val context = (it.thisObject as ViewGroup).context
+                        updateLayout(context,1)
+                    }
+                }
+            }
             //时钟居中
             1 -> {
                 findMethod("com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragment") {
@@ -162,7 +212,7 @@ object StatusBarLayoutForT : HookRegister() {
                         if (customRightMargin != 0) {
                             statusBarRight = customRightMargin
                         }
-                        updateLayout(context)
+                        updateLayout(context,2)
                     }
                 }
 
@@ -171,7 +221,7 @@ object StatusBarLayoutForT : HookRegister() {
                 }.hookAfter {
                     hasEnable("layout_compatibility_mode") {
                         val context = (it.thisObject as ViewGroup).context
-                        updateLayout(context)
+                        updateLayout(context,2)
                     }
                 }
             }
@@ -209,6 +259,36 @@ object StatusBarLayoutForT : HookRegister() {
                     battery.addView(mRightLayout)
                     (clock.parent as ViewGroup).removeView(clock)
                     mRightLayout!!.addView(clock)
+
+
+                    statusBarLeft = statusBar!!.paddingLeft
+                    statusBarTop = statusBar!!.paddingTop
+                    statusBarRight = statusBar!!.paddingRight
+                    statusBarBottom = statusBar!!.paddingBottom
+
+
+                    if (isCompatibilityMode) {
+                        val customLeftMargin = XSPUtils.getInt("status_bar_left_margin", 0)
+                        if (customLeftMargin != 0) {
+                            statusBarLeft = customLeftMargin
+                        }
+
+                        val customRightMargin = XSPUtils.getInt("status_bar_right_margin", 0)
+                        if (customRightMargin != 0) {
+                            statusBarRight = customRightMargin
+                        }
+                        updateLayout(context,1)
+                    }
+                }
+
+                //兼容模式
+                findMethod("com.android.systemui.statusbar.phone.PhoneStatusBarView") {
+                    name == "updateLayoutForCutout"
+                }.hookAfter {
+                    if (isCompatibilityMode) {
+                        val context = (it.thisObject as ViewGroup).context
+                        updateLayout(context,1)
+                    }
                 }
             }
             //时钟居中+图标居左
@@ -351,7 +431,7 @@ object StatusBarLayoutForT : HookRegister() {
                         if (customRightMargin != 0) {
                             statusBarRight = customRightMargin
                         }
-                        updateLayout(context)
+                        updateLayout(context,2)
                     }
                 }
                 //兼容模式
@@ -360,7 +440,7 @@ object StatusBarLayoutForT : HookRegister() {
                 }.hookAfter {
                     if (isCompatibilityMode) {
                         val context = (it.thisObject as ViewGroup).context
-                        updateLayout(context)
+                        updateLayout(context,2)
                     }
                 }
 
