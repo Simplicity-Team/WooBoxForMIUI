@@ -22,23 +22,29 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
       
+    - name: Clone UI
+      run: |
+        cd blockmiui
+        git submodule init
+        git submodule update
+      
     - name: Build with Gradle
       run: |
-        bash ./gradlew assembleRelease
+        bash ./gradlew assembleDebug
         
-    - name: Sign Release APK
+    - name: Sign Debug APK
       if: success()
-      id: sign_release
+      id: sign_debug
       uses: r0adkll/sign-android-release@v1.0.4
       with:
-        releaseDirectory: ./app/build/outputs/apk/release
+        releaseDirectory: ./app/build/outputs/apk/debug
         signingKeyBase64: ${{ secrets.SIGNING_KEY }}
         alias: ${{ secrets.KEY_STORE_ALIAS }}
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
         keyPassword: ${{ secrets.KEY_STORE_PASSWORD }}
         
-    - name: Upload Release APK
+    - name: Upload Debug APK
       uses: actions/upload-artifact@v2
       with:
-        name: WooBox_release
-        path: ${{ steps.sign_release.outputs.signedReleaseFile }}
+        name: WooBox_Debug
+        path: ${{ steps.sign_debug.outputs.signedReleaseFile }}
