@@ -11,6 +11,12 @@
 
 ---
 
+### Module Description
+
+Currently only developed based on `Android13`, `Android12` is almost no longer maintained. There are also cases where the development is based on `Android13`, but it can be used in `Android12`. Developers in the community who use `Android12` are requested to submit `Pull Request` after testing and repairing by themselves.
+
+---
+
 ### Screenshot
 
 ![Screenshot](https://raw.githubusercontent.com/LittleTurtle2333/SimplicityTools/main/doc/en.jpg)

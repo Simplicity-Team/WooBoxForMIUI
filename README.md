@@ -13,7 +13,9 @@
 
 ### 模块说明
 
-开发者：[酷安@乌堆小透明](http://www.coolapk.com/u/883441)
+开发者：[酷安@乌堆小透明](http://www.coolapk.com/u/883441)  
+  
+当前仅基于`Android13`进行开发，`Android12`几乎不再维护。也有基于`Android13`开发，但是能在`Android12`使用的情况，请广大社区使用`Android12`的开发者自行测试和修复后提交`Pull Request`。
 
 ---
 
