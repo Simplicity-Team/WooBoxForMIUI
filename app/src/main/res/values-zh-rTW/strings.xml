@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="performance">效能</string>
+    <string name="performance">性能</string>
     <string name="lock_max_fps">鎖定目前重新整理速率上限</string>
     <string name="ui">介面</string>
     <string name="delete_on_post_notification">移除上層顯示通知</string>
@@ -10,7 +10,7 @@
     <string name="disable_flag_secure_summary">開啟後允許在不允許截圖的軟體中截圖\n支援新增下拉控制中心快速開關，保障安全</string>
     <string name="home">桌面</string>
     <string name="home_time">始終顯示桌面時鐘</string>
-    <string name="reboot_host">重啟所有範圍</string>
+    <string name="reboot_host">重啟所有作用範圍</string>
     <string name="reboot">重啟系統</string>
     <!--Status bar icons-->
     <string name="status_bar_icon">狀態列圖示</string>
@@ -43,7 +43,7 @@
     <string name="statusbar">狀態列</string>
     <string name="status_bar_time_seconds">顯示秒數</string>
     <string name="status_bar_network_speed_refresh_speed">每秒更新即時網路速度</string>
-    <string name="remove_the_maximum_number_of_notification_icons">解除通知圖示數量上限</string>
+    <string name="remove_the_maximum_number_of_notification_icons">移除通知圖示數量上限</string>
     <string name="main_switch">模組主開關</string>
     <string name="hide_gps_icon">隱藏「GPS」圖示</string>
     <string name="hide_status_bar_network_speed_second">隱藏網路速度 (/s) 單位</string>
@@ -76,7 +76,7 @@
     <string name="developer">開發人員</string>
     <string name="thank_list">感謝名單</string>
     <string name="third_party_open_source_statement">第三方開放原始碼聲明</string>
-    <string name="corepacth">解除安裝限制</string>
+    <string name="corepacth">移除安裝限制</string>
     <string name="corepacth_summary">支援降級/不同簽章/無簽章安裝</string>
     <string name="prevent_recovery_of_battery_optimization_white_list">防止復原電池效能最佳化白名單</string>
     <string name="failed_after_restart">系統重啟後仍會還原</string>
@@ -94,7 +94,7 @@
     <string name="remove_lock_screen_camera">移除鎖定螢幕相機功能</string>
     <string name="only_official_default_themes_are_supported">僅支援官方預設主題</string>
     <string name="lock_one_hundred">手機管家鎖定 100 分</string>
-    <string name="scope">範圍</string>
+    <string name="scope">作用範圍</string>
     <string name="scope_android">系統架構</string>
     <string name="scope_systemui">系統 UI</string>
     <string name="scope_miuihome">系統桌面</string>
@@ -102,7 +102,7 @@
     <string name="status_bar_network_speed_refresh_speed_summary">將狀態列網路速度元件的更新間隔變更為 1s</string>
     <string name="hide_battery_percentage_icon_summary">需自行開啟電池百分比外顯功能</string>
     <string name="hide_status_bar_network_speed_second_summary">隱藏狀態列網路速度元件的 (/s) 單位</string>
-    <string name="remove_the_maximum_number_of_notification_icons_summary">解除狀態列最多僅能顯示三條通知的限制</string>
+    <string name="remove_the_maximum_number_of_notification_icons_summary">移除狀態列最多僅能顯示三條通知的限制</string>
     <string name="scope_systemui_summary">自訂系統介面、狀態列、鎖定螢幕等</string>
     <string name="scope_android_summary">首次啟動模組或模組更新後，\n此處的功能需重啟系統後才能生效</string>
     <string name="scope_other_summary">手機管家、相簿編輯、電量與性能等</string>
@@ -127,7 +127,7 @@
     <string name="matters_needing_attention_context">首次啟動或更新後建議重啟手機\n絕大部分功能變更後需要在右上角重啟範圍後生效</string>
     <string name="are_you_sure_reboot">確定重啟系統？</string>
     <string name="cancel">取消</string>
-    <string name="are_you_sure_reboot_scope">確定重啟所有範圍？</string>
+    <string name="are_you_sure_reboot_scope">確定要重啟所有作用範圍？</string>
     <string name="hide_battery_charging_icon">隱藏「充電」圖示</string>
     <string name="hide_wifi_standard_icon">隱藏「WIFI 標準」圖示</string>
     <string name="status_bar_time_center">時間置中</string>
@@ -246,5 +246,5 @@
     <string name="miuihome_shortcut_add_small_window">捷徑選單新增小窗</string>
     <string name="miuihome_shortcut_add_small_window_summary">長按桌面圖示以快速開啟小窗應用程式</string>
     <string name="miuihome_shortcut_add_small_window_title">小窗應用程式</string>
-    <string name="click_to_view_use_cases">按一下以檢視用例</string>
+    <string name="click_to_view_use_cases">按一下以檢視案例</string>
 </resources>
