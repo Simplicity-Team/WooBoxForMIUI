@@ -566,6 +566,13 @@ import com.lt2333.simplicitytools.R
         )
         Line()
         TitleText(textId = R.string.control_center)
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.disable_bluetooth_temporarily_off
+            ), SwitchV(
+                "disable_bluetooth_temporarily_off"
+            )
+        )
         val controlCenterWeatherBinding = GetDataBinding({
             MIUIActivity.safeSP.getBoolean(
                 "control_center_weather", false

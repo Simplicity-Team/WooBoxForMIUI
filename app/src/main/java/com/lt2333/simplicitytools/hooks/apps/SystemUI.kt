@@ -32,37 +32,7 @@ import com.lt2333.simplicitytools.hooks.rules.s.systemui.StatusBarLayoutForS
 import com.lt2333.simplicitytools.hooks.rules.s.systemui.StatusBarNetworkSpeedRefreshSpeedForS
 import com.lt2333.simplicitytools.hooks.rules.s.systemui.StatusBarTimeCustomizationForS
 import com.lt2333.simplicitytools.hooks.rules.s.systemui.WaveChargeForS
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.BatteryPercentageForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.CanNotificationSlideForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.ControlCenterWeatherForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.CustomMobileTypeTextForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.DoubleLineNetworkSpeedForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.HideBatteryIconForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.HideHDIconForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.HideMobileActivityIconForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.HideMobileTypeIconForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.HideNetworkSpeedSplitterForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.HideSimIconForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.HideStatusBarIconForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.HideStatusBarNetworkSpeedSecondForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.HideWifiActivityIconForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.LockScreenClockDisplaySecondsForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.LockScreenCurrentForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.LockScreenDoubleTapToSleepForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.MaximumNumberOfNotificationIconsForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.NewNotificationWeatherForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.NotificationWeatherForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.OldNotificationWeatherForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.OldQSCustomForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.RemoveLockScreenCameraForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.RemoveTheLeftSideOfTheLockScreenForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.ShowWifiStandardForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.StatusBarBigMobileTypeIconForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.StatusBarDoubleTapToSleepForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.StatusBarLayoutForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.StatusBarNetworkSpeedRefreshSpeedForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.StatusBarTimeCustomizationForT
-import com.lt2333.simplicitytools.hooks.rules.t.systemui.WaveChargeForT
+import com.lt2333.simplicitytools.hooks.rules.t.systemui.*
 import com.lt2333.simplicitytools.utils.xposed.base.AppRegister
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
@@ -105,6 +75,7 @@ object SystemUI : AppRegister() {
                     CanNotificationSlideForT, //允许下滑通知打开小窗
                     LockScreenClockDisplaySecondsForT, // 锁屏时钟显示秒
                     ShowWifiStandardForT, // 显示 WIFI 角标
+                    DisableBluetoothTemporarilyOffForT, //禁用临时蓝牙关闭
                 )
             }
 
