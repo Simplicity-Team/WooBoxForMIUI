@@ -247,4 +247,5 @@
     <string name="miuihome_shortcut_add_small_window_summary">Nhấn và giữ biểu tượng màn hình chính để thêm cửa sổ mở nhanh</string>
     <string name="miuihome_shortcut_add_small_window_title">Cửa sổ nhỏ</string>
     <string name="click_to_view_use_cases">Nhấp để xem các trường hợp sử dụng</string>
+    <string name="disable_bluetooth_temporarily_off" comment="This function is used to completely close Bluetooth">Vô hiệu hóa bluetooth tạm thời tắt</string>
 </resources>
