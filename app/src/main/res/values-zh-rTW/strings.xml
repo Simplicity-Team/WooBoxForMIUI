@@ -52,7 +52,7 @@
     <string name="skip_waiting_time">跳過 5/10 秒警告時間</string>
     <string name="unlock_unlimited_cropping">移除裁剪圖片/螢幕截圖的限制</string>
     <string name="hide_slave_wifi_icon">隱藏「WIFI 次要」圖示</string>
-    <string name="HideLauncherIcon">隱藏「桌面」圖示</string>
+    <string name="HideLauncherIcon">隱藏桌面圖示</string>
     <string name="hide_battery_percentage_icon">隱藏電量 (%)</string>
     <string name="hide_battery_icon">隱藏「電池」圖示</string>
     <string name="status_bar_clock_format">狀態列時鐘格式</string>
@@ -247,4 +247,5 @@
     <string name="miuihome_shortcut_add_small_window_summary">長按桌面圖示以快速開啟小窗應用程式</string>
     <string name="miuihome_shortcut_add_small_window_title">小窗應用程式</string>
     <string name="click_to_view_use_cases">按一下以檢視案例</string>
+    <string name="disable_bluetooth_temporarily_off" comment="This function is used to completely close Bluetooth">停用暫時關閉藍牙</string>
 </resources>
