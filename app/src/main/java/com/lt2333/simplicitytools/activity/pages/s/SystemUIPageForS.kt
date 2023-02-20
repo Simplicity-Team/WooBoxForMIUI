@@ -1,5 +1,7 @@
 package com.lt2333.simplicitytools.activity.pages.s
 
+import android.content.Intent
+import android.net.Uri
 import android.view.View
 import android.widget.Switch
 import android.widget.Toast
@@ -11,6 +13,7 @@ import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
 import cn.fkj233.ui.dialog.MIUIDialog
+import cn.fkj233.ui.dialog.NewDialog
 import com.lt2333.simplicitytools.R
 
 
@@ -210,27 +213,37 @@ class SystemUIPageForS : BasePage() {
 
         //极客模式起始
         TextSummaryWithArrow(TextSummaryV(textId = R.string.custom_clock_format_geek) {
-            MIUIDialog(activity) {
+            NewDialog(activity) {
                 setTitle(R.string.custom_clock_format_geek)
                 setEditText(
-                    MIUIActivity.safeSP.getString("custom_clock_format_geek", "HH:mm:ss"),
-                    "",
-                    isSingleLine = false
+                    MIUIActivity.safeSP.getString("custom_clock_format_geek", "HH:mm:ss"), "", isSingleLine = false
                 )
-                setLButton(textId = R.string.cancel) {
-                    dismiss()
+                Button(getString(R.string.click_to_view_use_cases)) {
+                    val locale = context.resources.configuration.locale
+                    val language = locale.language
+                    if (language.endsWith("zh")) {
+                        val uri = Uri.parse("https://zhuti.designer.xiaomi.com/docs/grammar/#%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F")
+                        val intent = Intent(Intent.ACTION_VIEW, uri)
+                        activity.startActivity(intent)
+                    } else {
+                        val uri = Uri.parse("https://docs.google.com/spreadsheets/d/1ghkT2iFbxB3bT4TKCiKAfmEdGt6kTVKFU3dm4Nz1or8/edit?usp=sharing")
+                        val intent = Intent(Intent.ACTION_VIEW, uri)
+                        activity.startActivity(intent)
+                    }
                 }
-                setRButton(textId = R.string.Done) {
+                Button(getString(R.string.Done)) {
                     if (getEditText().isNotEmpty()) {
                         try {
                             MIUIActivity.safeSP.putAny("custom_clock_format_geek", getEditText())
                             dismiss()
-                            return@setRButton
+                            return@Button
                         } catch (_: Throwable) {
                         }
                     }
-                    Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(activity, R.string.input_error, Toast.LENGTH_SHORT).show()
+                }
+                Button(getString(R.string.cancel), cancelStyle = true) {
+                    dismiss()
                 }
             }.show()
         }, dataBindingRecv = customClockGeekBinding.binding.getRecv(2))
