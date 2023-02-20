@@ -39,7 +39,7 @@
     <string name="github_url">Más desarrolladores están invitados a participar en el proyecto</string>
     <string name="issues">Comentarios/Sugerencias</string>
     <string name="issues_url">Clic para ver errores en GitHub</string>
-    <string name="xposeddescription">Herramienta de personalización para MIUI13 (Android 12)</string>
+    <string name="xposeddescription">Herramienta de personalización para MIUI13+(Android 12+)</string>
     <string name="statusbar">Barra de estado</string>
     <string name="status_bar_time_seconds">Mostrar segundos</string>
     <string name="status_bar_network_speed_refresh_speed">La velocidad de red se actualiza en segundos</string>
@@ -240,4 +240,11 @@
     <string name="miuihome_recentview_remove_card_animation">Modificar la animación de marcado de tarjetas</string>
     <string name="miuihome_recentview_remove_card_animation_summary">Modificar el efecto de animación al remover ventana de tareas recientes</string>
     <string name="miuihome_recentwiew_wallpaper_darkening">Deshabilitar atenuación de fondo de pantalla</string>
+    <string name="miuihome_recentwiew_wallpaper_darkening_summary">Esto deshabilitará el efecto en el que el fondo de pantalla se ilumina gradualmente cuando se abre y se cierra una tarea reciente</string>
+    <string name="miuihome_scroll_icon_name">Desplazar el nombre de la app</string>
+    <string name="miuihome_scroll_icon_name_summary">Si el nombre de la aplicación es demasiado largo se mostrará con desplazamiento y sin ningúna línea nueva</string>
+    <string name="miuihome_shortcut_add_small_window">Añadir ventana al menú de accesos directos</string>
+    <string name="miuihome_shortcut_add_small_window_summary">Mantener presionando el icono del escritorio para añadir a una ventana de acceso rápido</string>
+    <string name="miuihome_shortcut_add_small_window_title">Ventana pequeña </string>
+    <string name="click_to_view_use_cases">Clic para ver casos de uso</string>
 </resources>

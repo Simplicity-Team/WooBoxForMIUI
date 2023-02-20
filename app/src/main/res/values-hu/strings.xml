@@ -37,7 +37,6 @@
     <string name="github_url">Szeretnénk, hogy több fejlesztő vegyen részt a fejlesztésben</string>
     <string name="issues">Visszajelzés/javaslat</string>
     <string name="issues_url">Kattintson a GitHub problémák megtekintéséhez</string>
-    <string name="xposeddescription">Testreszabási eszköz a MIUI13(Android 12) számára</string>
     <string name="statusbar">Állapotsor</string>
     <string name="status_bar_time_seconds">Másodpercek kijelzése</string>
     <string name="status_bar_network_speed_refresh_speed">Hálózati sebesség frissítése másodpercekben</string>

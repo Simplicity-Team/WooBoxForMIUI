@@ -39,7 +39,7 @@
     <string name="github_url">欢迎更多开发者共同参与开发</string>
     <string name="issues">反馈/提议</string>
     <string name="issues_url">点击查看GitHub Issues</string>
-    <string name="xposeddescription">基于 MIUI13(Android 12) 适配的自定义工具</string>
+    <string name="xposeddescription">基于 MIUI13+(Android 12+) 适配的自定义工具</string>
     <string name="statusbar">状态栏</string>
     <string name="status_bar_time_seconds">显示秒数</string>
     <string name="status_bar_network_speed_refresh_speed">网速秒刷新</string>
@@ -247,4 +247,5 @@
     <string name="miuihome_shortcut_add_small_window_summary">桌面图标长按快捷菜单位置添加快速打开小窗</string>
     <string name="miuihome_shortcut_add_small_window_title">小窗</string>
     <string name="click_to_view_use_cases">点击查看用例</string>
+    <string name="disable_bluetooth_temporarily_off" comment="This function is used to completely close Bluetooth">禁用临时关闭蓝牙</string>
 </resources>

@@ -39,7 +39,7 @@
     <string name="github_url">Chào mừng các nhà phát triển tham gia vào quá trình phát triển</string>
     <string name="issues">Phản hồi/Đề xuất</string>
     <string name="issues_url">Ấn để xem GitHub Issues</string>
-    <string name="xposeddescription">Công cụ tuỳ chỉnh hoá MIUI13(Android 12)</string>
+    <string name="xposeddescription">Công cụ tuỳ chỉnh cho MIUI13+(Android 12+)</string>
     <string name="statusbar">Thanh trạng thái</string>
     <string name="status_bar_time_seconds">Hiển thị giây</string>
     <string name="status_bar_network_speed_refresh_speed">Làm mới tốc độ mạng trong vài giây</string>

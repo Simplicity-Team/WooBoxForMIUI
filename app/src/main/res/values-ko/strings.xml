@@ -38,7 +38,6 @@
     <string name="github_url">개발에 참여하는 더 많은 개발자를 환영합니다</string>
     <string name="issues">피드백 및 제안</string>
     <string name="issues_url">클릭해 GitHub 이슈 보기</string>
-    <string name="xposeddescription">MIUI 13(Android 12) 용 커스텀 도구</string>
     <string name="statusbar">상태 바</string>
     <string name="status_bar_time_seconds">화면 표시 시간</string>
     <string name="status_bar_network_speed_refresh_speed">몇 초에 네트워크 속도 새로 고침</string>

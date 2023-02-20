@@ -39,7 +39,6 @@
     <string name="github_url">Geliştirmeye katılmak için daha fazla geliştiriciye hoş geldiniz</string>
     <string name="issues">Geribildirim/Teklif</string>
     <string name="issues_url">GitHub Sorunlarını görüntülemek için tıklayın</string>
-    <string name="xposeddescription">MIUI13 (Android 12) için özelleştirme aracı</string>
     <string name="statusbar">Durum çubuğu</string>
     <string name="status_bar_time_seconds">Saniye göster</string>
     <string name="status_bar_network_speed_refresh_speed">Saniyeler içinde ağ hızı yenileme</string>
