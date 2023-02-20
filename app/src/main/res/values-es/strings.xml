@@ -247,4 +247,5 @@
     <string name="miuihome_shortcut_add_small_window_summary">Mantener presionando el icono del escritorio para añadir a una ventana de acceso rápido</string>
     <string name="miuihome_shortcut_add_small_window_title">Ventana pequeña </string>
     <string name="click_to_view_use_cases">Clic para ver casos de uso</string>
+    <string name="disable_bluetooth_temporarily_off" comment="This function is used to completely close Bluetooth">Deshabilitar Bluetooth temporalmente apagado</string>
 </resources>
