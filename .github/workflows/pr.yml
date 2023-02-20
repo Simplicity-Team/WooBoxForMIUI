@@ -1,4 +1,4 @@
-name: Android CI
+name: PR Check
 
 on:
   pull_request:
