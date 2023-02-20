@@ -247,4 +247,5 @@
     <string name="miuihome_shortcut_add_small_window_summary">ホーム画面のアイコンを長押しすると、素早く開けるウィンドウを追加できます</string>
     <string name="miuihome_shortcut_add_small_window_title">小さいウィンドウ</string>
     <string name="click_to_view_use_cases">クリックして使用例を表示</string>
+    <string name="disable_bluetooth_temporarily_off" comment="This function is used to completely close Bluetooth">Bluetooth を一時的に無効にする</string>
 </resources>
