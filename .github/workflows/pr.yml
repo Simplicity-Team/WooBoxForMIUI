@@ -1,0 +1,42 @@
+name: PR Check
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - 'README.md'
+      - 'README_EN.md'
+      - 'doc/*'
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: 'recursive'
+    - name: set up JDK 17
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+    - uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+          !~/.gradle/caches/build-cache-*
+        key: gradle-deps-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: gradle-deps
+    - uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches/build-cache-*
+        key: gradle-builds-${{ github.sha }}
+    - name: Init Submodule
+      run: |
+        git submodule init
+        git submodule update
+    - name: Build with Gradle
+      run: bash ./gradlew :app:packageDebug

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="performance">Prestatie</string>
+    <string name="lock_max_fps">Vergrendel het huidige ververspercentage van het bovenlimiet</string>
+    <string name="delete_on_post_notification">Verwijder weergave over notificatie</string>
+    <string name="delete_on_post_notification_summary">Verwijder \"Deze app geeft weer over andere apps\" notificatie</string>
+    <string name="other">Andere</string>
+    <string name="disable_flag_secure">Sta schermafbeelding toe</string>
+    <string name="disable_flag_secure_summary">Sta schermafbeelding toe in software die niet toestaan\nOndersteuning voor het toevoegen van drop-down snelle instelling op Controle center voor beveiliging</string>
+    <string name="home">Startpagina</string>
+    <string name="home_time">Geef altijd de klok op het startscherm weer</string>
+    <string name="reboot_host">Herstart alle scope</string>
+    <string name="reboot">Herstart Systeem</string>
+    <!--Status bar icons-->
+    <string name="status_bar_icon">Statusbalk iconen</string>
+    <string name="hide_no_sim_icon">Verberg Geen SIM icoon</string>
+    <string name="hide_sim_one_icon">Verberg SIM Kaart 1 icoon</string>
+    <string name="hide_sim_two_icon">Verberg SIM Kaart 2 icoon</string>
+    <string name="hide_vpn_icon">Verberg VPN icoon</string>
+    <string name="hide_airplane_icon">Verberg Vliegtuigmodus icoon</string>
+    <string name="hide_wifi_icon">Verberg WIFI icoon</string>
+    <string name="hide_bluetooth_icon">Verberg Bluetooth icoon</string>
+    <string name="hide_volume_zen_icon">Verberg Geluid en Niet Storen icoon</string>
+    <string name="hide_alarm_icon">Verberg Alarm icoon</string>
+    <string name="hide_hotspot_icon">Verberg Draagbare hotspot icoon</string>
+    <string name="hide_headset_icon">Verberg Hoofdtelefoon icoon</string>
+    <string name="hide_bluetooth_battery_icon">Verberg Bluetooth batterij icoon</string>
+    <string name="hide_big_hd_icon">Verberg groot HD icoon</string>
+    <string name="hide_small_hd_icon">Verberg klein HD icoon</string>
+    <string name="hide_hd_no_service_icon">Verberg HD Geen Service icoon</string>
+    <string name="about">Over</string>
+    <string name="about_module">Over Module</string>
+    <string name="verison">Versie</string>
+    <string name="dev_coolapk">Auteur Coolapk</string>
+    <string name="github_url">Welkom meer ontwikkelaars om deel te nemen in de ontwikkeling</string>
+    <string name="issues">Feedback/Voorstel</string>
+    <string name="issues_url">Klik om GitHub Problemen te bekijken</string>
+    <string name="statusbar">Statusbalk</string>
+    <string name="status_bar_time_seconds">Seconden weergeven</string>
+    <string name="status_bar_network_speed_refresh_speed">Netwerksnelheid vernieuwen in seconden</string>
+    <string name="remove_the_maximum_number_of_notification_icons">Verwijder de maximum nummers van notificatie iconen</string>
+    <string name="main_switch">Module hoofdschakelaar</string>
+    <string name="hide_gps_icon">Verberg GPS icoon</string>
+    <string name="hide_status_bar_network_speed_second">Verberg netwerksnelheid (/s) eenheden</string>
+    <string name="Tips">Hint</string>
+    <string name="skip_waiting_time">Sla 5/10 seconden van waarschuwingstijd over</string>
+    <string name="unlock_unlimited_cropping">Verwijder restrictie op bijsnijden van afbeeldingen/schermafbeelingen</string>
+    <string name="hide_slave_wifi_icon">Verberg WIFI tweede icoon</string>
+    <string name="HideLauncherIcon">Verberg Launcher icoon</string>
+    <string name="scope_systemui_summary">Aanpassen van systeeminterface, statusbalk, vergrendelingsscherm etc.</string>
+    <string name="scope_android_summary">Na het inschakelen van de module voor de eerste keer of de module is bijgewerkt, zal de functie hier van kracht worden na het herstarten van het systeem</string>
+    <string name="scope_other_summary">Beveiligingsapp, Gallerij aanpasser, Batterij en prestatie, enz.</string>
+    <string name="scope_powerkeeper">Batterij en prestatie</string>
+</resources>
