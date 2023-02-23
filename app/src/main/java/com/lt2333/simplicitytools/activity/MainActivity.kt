@@ -11,6 +11,9 @@ import com.lt2333.simplicitytools.activity.pages.all.AboutPage
 import com.lt2333.simplicitytools.activity.pages.all.MenuPage
 import com.lt2333.simplicitytools.activity.pages.s.*
 import com.lt2333.simplicitytools.activity.pages.t.*
+import com.microsoft.appcenter.AppCenter
+import com.microsoft.appcenter.analytics.Analytics
+import com.microsoft.appcenter.crashes.Crashes
 import java.util.*
 import kotlin.system.exitProcess
 
@@ -19,6 +22,14 @@ class MainActivity : MIUIActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         if (!checkLSPosed()) isLoad = false
         super.onCreate(savedInstanceState)
+        if (isLoad && !BuildConfig.DEBUG) {
+            AppCenter.start(
+                application,
+                "ae2037d3-9914-4e0c-b02b-f9b2bb2574e5",
+                Analytics::class.java,
+                Crashes::class.java
+            )
+        }
     }
 
     //检测LSPosed是否激活
