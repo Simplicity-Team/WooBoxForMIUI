@@ -14,8 +14,6 @@ android {
         versionCode 75
         versionName '1.7.5-Yuki'
         buildConfigField("String", "BUILD_TIME", "\"${System.currentTimeMillis()}\"")
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -43,6 +41,25 @@ android {
     }
     lintOptions {
         checkReleaseBuilds false
+    }
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            // 名称+当前版本号
+            def fileName = "WooBoxForMIUI_v${defaultConfig.versionName}"
+
+            // 加入打包日期
+            def releaseDate = new Date().format("MMddHHmmss", TimeZone.getDefault())
+            fileName = fileName + "_${releaseDate}"
+
+            // 如果是debug版本，加入debug
+            if ( variant.buildType.name  =='debug') {
+                fileName = fileName + "_debug"
+            }else if(variant.buildType.name  =='release') {
+                fileName = fileName + "_release"
+            }
+            // 最终生成文件名
+            output.outputFileName = fileName + ".apk"
+        }
     }
 }
 
