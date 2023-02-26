@@ -7,9 +7,6 @@ import com.lt2333.simplicitytools.utils.getObjectField
 import com.lt2333.simplicitytools.utils.hasEnable
 import com.lt2333.simplicitytools.utils.xposed.base.HookRegister
 
-
-
-
 object HideSimIconForT : HookRegister() {
 
     override fun init() {
