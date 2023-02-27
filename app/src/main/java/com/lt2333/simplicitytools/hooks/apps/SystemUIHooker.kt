@@ -19,6 +19,9 @@ object SystemUIHooker : YukiBaseHooker() {
                 loadHooker(MaximumNumberOfNotificationIconsForT) //通知图标上限
                 loadHooker(StatusBarNetworkSpeedRefreshSpeedForT) //状态栏网速秒刷新
                 loadHooker(StatusBarTimeCustomizationForT) //状态栏时钟自定义
+                loadHooker(RemoveTheLeftSideOfTheLockScreenForT) //移除锁屏负一屏功能
+                loadHooker(RemoveLockScreenCameraForT) //移除锁屏相机功能
+                loadHooker(NotificationWeatherForT) //通知面板天气
             }
 
             Build.VERSION_CODES.S -> {
