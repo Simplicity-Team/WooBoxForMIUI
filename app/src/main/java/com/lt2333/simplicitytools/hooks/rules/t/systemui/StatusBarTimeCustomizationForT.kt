@@ -31,8 +31,7 @@ object StatusBarTimeCustomizationForT : YukiBaseHooker() {
     private val isSecond = XSPUtils.getBoolean("status_bar_time_seconds", false)
     private val isDoubleHour = XSPUtils.getBoolean("status_bar_time_double_hour", false)
     private val isPeriod = XSPUtils.getBoolean("status_bar_time_period", true)
-    private val isCenterAlign =
-        XSPUtils.getBoolean("status_bar_time_double_line_center_align", false)
+    private val isCenterAlign = XSPUtils.getBoolean("status_bar_time_double_line_center_align", false)
 
     //极客模式
     private val getGeekClockSize = XSPUtils.getInt("status_bar_clock_size_geek", 0)
