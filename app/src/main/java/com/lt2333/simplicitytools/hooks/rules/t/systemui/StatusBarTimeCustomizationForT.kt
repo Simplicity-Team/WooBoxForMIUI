@@ -8,7 +8,6 @@ import android.util.TypedValue
 import android.view.Gravity
 import android.widget.TextView
 import com.highcapable.yukihookapi.hook.entity.YukiBaseHooker
-import com.highcapable.yukihookapi.hook.factory.MembersType
 import com.highcapable.yukihookapi.hook.factory.current
 import com.lt2333.simplicitytools.utils.XSPUtils
 import java.lang.reflect.Method
@@ -95,7 +94,6 @@ object StatusBarTimeCustomizationForT : YukiBaseHooker() {
 
                                 if (isCenterAlign) {
                                     try {
-                                        val textV = instance<TextView>()
                                         if (textV.resources.getResourceEntryName(textV.id) == "clock") {
                                             c = this.args[0] as Context
                                             textV.gravity = Gravity.CENTER
@@ -161,7 +159,6 @@ object StatusBarTimeCustomizationForT : YukiBaseHooker() {
 
                                 if (isGeekCenterAlign) {
                                     try {
-                                        val textV = instance<TextView>()
                                         if (textV.resources.getResourceEntryName(textV.id) == "clock") {
                                             c = this.args[0] as Context
                                             textV.gravity = Gravity.CENTER
