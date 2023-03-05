@@ -42,6 +42,7 @@ object HideHDIconForT : YukiBaseHooker() {
     }
     private fun hide(it: HookParam) {
         hasEnable("hide_big_hd_icon") {
+            //从当前实例中，获取名为mVolte的Field，并转换成ImageView类型，操作可见度
             it.instance.current().field {name = "mVolte" }.cast<ImageView>()?.visibility = View.GONE
         }
         hasEnable("hide_small_hd_icon") {
