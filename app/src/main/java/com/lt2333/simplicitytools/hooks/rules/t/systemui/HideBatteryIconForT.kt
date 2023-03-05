@@ -1,7 +1,6 @@
 package com.lt2333.simplicitytools.hooks.rules.t.systemui
 
 import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
@@ -18,6 +17,7 @@ object HideBatteryIconForT : YukiBaseHooker() {
                 afterHook {
                     //隐藏电池图标
                     hasEnable("hide_battery_icon") {
+                        //从当前实例中，获取名为mBatteryStyle的Field，并转换成ImageView类型，操作可见度
                         instance.current().field { name = "mBatteryStyle" }.cast<ImageView>()?.visibility = View.GONE
                         if (instance.current().field { name = "mBatteryStyle" }.int() == 1) {
                             instance.current().field { name = "mBatteryDigitalView" }.cast<FrameLayout>()?.visibility = View.GONE
