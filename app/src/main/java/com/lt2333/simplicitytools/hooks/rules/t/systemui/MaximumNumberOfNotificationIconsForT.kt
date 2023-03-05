@@ -19,11 +19,11 @@ object MaximumNumberOfNotificationIconsForT: YukiBaseHooker() {
                     if (this.args[0] as Boolean) {
                         instance.current().field { name = "MAX_DOTS" }.set(dots)
                         instance.current().field { name = "MAX_STATIC_ICONS" }.set(icons)
-                        instance.current().field { name = "MAX_VISIBLE_ICONS_ON_LOCK" }.set(icons)
+                        instance.current().field { name = "MAX_ICONS_ON_LOCKSCREEN" }.set(icons)
                     } else {
                         instance.current().field { name = "MAX_DOTS" }.set(0)
                         instance.current().field { name = "MAX_STATIC_ICONS" }.set(0)
-                        instance.current().field { name = "MAX_VISIBLE_ICONS_ON_LOCK" }.set(0)
+                        instance.current().field { name = "MAX_ICONS_ON_LOCKSCREEN" }.set(0)
                     }
                     instance.current().method { name = "updateState" }.call()
                 }
