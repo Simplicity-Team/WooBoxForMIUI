@@ -13,6 +13,7 @@ import com.lt2333.simplicitytools.hooks.rules.t.systemui.HideWifiActivityIconFor
 import com.lt2333.simplicitytools.hooks.rules.t.systemui.MaximumNumberOfNotificationIconsForT
 import com.lt2333.simplicitytools.hooks.rules.t.systemui.NewControlCenterWeatherForT
 import com.lt2333.simplicitytools.hooks.rules.t.systemui.NotificationWeatherForT
+import com.lt2333.simplicitytools.hooks.rules.t.systemui.OldNotificationWeatherForT
 import com.lt2333.simplicitytools.hooks.rules.t.systemui.RemoveLockScreenCameraForT
 import com.lt2333.simplicitytools.hooks.rules.t.systemui.RemoveTheLeftSideOfTheLockScreenForT
 import com.lt2333.simplicitytools.hooks.rules.t.systemui.StatusBarNetworkSpeedRefreshSpeedForT
@@ -37,6 +38,7 @@ object SystemUIHooker : YukiBaseHooker() {
                 loadHooker(RemoveLockScreenCameraForT) //移除锁屏相机功能
                 loadHooker(NotificationWeatherForT) //通知面板天气
                 loadHooker(NewControlCenterWeatherForT) //新控制中心天气
+                loadHooker(OldNotificationWeatherForT) //经典通知天气
             }
 
             Build.VERSION_CODES.S -> {
