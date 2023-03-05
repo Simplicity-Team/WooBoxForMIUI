@@ -10,9 +10,8 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import cn.fkj233.ui.activity.dp2px
 import com.highcapable.yukihookapi.hook.entity.YukiBaseHooker
-import com.highcapable.yukihookapi.hook.factory.constructor
+import com.highcapable.yukihookapi.hook.factory.buildOf
 import com.highcapable.yukihookapi.hook.factory.current
-import com.highcapable.yukihookapi.hook.factory.toClass
 import com.lt2333.simplicitytools.utils.SystemProperties
 import com.lt2333.simplicitytools.utils.XSPUtils
 import com.lt2333.simplicitytools.utils.hasEnable
@@ -123,18 +122,20 @@ object NotificationWeatherForT : YukiBaseHooker() {
                         (mWeatherView as WeatherView).layoutParams = mweatherviewLp
 
                     } else {
-
+                        // 通过YukiHook的构造方法创建新实例，指定类型 ViewGroup.MarginLayoutParams
                         val layoutParam = "androidx.constraintlayout.widget.ConstraintLayout\$LayoutParams".toClass()
-                            .constructor {
+                            .buildOf<ViewGroup.MarginLayoutParams>(
+                                ViewGroup.LayoutParams.WRAP_CONTENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT
+                            ) {
                                 paramCount = 2
-                            }.get().newInstance<ViewGroup.MarginLayoutParams>(
-                            ViewGroup.LayoutParams.WRAP_CONTENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT
-                        )
+                            }
 
-
-                        layoutParam?.current()?.field { name = "bottomToTop" }?.set(context.resources.getIdentifier("date_time", "id", context.packageName))
-                        layoutParam?.current()?.field { name = "startToEnd" }?.set(context.resources.getIdentifier("big_time", "id", context.packageName))
+ 
+                        layoutParam?.current()?.field { name = "bottomToTop" }
+                            ?.set(context.resources.getIdentifier("date_time", "id", context.packageName))
+                        layoutParam?.current()?.field { name = "startToEnd" }
+                            ?.set(context.resources.getIdentifier("big_time", "id", context.packageName))
 
                         layoutParam?.marginStart = context.resources.getDimensionPixelSize(
                             context.resources.getIdentifier(
