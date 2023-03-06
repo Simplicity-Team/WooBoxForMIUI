@@ -16,6 +16,7 @@ import com.lt2333.simplicitytools.hooks.rules.t.systemui.NotificationWeatherForT
 import com.lt2333.simplicitytools.hooks.rules.t.systemui.OldNotificationWeatherForT
 import com.lt2333.simplicitytools.hooks.rules.t.systemui.RemoveLockScreenCameraForT
 import com.lt2333.simplicitytools.hooks.rules.t.systemui.RemoveTheLeftSideOfTheLockScreenForT
+import com.lt2333.simplicitytools.hooks.rules.t.systemui.StatusBarLayoutForT
 import com.lt2333.simplicitytools.hooks.rules.t.systemui.StatusBarNetworkSpeedRefreshSpeedForT
 import com.lt2333.simplicitytools.hooks.rules.t.systemui.StatusBarTimeCustomizationForT
 
@@ -39,6 +40,7 @@ object SystemUIHooker : YukiBaseHooker() {
                 loadHooker(NotificationWeatherForT) //通知面板天气
                 loadHooker(NewControlCenterWeatherForT) //新控制中心天气
                 loadHooker(OldNotificationWeatherForT) //经典通知天气
+                loadHooker(StatusBarLayoutForT) //状态栏布局
             }
 
             Build.VERSION_CODES.S -> {
