@@ -3,7 +3,6 @@ package com.lt2333.simplicitytools.hooks.rules.t.systemui
 import com.highcapable.yukihookapi.hook.entity.YukiBaseHooker
 import com.highcapable.yukihookapi.hook.factory.current
 import com.lt2333.simplicitytools.utils.XSPUtils
-import java.lang.reflect.Method
 
 object MaximumNumberOfNotificationIconsForT: YukiBaseHooker() {
     override fun onHook() {
@@ -16,7 +15,7 @@ object MaximumNumberOfNotificationIconsForT: YukiBaseHooker() {
                     paramCount = 1
                 }
                 replaceUnit {
-                    if (this.args[0] as Boolean) {
+                    if (args[0] as Boolean) {
                         instance.current().field { name = "MAX_DOTS" }.set(dots)
                         instance.current().field { name = "MAX_STATIC_ICONS" }.set(icons)
                         instance.current().field { name = "MAX_ICONS_ON_LOCKSCREEN" }.set(icons)

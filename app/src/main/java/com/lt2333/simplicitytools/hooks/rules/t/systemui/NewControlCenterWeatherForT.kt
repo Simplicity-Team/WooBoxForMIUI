@@ -35,10 +35,10 @@ object NewControlCenterWeatherForT : YukiBaseHooker() {
                     superClass(true)
                 }
                 beforeHook {
-                    val time = this.args[0]?.toString()
+                    val time = args[0]?.toString()
                     val view = instance<TextView>()
                     if (view.id == clockId && time != null) {
-                        this.args[0] = "${weather.weatherData}$time"
+                        args[0] = "${weather.weatherData}$time"
                     }
                 }
             }
@@ -50,7 +50,7 @@ object NewControlCenterWeatherForT : YukiBaseHooker() {
                     name = "getClassLoader"
                 }
                 afterHook {
-                    val appInfo = this.args[0] as ApplicationInfo
+                    val appInfo = args[0] as ApplicationInfo
                     val classLoader = this.result as ClassLoader
                     if (appInfo.packageName == "miui.systemui.plugin") {
                         "miui.systemui.controlcenter.windowview.MainPanelHeaderController".hook {

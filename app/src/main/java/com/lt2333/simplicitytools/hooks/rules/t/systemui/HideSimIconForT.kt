@@ -12,7 +12,7 @@ object HideSimIconForT:YukiBaseHooker() {
                     param(MutableList::class.java)
                 }
                 beforeHook {
-                    val list = this.args[0] as MutableList<*>
+                    val list = args[0] as MutableList<*>
                     val size = list.size
                     hasEnable("hide_sim_two_icon", extraCondition = { size == 2 }) {
                         list.removeAt(1)

@@ -13,7 +13,7 @@ object StatusBarNetworkSpeedRefreshSpeedForT : YukiBaseHooker() {
                 }
                 beforeHook {
                     hasEnable("status_bar_network_speed_refresh_speed") {
-                        this.args[0] = 1000L
+                        args[0] = 1000L
                     }
                 }
             }

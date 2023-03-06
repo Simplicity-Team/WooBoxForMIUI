@@ -24,7 +24,7 @@ object DisableFlagSecureForAll : YukiBaseHooker() {
                     method { name = "setSecure" }
                     beforeHook {
                         hasEnable("disable_flag_secure") {
-                            this.args[0] = false
+                            args[0] = false
                         }
                     }
                 }
@@ -32,10 +32,10 @@ object DisableFlagSecureForAll : YukiBaseHooker() {
                     allMembers(MembersType.CONSTRUCTOR)
                     beforeHook {
                         hasEnable("disable_flag_secure") {
-                            var flags = this.args[2] as Int
+                            var flags = args[2] as Int
                             val secureFlag = 128
                             flags = flags and secureFlag.inv()
-                            this.args[2] = flags
+                            args[2] = flags
                         }
                     }
                 }

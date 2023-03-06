@@ -55,7 +55,7 @@ object StatusBarTimeCustomizationForT : YukiBaseHooker() {
                         }
                         afterHook {
                             try {
-                                c = this.args[0] as Context
+                                c = args[0] as Context
                                 val textV = instance<TextView>()
                                 if (textV.resources.getResourceEntryName(textV.id) != "clock") return@afterHook
                                 textV.isSingleLine = false
@@ -94,7 +94,7 @@ object StatusBarTimeCustomizationForT : YukiBaseHooker() {
                                 if (isCenterAlign) {
                                     try {
                                         if (textV.resources.getResourceEntryName(textV.id) == "clock") {
-                                            c = this.args[0] as Context
+                                            c = args[0] as Context
                                             textV.gravity = Gravity.CENTER
                                         }
                                     } catch (_: Exception) {
@@ -131,7 +131,7 @@ object StatusBarTimeCustomizationForT : YukiBaseHooker() {
                         constructor { paramCount = 3 }
                         afterHook {
                             try {
-                                c = this.args[0] as Context
+                                c = args[0] as Context
                                 val textV = instance<TextView>()
                                 if (textV.resources.getResourceEntryName(textV.id) != "clock") return@afterHook
                                 textV.isSingleLine = false
@@ -159,7 +159,7 @@ object StatusBarTimeCustomizationForT : YukiBaseHooker() {
                                 if (isGeekCenterAlign) {
                                     try {
                                         if (textV.resources.getResourceEntryName(textV.id) == "clock") {
-                                            c = this.args[0] as Context
+                                            c = args[0] as Context
                                             textV.gravity = Gravity.CENTER
                                         }
                                     } catch (_: Exception) {

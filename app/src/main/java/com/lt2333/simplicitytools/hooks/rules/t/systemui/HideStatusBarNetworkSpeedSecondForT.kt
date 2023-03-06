@@ -13,13 +13,13 @@ object HideStatusBarNetworkSpeedSecondForT : YukiBaseHooker() {
                 }
                 beforeHook {
                     hasEnable("hide_status_bar_network_speed_second") {
-                        if (this.args[0] != null) {
-                            val mText = (this.args[0] as String)
+                        if (args[0] != null) {
+                            val mText = (args[0] as String)
                                 .replace("/", "")
                                 .replace("s", "")
                                 .replace("\'", "")
                                 .replace("วิ", "")
-                            this.args[0] = mText
+                            args[0] = mText
                         }
                     }
                 }

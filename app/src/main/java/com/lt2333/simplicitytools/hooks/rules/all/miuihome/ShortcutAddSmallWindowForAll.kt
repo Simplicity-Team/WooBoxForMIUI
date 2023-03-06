@@ -9,10 +9,8 @@ import android.view.View
 import com.highcapable.yukihookapi.hook.entity.YukiBaseHooker
 import com.highcapable.yukihookapi.hook.factory.current
 import com.highcapable.yukihookapi.hook.factory.field
-import com.highcapable.yukihookapi.hook.factory.toClass
 import com.lt2333.simplicitytools.R
 import com.lt2333.simplicitytools.utils.hasEnable
-import de.robv.android.xposed.XposedHelpers
 
 object ShortcutAddSmallWindowForAll : YukiBaseHooker() {
     override fun onHook() = hasEnable("miuihome_shortcut_add_small_window") {
@@ -51,8 +49,8 @@ object ShortcutAddSmallWindowForAll : YukiBaseHooker() {
                     paramCount = 2
                 }
                 beforeHook {
-                    val obj = this.args[0]
-                    val view: View = this.args[1] as View
+                    val obj = args[0]
+                    val view: View = args[1] as View
                     val mShortTitle = obj?.current {
                         method { name = "getShortTitle" }.invoke<CharSequence>()
                     }
