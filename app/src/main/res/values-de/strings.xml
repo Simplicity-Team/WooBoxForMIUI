@@ -80,7 +80,7 @@
     <string name="def">"Standard: "</string>
     <string name="default1">Standard</string>
     <string name="delete_on_post_notification">Anzeige über Benachrichtigung entfernen</string>
-    <string name="delete_on_post_notification_summary">Entfernen Sie die Benachrichtigung „Diese App wird über anderen Apps angezeigt“</string>
+    <string name="delete_on_post_notification_summary">Entfernen Sie die Benachrichtigung \"Diese App wird über anderen Apps angezeigt\"</string>
     <string name="dev_coolapk">Autor Coolapk</string>
     <string name="dev_coolapk_name">\@Udui Little Transparent</string>
     <string name="developer">Entwickler</string>
@@ -207,7 +207,7 @@
     <string name="remove_lock_screen_camera">Entfernen Sie die Sperrbildschirm-Kamerafunktion</string>
     <string name="remove_macro_blacklist">Entfernen Sie die schwarze Liste der Spielmakros</string>
     <string name="remove_open_app_confirmation_popup">Entfernen Sie das Popup der geöffneten App</string>
-    <string name="remove_open_app_confirmation_popup_summary">Entfernen Sie das „Erlaube XXX, XXX zu öffnen“ Kettenstart-Popup</string>
+    <string name="remove_open_app_confirmation_popup_summary">Entfernen Sie das \"Erlaube XXX, XXX zu öffnen\" Kettenstart-Popup</string>
     <string name="remove_ota_validate">* OTA-Validierung entfernen [LAB]</string>
     <string name="remove_ota_validate_summary">- Unterstützt nur die Verwendung von VAB-Serien, bitte öffnen Sie keine anderen Serien.\n- Keine interne Testqualifizierung erforderlich, um in das vollständige interne Testpaket zu flashen.\n- Personen mit interner Testberechtigung können keine internen Testaktualisierungen erhalten, und kann verwendet werden, um Systemaktualisierungen zu blockieren.\n- Nach einem Versionsübergreifenden Upgrade wird empfohlen, Daten zu löschen.\n- Inoffizielle ROM-Nutzung wird nicht unterstützt.</string>
     <string name="remove_small_window_restrictions">Kleine Fenster erzwingen</string>
@@ -219,7 +219,7 @@
     <string name="right">Rechts</string>
     <string name="right_margin">Rechter Rand (0: Auto)</string>
     <string name="scope">Zielfernrohr</string>
-    <string name="scope_android">Systemrahmen</string>
+    <string name="scope_android">System Framework</string>
     <string name="scope_android_summary">Nachdem das Modul zum ersten Mal aktiviert oder das Modul aktualisiert wurde, wird die Funktion hier nach dem Neustart des Systems wirksam</string>
     <string name="scope_mediaeditor">Galerie-Editor</string>
     <string name="scope_miuihome">Startbildschirm</string>
