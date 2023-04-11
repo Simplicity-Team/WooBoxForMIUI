@@ -4,7 +4,7 @@
     <string name="HideLauncherIcon">Launcher-Symbol ausblenden</string>
     <string name="Tips">Tipps</string>
     <string name="UsePreSig">Verwenden Sie installierte Signaturen</string>
-    <string name="UsePreSig_summary">Verwenden Sie bei der Installation immer Signaturen von bereits installierten Apps.\nDas ist äußerst <b>gefährlich</b>.\nNur aktivieren, wenn es wirklich nötig ist!</string>
+    <string name="UsePreSig_summary">Bei der Installation immer Signaturen von bereits installierten Apps verwenden.\nDas ist äußerst <b>gefährlich</b>.\nNur aktivieren, wenn es wirklich nötig ist!</string>
     <string name="abc_action_bar_home_description">Zur Startseite</string>
     <string name="abc_action_bar_up_description">Nach oben</string>
     <string name="abc_action_menu_overflow_description">Weitere Optionen</string>
