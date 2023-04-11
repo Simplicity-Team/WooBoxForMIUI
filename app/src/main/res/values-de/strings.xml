@@ -41,7 +41,7 @@
     <string name="app_coolapk_url_summary">Dies kann uns besser auffindbar machen</string>
     <string name="app_name">WooBox für MIUI</string>
     <string name="are_you_sure_reboot">Sicher, dass du neu starten möchtest?</string>
-    <string name="are_you_sure_reboot_scope">Sicher, dass du alle Bereiche neu startest?</string>
+    <string name="are_you_sure_reboot_scope">Sicher, dass du alle Bereiche neu starten willst?</string>
     <string name="authcreak">Digest-Verifizierung deaktivieren</string>
     <string name="authcreak_summary">Ermöglicht die Installation von Apps nach Änderung der apk-Datei (ignoriert ungültige Digest-Fehler).</string>
     <string name="battery_life_function">Akkuseite zeigt die aktuelle Temperatur</string>
@@ -201,7 +201,7 @@
     <string name="range">"Bereich: "</string>
     <string name="rear_display">Hintere Anzeige (Mi11 Ultra)</string>
     <string name="reboot">System neustarten</string>
-    <string name="reboot_host">Alle Bereiche neu straten</string>
+    <string name="reboot_host">Alle Bereiche neu starten</string>
     <string name="remove_ad">Werbung entfernen</string>
     <string name="remove_lock_screen_camera">Sperrbildschirm-Kamerafunktion entfernen</string>
     <string name="remove_macro_blacklist">Sperrliste für Spiele-Makros entfernen</string>
