@@ -11,6 +11,7 @@ import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import com.lt2333.simplicitytools.R
+import com.lt2333.simplicitytools.hooks.apps.Deskclock
 
 
 @BMPage("scope_other", "Other", hideMenu = false)
@@ -192,6 +193,12 @@ class OtherPageForS : BasePage() {
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.pkg_installer_summary),
             SwitchV("pkg_installer_count_checking")
+        )
+        Line()
+        TitleText("时钟")
+        TextSummaryWithSwitch(
+            TextSummaryV("闹钟震动渐强"),
+            SwitchV(Deskclock.KEY_ENABLE_VARIATION_GRADUALLY_STRONGER)
         )
     }
 

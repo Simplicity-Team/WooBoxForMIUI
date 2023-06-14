@@ -14,5 +14,6 @@
         <item>com.milink.service</item>
         <item>com.xiaomi.misubscreenui</item>
         <item>com.miui.packageinstaller</item>
+        <item>com.android.deskclock</item>
     </string-array>
 </resources>

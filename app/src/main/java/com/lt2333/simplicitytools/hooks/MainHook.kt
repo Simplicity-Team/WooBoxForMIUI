@@ -26,6 +26,7 @@ class MainHook : EasyXposedInit() {
         Cast, //投屏
         RearDisplay, //背屏
         PackageInstaller, // 应用包管理组件
+        Deskclock, // 时钟
     )
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?) {
